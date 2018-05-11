@@ -1,0 +1,82 @@
+@model Kory.Tools.Data.RefereeTools.AgeGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Details</h2>
+
+<br />
+<br />
+
+<div class="span6" style="height:125px">
+    <div class="well-min" style="height: 125px">
+        <div class="well-lg" style="height: 125px">
+            <div class="row-fluid margin-top-25">
+                <div class="span4Other">
+                    <div class="display-block bold">Age Group Name</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.GroupName)
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="display-block bold">Age Group Tier</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.GroupTier)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+@*<fieldset>
+    <legend>Age Group</legend>
+
+    <div class="display-label"><b>Group Name</b></div>
+    
+    <br />
+
+    <div class="display-field">@Model.GroupName</div>
+
+    <br />
+    <br />
+
+    <div class="display-label"><b>Group Tier</b></div>
+
+    <br />
+
+    <div class="display-field">@Model.GroupTier</div>
+
+    <br />
+    <br />
+
+    
+</fieldset>
+
+<br />
+<br />
+<br />*@
+
+<p>
+    <button class="btn primary-override" onclick="location.href='@Url.Action("Edit","AgeGroup",new { id=Model.AgeGroupKey })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","AgeGroup")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+

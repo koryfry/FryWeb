@@ -1,0 +1,51 @@
+@model Kory.Tools.Data.RefereeTools.AgeGroup
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Delete</h2>
+
+<br />
+<br />
+
+<fieldset>
+    <legend>Age Group</legend>
+
+    <div class="display-label"><b>Group Name</b></div>
+    
+    <br />
+    
+    <div class="display-field">@Model.GroupName</div>
+
+    <br />
+    <br />
+
+    <div class="display-label"><b>Group Tier</b></div>
+    
+    <br />
+    
+    <div class="display-field">@Model.GroupTier</div>
+
+    <br />
+    <br />
+</fieldset>
+
+<br />
+<br />
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" background-color:"red" value="Delete" />
+    </p>
+}
+
+<p>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","AgeGroup")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+

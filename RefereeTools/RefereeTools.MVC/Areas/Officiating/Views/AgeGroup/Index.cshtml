@@ -1,0 +1,50 @@
+@model IEnumerable<Kory.Tools.Data.RefereeTools.AgeGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Age Group Home</h2>
+
+<br />
+
+<p>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create","AgeGroup")'"><span class="glyphicon glyphicon-plus"></span> Create</button>
+</p>
+
+<br />
+<br />
+
+<table id="AgeGroupList">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Age Group Key</th>
+            <th>Group Name</th>
+            <th>Group Tier</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: AgeGroups">
+        <tr>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "AgeGroup")/' + AgeGroupKey }" class="btn-small primary-override"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Details", "AgeGroup")/' + AgeGroupKey }" class="btn-small btn-info"><span class="glyphicon glyphicon-th-list"></span> Details</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "AgeGroup")/' + AgeGroupKey }" class="btn-small danger-override"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            </td>
+            <td data-bind="text: AgeGroupKey"></td>
+            <td data-bind="text: GroupName"></td>
+            <td data-bind="text: GroupTier"></td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/Areas/Officiating/Scripts/AgeGroupIndexVM.js")
+}
+
+
+

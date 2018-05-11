@@ -1,0 +1,313 @@
+@model Kory.Tools.Data.RefereeTools.Details
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript" src="~/Scripts/jquery.timepicker.js"></script>
+
+<br />
+<br />
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+	
+    <div class="modal fade" id="gameDetailsCreator" tabindex="-1" role="dialog" aria-labelledby="gameDetailsCreator" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" style="width: 50%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">&times;</a>
+                    <h3>Create Game Details</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row-fluid" style="min-height:100px">
+                        <div class="controls span6" style="height:100px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Date Of Game</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:none">
+                                            <div class="display-block bold">Time of Game</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Ref/Line</div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:none">
+                                            <div class="input-group">
+                                                <input type="text" id="gameDate" class="form-control" placeholder="Game Date" style="width:125px" />	
+                                                <span class="input-group-addon" id="btnCalendar" style="cursor:pointer;">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="float:none">
+                                            <div class="input-group">
+                                                <input type="text" id="gameTime" class="form-control" data-time-format="H:i A" placeholder="Game Time" style="width:125px"/>
+                                                <span class="input-group-addon" id="btnGameTime" style="cursor:pointer;">
+                                                    <span class="glyphicon glyphicon-time"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:150px">
+                                            <div class="radio-inline" style="float:none">
+                                                @Html.RadioButton("Ref", Model.Ref, false, new { id = "isReferee" }) Ref
+                                            </div>
+                                            <div class="radio-inline" style="float:none">
+                                                @Html.RadioButton("Ref", Model.Line, false, new { id = "isLinesman" }) Line
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row-fluid margin-top-25" style="min-height:100px">
+                        <div class="controls span6" style="height:100px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Arena Name</div>
+                                        </td>
+                                        <td style="width:35px"></td>
+                                        <td style="float:none">
+                                            <div class="display-block bold">Distance</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Partner(s)</div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:none">
+                                            <div class="input-group">        
+                                                <input type="text" id="ArenaName" class="form-control" style="width: 200px" />
+                                            </div>
+                                        </td>
+                                        <td style="width:35px"></td>
+                                        <td style="float:none">
+                                            <div class="input-group">
+                                                <input type="text" id="distTraveled" class="form-control" style="width: 75px" />
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:left">
+                                            <div class="input-group">
+                                                <input type="text" id="OfficialsName" class="form-control" style="width: 200px" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row-fluid margin-top-25" style="min-height:100px">
+                        <div class="controls span6" style="height:100px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Group Name</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:none">
+                                            <div class="display-block bold">Group Tier</div>
+                                        </td>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Rate Of Pay</div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:none">
+                                            <div class="input-group">        
+                                                <input type="dropdown" id="AgeGroupName" class="form-control" style="width: 150px" />
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:none">
+                                            <div class="input-group">        
+                                                <input type="text" id="AgeGroupTier" class="form-control" style="width: 100px" />
+                                            </div>
+                                        </td>
+                                        <td style="float:none">
+                                            <div class="input-group">
+                                                <input type="text" id="RateOfPay" class="form-control" style="width: 100px" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row-fluid margin-top-25" style="min-height:100px">
+                        <div class="controls span6" style="height:100px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Misc Exp</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:none">
+                                            <div class="display-block bold">Date Paid</div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:left">
+                                            <div class="display-block bold">Amount Paid</div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:none">
+                                            <div class="input-group">        
+                                                <input type="text" id="MiscExp" class="form-control" style="width: 125px" placeholder="$" />
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:none">
+                                            <div class="input-group">
+                                                <input type="text" id="datePaid" class="form-control" placeholder="Date Paid" style="width:125px" />	
+                                                <span class="input-group-addon" id="btnCalendarDatePaid" style="cursor:pointer;">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:left">
+                                            <div class="input-group">
+                                                <input type="text" id="AmountPaid" class="form-control" style="width: 125px" placeholder="$"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn" data-dismiss="modal" onclick="location.href='@Url.Action("Index", "Details")'">Close</a>
+                    <input type="submit" value="Create" class="btn primary-override" />
+                    @*<a href="#" class="btn btn-success">Create</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+       
+}
+
+<div>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create", "Details")'"><span class="glyphicon glyphicon-plus"></span> Create</button>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","Details")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#gameDetailsCreator').modal('show')
+
+        $("#gameTime").timepicker({
+            'minTime': '7:00 am',
+            'maxTime': '9:20 pm',
+            'step': 5
+        });
+    });
+
+    $('#btnCalendar').click(function () {
+        //alert('clcikec');
+        $(document).ready(function () {
+            $("#gameDate").datepicker().focus();
+        });
+    });
+
+
+    $('#btnGameTime').click(function () {
+        $("#gameTime").focus();
+    });
+
+    $('#btnCalendarDatePaid').click(function () {
+        //alert('clcikec');
+        $(document).ready(function () {
+            $("#datePaid").datepicker().focus();
+        });
+    });
+
+    $("#datePaid").datepicker();
+
+    $(function () {
+        $("#ArenaName").autocomplete({
+            minLength: 4,
+            source: '/Autocomplete/GetAllArenas'
+        });
+    });
+
+    $(function () {
+        $("#AgeGroupName").autocomplete({
+            minLength: 4,
+            source: '/Autocomplete/GetAllAgeGroupNames'
+        });
+    });
+
+    $(function () {
+        $("#AgeGroupTier").autocomplete({
+            minLength: 1,
+            source: '/Autocomplete/GetAllAgeGroupTiers'
+        });
+    });
+
+    $(function () {
+        $("#OfficialsName").autocomplete({
+            minLength: 4,
+            source: '/Autocomplete/GetAllOfficials'
+        });
+    });
+
+    $('#btnRef').click(function () {
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLine').removeClass('primary-override');
+        $('#btnLine').addClass('btn-default');
+
+    });
+
+    $('#btnLine').click(function () {
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnRef').removeClass('primary-override');
+        $('#btnRef').addClass('btn-default');
+    });
+</script>
+
+
+

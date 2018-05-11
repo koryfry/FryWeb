@@ -1,0 +1,71 @@
+@mixin box-shadow($x: 0, $y: 1px, $blur: 4px, $color: rgba(0,0,0,0.2), $inset:"") {
+    -webkit-box-shadow : $x $y $blur $color #{$inset};
+    box-shadow         : $x $y $blur $color #{$inset};
+}
+
+@mixin no-box-shadow($shadow: none) {
+    -webkit-box-shadow : $shadow;
+    box-shadow         : $shadow;
+}
+
+@mixin border-radius($rad: 3px, $important: false) {
+    @if $important == true {
+           -webkit-border-radius : $rad !important;
+           border-radius         : $rad !important;
+    } @else {
+           -webkit-border-radius : $rad;
+           border-radius         : $rad;;
+    }
+}
+
+@mixin vertical-align($y:-50%) {
+    position          : relative;
+    top               : 50%;
+    transform         : translateY($y);
+    -webkit-transform : translateY($y);
+}
+
+@mixin gradient( $bottom, $top) {
+    background : $bottom;
+    background : -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+    background : linear-gradient(to bottom, $top 0%, $bottom 100%);
+}
+
+@mixin gradientLR($left, $right) {
+    background: $left;
+    background: -webkit-linear-gradient(left, $left 0%, $right 100%);
+    background: linear-gradient(to right, $left 0%, $right 100%);
+}
+
+@mixin rotate($deg:90deg) {
+    -webkit-transform : rotate($deg); /* Chrome, Safari, Opera */
+ -ms-transform     : rotate($deg); /* IE 9, hiQpdf */
+    transform         : rotate($deg);
+}
+
+@mixin display-flex() {
+    display : -ms-flex;
+    display : -webkit-flex;
+    display : flex;
+}
+
+@mixin display-inline-flex() {
+    display : -ms-inline-flex;
+    display : -webkit-inline-flex;
+    display : inline-flex;
+}
+
+@mixin transition($property: all, $duration: 0.5s) {
+    -webkit-transition : $property $duration ease-in-out;
+    -moz-transition    : $property $duration ease-in-out;
+    -o-transition      : $property $duration ease-in-out;
+    transition         : $property $duration ease-in-out;
+}
+
+@function lightenUp($color, $adjustment) {
+    @return $color + $adjustment;
+}
+
+@function darkenUp($color, $adjustment) {
+    @return $color - $adjustment;
+}

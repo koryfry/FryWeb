@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jQuery-Timepicker-Addon</id>
+    <version>1.5.0</version>
+    <title>jQuery Timepicker Addon</title>
+    <authors>Trent Richardson</authors>
+    <owners>Trent Richardson</owners>
+    <licenseUrl>https://github.com/trentrichardson/jQuery-Timepicker-Addon/blob/master/LICENSE-MIT</licenseUrl>
+    <projectUrl>https://github.com/trentrichardson/jQuery-Timepicker-Addon</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The timepicker addon adds a timepicker to jQuery UI Datepicker, thus the datepicker and slider components (jQueryUI) are required for using any of these. In addition all datepicker options are still available through the timepicker addon.</description>
+    <releaseNotes />
+    <copyright>2013 Trent Richardson</copyright>
+    <tags>jQuery Datepicker Timepicker</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.6" />
+      <dependency id="jQuery.UI.Combined" version="1.8.9" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,53 @@
+/** nha branding colors */
+$nhaRed: #F25858;
+$nhaOrange: #F77F3B;
+$nhaYellow: #FAB306;
+$nhaGreen: #24C28A;
+$nhaBlue: #2C7FEB;
+$nhaPurple: #8441CC;
+$nhaLightRed: #FBCDCD;
+$nhaDarkRed: #993657;
+$nhaLightOrange: #FDD8C4;
+$nhaLightYellow: #FDE8B4;
+$nhaLightGreen: #BDEDDC;
+$nhaLightBlue: #E5F0FF;
+$nhaLightPurple: #DAC6F0;
+ 
+/** gray variants */
+$darkGray : #1F2126;
+$mediumGray : #7A8599;
+$lightGray : #A9B3C7;
+$lightestGray : #D3D6DE;
+$white : #FFFFFF;
+ 
+/** background variants */
+$darkBG : #2B3347;
+$darkBGLess: #4C5673;
+$darkBGLesser: #5a6688;
+$mediumBG : #353E57;
+$lightBG : #535F80;
+$lighterBG : #DFE3EB;
+$lightestBG : #F2F4FA;
+$boxShadow: rgba(0, 0, 0, .5);
+ 
+/** gradient variants */
+$gradientBlueLight : #3C8EFA;
+$gradientBlueDark : #266CC7;
+$gradientBlueDarkHover : #1956A6;
+$gradientGreen : #11A672;
+$gradientGreenHover : #0F9465;
+$gradientYellow : #F09800;
+$gradientYellowHover : #EB8900;
+$gradientRed : #E04343;
+$gradientRedHover : #CC3D3D;
+ 
+/** typeface styling */
+$largeHeadLine : normal 24px/24px "HelveticaNeueLight", Helvetica, Arial, sans-serif;
+$mediumHeadLine : normal 16px/24px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;
+$mediumHeadLineLight : normal 16px/24px "HelveticaNeueLight", Helvetica, Arial, sans-serif;
+$smallHeadLine : normal 12px/16px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;
+$defaultText : normal 12px/16px "HelveticaNeue", Helvetica, Arial, sans-serif;
+$buttonText : normal 12px/12px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;
+$defaultTextColor: #333333;
+$lightTextColor: #CCCCCC;
+$grayTextColor: #999999;

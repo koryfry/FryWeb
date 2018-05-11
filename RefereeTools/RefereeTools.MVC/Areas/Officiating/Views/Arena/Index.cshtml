@@ -1,0 +1,80 @@
+@model IEnumerable<Kory.Tools.Data.RefereeTools.Arena>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Arena Home</h2>
+
+<br />
+
+<p>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create","Arena")'"><span class="glyphicon glyphicon-plus"></span> Create</button>
+</p>
+
+<br />
+<br />
+
+<table id="arenaList">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Arena Key</th>
+            <th>Arena Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: Arenas">
+        <tr>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Arena")/' + ArenaKey }" class="btn-small primary-override"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                @*<a data-bind="click: $parent.showPartial" class="btn-small btn-info"><span class="glyphicon glyphicon-th-list"></span> Details</a>*@
+                <a data-bind="attr: { 'href': '@Url.Action("Details", "Arena")/' + ArenaKey }" class="btn-small btn-info"><span class="glyphicon glyphicon-th-list"></span> Details</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Arena")/' + ArenaKey }" class="btn-small danger-override"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            </td>
+            <td data-bind="text: ArenaKey"></td>
+            <td data-bind="text: ArenaName"></td>
+            <td data-bind="text: City"></td>
+            <td data-bind="text: State"></td>
+            <td data-bind="text: PhoneNumber"</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<br />
+
+@*<div id="partial"></div>*@
+
+<br />
+<br />
+
+<button class="btn-small btn-info" id="showPartial" data-bind="click: showPartial">Load Details</button>
+
+@section Scripts {
+    @Scripts.Render("~/Areas/Officiating/Scripts/ArenaIndexVM.js")
+}
+
+@*<script>
+    $('#showPartial').click(function () {
+        var arenaKey = 5;
+        $.ajax({
+            type: 'GET',
+            url: '/Officiating/Arena/Details/' + arenaKey,
+            data: JSON.stringify(arenaKey),
+            //dataType: "json",
+            //cache: false,
+            async: true,
+            success: function (data) {
+                $('#partial').html(data);
+        }
+    });
+});
+</script>*@
+

@@ -1,0 +1,103 @@
+@model Kory.Tools.Data.RefereeTools.Arena
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Details</h2>
+
+<br />
+<br />
+
+<div class="span6" style="height:200px">
+        <div class="well-min" style="height: 200px">
+            <div class="well-lg" style="height: 200px">
+                <div class="row-fluid margin-top-25">
+                    <div class="span4Other">
+                        <div class="display-block bold">Arena Number</div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.ArenaKey)
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="display-block bold">Arena Name</div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.ArenaName)
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid margin-top-25">
+                <div class="span4Other">
+                    <div class="display-block bold">Address</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.AddressLine1)
+                        @if(Model.AddressLine2 != "")
+                        {
+                            if(Model.AddressLine3 == "")
+                            {
+                                @Html.DisplayFor(model => model.AddressLine2)
+                                <br/>
+                                @Html.DisplayFor(model => model.City) 
+                                @(", ")
+                                @Html.DisplayFor(model => model.State) 
+                                @(" ")
+                                @Html.DisplayFor(model => model.Zipcode)
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(model => model.AddressLine2) 
+                                @Html.DisplayFor(model => model.AddressLine3)
+                                <br/>
+                                @Html.DisplayFor(model => model.City) 
+                                @(", ")
+                                @Html.DisplayFor(model => model.State) 
+                                @(" ") 
+                                @Html.DisplayFor(model => model.Zipcode)
+                            }
+                        }
+                        else
+                        {
+                            <br/>
+                            @Html.DisplayFor(model => model.City) 
+                            @(", ")
+                            @Html.DisplayFor(model => model.State) 
+                            @(" ") 
+                            @Html.DisplayFor(model => model.Zipcode)
+                        }    
+                        <br/>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="display-block bold">Phone Number</div>
+                    <div class="display-field">
+                        @String.Format("{0:(###) ###-####}", Model.PhoneNumber)
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<p>
+    <button class="btn-small primary-override" onclick="location.href='@Url.Action("Edit","Arena",new { id=Model.ArenaKey })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    <button class="btn-small btn-info" onclick="location.href='@Url.Action("Index","Arena")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+

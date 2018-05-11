@@ -1,0 +1,131 @@
+@model Kory.Tools.Data.RefereeTools.Officials
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Details</h2>
+
+<br />
+<br />
+
+<div class="span6Other" style="height:225px">
+    <div class="well-min" style="height: 225px">
+        <div class="well-lg" style="height: 225px">
+            <div class="row-fluid margin-top-25">
+                <div class="span4Other">
+                    <div class="display-block bold">Officials Number</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.OfficialsKey)
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="display-block bold">Official Name</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.FirstName)
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="display-block bold">Official Level</div>
+                    <div id="LevelGroup">
+                        @{
+                            switch (Model.OfficialLevel)
+                            {
+                                case 1:
+                                    <span class="label label primary-override">Level 1</span>
+                                    <span class="label label-default">Level 2</span>
+                                    <span class="label label-default">Level 3</span>
+                                break; 
+                                case 2:
+                                    <span class="label label-default">Level 1</span>
+                                    <span class="label label primary-override">Level 2</span>
+                                    <span class="label label-default">Level 3</span>
+                                break;
+                                case 3:
+                                    <span class="label label-default">Level 1</span>
+                                    <span class="label label-default">Level 2</span>
+                                    <span class="label label primary-override">Level 3</span>
+                                break;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid margin-top-25">
+                <div class="span4Other">
+                    <div class="display-block bold">Address</div>
+                    @*<div class="display-field">
+                        @Html.DisplayFor(model => model.AddressLine1)
+                        @if(Model.AddressLine2 != "")
+                        {
+                            if(Model.AddressLine3 == "")
+                            {
+                                @Html.DisplayFor(model => model.AddressLine2)
+                                <br/>
+                                @Html.DisplayFor(model => model.City) 
+                                @(", ")
+                                @Html.DisplayFor(model => model.State) 
+                                @(" ")
+                                @Html.DisplayFor(model => model.Zipcode)
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(model => model.AddressLine2) 
+                                @Html.DisplayFor(model => model.AddressLine3)
+                                <br/>
+                                @Html.DisplayFor(model => model.City) 
+                                @(", ")
+                                @Html.DisplayFor(model => model.State) 
+                                @(" ") 
+                                @Html.DisplayFor(model => model.Zipcode)
+                            }
+                        }
+                        else
+                        {
+                            <br/>
+                            @Html.DisplayFor(model => model.City) 
+                            @(", ")
+                            @Html.DisplayFor(model => model.State) 
+                            @(" ") 
+                            @Html.DisplayFor(model => model.Zipcode)
+                        }    
+                        <br/>
+                    </div>*@
+                </div>
+                <div class="span3">
+                    <div class="display-block bold">Phone Number</div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<p>
+    <button class="btn-small primary-override" onclick="location.href='@Url.Action("Edit","Officials",new { id=Model.OfficialsKey })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    <button class="btn-small btn-info" onclick="location.href='@Url.Action("Index","Officials")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+

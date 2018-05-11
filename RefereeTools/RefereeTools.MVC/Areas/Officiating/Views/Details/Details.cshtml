@@ -1,0 +1,128 @@
+@model Kory.Tools.Data.RefereeTools.Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="span6">
+    <div class="well well-lg">
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Date Of Game</div>
+                <div class="display-field">@String.Format("{0:g}", Model.GameDate)</div>
+            </div>
+            <div class="span3">
+                <div class="display-block bold">Game Time</div>
+                <div class="display-field">@String.Format("{0:g}", Model.GameTime)</div>
+            </div>
+            <div class="span3">
+                <div class="display-block bold">Ref or Line</div>
+                <div class="btn-group">
+                    <button type="button" class="btn-small  btn-default" id="btnRef">Ref</button>
+                    <button type="button" class="btn-small  btn-default" id="btnLine">Line</button>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Arena Name</div>
+                <div class="display-field">@Model.Arena.ArenaName</div>
+            </div>
+            <div class="span3">
+                <div class="display-block bold">Dist Traveled</div>
+                <div class="display-field">@Model.DistanceTraveled</div>
+            </div>
+        </div>
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Age Group Name</div>
+                <div class="display-field">@Model.AgeGroup.GroupName</div>
+            </div>
+            <div class="span3">
+                <div class="display-block bold">Age Group Tier</div>
+                <div class="display-field">@Model.AgeGroup.GroupTier</div>
+            </div>
+        </div>
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Partner(s)</div>
+                <div>
+                    <input type="text" class="form-control" id = "OfficialsName" />
+                </div>
+            </div>
+            <div class="span3">
+                <div class="display-block bold">Rate Of Pay</div>
+                <div class="display-field">@String.Format("{0:F}", Model.RateOfPay)</div>
+            </div>
+        </div>
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Misc Expense</div>
+                <div>
+                    <input type="text" class="form-control" style="width:100px" data-format-string="{0:C0}" placeholder="0.00"/>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="display-block bold">Date Paid</div>
+                <div class="input-group">
+                    <input type="text" id="datePaid" class="form-control" placeholder="Select Date Paid" />	
+                    <span class="input-group-addon" id="btnCalendarDatePaid" style="cursor:pointer;">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid margin-top-25">
+            <div class="span4">
+                <div class="display-block bold">Amount Paid</div>
+                <div>
+                    <input type="text" class="form-control" style="width:100px" data-format-string="{0:C0}" placeholder="0.00"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<fieldset>
+    <legend>Details</legend>
+
+    <div class="display-label">Game Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.GameDate)</div>
+
+    <div class="display-label">Game Time</div>
+    <div class="display-field">@String.Format("{0:g}", Model.GameTime)</div>
+
+    <div class="display-label">Ref</div>
+    <div class="display-field">@Model.Ref</div>
+
+    <div class="display-label">Line</div>
+    <div class="display-field">@Model.Line</div>
+
+    <div class="display-label">Rate Of Pay</div>
+    <div class="display-field">@String.Format("{0:F}", Model.RateOfPay)</div>
+
+    <div class="display-label">Distance Traveled</div>
+    <div class="display-field">@String.Format("{0:F}", Model.DistanceTraveled)</div>
+
+    <div class="display-label">Misc Expense</div>
+    <div class="display-field">@String.Format("{0:F}", Model.MiscExpense)</div>
+
+    <div class="display-label">Date Paid</div>
+    <div class="display-field">@String.Format("{0:g}", Model.DatePaid)</div>
+
+    <div class="display-label">Amount Paid</div>
+    <div class="display-field">@String.Format("{0:F}", Model.AmountPaid)</div>
+</fieldset>
+
+<br />
+<br />
+<br />
+
+<p>
+    <button class="btn primary-override" onclick="location.href='@Url.Action("Edit","Details",new { id=Model.DetailsKey })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","Details")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+

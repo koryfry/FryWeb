@@ -1,0 +1,88 @@
+﻿@using System.Web.Optimization;
+@using Kory.Tools.MVC.Controllers;
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale 1.0" />
+        
+        <link href="@Styles.Url("~/Content/jquery/css")" rel="stylesheet" />
+        <link href="@Styles.Url("~/content/app/css")" rel="stylesheet" />
+        <link href="@Styles.Url("~/Content/datatables/css")" rel="stylesheet" />
+        <link href="@Styles.Url("~/content/timepicker")" rel="stylesheet" />
+        <link href="@Styles.Url("~/content/bootstrap")" rel="stylesheet" />
+        
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/datatables")
+
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/wijmo")
+
+        <link href="~/Content/themes/aristo/jquery-wijmo.css" rel="stylesheet" />
+
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/timepicker")
+        @Scripts.Render("~/bundles/bootstrap")
+    </head>
+    <body>
+        <div class="page">
+            <div id="header">
+                <div id="logo">
+                    <img src="/Content/images/Referees.jpg" style="padding-right: 30px" alt="Empire" height="175px" width="260" />
+                </div>
+                <div id="title">   
+                    <h1>Kory's Tools                    
+                    @if (System.Environment.MachineName == "KORY-PC")
+                    {
+                        <span class="ui-state-error-text"> - DEV MODE!!!</span>
+                    }
+                    </h1>
+                </div>
+                <div id="logindisplay">
+                    Welcome <strong>@User.Identity.Name</strong>! <small>logged in on @System.Environment.MachineName</small>
+                </div>
+            </div>
+            <br/>
+            <br />
+            <br />
+            <div>
+                @Html.Partial("_KoryToolsMenu")
+            </div>
+            <div id="main">
+                @RenderBody()
+            </div>
+        </div>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
+
+<style type="text/css">
+    
+    .wijmo-wijmenu 
+    {
+        background: #000;
+        border-color: #000;
+    }
+
+    .wijmo-wijmenu-text
+    {
+        color: #696969;
+        font-weight: bold;
+        font-size: 12pt;
+    }
+
+    .wijmo-wijmenu .wijmo-wijmenu-child 
+    {
+        background: #F5F5F5;
+        border-color: #000000;
+    }
+
+    .wijmo-wijmenu-link 
+    {
+        background: #F5F5F5;
+    }
+</style>

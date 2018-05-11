@@ -1,0 +1,174 @@
+@model Kory.Tools.Data.RefereeTools.Officials
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<h3>@ViewBag.Message</h3>
+
+@*@Html.HiddenFor(model => model.OfficialLevel, new { id = "officialLevel" })*@
+
+@*<table id="officialsList">
+    <thead>
+        <tr>
+            <th>
+                Officials Key
+            </th>
+            <th>
+                Official Name
+            </th>
+            <th>
+                Officials Level
+            </th>
+        </tr>
+    </thead>  
+     
+    <tbody data-bind="foreach: Officials">
+        <tr>
+            <td data-bind="text: OfficialsKey"></td>
+            <td data-bind="text: OfficialName"></td>
+            <td data-bind="text: OfficialLevel"></td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/Areas/Officiating/Scripts/CreateEditOfficialVM.js")
+}*@
+
+@*<table id="officialsList">
+    <thead>
+            <tr>
+                <th>
+                    Official Key
+                </th>
+                <th>
+                    Official Name
+                </th>
+                <th>
+                    Official Level
+                </th>
+            </tr>
+    </thead>
+    <tbody data-bind="foreach: Officials">
+        <tr>
+            <td>
+                <span data-bind="text: OfficialsKey"></span>
+            </td>
+            <td>
+                <span data-bind="text: OfficialName"></span>
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn-small btn-default" id="btnLevel1" data-bind="css:{ 'primary-override': OfficialLevel() == 1, click: SetOfficialLevelTo1">Level 1</button>
+                    <button class="btn-small btn-default" id="btnLevel2" data-bind="css:{ 'primary-override': OfficialLevel() == 2, click: SetOfficialLevelTo2">Level 2</button>
+                    <button class="btn-small btn-default" id="btnLevel3" data-bind="css:{ 'primary-override': OfficialLevel() == 3, click: SetOfficialLevelTo3">Level 3</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>*@
+
+<table id="officialsList">
+    <thead>
+        <tr>
+            <th>
+                Official Key
+            </th>
+            <th>
+                Official Name
+            </th>
+            <th>
+                Official Level
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.OfficialsKey != 0)
+        {
+            <div class="editor-label left-Label">
+                @Html.LabelFor(model => model.OfficialsKey)
+            </div>
+            <div class="editor-field readOnlyTextBox disableInputs">
+                @Html.TextBox("OfficialsKey", Model.OfficialsKey, null, new { @readonly = "true" })
+                @Html.ValidationMessageFor(model => model.OfficialsKey)
+            </div>
+        }
+        else
+        {
+            <div class="display-label left-label disable readOnlyInputs">
+                @Html.LabelFor(model => model.OfficialsKey)
+            </div>
+            <div class="display-field">
+                New
+            </div>  
+        }
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OfficialName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OfficialName)
+            @Html.ValidationMessageFor(model => model.OfficialName)
+        </div>
+
+        <br />
+        <br />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OfficialLevel)
+        </div>
+
+        <div id="LevelGroup" class="btn-group">
+            <button type="button" class="btn-small btn-default" id="btnLevel1">Level 1</button>
+            <button type="button" class="btn-small btn-default" id="btnLevel2">Level 2</button>
+            <button type="button" class="btn-small btn-default" id="btnLevel3">Level 3</button>
+        </div>
+    </tbody>
+
+</table>
+
+
+<script type="text/javascript">
+    $('#btnLevel1').click(function () {
+        $('#officialLevel').val(1);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel2').removeClass('primary-override');
+        $('#btnLevel2').addClass('btn-default');
+
+        $('#btnLevel3').removeClass('primary-override');
+        $('#btnLevel3').addClass('btn-default');
+    });
+
+    $('#btnLevel2').click(function () {
+        $('#officialLevel').val(2);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel1').removeClass('primary-override');
+        $('#btnLevel1').addClass('btn-default');
+
+        $('#btnLevel3').removeClass('primary-override');
+        $('#btnLevel3').addClass('btn-default');
+    });
+
+    $('#btnLevel3').click(function () {
+        $('#officialLevel').val(3);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel1').removeClass('primary-override');
+        $('#btnLevel1').addClass('btn-default');
+
+        $('#btnLevel2').removeClass('primary-override');
+        $('#btnLevel2').addClass('btn-default');
+    });
+</script>
+
+

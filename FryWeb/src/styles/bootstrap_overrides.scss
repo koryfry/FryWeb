@@ -1,0 +1,600 @@
+@import './variables.scss';
+@import './mixins.scss';
+ 
+/* Buttons */
+.badge {
+       display: inline-block;
+       padding: 1px 2px;
+       border: solid 1px $lightBG;
+       background-color: transparent !important;
+       color: $lightGray !important;
+       font: $buttonText;
+       @include border-radius(2px);
+ 
+       &.light {
+              border-color: $white !important;
+              color: $white !important;
+       }
+}
+ 
+button, .btn {
+       &:focus {
+              outline: none;
+       }
+}
+ 
+.btn {
+       padding: 10px 10px 8px;
+       outline: none !important;
+       border: solid 1px;
+       text-shadow: none;
+       font: $buttonText;
+       @include border-radius();
+       @include box-shadow(0, 1px, 1px, rgba(0, 0, 0, 0.1));
+ 
+       &:not(.btn-link) {
+              height: 34px;
+       }
+ 
+       &.dark:disabled {
+              border-color: $lightBG !important;
+              background: $lightBG !important;
+              color: $darkGray !important;
+ 
+              &:hover {
+                     border-color: $lightBG;
+                     background: $lightBG;
+                     color: $darkGray;
+              }
+ 
+              &.btn-link {
+                     background-color: transparent !important;
+              }
+       }
+ 
+       &.btn-primary {
+              border-color: $gradientBlueDark;
+              color: $white;
+              @include gradient($gradientBlueDark, $gradientBlueLight);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $gradientBlueDarkHover;
+                     @include gradient($gradientBlueDarkHover, $gradientBlueLight);
+              }
+       }
+ 
+       &.btn-secondary {
+              border-color: $lightestGray;
+              color: $darkGray;
+              @include gradient($lightestBG, $white);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $lightestGray;
+                     color: $darkGray;
+                     @include gradient($lighterBG, $white);
+              }
+       }
+ 
+       &.btn-success {
+              border-color: $gradientGreen;
+              color: $white;
+              @include gradient($gradientGreen, $nhaGreen);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $gradientGreenHover;
+                     @include gradient($gradientGreenHover, $nhaGreen);
+              }
+       }
+ 
+       &.btn-warning {
+              border-color: $gradientYellow;
+              color: $white;
+              @include gradient($gradientYellow, $nhaYellow);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $gradientYellowHover;
+                     @include gradient($gradientYellowHover, $nhaYellow);
+              }
+       }
+ 
+       &.btn-danger {
+              border-color: $gradientRed;
+              color: $white;
+              @include gradient($gradientRed, $nhaRed);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $gradientRedHover;
+                     @include gradient($gradientRedHover, $nhaRed);
+              }
+       }
+ 
+       &.btn-info {
+              border-color: $gradientBlueDark;
+              color: $white;
+              @include gradient($gradientBlueDark, $gradientBlueLight);
+ 
+              &:hover:not(:disabled) {
+                     border-color: $gradientBlueDarkHover;
+                     @include gradient($gradientBlueDarkHover, $gradientBlueLight);
+              }
+       }
+ 
+       &.btn-link {
+              padding: 0;
+              border: none;
+              color: $nhaBlue;
+              vertical-align: bottom;
+              text-decoration: none !important;
+              @include no-box-shadow();
+       }
+ 
+       &:disabled {
+              border-color: $lightestGray;
+              background: $lightestBG;
+              color: $mediumGray;
+              @include no-box-shadow();
+ 
+              &:hover {
+                     border-color: $lightestGray;
+                     background: $lightestBG;
+                     color: $mediumGray;
+              }
+       }
+}
+ 
+.btn-group {
+       &.btn-group-justified {
+              width: 100%;
+ 
+              .btn {
+                     width: 100%;
+              }
+       }
+       .caret {
+              float: none !important;
+              margin-top: -4px !important;
+              margin-left: 0px !important;
+       }
+       &.vertical-bottom {
+              vertical-align: bottom;
+       }
+ 
+       .btn-primary.active, .btn-secondary.active {
+              z-index: 3;
+              border-color: $mediumBG;
+              color: $white;
+              @include gradient($lightBG, $mediumBG);
+ 
+              &:hover {
+                     border-color: $mediumBG;
+                     color: $white;
+                     @include gradient($lightBG, $mediumBG);
+              }
+       }
+ 
+       .btn-primary.active:disabled, .btn-secondary.active:disabled {
+              border-color: $lightestGray;
+              background: $lightestGray;
+              color: $white;
+       }
+ 
+       .btn-primary:disabled, .btn-secondary:disabled {
+              border-color: $lightestGray;
+              background: $lightestBG;
+       }
+ 
+       .dropdown-menu {
+              right: 0;
+ 
+              &.overflow {
+                     overflow: auto;
+                     max-height: 250px;
+              }
+ 
+              li {
+                     position: relative;
+              }
+ 
+              a {
+                     padding: 10px;
+                     color: $darkGray;
+                     font: $smallHeadLine;
+ 
+                     &:hover {
+                           background: $lightestBG none !important;
+                     }
+              }
+       }
+}
+ 
+/* Form Styles */
+input[type="checkbox"], input[type="radio"] {
+       width: 14px;
+       height: 14px;
+}
+ 
+label {
+       padding-right: 15px;
+       font: $smallHeadLine;
+}
+ 
+input[type="text"] {
+       color: $darkGray;
+       font: $defaultText;
+ 
+       &:disabled {
+              color: $mediumGray !important;
+       }
+}
+ 
+select {
+       color: $darkGray;
+       font: $defaultText !important;
+}
+ 
+.dropdown {
+       .dropdown-toggle {
+              text-align: left;
+              font: $defaultText;
+              &.disabled {
+                     background-color: $lightestBG;
+                     cursor: no-drop;
+              }
+ 
+              .caret {
+                     float: right;
+                     margin-top: 5px;
+                     margin-left: 5px;
+              }
+       }
+ 
+       .placeholder {
+              color: $mediumGray;
+       }
+ 
+       input[type="checkbox"]{
+              position: relative;
+              vertical-align: middle;
+              top: -4px;
+              padding-right: 2px;
+       }
+ 
+       .text{
+              margin-left: 7px;
+              margin-right: 7px;
+              margin-bottom: 2px;
+              margin-top: 2px;
+              position: relative;
+              top: -1px;
+       }
+ 
+       .dropdown-menu {
+              right: 0;
+ 
+              li {
+                     position: relative;
+              }
+ 
+              a {
+                     padding: 10px;
+                     color: $darkGray;
+                     font: $defaultText;
+ 
+                     &:hover {
+                           background: $lightestBG none !important;
+                     }
+              }
+ 
+              &.checkable {
+                     a {
+                           padding-left: 30px;
+                     }
+ 
+                     .fa-check {
+                           position: absolute;
+                           top: 9px;
+                           left: 10px;
+                     }
+ 
+                     input[type="checkbox"] {
+                           position: absolute;
+                           top: 7px;
+                           left: 10px;
+                           width: 14px;
+                           height: 14px;
+                     }
+              }
+       }
+ 
+       .dropdown-header {
+              padding-left: 10px;
+              color: $darkGray;
+       }
+ 
+       .dropdown-submenu {
+              position: relative;
+       }
+ 
+       .dropdown-submenu > .dropdown-menu {
+              top: 0;
+              left: 100%;
+              margin-top: -6px;
+              @include border-radius(6px);
+       }
+ 
+       .dropdown-submenu:hover > .dropdown-menu {
+              display: block;
+       }
+ 
+       .fa-chevron-right {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              color: $mediumGray;
+       }
+}
+ 
+.checkbox {
+       margin-top: 0;
+ 
+       input[type="checkbox"] {
+              position: relative;
+              top: -2px;
+              width: 14px;
+              height: 14px;
+              vertical-align: middle;
+              appearance: none;
+       }
+ 
+       label {
+              font: $defaultText;
+       }
+ 
+       &.no-margin-bottom {
+              margin-bottom: 0;
+       }
+}
+ 
+.radio {
+       margin-top: 0;
+ 
+       input[type="radio"] {
+              margin-top: 1px;
+              width: 14px;
+              height: 14px;
+       }
+ 
+       label {
+              font: $defaultText;
+       }
+ 
+       &.no-margin-bottom {
+              margin-bottom: 0;
+       }
+}
+ 
+/* Popover + Tooltip */
+.popover {
+       min-width: 230px;
+       max-width: 100%;
+       width: auto;
+       border-radius: 3px;
+ 
+       .popover-content {
+              padding: 15px;
+       }
+ 
+       strong {
+              margin: 0;
+              color: $darkGray;
+              font: $smallHeadLine;
+       }
+ 
+       p {
+              margin-bottom: 5px;
+              min-height: 5px;
+              color: $mediumGray;
+              font: $defaultText;
+ 
+              &:last-child {
+                     margin-bottom: 0;
+              }
+       }
+ 
+       hr {
+              margin: 10px 0;
+              border-color: $lightestGray;
+       }
+ 
+       .progress-wrap {
+              position: relative;
+       }
+ 
+       .progress {
+              margin-bottom: 10px;
+              height: 5px;
+              background: $lightestGray none;
+              @include no-box-shadow();
+              @include border-radius(0);
+       }
+ 
+       .step {
+              position: absolute;
+              top: -4px;
+              left: 60%;
+              z-index: 100;
+              width: 2px;
+              height: 12px;
+              background-color: $mediumGray;
+       }
+}
+ 
+.tooltip {
+       .tooltip-inner {
+              padding: 15px;
+              border: 1px solid rgba(0, 0, 0, 0.2);
+              background-color: $white;
+              color: $darkGray;
+              text-align: left;
+              @include box-shadow();
+              @include border-radius();
+       }
+ 
+       strong {
+              margin: 0;
+              color: $darkGray;
+              font: $smallHeadLine;
+       }
+ 
+       .tooltip-arrow {
+              &:after {
+                     position: absolute;
+                     z-index: -1;
+                     width: 0;
+                     height: 0;
+                     content: ' ';
+              }
+       }
+ 
+       p {
+              margin-bottom: 5px;
+              min-height: 5px;
+              color: $mediumGray;
+              font: $defaultText;
+ 
+              &:last-child {
+                     margin-bottom: 0;
+              }
+       }
+ 
+       &.top .tooltip-arrow {
+              bottom: 1px;
+              border-top-color: $white;
+ 
+              &:after {
+                     bottom: -1px;
+                     left: -5px;
+                     border-top: 5px solid $lightGray;
+                     border-right: 5px solid transparent;
+                     border-left: 5px solid transparent;
+              }
+       }
+ 
+       &.bottom .tooltip-arrow {
+              top: 1px;
+              border-bottom-color: $white;
+ 
+              &:after {
+                     top: -1px;
+                     left: -5px;
+                     border-right: 5px solid transparent;
+                     border-bottom: 5px solid $lightGray;
+                     border-left: 5px solid transparent;
+              }
+       }
+ 
+       &.left .tooltip-arrow {
+              right: 1px;
+              border-left-color: $white;
+ 
+              &:after {
+                     top: -5px;
+                     right: -1px;
+                     border-top: 5px solid transparent;
+                     border-bottom: 5px solid transparent;
+                     border-left: 5px solid $lightGray;
+              }
+       }
+ 
+       &.right .tooltip-arrow {
+              left: 1px;
+              border-right-color: $white;
+ 
+              &:after {
+                     top: -5px;
+                     left: -1px;
+                     border-top: 5px solid transparent;
+                     border-right: 5px solid $lightGray;
+                     border-bottom: 5px solid transparent;
+              }
+       }
+}
+ 
+/* Validation */
+.validation {
+    &.error {
+        border-color: $nhaRed;
+ 
+        &:focus {
+            @include box-shadow(0, 0, 8px, rgba(242, 84, 73, 0.6));
+        }
+        input { /* Ed Lang */
+            border-color: $nhaRed;
+ 
+            &:focus {
+                @include box-shadow(0, 0, 8px, rgba(242, 84, 73, 0.6));
+            }
+        }
+    }
+}
+ 
+.validation {
+       .asterisk {
+              color: $nhaRed;
+       }
+ 
+       &.error-desc {
+              margin: 0;
+              padding: 10px 0 0 0;
+              color: $nhaRed;
+              font: $defaultText;
+              font-style: italic;
+       }
+}
+ 
+.page-validation {
+       padding: 20px;
+       color: $white;
+ 
+       &.danger {
+              background-color: $nhaRed;
+       }
+ 
+       &.success {
+              background-color: $nhaGreen;
+       }
+ 
+       &.info {
+              background-color: $nhaBlue;
+       }
+ 
+       &.warning {
+              background-color: $nhaYellow;
+       }
+ 
+       h3 {
+              margin-top: 0;
+              font: $mediumHeadLine;
+ 
+              span {
+                     display: inline-block;
+                     padding-left: 10px;
+              }
+       }
+ 
+       .desc {
+              padding: 10px 0;
+              font: $mediumHeadLineLight;
+       }
+ 
+       ul {
+              margin: 0;
+              padding-left: 20px;
+       }
+ 
+       li {
+              margin-bottom: 10px;
+              text-decoration: underline;
+              font: $smallHeadLine;
+       }
+}

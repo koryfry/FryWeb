@@ -1,0 +1,58 @@
+<div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
+  <button class="btn btn-secondary rounded pull right" [routerLink]="['/home']">
+    <i class="fa fa-home"></i>  Back to Home
+  </button>
+</div>
+
+<div class="app-icon-group-list">
+  <div class="app-icon-group-list-inner">
+      <ul>
+        <li>
+          <div class="app-icon-group">
+            <a class="app-icon-group-box">
+              <i class="icon-group fa fa-building icon-success"></i>
+              <div class="icon-group-info">
+                <div class="icon-group-name">Arena Management</div>
+                <div class="icon-group-description">Manage information about Hockey Arenas</div>
+              </div>
+              <div class="icon-group-link">
+                Go To Arena Management
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="app-icon-group">
+            <a class="app-icon-group-box" style="display: inline-block;" (click)="showShootingSweetAlert()">
+              <i class="icon-group fa fa-users icon-warning"></i>
+              <div class="icon-group-info">
+                <div class="icon-group-name">Age Group Management</div>
+                <div class="icon-group-description">Information regarding youth hockey age groups</div>
+              </div>
+              <div class="icon-group-link">
+                Go To Age Group Management
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="app-icon-group">
+            <a class="app-icon-group-box" style="display: inline-block;" (click)="showShootingSweetAlert()">
+              <i class="icon-group fa fa-user icon-info"></i>
+              <div class="icon-group-info">
+                <div class="icon-group-name">Officials Management</div>
+                <div class="icon-group-description">Information regarding hockey officials</div>
+              </div>
+              <div class="icon-group-link">
+                Go To Officials Management
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+  </div>      
+</div>

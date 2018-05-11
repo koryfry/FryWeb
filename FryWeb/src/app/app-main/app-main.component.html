@@ -1,0 +1,48 @@
+<div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
+</div>
+
+<div class="app-icon-group-list">
+  <div class="app-icon-group-list-inner">
+      <ul>
+        <li>
+          <div class="app-icon-group">
+            <a class="app-icon-group-box" [routerLink]="['/officiating']">
+              <i class="icon-group" [style.background-color]="'#2c7feb'">
+                <fw-app-icon [imageUrl]="officiatingImageUrl" [width]="officiatingImageWidth" [height]="officiatingImageHeight" [marginRight]="officiatingMarginRight"></fw-app-icon>
+              </i>
+              <div class="icon-group-info">
+                <div class="icon-group-name">Officiating</div>
+                <div class="icon-group-description">Manage Officiating related tasks</div>
+              </div>
+              <div class="icon-group-link">
+                Go To Officiating
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="app-icon-group">
+            <a class="app-icon-group-box" style="display: inline-block;" (click)="showShootingSweetAlert()">
+              <i class="icon-group" [style.background-color]="'#f25858'">
+                  <fw-app-icon [imageUrl]="shootingImageUrl" [width]="shootingImageWidth" [height]="shootingImageHeight" [marginRight]="shootingMarginRight"></fw-app-icon>
+              </i>
+              <div class="icon-group-info">
+                <div class="icon-group-name">Shooting</div>
+                <div class="icon-group-description">Manage Clay Shooting related tasks</div>
+              </div>
+              <div class="icon-group-link">
+                Go To Shooting
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+  </div>      
+</div>
+
+<!-- <div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <fw-footer [message]="message" style="margin-top:5px; width:100%"></fw-footer>
+</div> -->

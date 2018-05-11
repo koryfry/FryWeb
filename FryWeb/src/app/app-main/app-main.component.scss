@@ -1,0 +1,87 @@
+@import '../../styles/variables.scss';
+
+div.app-icon-group-list {
+    padding: 25px;
+    text-align: center;
+
+    div.app-icon-group-list-inner {
+        display: inline-block;
+        margin: 0px auto;
+        text-align: left;
+
+        ul {
+            // padding: 0px;
+            margin: 0px -20px 0px 0px;
+
+            li {
+                list-style-type: none;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+div.app-icon-group {
+    margin: 20px 50px 20px 0px;
+    text-align: center;
+
+    a.app-icon-group-box {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
+        width: 215px;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, .3);
+
+        i.icon-group {
+            display: block;
+            font-size: 96px;
+            height: 250px;
+            border-radius: 5px;
+
+            &.fa {
+                padding-top: 14px;
+            }
+
+            &:before {
+                opacity: .4;
+            }
+        }
+
+        div.icon-group-info {
+            position: absolute;
+            top: 120px;
+            width: 100%;
+            padding: 0px 10px;
+            max-height: 90px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        div.icon-group-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        div.icon-group-description {
+            font-size: 12px;
+        }
+
+        div.icon-group-link {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 10px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.137);
+
+            i {
+                font-size: 16px;
+                vertical-align: bottom;
+                padding-left: 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,257 @@
+@model Kory.Tools.Data.RefereeTools.Officials
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<br />
+<br />
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <div class="modal fade" id="officialCreator" tabindex="-1" role="dialog" aria-labelledby="officialCreator" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" style="width: 40%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">&times;</a>
+                    <h3>Create Official</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <label class="control-label" for="OfficialName">Official Name</label>
+                            <br />
+                            <div style="border-color:black">
+                                @Html.TextBoxFor(model => model.OfficialName, htmlAttributes: new { id = "OfficialName", @class = "form-control", style = "width: 300px;" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <label class="control-label" for="OfficialLevel">Official Level</label>
+                            <br />
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:left">
+                                            <div style="border-color:black">
+                                                @Html.TextBoxFor(model => model.OfficialLevel, htmlAttributes: new { id = "officialLevel", @class = "form-control", style = "width: 75px;" })
+                                            </div>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td>
+                                            <div id="LevelGroup" class="btn-group">
+                                                <button type="button" class="btn-small btn-default" id="btnLevel1">Level 1</button>
+                                                <button type="button" class="btn-small btn-default" id="btnLevel2">Level 2</button>
+                                                <button type="button" class="btn-small btn-default" id="btnLevel3">Level 3</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br />
+                    
+
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <label class="control-label" for="ArenaAddressLine1">Address Line 1</label>
+                            <br />
+                            <div>
+                                @Html.TextBoxFor(model => model.AddressLine1, htmlAttributes: new { id = "AddressLine1", @class = "form-control", style = "width: 450px;" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <label class="control-label" for="ArenaAddressLine2">Address Line 2</label>
+                                        </td>
+                                        <td style="width:40px"></td>
+                                        <td style="width:40px"></td>
+                                        <td style="float:right">
+                                            <label class="control-label" for="ArenaAddressLine3">Address Line 3</label>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:left">
+                                            @Html.TextBoxFor(model => model.AddressLine2, htmlAttributes: new { id = "AddressLine2", @class = "form-control", style = "width: 100px"})
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="float:right">
+                                            @Html.TextBoxFor(model => model.AddressLine3, htmlAttributes: new { id = "AddressLine3", @class = "form-control", style = "width: 100px;" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br />
+           
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <table style="background-color:white">
+                                <thead>
+                                    <tr>
+                                        <td style="float:left">
+                                            <label class="control-label" for="OfficialCity">City</label>
+                                        </td>
+                                        <td style="width:100px"></td>
+                                        <td style="width:100px"></td>
+                                        <td style="padding-left:40px">
+                                            <label class="control-label" for="OfficialState">State</label>
+                                        </td>
+                                        <td style="width:75px"></td>
+                                        <td style="width:75px"></td>
+                                        <td style="padding-left:40px">
+                                            <label class="control-label" for="OfficialZipcode">Zipcode</label>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="float:left">
+                                            @Html.TextBoxFor(model => model.City, htmlAttributes: new { id = "City", @class = "form-control", style = "width: 300px;" })
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="padding-left:40px"> 
+                                            @Html.TextBoxFor(model => model.State, htmlAttributes: new { id = "State", @class = "form-control", style = "width: 75px;" })
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="padding-left:40px"> 
+                                            @Html.TextBoxFor(model => model.Zipcode, htmlAttributes: new { id = "Zipcode", @class = "form-control", style = "width: 100px;" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row-fluid" style="min-height:50px">
+                        <div class="controls span6" style="height:50px">
+                            <label class="control-label" for="ArenaCity">Phone Number</label>
+                            <br />
+                            <div>
+                                @Html.TextBoxFor(model => model.PhoneNumber, htmlAttributes: new { id = "PhoneNumber", @class = "form-control", style = "width: 150px;" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a class="btn" data-dismiss="modal" onclick="location.href='@Url.Action("Index", "Officials")'">Close</a>
+                    <input type="submit" value="Create" class="btn primary-override" />
+                    @*<a href="#" class="btn btn-success">Create</a>*@
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    @*<fieldset>
+        <legend>Officials</legend>
+
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <br />
+        <br />
+
+        <p>
+            <input type="submit" background:"#5cb85c" value ="Create">
+        </p>
+    </fieldset>*@
+    
+    <br />
+}
+
+<div>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","Officials")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</div>  
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#officialCreator').modal('show')
+    });
+
+    $('#btnLevel1').click(function () {
+        $('#officialLevel').val(1);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel2').removeClass('primary-override');
+        $('#btnLevel2').addClass('btn-default');
+
+        $('#btnLevel3').removeClass('primary-override');
+        $('#btnLevel3').addClass('btn-default');
+    });
+
+    $('#btnLevel2').click(function () {
+        $('#officialLevel').val(2);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel1').removeClass('primary-override');
+        $('#btnLevel1').addClass('btn-default');
+
+        $('#btnLevel3').removeClass('primary-override');
+        $('#btnLevel3').addClass('btn-default');
+    });
+
+    $('#btnLevel3').click(function () {
+        $('#officialLevel').val(3);
+
+        $(this).removeClass('btn-default');
+        $(this).addClass('primary-override');
+
+        $('#btnLevel1').removeClass('primary-override');
+        $('#btnLevel1').addClass('btn-default');
+
+        $('#btnLevel2').removeClass('primary-override');
+        $('#btnLevel2').addClass('btn-default');
+    });
+</script>
+
+
+

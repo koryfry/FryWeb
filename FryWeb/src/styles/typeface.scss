@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.large-head-line {
+    font : $largeHeadLine;
+}
+
+.medium-head-line {
+    font : $mediumHeadLine;
+}
+
+.medium-head-line-light {
+    font : $mediumHeadLineLight;
+}
+
+.small-head-line {
+    font : $smallHeadLine;
+}
+
+.default-text {
+    font : $defaultText;
+}
+
+.button-text {
+    font : $buttonText;
+}

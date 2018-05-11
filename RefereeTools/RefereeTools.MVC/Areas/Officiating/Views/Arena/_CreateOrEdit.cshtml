@@ -1,0 +1,67 @@
+@model Kory.Tools.Data.RefereeTools.Arena
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<h3>@ViewBag.Message</h3>
+
+@if (Model.ArenaKey != 0)
+{
+    <div class="display-label left-label disable readOnlyInputs">
+        @Html.LabelFor(model => model.ArenaKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArenaKey)
+        @Html.ValidationMessageFor(model => model.ArenaKey)
+    </div>
+}
+else
+{
+    <div class="display-label left-label disable readOnlyInputs">
+        @Html.LabelFor(model => model.ArenaKey)
+    </div>
+    <div class="display-field">
+        New
+    </div>  
+}
+
+<br />
+<br />
+
+<div class="editor-label left-label">
+    @Html.LabelFor(model => model.ArenaName)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.ArenaName, htmlAttributes: new { id = "ArenaName" })
+    @Html.ValidationMessageFor(model => model.ArenaName)
+</div>
+
+<br />
+<br />
+
+<div class="editor-label left-label">
+    @Html.LabelFor(model => model.City)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.City, htmlAttributes: new { id = "City" })
+    @Html.ValidationMessageFor(model => model.City)
+</div>
+
+<br />
+<br />
+
+<div class="editor-label left-label">
+    @Html.LabelFor(model => model.State)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.State, htmlAttributes: new { id = "State" })
+    @Html.ValidationMessageFor(model => model.State)
+</div>
+
+@*<script type="text/javascript">
+    $(function() {
+        $("#ArenaName").autocomplete({
+            minLength : 4,
+            source: '/Autocomplete/GetAllArenas' 
+        });
+    });
+</script>*@

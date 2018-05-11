@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.MVC", "RefereeTools.MVC\Kory.Tools.MVC.csproj", "{9A7B1078-E087-4A8F-B0C1-85FE21FD8FC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.Data.Entities", "Referee.Tools.Data\Kory.Tools.Data.Entities.csproj", "{D969C891-F56D-495A-A14F-186A943799F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.Data.Business", "Kory.Tools.BR\Kory.Tools.Data.Business.csproj", "{79274204-E58C-42BB-9C96-3B2438B99059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.Contracts", "Kory.Tools.Contracts\Kory.Tools.Contracts.csproj", "{BE55A222-437F-4EF4-8098-47663CBD3BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.Data", "Kory.Tools.Business\Kory.Tools.Data.csproj", "{056055E6-B325-4C46-9FB1-3B8B1A1FE950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kory.Tools.Injection", "Kory.Tools.Injection\Kory.Tools.Injection.csproj", "{ABE90F0E-3FF4-49A7-9216-F68E86EEB79D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A7B1078-E087-4A8F-B0C1-85FE21FD8FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7B1078-E087-4A8F-B0C1-85FE21FD8FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7B1078-E087-4A8F-B0C1-85FE21FD8FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7B1078-E087-4A8F-B0C1-85FE21FD8FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D969C891-F56D-495A-A14F-186A943799F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D969C891-F56D-495A-A14F-186A943799F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D969C891-F56D-495A-A14F-186A943799F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D969C891-F56D-495A-A14F-186A943799F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79274204-E58C-42BB-9C96-3B2438B99059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79274204-E58C-42BB-9C96-3B2438B99059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79274204-E58C-42BB-9C96-3B2438B99059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79274204-E58C-42BB-9C96-3B2438B99059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE55A222-437F-4EF4-8098-47663CBD3BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE55A222-437F-4EF4-8098-47663CBD3BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE55A222-437F-4EF4-8098-47663CBD3BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE55A222-437F-4EF4-8098-47663CBD3BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056055E6-B325-4C46-9FB1-3B8B1A1FE950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056055E6-B325-4C46-9FB1-3B8B1A1FE950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056055E6-B325-4C46-9FB1-3B8B1A1FE950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056055E6-B325-4C46-9FB1-3B8B1A1FE950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE90F0E-3FF4-49A7-9216-F68E86EEB79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE90F0E-3FF4-49A7-9216-F68E86EEB79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE90F0E-3FF4-49A7-9216-F68E86EEB79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE90F0E-3FF4-49A7-9216-F68E86EEB79D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

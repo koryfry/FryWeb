@@ -1,0 +1,61 @@
+@model Kory.Tools.Data.RefereeTools.AgeGroup
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<h3>@ViewBag.Message</h3>
+
+@if (Model.AgeGroupKey != 0)
+{
+    <div class="display-label left-label disable readOnlyInputs">
+        @Html.LabelFor(model => model.AgeGroupKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AgeGroupKey)
+        @Html.ValidationMessageFor(model => model.AgeGroupKey)
+    </div>
+}
+else
+{
+    <div class="display-label left-label disable readOnlyInputs">
+        @Html.LabelFor(model => model.AgeGroupKey)
+    </div>
+    <div class="display-field">
+        New
+    </div>  
+}
+
+<br />
+<br />
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.GroupName)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.GroupName)
+    @Html.ValidationMessageFor(model => model.GroupName)
+</div>
+
+<br />
+<br />
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.GroupTier)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.GroupTier)
+    @Html.ValidationMessageFor(model => model.GroupTier)
+</div>
+
+
+<br />
+<br />
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.RateOfPay)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.RateOfPay)
+    @Html.ValidationMessageFor(model => model.RateOfPay)
+</div>
+

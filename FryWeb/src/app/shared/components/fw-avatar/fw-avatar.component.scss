@@ -1,0 +1,18 @@
+@mixin border-radius($rad: 3px, $important: false) {
+    @if $important == true {
+        -webkit-border-radius : $rad !important;
+        border-radius         : $rad !important;          
+    }
+    @else {
+        -webkit-border-radius : $rad;
+        border-radius         : $rad;          
+    }
+}
+
+.avatar {
+    height: auto;
+
+    &.circle {
+        @include border-radius(50%);
+    }
+}

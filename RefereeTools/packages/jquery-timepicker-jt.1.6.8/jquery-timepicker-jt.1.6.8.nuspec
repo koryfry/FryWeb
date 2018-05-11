@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jquery-timepicker-jt</id>
+    <version>1.6.8</version>
+    <title>jQuery Timepicker</title>
+    <authors>Jon Thornton</authors>
+    <owners>Jon Thornton</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://jonthornton.github.io/jquery-timepicker/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>jquery.timepicker is a lightweight timepicker plugin for jQuery inspired by Google Calendar. It supports both mouse and keyboard navigation, and weighs in at 2.7kb minified and gzipped.</description>
+    <copyright>2015 Jon Thornton</copyright>
+    <tags>jquery timepicker time picker</tags>
+    <dependencies>
+      <dependency id="jquery" version="1.7.0" />
+    </dependencies>
+  </metadata>
+</package>

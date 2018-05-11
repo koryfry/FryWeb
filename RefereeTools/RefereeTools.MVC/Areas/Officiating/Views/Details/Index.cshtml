@@ -1,0 +1,135 @@
+@model IEnumerable<Kory.Tools.Data.RefereeTools.Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Details Home</h2>
+
+<br />
+
+<p>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create","Details")'"><span class="glyphicon glyphicon-plus"></span> Create</button>
+</p>
+
+<br />
+<br />
+
+<table id="gameDetailsList">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Details Key
+            </th>
+            <th>
+                Game Date
+            </th>
+            <th>
+                Game Time
+            </th>
+            <th>
+                Ref
+            </th>
+            <th>
+                Line
+            </th>
+            <th>
+                Arena
+            </th>
+            <th>
+                Age Group
+            </th>
+            <th>
+                Partner(s)
+            </th>
+            <th>
+                Rate Of Pay
+            </th>
+            <th>
+                Distance Traveled
+            </th>
+            <th>
+                Misc Expense
+            </th>
+            <th>
+                Date Paid
+            </th>
+            <th>
+                Amount Paid
+            </th>
+        </tr> 
+    </thead>
+    <tbody data-bind="foreach: GameDetails">
+        <tr>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Details")/' + DetailsKey }" class="btn-small primary-override"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Details", "Details")/' + DetailsKey }" class="btn-small btn-info"><span class="glyphicon glyphicon-th-list"></span> Details</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Details")/' + DetailsKey }" class="btn-small danger-override"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            </td>
+    </tbody>
+</table>
+
+
+    
+    
+    @*<tbody>*@
+        @*@foreach (var item in Model) {
+            @*<tr>*@
+                @*<td>*@
+                    @*<button class="btn btn-primary" onclick="location.href='@Url.Action("Edit","Details",new { id=item.DetailsKey })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>*@
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ArenaKey }) |*@
+                    @*<button class="btn btn-info" onclick="location.href='@Url.Action("Details","Details",new { id=item.DetailsKey })'"><span class="glyphicon glyphicon-th-list"></span> Details</button>*@
+                    @*@Html.ActionLink("Details", "Details", new { id=item.ArenaKey }) |*@
+                    @*<button class="btn btn-danger" onclick="location.href='@Url.Action("Delete","Details",new { id=item.DetailsKey })'"><span class="glyphicon glyphicon-trash"></span> Delete</button>*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ArenaKey }) |*@
+                @*</td>*@
+                @*<td>
+                    @item.DetailsKey
+                </td>
+                <td>
+			        @String.Format("{0:g}", item.GameDate)
+                </td>
+                <td>
+			        @String.Format("{0:g}", item.GameTime)
+                </td>
+                <td>
+			        @item.Ref
+                </td>
+                <td>
+			        @item.Line
+                </td>
+                <td>
+			        @item.Arena.ArenaName
+                </td>
+                <td>
+			        @item.AgeGroup.GroupName & " " & @item.AgeGroup.GroupTier
+                </td>
+                <td>
+			        @item.Officials.OfficialName
+                </td>
+                <td>
+			        @String.Format("{0:F}", item.RateOfPay)
+                </td>
+                <td>
+			        @String.Format("{0:F}", item.DistanceTraveled)
+                </td>
+                <td>
+			        @String.Format("{0:F}", item.MiscExpense)
+                </td>
+                <td>
+			        @String.Format("{0:g}", item.DatePaid)
+                </td>
+                <td>
+			        @String.Format("{0:F}", item.AmountPaid)
+                </td>
+            </tr>*@
+        @*}*@
+    @*</tbody>*@
+
+
+

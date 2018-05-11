@@ -1,0 +1,128 @@
+@model Kory.Tools.Data.RefereeTools.Details
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Details</legend>
+
+    <div class="display-label">Game Date</div>
+    
+    <br />
+
+    <div class="display-field">@String.Format("{0:g}", Model.GameDate)</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Game Time</div>
+    
+    <br />
+    
+    <div class="display-field">@String.Format("{0:g}", Model.GameTime)</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Ref</div>
+    
+    <br />
+    
+    <div class="display-field">@Model.Ref</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Line</div>
+    
+    <br />
+    
+    <div class="display-field">@Model.Line</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Arena Key</div>
+    
+    <br />
+    
+    <div class="display-field">@Model.ArenaKey</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Age Group Key</div>
+    
+    <br />
+    
+    <div class="display-field">@Model.AgeGroupKey</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Officials Key</div>
+    
+    <br />
+    
+    <div class="display-field">@Model.OfficialsKey</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Rate Of Pay</div>
+    
+    <br />
+    
+    <div class="display-field">@String.Format("{0:F}", Model.RateOfPay)</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Misc Expense</div>
+    
+    <br />
+    
+    <div class="display-field">@String.Format("{0:F}", Model.MiscExpense)</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Date Paid</div>
+    
+    <br />
+    
+    <div class="display-field">@String.Format("{0:g}", Model.DatePaid)</div>
+
+    <br />
+    <br />
+
+    <div class="display-label">Amount Paid</div>
+    
+    <br />
+    
+    <div class="display-field">@String.Format("{0:F}", Model.AmountPaid)</div>
+
+    <br />
+    <br />
+
+    <p>
+        <input type="submit" background-color:"red" value="Delete" />
+    </p>
+</fieldset>
+
+<br />
+<br />
+
+<p>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","Details")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+@using (Html.BeginForm()) {
+    
+}
+
+

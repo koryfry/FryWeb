@@ -1,0 +1,60 @@
+@model IEnumerable<Kory.Tools.Data.RefereeTools.Officials>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@Html.Partial("_OfficiatingMenu")
+
+<h2>Officials Home</h2>
+
+<br />
+
+<p>
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Create","Officials")'"><span class="glyphicon glyphicon-plus"></span> Create</button>
+</p>
+
+<br />
+<br />
+
+<table id="officialsList">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Officials Key
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Officials Level
+            </th>
+        </tr>
+    </thead>  
+     
+    <tbody data-bind="foreach: Officials">
+        <tr>
+            <td>
+                <a data-bind="attr: { 'href': '@Url.Action("Edit", "Officials")/' + OfficialsKey }" class="btn-small primary-override"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Details", "Officials")/' + OfficialsKey }" class="btn-small btn-info"><span class="glyphicon glyphicon-th-list"></span> Details</a>
+                <a data-bind="attr: { 'href': '@Url.Action("Delete", "Officials")/' + OfficialsKey }" class="btn-small danger-override"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            </td>
+            <td data-bind="text: OfficialsKey"></td>
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: OfficialLevel"></td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/Areas/Officiating/Scripts/OfficialIndexVM.js")
+}
+
+

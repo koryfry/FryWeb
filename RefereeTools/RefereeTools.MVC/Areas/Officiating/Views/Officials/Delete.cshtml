@@ -1,0 +1,36 @@
+@model Kory.Tools.Data.RefereeTools.Officials
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<br />
+<br />
+
+<fieldset>
+    <legend>Officials</legend>
+
+    <div class="display-label"><b>Name Of Official</b></div>
+
+    <br />
+
+    <div class="display-field">@Model.OfficialName</div>
+</fieldset>
+
+<br />
+<br />
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete"/> 
+    </p>
+}
+
+<p>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Index","Officials")'"><span class="glyphicon glyphicon-home"></span> Back to List</button>
+</p>
+
+
+

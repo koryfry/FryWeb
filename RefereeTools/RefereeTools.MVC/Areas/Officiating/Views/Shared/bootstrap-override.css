@@ -1,0 +1,213 @@
+﻿.primary-override {
+    color: #ffffff;
+    background-color: #0000ff;
+    border-color: #0000ff;
+}
+
+.primary-override:hover {
+    color: #ffffff;
+    background-color: #0000ff;
+    border-color: #0000ff;
+}
+
+.danger-override {
+    color: #ffffff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+fieldset {
+  padding: 0.625em 0.625em 0.75em 0.75em;
+  margin: 0 2px;
+  border: 1px solid #999;
+  width: 25%;
+  background-color: #e5e5e5;
+}
+
+normal {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+h2 {
+    color: black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+thead {
+    width:auto;
+}
+
+thead tr th{
+    background-color: lightblue;
+    color: black;
+    font-size: smaller;
+    padding-right: 10px;
+    width:auto;
+    white-space:normal;
+}
+
+thead tr th:first-child{
+    width:20%;
+}
+
+thead tr th:nth-child(n+2){
+    width:auto;
+}
+
+tbody tr td:first-child{
+    width:20%;
+}
+
+tbody tr td:nth-child(n+2){
+    width:auto;
+}
+
+.row-fluid {
+    width: 100%;
+}
+
+.container-fluid {
+  padding-right: 20px;
+  padding-left: 20px;
+  *zoom: 1;
+}
+
+.container-fluid:before,
+.container-fluid:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.container-fluid:after {
+  clear: both;
+}
+
+.row-fluid input[class*="span"],
+.row-fluid select[class*="span"],
+.row-fluid textarea[class*="span"],
+.row-fluid .uneditable-input[class*="span"] {
+  float: none;
+  margin-left: 0;
+}
+
+.row-fluid input[class*="span"],
+.row-fluid select[class*="span"],
+.row-fluid textarea[class*="span"],
+.row-fluid .uneditable-input[class*="span"],
+.row-fluid .input-prepend [class*="span"],
+.row-fluid .input-append [class*="span"] {
+  display: inline-block;
+}
+
+input.span3,
+textarea.span3,
+.uneditable-input.span3 {
+  width: 206px;
+}
+
+.span2
+{
+    width: 20%;
+    display: inline-block;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    float: right;
+}
+
+.span3 
+{
+    width: 30%;
+    display: inline-block;
+    padding-right: 45px;
+    padding-bottom: 25px;
+}
+
+.span4 
+{
+    width: 40%;
+    display: inline-block;
+    padding-right: 30px;
+    padding-bottom: 25px;
+}
+
+.span4Other 
+{
+    width: 35%;
+    float: left;
+    display: inline-block;
+    padding-right: 30px;
+    padding-bottom: 25px;
+}
+
+.span5 
+{
+    width: 45%;
+    float: left;
+    display: inline-block;
+    padding-right: 30px;
+    padding-bottom: 25px;
+}
+
+.span6 
+{
+    width: 60%;
+    height: 300px;
+    float:left;
+}
+
+.span6Other 
+{
+    width: 80%;
+    height:800px;
+    float:left;
+}
+
+.well {
+  min-height: 500px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.well-lg {
+  padding: 24px;
+  border-radius: 6px;
+}
+
+.well-min {
+  min-height: initial;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.span6-Narrow 
+{
+    width: 50%;
+    height: 300px;
+    float:left;
+}
+
+.span3-Narrow 
+{
+    width: auto;
+    display: inline-block;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
