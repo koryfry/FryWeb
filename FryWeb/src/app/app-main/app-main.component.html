@@ -5,39 +5,37 @@
 <div class="app-icon-group-list">
   <div class="app-icon-group-list-inner">
       <ul>
-        <li>
-          <div class="app-icon-group">
-            <a class="app-icon-group-box" [routerLink]="['/officiating']">
-              <i class="icon-group" [style.background-color]="'#2c7feb'">
-                <fw-app-icon [imageUrl]="officiatingImageUrl" [width]="officiatingImageWidth" [height]="officiatingImageHeight" [marginRight]="officiatingMarginRight"></fw-app-icon>
-              </i>
-              <div class="icon-group-info">
-                <div class="icon-group-name">Officiating</div>
-                <div class="icon-group-description">Manage Officiating related tasks</div>
-              </div>
-              <div class="icon-group-link">
-                Go To Officiating
-                <i class="fa fa-arrow-circle-right"></i>
-              </div>
-            </a>
-          </div>
+        <li class="nav-card">
+          <mat-card class="officiating-card" [routerLink]="['/officiating']">
+            <mat-card-header>
+              <div mat-card-avatar class="officiating-header-image"></div>
+              <mat-card-title class="icon-group-name">Officiating</mat-card-title>
+            </mat-card-header>
+            <br>
+            <mat-card-content class="icon-group-description">
+                Manage officiating tasks
+            </mat-card-content>
+            <mat-card-footer class="footer-text icon-group-link">
+              Go To Officiating
+              <i class="fa fa-arrow-circle-right"></i>
+            </mat-card-footer>
+          </mat-card>
         </li>
-        <li>
-          <div class="app-icon-group">
-            <a class="app-icon-group-box" style="display: inline-block;" (click)="showShootingSweetAlert()">
-              <i class="icon-group" [style.background-color]="'#f25858'">
-                  <fw-app-icon [imageUrl]="shootingImageUrl" [width]="shootingImageWidth" [height]="shootingImageHeight" [marginRight]="shootingMarginRight"></fw-app-icon>
-              </i>
-              <div class="icon-group-info">
-                <div class="icon-group-name">Shooting</div>
-                <div class="icon-group-description">Manage Clay Shooting related tasks</div>
-              </div>
-              <div class="icon-group-link">
+        <li class="nav-card">
+          <mat-card class="shooting-card" (click)="showShootingSweetAlert()">
+            <mat-card-header>
+              <div mat-card-avatar class="shooting-header-image"></div>
+              <mat-card-title class="icon-group-name">Shooting</mat-card-title>
+            </mat-card-header>
+            <br>
+            <mat-card-content class="icon-group-description">
+                Manage clay shooting tasks
+            </mat-card-content>
+            <mat-card-footer class="footer-text icon-group-link">
                 Go To Shooting
-                <i class="fa fa-arrow-circle-right"></i>
-              </div>
-            </a>
-          </div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </mat-card-footer>
+          </mat-card>
         </li>
       </ul>
   </div>      

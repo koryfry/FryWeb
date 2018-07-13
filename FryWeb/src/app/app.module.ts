@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatCardModule, MatButtonModule } from '@angular/material';
+// import { FormsModule } from '@angular/forms';
+// import { HttpModule } from '@angular/http';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import swal from 'sweetalert2';
 
@@ -26,9 +27,11 @@ import { FwAppIconComponent } from './shared/components/fw-app-icon/fw-app-icon.
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    NgbModule,
+    MatCardModule,
+    MatButtonModule,
+    // FormsModule,
+    // HttpModule,
+    //NgbModule,
     AppRoutingModule
   ],
   providers: [],

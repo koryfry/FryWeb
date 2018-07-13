@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
 export class AppMainComponent implements OnInit {
   title = 'Welcome to Fry Web!';
   message = "App Component Footer";
-  officiatingImageUrl = "/assets/images/KoryFaceoff.jpg";
+  officiatingImageUrl = "/assets/images/Kory_Cropped.jpg";
   officiatingImageWidth = "100px";
   officiatingImageHeight = "110px";
 
