@@ -5,7 +5,22 @@
   </button>
 </div>
 
-<mat-tab-group>
+<nav mat-tab-nav-bar [backgroundColor]="primary">
+  <a mat-tab-link
+      *ngFor="let link of links"
+      [routerLink]="link.routerLink"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+
+<br>
+<br>
+
+<router-outlet></router-outlet>
+
+<!-- <mat-tab-group>
   <mat-tab label="Arena Management"> 
     <fw-arena></fw-arena>
   </mat-tab>
@@ -15,7 +30,7 @@
   <mat-tab label="Officials Management"> 
     Welcome to Officials Management
   </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
 
 <!-- <div class="app-icon-group-list">
   <div class="app-icon-group-list-inner">

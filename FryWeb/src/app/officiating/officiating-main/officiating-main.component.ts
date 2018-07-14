@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./officiating-main.component.scss']
 })
 export class OfficiatingMainComponent implements OnInit {
-  title = 'Welcome to the Officiating Main Page';
+  title = 'Welcome to Officiating';
+
+  links = [
+    { label: 'Arena Management', routerLink: 'arena' },
+    { label: 'Age Group Management', routerLink: 'ageGroup' },
+    { label: 'Officials Management', routerLink: 'officials' }
+  ];
 
   constructor() { }
 

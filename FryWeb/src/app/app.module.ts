@@ -17,6 +17,8 @@ import { FwAvatarComponent } from './shared/components/fw-avatar/fw-avatar.compo
 import { OfficiatingMainComponent } from './officiating/officiating-main/officiating-main.component';
 import { FwAppIconComponent } from './shared/components/fw-app-icon/fw-app-icon.component';
 import { ArenaComponent } from './officiating/arena/arena.component';
+import { AgeGroupComponent } from './officiating/age-group/age-group.component';
+import { OfficialsComponent } from './officiating/officials/officials.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ArenaComponent } from './officiating/arena/arena.component';
     OfficiatingMainComponent,
     AppMainComponent,
     FwAppIconComponent,
-    ArenaComponent
+    ArenaComponent,
+    AgeGroupComponent,
+    OfficialsComponent
   ],
   imports: [
     BrowserModule,
