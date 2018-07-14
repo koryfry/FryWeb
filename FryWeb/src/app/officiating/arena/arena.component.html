@@ -1,0 +1,49 @@
+<div class="example-container mat-elevation-z8">
+  <!-- <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div> -->
+
+  <mat-table [dataSource]="dataSource">
+
+    <!-- id Column -->
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.ID}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.Name}}</mat-cell>
+    </ng-container>
+
+    <!-- address Column -->
+    <ng-container matColumnDef="Address">
+      <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.Address}} </mat-cell>
+    </ng-container>
+
+    <!-- city Column -->
+    <ng-container matColumnDef="City">
+      <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.City}}</mat-cell>
+    </ng-container>
+
+    <!-- state Column -->
+    <ng-container matColumnDef="State">
+        <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.State}}</mat-cell>
+    </ng-container>
+
+    <!-- zipCode Column -->
+    <ng-container matColumnDef="ZipCode">
+        <mat-header-cell *matHeaderCellDef>ZipCode</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.ZipCode}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

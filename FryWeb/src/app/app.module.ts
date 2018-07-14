@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { OfficiatingMaterialModule } from './officiatingmaterial.module';
+//import { MatCardModule, MatButtonModule, MatTabsModule } from '@angular/material';
 // import { FormsModule } from '@angular/forms';
 // import { HttpModule } from '@angular/http';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +16,7 @@ import { FwFooterComponent } from './shared/components/fw-footer/fw-footer.compo
 import { FwAvatarComponent } from './shared/components/fw-avatar/fw-avatar.component';
 import { OfficiatingMainComponent } from './officiating/officiating-main/officiating-main.component';
 import { FwAppIconComponent } from './shared/components/fw-app-icon/fw-app-icon.component';
+import { ArenaComponent } from './officiating/arena/arena.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { FwAppIconComponent } from './shared/components/fw-app-icon/fw-app-icon.
     FwAvatarComponent,
     OfficiatingMainComponent,
     AppMainComponent,
-    FwAppIconComponent
+    FwAppIconComponent,
+    ArenaComponent
   ],
   imports: [
     BrowserModule,
-    MatCardModule,
-    MatButtonModule,
+    BrowserAnimationsModule,
+    OfficiatingMaterialModule,
+    // MatCardModule,
+    // MatButtonModule,
+    // MatTabsModule,
     // FormsModule,
     // HttpModule,
     //NgbModule,
