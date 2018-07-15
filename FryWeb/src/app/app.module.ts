@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
 //import { MatCardModule, MatButtonModule, MatTabsModule } from '@angular/material';
@@ -9,6 +10,7 @@ import { OfficiatingMaterialModule } from './officiatingmaterial.module';
 import { AppRoutingModule } from './app-routing.module';
 import swal from 'sweetalert2';
 
+// Import Components
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { FwBannerComponent } from './shared/components/fw-banner/fw-banner.component';
@@ -20,6 +22,9 @@ import { ArenaComponent } from './officiating/arena/arena.component';
 import { AgeGroupComponent } from './officiating/age-group/age-group.component';
 import { OfficialsComponent } from './officiating/officials/officials.component';
 import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
+
+// Import Services
+import { ArenaService } from './services/arena.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,7 @@ import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-d
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     OfficiatingMaterialModule,
     // MatCardModule,
     // MatButtonModule,
@@ -47,7 +53,9 @@ import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-d
     //NgbModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ArenaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

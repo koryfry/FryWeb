@@ -1,4 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+// Import model
+import { Arena } from '../../../models/arena/arena.model';
+
+// Import Services
+import { ArenaService } from '../../../services/arena.service';
 
 @Component({
   selector: 'fw-arena-details',
@@ -7,11 +15,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ArenaDetailsComponent implements OnInit {
 
-  @Input() arena: any;
+  arena: Observable<Arena>;
+  arenaID: number;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private arenaService: ArenaService
+  ) 
+  { 
+    
+  }
 
   ngOnInit() {
+    this.arenaID = Number(this.route.snapshot.params['id']);
+    this.arenaService.getArenaById(this.arenaID).subscribe(res => {
+      this.arena = res[0];
+      console.log('Arena: ', this.arena);
+    }, err => {
+      console.log('Error: ', err);
+    });
   }
 
 }

@@ -17,7 +17,7 @@
     <!-- id Column -->
     <ng-container matColumnDef="ID">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.ID}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
@@ -51,7 +51,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['details/', row.ID]"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['details/', row.id]"></mat-row>
   </mat-table>
 </div>
 
