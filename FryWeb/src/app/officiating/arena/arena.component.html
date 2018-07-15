@@ -1,11 +1,18 @@
-<div class="example-container mat-elevation-z8">
+<div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
+  <button class="btn btn-secondary rounded pull right" [routerLink]="['/officiating']">
+    <i class="fa fa-home"></i>  Back to Officiating Main Page
+  </button>
+</div>
+
+<div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
   <div class="example-header">
-    <mat-form-field>
+    <mat-form-field color="accent">
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" backgroundColor="accent">
 
     <!-- id Column -->
     <ng-container matColumnDef="ID">
@@ -44,6 +51,10 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['details/', row.ID]"></mat-row>
   </mat-table>
 </div>
+
+<br>
+<br>
+<router-outlet></router-outlet>

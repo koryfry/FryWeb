@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 
 export interface Arena {
   ID: number;
@@ -26,6 +27,7 @@ const ARENA_DATA: Arena[] = [
 export class ArenaComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Name', 'Address', 'City', 'State', 'ZipCode'];
   dataSource = new MatTableDataSource(ARENA_DATA);
+  title = 'Welcome to Arena Management';
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -33,9 +35,15 @@ export class ArenaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  // constructor() { }
+  constructor(private route: ActivatedRoute) { 
+
+  }
 
   ngOnInit() {
     console.log('Data: ', this.dataSource);
+  }
+
+  logRow(row: any) {
+    console.log('Row selected: ', row);
   }
 }

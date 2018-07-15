@@ -1,11 +1,11 @@
-<div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+<div class="navbar navbar-toggleable-md navbar-inverse bg-primary" *ngIf="route.children.length ===0">
   <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
   <button class="btn btn-secondary rounded pull right" [routerLink]="['/home']">
     <i class="fa fa-home"></i>  Back to Home
   </button>
 </div>
 
-<nav mat-tab-nav-bar [backgroundColor]="primary">
+<nav mat-tab-nav-bar style="background-color:aliceblue"  color="primary" *ngIf="route.children.length ===0">
   <a mat-tab-link
       *ngFor="let link of links"
       [routerLink]="link.routerLink"
@@ -15,8 +15,7 @@
   </a>
 </nav>
 
-<br>
-<br>
+<br *ngIf="route.children.length ===0">
 
 <router-outlet></router-outlet>
 

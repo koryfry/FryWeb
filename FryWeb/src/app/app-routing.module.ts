@@ -3,8 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppMainComponent } from './app-main/app-main.component';
 import { OfficiatingMainComponent } from './officiating/officiating-main/officiating-main.component';
+
+// Import Arena Components
 import { ArenaComponent } from './officiating/arena/arena.component';
+import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
+
+// Import Age Group Components
 import { AgeGroupComponent } from './officiating/age-group/age-group.component';
+
+// Import Officials Components
 import { OfficialsComponent } from './officiating/officials/officials.component';
 
 const routes: Routes = [
@@ -14,7 +21,15 @@ const routes: Routes = [
         path: 'officiating', 
         component: OfficiatingMainComponent,
         children: [
-            { path: 'arena', component: ArenaComponent },
+            { 
+                path: 'arena', 
+                component: ArenaComponent,
+                children: [
+                    { 
+                        path: 'details/:id', component: ArenaDetailsComponent 
+                    }
+                ]
+            },
             { path: 'ageGroup', component: AgeGroupComponent },
             { path: 'officials', component: OfficialsComponent }
         ]

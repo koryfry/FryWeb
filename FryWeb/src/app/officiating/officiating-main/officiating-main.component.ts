@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'fw-officiating-main',
@@ -14,7 +15,9 @@ export class OfficiatingMainComponent implements OnInit {
     { label: 'Officials Management', routerLink: 'officials' }
   ];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
   }
