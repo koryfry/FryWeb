@@ -15,6 +15,9 @@ export class OfficiatingMainComponent implements OnInit {
     { label: 'Officials Management', routerLink: 'officials' }
   ];
 
+  events: string[] = [];
+  opened: boolean = true;
+
   constructor(private route: ActivatedRoute) { 
     
   }

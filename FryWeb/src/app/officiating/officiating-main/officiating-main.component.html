@@ -1,23 +1,33 @@
-<div class="navbar navbar-toggleable-md navbar-inverse bg-primary" *ngIf="route.children.length ===0">
-  <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
-  <button class="btn btn-secondary rounded pull right" [routerLink]="['/home']">
-    <i class="fa fa-home"></i>  Back to Home
-  </button>
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+    (closed)="events.push('close!')">Side Nav is working
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="navbar navbar-toggleable-md navbar-inverse bg-primary" *ngIf="route.children.length ===0">
+        <mat-icon *ngIf="opened" (click)="sidenav.toggle()">chevron_left</mat-icon>
+        <mat-icon *ngIf="!opened" (click)="sidenav.toggle()">chevron_right</mat-icon>
 
-<nav mat-tab-nav-bar style="background-color:aliceblue"  color="primary" *ngIf="route.children.length ===0">
-  <a mat-tab-link
-      *ngFor="let link of links"
-      [routerLink]="link.routerLink"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive">
-    {{link.label}}
-  </a>
-</nav>
+        <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
+        <button class="btn btn-secondary rounded pull right" [routerLink]="['/home']">
+          <i class="fa fa-home"></i>  Back to Home
+        </button>
+      </div>
+        
+      <nav mat-tab-nav-bar style="background-color:aliceblue"  color="primary" *ngIf="route.children.length ===0">
+        <a mat-tab-link
+            *ngFor="let link of links"
+            [routerLink]="link.routerLink"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive">
+          {{link.label}}
+        </a>
+      </nav>
+        
+      <br *ngIf="route.children.length === 0">
 
-<br *ngIf="route.children.length === 0">
-
-<router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <!-- <mat-tab-group>
   <mat-tab label="Arena Management"> 

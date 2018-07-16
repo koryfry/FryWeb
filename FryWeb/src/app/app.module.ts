@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
 //import { MatCardModule, MatButtonModule, MatTabsModule } from '@angular/material';
-// import { FormsModule } from '@angular/forms';
+ import { FormsModule } from '@angular/forms';
 // import { HttpModule } from '@angular/http';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +48,7 @@ import { ArenaService } from './services/arena.service';
     // MatCardModule,
     // MatButtonModule,
     // MatTabsModule,
-    // FormsModule,
+     FormsModule,
     // HttpModule,
     //NgbModule,
     AppRoutingModule
