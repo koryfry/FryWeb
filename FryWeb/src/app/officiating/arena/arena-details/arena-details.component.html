@@ -1,4 +1,11 @@
-<mat-card style="background-color:#D3D6DE;">
+<button class="btn btn-secondary rounded pull right" style="float:right; margin: 10px;" [routerLink]="['../../arena']">
+    <mat-icon style="vertical-align: middle;">home</mat-icon>  
+    <div style="display:inline-block; vertical-align: middle;">Back to Arena List</div>
+</button>
+
+<br>
+<br>
+<mat-card style="background-color:#D3D6DE; margin-top:10px;">
     <mat-card-header class="details-card-header">
         <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>
     </mat-card-header>

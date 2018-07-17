@@ -15,33 +15,39 @@ import { AgeGroupComponent } from './officiating/age-group/age-group.component';
 import { OfficialsComponent } from './officiating/officials/officials.component';
 
 const routes: Routes = [
-    { path: 'home', component: AppMainComponent },
-
-    { 
-        path: 'officiating', 
-        component: OfficiatingMainComponent,
+    { path: 'home', component: AppMainComponent,
         children: [
             { 
-                path: 'arena', 
-                component: ArenaComponent,
+                path: 'officiating', 
+                component: OfficiatingMainComponent,
                 children: [
                     { 
+                        path: 'arena', 
+                        component: ArenaComponent,
+                        children: [
+                            // { 
+                            //     path: 'details/:id', component: ArenaDetailsComponent 
+                            // }
+                        ]
+                    },
+                    { 
                         path: 'details/:id', component: ArenaDetailsComponent 
-                    }
+                    },
+                    { path: 'ageGroup', component: AgeGroupComponent },
+                    { path: 'officials', component: OfficialsComponent }
                 ]
-            },
-            { path: 'ageGroup', component: AgeGroupComponent },
-            { path: 'officials', component: OfficialsComponent }
+            }
         ]
-    },    
-
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
-
+    }, 
+    
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    // { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(routes)
+    ],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

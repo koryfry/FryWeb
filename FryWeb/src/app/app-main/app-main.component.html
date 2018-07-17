@@ -1,4 +1,66 @@
-<div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+<mat-toolbar color="primary" class="fixed-header">
+  <mat-icon *ngIf="opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_left</mat-icon>
+  <mat-icon *ngIf="!opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_right</mat-icon>
+  <mat-icon style="margin-left: 10px; margin-right: 10px;">people</mat-icon>
+  <h1 class="app-nav-bar">{{title}}</h1>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+    (closed)="events.push('close!')">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['officiating']">Officiating</a>
+    </mat-nav-list>    
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <div class="app-icon-group-list">
+        <div class="app-icon-group-list-inner">
+            <ul>
+              <li class="nav-card">
+                <mat-card class="officiating-card" [routerLink]="['officiating']">
+                  <mat-card-header>
+                    <div mat-card-avatar class="officiating-header-image"></div>
+                    <mat-card-title class="icon-group-name">Officiating</mat-card-title>
+                  </mat-card-header>
+                  <br>
+                  <mat-card-content class="icon-group-description">
+                    Manage officiating tasks
+                  </mat-card-content>
+                  <mat-card-footer class="footer-text icon-group-link">
+                    Go To Officiating
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </mat-card-footer>
+                </mat-card>
+              </li>
+              <li class="nav-card">
+                <mat-card class="shooting-card" (click)="showShootingSweetAlert()">
+                  <mat-card-header>
+                    <div mat-card-avatar class="shooting-header-image"></div>
+                    <mat-card-title class="icon-group-name">Shooting</mat-card-title>
+                  </mat-card-header>
+                  <br>
+                  <mat-card-content class="icon-group-description">
+                      Manage clay shooting tasks
+                  </mat-card-content>
+                  <mat-card-footer class="footer-text icon-group-link">
+                      Go To Shooting
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </mat-card-footer>
+                </mat-card>
+              </li>
+            </ul>
+        </div>     
+      </div>
+
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+
+<!-- <router-outlet></router-outlet>  -->
+
+<!-- <div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
   <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
 </div>
 
@@ -39,7 +101,7 @@
         </li>
       </ul>
   </div>      
-</div>
+</div> -->
 
 <!-- <div class="navbar navbar-toggleable-md navbar-inverse bg-primary">
   <fw-footer [message]="message" style="margin-top:5px; width:100%"></fw-footer>

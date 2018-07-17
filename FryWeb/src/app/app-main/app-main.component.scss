@@ -33,6 +33,27 @@
     padding-top: 10px;
 }
 
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+.fixed-header {
+    top: 0;
+    position: fixed;
+    z-index:999;
+  
+}
+
+.app-nav-bar {
+    font-size: 32px;
+    color: white;
+}
+
 .icon-group-description {
     font-size: 14px;
     text-align: center;

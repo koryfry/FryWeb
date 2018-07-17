@@ -6,7 +6,7 @@
 
 .example-header {
     min-height: 64px;
-    padding: 8px 24px 0;
+    padding: 8px 15px 0;
 }
   
 .mat-form-field {
@@ -17,4 +17,13 @@
 .mat-table {
     overflow: auto;
     max-height: 600px;
+}
+
+.arena-table {
+    margin: 0 15px 10px 15px; 
+    box-shadow: 2px 2px 2px 2px;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+    color: black;
 }

@@ -7,7 +7,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./app-main.component.scss']
 })
 export class AppMainComponent implements OnInit {
-  title = 'Welcome to Fry Web!';
+  title = 'Fry Web';
   message = "App Component Footer";
   officiatingImageUrl = "/assets/images/Kory_Cropped.jpg";
   officiatingImageWidth = "100px";
@@ -16,6 +16,9 @@ export class AppMainComponent implements OnInit {
   shootingImageUrl = "/assets/images/Kory Shooting - Copy.jpg";
   shootingImageWidth = "100px";
   shootingImageHeight = "110px";
+
+  events: string[] = [];
+  opened: boolean = true;
 
   constructor() { }
 

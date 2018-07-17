@@ -1,19 +1,10 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-    (closed)="events.push('close!')">Side Nav is working
-  </mat-sidenav>
   <mat-sidenav-content>
-      <div class="navbar navbar-toggleable-md navbar-inverse bg-primary" *ngIf="route.children.length ===0">
-        <mat-icon *ngIf="opened" (click)="sidenav.toggle()">chevron_left</mat-icon>
-        <mat-icon *ngIf="!opened" (click)="sidenav.toggle()">chevron_right</mat-icon>
-
+      <!-- <div class="navbar navbar-toggleable-md navbar-inverse bg-primary" *ngIf="route.children.length ===0">
         <fw-banner [title]=title style="width:100%; margin-top:5px;"></fw-banner>
-        <button class="btn btn-secondary rounded pull right" [routerLink]="['/home']">
-          <i class="fa fa-home"></i>  Back to Home
-        </button>
-      </div>
+      </div> -->
         
-      <nav mat-tab-nav-bar style="background-color:aliceblue"  color="primary" *ngIf="route.children.length ===0">
+      <nav mat-tab-nav-bar style="background-color:aliceblue;" color="primary" *ngIf="route.children.length ===0">
         <a mat-tab-link
             *ngFor="let link of links"
             [routerLink]="link.routerLink"
@@ -21,6 +12,9 @@
             [active]="rla.isActive">
           {{link.label}}
         </a>
+        <button class="btn btn-secondary rounded"  style="float:right; margin:5px;" [routerLink]="['/home']">
+          <i class="fa fa-home"></i>  Back to Home
+        </button>
       </nav>
         
       <br *ngIf="route.children.length === 0">

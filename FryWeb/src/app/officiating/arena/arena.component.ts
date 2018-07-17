@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,14 +9,6 @@ import { Arena } from '../../models/arena/arena.model';
 // Import Services
 import { ArenaService } from '../../services/arena.service';
 
-// const ARENA_DATA: Arena[] = [
-//   {ID: 1, Name: 'Griffs West', Address: '1235 Holland Ave', City: 'Holland', State: 'MI', ZipCode: '49424'},
-//   {ID: 2, Name: 'Griffs Georgetown', Address: '1111 48th Ave', City: 'Hudsonville', State: 'MI', ZipCode: '49426'},
-//   {ID: 3, Name: 'Walker Ice and Fitness', Address: '1234 Remembrance Rd', City: 'Walker', State: 'MI', ZipCode: '49417'},
-//   {ID: 4, Name: 'Griffs Ice House', Address: '8987 Coldbrook St', City: 'Grand Rapids', State: 'MI', ZipCode: '49503'},
-//   {ID: 5, Name: 'Patterson Ice Arena', Address: '23235 Patterson Ave SE', City: 'Grand Rapids', State: 'MI', ZipCode: '49546'},
-// ];
-
 @Component({
   selector: 'fw-arena',
   templateUrl: './arena.component.html',
@@ -25,9 +17,10 @@ import { ArenaService } from '../../services/arena.service';
 export class ArenaComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Name', 'Address', 'City', 'State', 'ZipCode'];
   data: Arena[];
-  //dataSource = new MatTableDataSource(ARENA_DATA);
   dataSource = new MatTableDataSource();
-  title = 'Welcome to Arena Management';  
+  title = 'Welcome to Arena Management'; 
+
+  @ViewChild(MatSort) sort: MatSort; 
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -40,13 +33,12 @@ export class ArenaComponent implements OnInit {
   ngOnInit() {
     this.arenaService.getArenas().subscribe(res => {
       this.data = res;
-      //console.log('Arena Data: ', this.data);
       this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.sort = this.sort;
       console.log('Data: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);
-    });
-    
+    });    
   }
 
   logRow(row: any) {

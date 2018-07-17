@@ -12,11 +12,11 @@ export class OfficiatingMainComponent implements OnInit {
   links = [
     { label: 'Arena Management', routerLink: 'arena' },
     { label: 'Age Group Management', routerLink: 'ageGroup' },
-    { label: 'Officials Management', routerLink: 'officials' }
+    { label: 'Officials Management', routerLink: 'officials' }    
   ];
 
   events: string[] = [];
-  opened: boolean = true;
+  opened: boolean = false;
 
   constructor(private route: ActivatedRoute) { 
     
