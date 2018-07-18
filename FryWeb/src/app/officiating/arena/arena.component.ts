@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -15,10 +15,11 @@ import { ArenaService } from '../../services/arena.service';
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  displayedColumns: string[] = ['ID', 'Name', 'Address', 'City', 'State', 'ZipCode'];
+  displayedColumns: string[] = ['id', 'Name', 'Address', 'City', 'State', 'ZipCode'];
   data: Arena[];
   dataSource = new MatTableDataSource();
   title = 'Welcome to Arena Management'; 
+  //@Output() bannerTitle: EventEmitter<string> = new EventEmitter(true);
 
   @ViewChild(MatSort) sort: MatSort; 
   
@@ -28,10 +29,13 @@ export class ArenaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private arenaService: ArenaService) { }
+  constructor(private route: ActivatedRoute, private arenaService: ArenaService) 
+  { 
+    //this.bannerTitle.emit(this.title);
+  }
 
   ngOnInit() {
-    this.arenaService.getArenas().subscribe(res => {
+    this.arenaService.getArenas().subscribe(res => {      
       this.data = res;
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.sort = this.sort;

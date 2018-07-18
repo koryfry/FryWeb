@@ -25,4 +25,8 @@ export class OfficiatingMainComponent implements OnInit {
   ngOnInit() {
   }
 
+  // setBannerTitle(bannerTitle) {
+  //   this.title = bannerTitle;
+  // }
+
 }

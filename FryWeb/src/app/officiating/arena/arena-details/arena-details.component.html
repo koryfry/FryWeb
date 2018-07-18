@@ -5,21 +5,24 @@
 
 <br>
 <br>
-<mat-card style="background-color:#D3D6DE; margin-top:10px;">
+
+<mat-card class="officiating-card">
     <mat-card-header class="details-card-header">
+        <img mat-card-avatar class="avatar-image" src={{arena?.AvatarImage}}>
         <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div>
-            <b>Address</b>
-        </div>
+        <div><b>Address</b></div>
         <div>{{arena?.Address}}</div>
         <br>
-        <p>{{arena?.City}}</p>
+        <div><b>City</b></div>
+        <div>{{arena?.City}}</div>
         <br>
-        <p>{{arena?.State}}</p>
+        <div><b>State</b></div>
+        <div>{{arena?.State}}</div>
         <br>
-        <p>{{arena?.ZipCode}}</p>
+        <div><b>Zipcode</b></div>
+        <div>{{arena?.ZipCode}}</div>
         <br>
     </mat-card-content>
 </mat-card>
