@@ -41,4 +41,9 @@ export class AppMainComponent implements OnInit {
       timer: 2000
     })
   }
+
+  setBannerTitle(bannerTitle: string) {
+    alert("Title is: " + bannerTitle);
+    this.title = bannerTitle;
+  }
 }

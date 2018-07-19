@@ -27,3 +27,20 @@
 .mat-header-cell.mat-sort-header-sorted {
     color: black;
 }
+
+.mat-row:nth-child(even) {
+    background-color: aliceblue;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: lightgray;
+}
+
+.mat-header-cell {
+    font-weight: bold !important;
+    color: black !important;
+}
+
+.mat-header-row {
+    background-color: lightskyblue;
+}

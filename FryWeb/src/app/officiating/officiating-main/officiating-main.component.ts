@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OfficiatingMainComponent implements OnInit {
   title = 'Welcome to Officiating';
+  @Output() bannerTitle: EventEmitter<string> = new EventEmitter<string>();
 
   links = [
     { label: 'Arena Management', routerLink: 'arena' },
@@ -25,8 +26,7 @@ export class OfficiatingMainComponent implements OnInit {
   ngOnInit() {
   }
 
-  // setBannerTitle(bannerTitle) {
-  //   this.title = bannerTitle;
-  // }
-
+  setBannerTitle() {
+    this.bannerTitle.emit('Welcome to Officiating');
+  }
 }
