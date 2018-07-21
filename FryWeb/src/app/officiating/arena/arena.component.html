@@ -1,8 +1,8 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav-content>
         
-    <nav mat-tab-nav-bar style="background-color:aliceblue;" color="primary" *ngIf="route.children.length ===0">
-      <button class="btn btn-secondary rounded" style="float: right; margin:8px 5px 5px 5px;" [routerLink]="['../../officiating']">
+    <nav mat-tab-nav-bar style="background-color:aliceblue;" *ngIf="route.children.length === 0">
+      <button mat-raised-button class="btn btn-secondary rounded" style="float: right; margin:8px 5px 5px 5px;" [routerLink]="['../../officiating']">
         <mat-icon style="vertical-align: middle;">home</mat-icon>  
         <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
       </button>
@@ -19,41 +19,10 @@
     
       <mat-table #table [dataSource]="dataSource" matSort class="arena-table">
     
-        <!-- id Column -->
-        <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="Name">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.Name}}</mat-cell>
-        </ng-container>
-    
-        <!-- address Column -->
-        <ng-container matColumnDef="Address">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.Address}} </mat-cell>
-        </ng-container>
-    
-        <!-- city Column -->
-        <ng-container matColumnDef="City">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.City}}</mat-cell>
-        </ng-container>
-    
-        <!-- state Column -->
-        <ng-container matColumnDef="State">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.State}}</mat-cell>
-        </ng-container>
-    
-        <!-- zipCode Column -->
-        <ng-container matColumnDef="ZipCode">
-          <mat-header-cell *matHeaderCellDef>ZipCode</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.ZipCode}}</mat-cell>
-        </ng-container>
+        <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element[col]}} </mat-cell>
+        </ng-container>        
     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>

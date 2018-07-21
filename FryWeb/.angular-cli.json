@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "fw",
       "styles": [
-        "styles.css"     
+        "themes.scss",
+        "styles.css"        
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

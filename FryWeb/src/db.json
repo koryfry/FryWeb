@@ -7,7 +7,7 @@
             "City": "Holland", 
             "State": "MI", 
             "ZipCode": "49424",
-            "AvatarImage": "../../../../assets/images/GriffsWest.jpg"
+            "AvatarImage": "assets/images/GriffsWest.jpg"
         },
         {
             "id": 2, 
@@ -16,7 +16,7 @@
             "City": "Hudsonville", 
             "State": "MI", 
             "ZipCode": "49426",
-            "AvatarImage": "../../../../assets/images/GriffsWest.jpg"
+            "AvatarImage": "assets/images/Georgetown.jpg"
         },
         {
             "id": 3, 
@@ -25,7 +25,7 @@
             "City": "Walker", 
             "State": "MI", 
             "ZipCode": "49417",
-            "AvatarImage": "../../../../assets/images/GriffsWest.jpg"
+            "AvatarImage": "assets/images/Walker.jpg"
         },
         {
             "id": 4, 
@@ -34,7 +34,7 @@
             "City": "Grand Rapids", 
             "State": "MI", 
             "ZipCode": "49503",
-            "AvatarImage": "../../../../assets/images/GriffsWest.jpg"
+            "AvatarImage": "assets/images/Belknap.jpg"
         },
         {
             "id": 5, 
@@ -43,7 +43,7 @@
             "City": "Grand Rapids", 
             "State": "MI", 
             "ZipCode": "49546",
-            "AvatarImage": "../../../../assets/images/GriffsWest.jpg"
+            "AvatarImage": "assets/images/Patterson.jpg"
         }
       ]
 }

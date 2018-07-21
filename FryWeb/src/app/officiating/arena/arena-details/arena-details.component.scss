@@ -1,9 +1,9 @@
-.center{
+.center {
     width: 75%;
     margin: 10px auto;
 }
   
-.main-div{
+.main-div {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -11,9 +11,9 @@
 }
 
 .details-card-header {
-    margin: 10px auto; 
+    margin-top: -10px;
     justify-content: center;
-    border-bottom-width: 1px;
+    border-bottom-width: 2px;
     border-bottom-color: black;
     border-bottom-style: solid;
 }
@@ -22,16 +22,19 @@
     font-size: 24px;
     font-weight: bold;
     height: 4vh;
+    margin: 35px auto;
 }
 
 .officiating-card {
     max-width: 500px;
     color: black;
-    background-color:#D3D6DE; 
+    background-color:lightskyblue; 
     margin: 10px 50px;
 }
 
 .avatar-image {
-    //background-image: url('../../../../assets/images/GriffsWest.jpg');
-    background-size: cover;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
 }

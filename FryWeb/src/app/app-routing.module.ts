@@ -20,10 +20,12 @@ const routes: Routes = [
             { 
                 path: 'officiating', 
                 component: OfficiatingMainComponent,
+                data: {title: 'Officiating Main'},
                 children: [
                     { 
                         path: 'arena', 
                         component: ArenaComponent,
+                        data: {title: 'Arena Management'},
                         children: [
                             // { 
                             //     path: 'details/:id', component: ArenaDetailsComponent 
@@ -31,7 +33,7 @@ const routes: Routes = [
                         ]
                     },
                     { 
-                        path: 'details/:id', component: ArenaDetailsComponent 
+                        path: 'details/:id', component: ArenaDetailsComponent, data: {title: 'Arena Details'}
                     },
                     { path: 'ageGroup', component: AgeGroupComponent },
                     { path: 'officials', component: OfficialsComponent }

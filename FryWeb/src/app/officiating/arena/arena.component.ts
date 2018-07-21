@@ -15,11 +15,16 @@ import { ArenaService } from '../../services/arena.service';
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'Address', 'City', 'State', 'ZipCode'];
+  //displayedColumns: string[] = ['id', 'Name', 'Address', 'City', 'State', 'ZipCode'];
+  displayedColumns: string[] = [];
   data: Arena[];
   dataSource = new MatTableDataSource();
   title = 'Welcome to Arena Management'; 
   //@Output() bannerTitle: EventEmitter<string> = new EventEmitter(true);
+
+  links = ['First', 'Second', 'Third'];
+  activeLink = this.links[0];
+  background = '';
 
   @ViewChild(MatSort) sort: MatSort; 
   
@@ -37,15 +42,35 @@ export class ArenaComponent implements OnInit {
   ngOnInit() {
     this.arenaService.getArenas().subscribe(res => {      
       this.data = res;
+      this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.data);
-      this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort;      
       console.log('Data: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);
     });    
   }
 
+  generateDisplayedColumns(res: any) {   
+    var result = res;
+    if (result.length > 0) {
+      for (var i=0; i < 1; i++) {
+        var columnsFound = result[i];
+        for (var key in columnsFound) {
+          if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
+            console.log('Column name: ', key);
+            this.displayedColumns.push(key);
+          }            
+        }
+      }
+    }
+  }
+
   logRow(row: any) {
     console.log('Row selected: ', row);
+  }
+
+  toggleBackground() {
+    this.background = this.background ? '' : 'primary';
   }
 }

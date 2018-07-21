@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$fry-web-primary: mat-palette($mat-light-blue);
+$fry-web-accent: mat-palette($mat-blue-grey);
+$fry-web-warn: mat-palette($mat-red, 400);
+
+$fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn);
+
+@include angular-material-theme($fry-web-theme);
