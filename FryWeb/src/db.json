@@ -45,5 +45,49 @@
             "ZipCode": "49546",
             "AvatarImage": "assets/images/Patterson.jpg"
         }
-      ]
+    ],
+    "ageGroups": [
+        {
+            "id": 1,
+            "Name": "Squirt",
+            "Tier": "B",
+            "MinAge": 8,
+            "MaxAge": 9
+        },
+        {
+            "id": 2,
+            "Name": "Squirt",
+            "Tier": "A",
+            "MinAge": 8,
+            "MaxAge": 9
+        },
+        {
+            "id": 3,
+            "Name": "Squirt",
+            "Tier": "AA",
+            "MinAge": 8,
+            "MaxAge": 9
+        },
+        {
+            "id": 4,
+            "Name": "Pee Wee",
+            "Tier": "B",
+            "MinAge": 10,
+            "MaxAge": 12
+        },
+        {
+            "id": 5,
+            "Name": "Pee Wee",
+            "Tier": "A",
+            "MinAge": 10,
+            "MaxAge": 12
+        },
+        {
+            "id": 6,
+            "Name": "Pee Wee",
+            "Tier": "AA",
+            "MinAge": 10,
+            "MaxAge": 12
+        }
+    ]
 }

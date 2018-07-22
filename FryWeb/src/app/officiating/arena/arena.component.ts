@@ -21,11 +21,6 @@ export class ArenaComponent implements OnInit {
   dataSource = new MatTableDataSource();
   title = 'Welcome to Arena Management'; 
   //@Output() bannerTitle: EventEmitter<string> = new EventEmitter(true);
-
-  links = ['First', 'Second', 'Third'];
-  activeLink = this.links[0];
-  background = '';
-
   @ViewChild(MatSort) sort: MatSort; 
   
   applyFilter(filterValue: string) {
@@ -58,7 +53,7 @@ export class ArenaComponent implements OnInit {
         var columnsFound = result[i];
         for (var key in columnsFound) {
           if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
-            console.log('Column name: ', key);
+            //console.log('Column name: ', key);
             this.displayedColumns.push(key);
           }            
         }
@@ -68,9 +63,5 @@ export class ArenaComponent implements OnInit {
 
   logRow(row: any) {
     console.log('Row selected: ', row);
-  }
-
-  toggleBackground() {
-    this.background = this.background ? '' : 'primary';
   }
 }

@@ -1,12 +1,15 @@
-<button class="btn btn-secondary rounded pull right" style="float:right; margin: 10px;" [routerLink]="['../../arena']">
-    <mat-icon style="vertical-align: middle;">home</mat-icon>  
-    <div style="display:inline-block; vertical-align: middle;">Back to Arena List</div>
-</button>
+<nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
+    <a mat-tab-link></a>
+    <button class="btn btn-secondary rounded" style="float:right; margin:3px 5px 8px 5px;" [routerLink]="['../../arena']">
+        <mat-icon style="vertical-align: middle;">home</mat-icon>  
+        <div style="display:inline-block; vertical-align: middle;">Back to Arena List</div>
+    </button>
+</nav>
 
 <br>
-<br>
+<!-- <br> -->
 
-<mat-card class="officiating-card">
+<mat-card class="officiating-card fry-web-alt-theme">
     <mat-card-header class="details-card-header">
         <img mat-card-avatar class="avatar-image" src={{arena?.AvatarImage}}>
         <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>

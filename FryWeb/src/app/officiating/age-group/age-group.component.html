@@ -1,3 +1,35 @@
-<p>Welcome to the main page for Age Group Management</p>
-
-<mat-checkbox color="accent">Check me!</mat-checkbox>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav-content>
+            
+        <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
+        <a mat-tab-link></a>
+        <button class="btn btn-secondary rounded" style="float: right; margin:3px 5px 8px 5px;" [routerLink]="['../../officiating']">
+            <mat-icon style="vertical-align: middle;">home</mat-icon>  
+            <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
+        </button>
+        </nav>
+            
+        <br *ngIf="route.children.length === 0">
+    
+        <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
+        <div class="example-header">
+            <mat-form-field color="primary">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an Age Group">
+            </mat-form-field>
+        </div>
+        
+        <mat-table #table [dataSource]="dataSource" matSort class="arena-table">
+        
+            <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element[col]}} </mat-cell>
+            </ng-container>        
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>
+        </mat-table>
+        </div>
+        
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

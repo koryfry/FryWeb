@@ -1,10 +1,55 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$fry-web-primary: mat-palette($mat-light-blue);
+// Default theme
+$fry-web-primary: mat-palette($mat-blue);
 $fry-web-accent: mat-palette($mat-blue-grey);
-$fry-web-warn: mat-palette($mat-red, 400);
+$fry-web-warn: mat-palette($mat-red);
 
 $fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn);
 
+@mixin angular-material-theme($fry-web-theme) {
+    @include mat-core-theme($fry-web-theme);
+    @include mat-autocomplete-theme($fry-web-theme);
+    @include mat-button-theme($fry-web-theme);
+    @include mat-button-toggle-theme($fry-web-theme);
+    @include mat-card-theme($fry-web-theme);
+    @include mat-checkbox-theme($fry-web-theme);
+    @include mat-chips-theme($fry-web-theme);
+    @include mat-table-theme($fry-web-theme);
+    @include mat-datepicker-theme($fry-web-theme);
+    @include mat-dialog-theme($fry-web-theme);
+    @include mat-divider-theme($fry-web-theme);
+    @include mat-expansion-panel-theme($fry-web-theme);
+    @include mat-form-field-theme($fry-web-theme);
+    @include mat-grid-list-theme($fry-web-theme);
+    @include mat-icon-theme($fry-web-theme);
+    @include mat-input-theme($fry-web-theme);
+    @include mat-list-theme($fry-web-theme);
+    @include mat-menu-theme($fry-web-theme);
+    @include mat-paginator-theme($fry-web-theme);
+    @include mat-progress-bar-theme($fry-web-theme);
+    @include mat-progress-spinner-theme($fry-web-theme);
+    @include mat-radio-theme($fry-web-theme);
+    @include mat-select-theme($fry-web-theme);
+    @include mat-sidenav-theme($fry-web-theme);
+    @include mat-slide-toggle-theme($fry-web-theme);
+    @include mat-slider-theme($fry-web-theme);
+    @include mat-stepper-theme($fry-web-theme);
+    @include mat-tabs-theme($fry-web-theme);
+    @include mat-toolbar-theme($fry-web-theme);
+    @include mat-tooltip-theme($fry-web-theme);
+}
+
 @include angular-material-theme($fry-web-theme);
+
+.fry-web-alt-theme {
+    // Alternate theme
+    $fry-web-alt-primary: mat-palette($mat-light-blue);
+    $fry-web-alt-accent: mat-palette($mat-grey);
+    $fry-web-alt-warn: mat-palette($mat-red,300);
+
+    $fry-web-alt-theme: mat-dark-theme($fry-web-alt-primary, $fry-web-alt-accent, $fry-web-alt-warn);
+
+    @include angular-material-theme($fry-web-alt-theme);
+}

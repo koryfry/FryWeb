@@ -25,6 +25,7 @@ import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-d
 
 // Import Services
 import { ArenaService } from './services/arena.service';
+import { AgeGroupService } from 'app/services/age-group.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ArenaService } from './services/arena.service';
     AppRoutingModule
   ],
   providers: [
-    ArenaService
+    ArenaService,
+    AgeGroupService
   ],
   bootstrap: [AppComponent]
 })
