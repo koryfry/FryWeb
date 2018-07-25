@@ -9,23 +9,29 @@
 <br>
 <!-- <br> -->
 
-<mat-card class="officiating-card fry-web-alt-theme">
-    <mat-card-header class="details-card-header">
-        <img mat-card-avatar class="avatar-image" src={{arena?.AvatarImage}}>
-        <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <br>
-        <div><b>Address</b></div>
-        <div>{{arena?.Address}}</div>
-        <br>
-        <div><b>City</b></div>
-        <div>{{arena?.City}}</div>
-        <br>
-        <div><b>State</b></div>
-        <div>{{arena?.State}}</div>
-        <br>
-        <div><b>Zipcode</b></div>
-        <div>{{arena?.ZipCode}}</div>
-    </mat-card-content>
-</mat-card>
+<div *ngIf="!arena">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="arena">
+    <mat-card class="officiating-card fry-web-alt-theme">
+        <mat-card-header class="details-card-header">
+            <img mat-card-avatar class="avatar-image" src={{arena?.AvatarImage}}>
+            <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <br>
+            <div><b>Address</b></div>
+            <div>{{arena?.Address}}</div>
+            <br>
+            <div><b>City</b></div>
+            <div>{{arena?.City}}</div>
+            <br>
+            <div><b>State</b></div>
+            <div>{{arena?.State}}</div>
+            <br>
+            <div><b>Zipcode</b></div>
+            <div>{{arena?.ZipCode}}</div>
+        </mat-card-content>
+    </mat-card>
+</div>

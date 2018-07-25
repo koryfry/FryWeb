@@ -11,7 +11,11 @@
         
     <br *ngIf="route.children.length === 0">
 
-    <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
+    <div *ngIf="!dataSource">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0 && dataSource">
       <div class="example-header">
         <mat-form-field color="primary">
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">

@@ -47,7 +47,7 @@ export class AgeGroupComponent implements OnInit {
         var columnsFound = result[i];
         for (var key in columnsFound) {
           if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
-            //console.log('Column name: ', key);
+            console.log('Column name: ', key);
             this.displayedColumns.push(key);
           }            
         }
