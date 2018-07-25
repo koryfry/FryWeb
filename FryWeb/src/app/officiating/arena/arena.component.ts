@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -22,6 +22,7 @@ export class ArenaComponent implements OnInit {
   title = 'Welcome to Arena Management'; 
   //@Output() bannerTitle: EventEmitter<string> = new EventEmitter(true);
   @ViewChild(MatSort) sort: MatSort; 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -39,7 +40,8 @@ export class ArenaComponent implements OnInit {
       this.data = res;
       this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.data);
-      this.dataSource.sort = this.sort;      
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
       console.log('Data: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);

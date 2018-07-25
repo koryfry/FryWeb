@@ -12,22 +12,24 @@
         <br *ngIf="route.children.length === 0">
     
         <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
-        <div class="example-header">
-            <mat-form-field color="primary">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an Age Group">
-            </mat-form-field>
-        </div>
-        
-        <mat-table #table [dataSource]="dataSource" matSort class="arena-table">
-        
-            <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element[col]}} </mat-cell>
-            </ng-container>        
-        
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>
-        </mat-table>
+            <div class="example-header">
+                <mat-form-field color="primary">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an Age Group">
+                </mat-form-field>
+            </div>
+            
+            <mat-table #table [dataSource]="dataSource" matSort class="arena-table">
+            
+                <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element[col]}} </mat-cell>
+                </ng-container>        
+            
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[1, 2, 5]" showFirstLastButtons></mat-paginator>
         </div>
         
         <router-outlet></router-outlet>

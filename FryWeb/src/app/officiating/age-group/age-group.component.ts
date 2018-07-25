@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -19,6 +19,7 @@ export class AgeGroupComponent implements OnInit {
   ageGroups: AgeGroup[];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort; 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -34,6 +35,7 @@ export class AgeGroupComponent implements OnInit {
       this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.ageGroups);
       this.dataSource.sort = this.sort; 
+      this.dataSource.paginator = this.paginator;
       console.log('Age Groups: ', this.ageGroups);
     }, err => {
       console.log('Error: ', err);
