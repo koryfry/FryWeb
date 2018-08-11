@@ -25,11 +25,11 @@
     margin: 35px auto;
 }
 
-.officiating-card {
+.arena-card {
     max-width: 500px;
     color: black;
     background-color:lightskyblue; 
-    margin: 10px 35px;
+    padding: 24px;
 }
 
 .avatar-image {
@@ -37,4 +37,8 @@
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
+}
+
+.mat-chip {
+    font-size: 24px;
 }

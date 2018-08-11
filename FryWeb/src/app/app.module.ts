@@ -22,6 +22,8 @@ import { ArenaComponent } from './officiating/arena/arena.component';
 import { AgeGroupComponent } from './officiating/age-group/age-group.component';
 import { OfficialsComponent } from './officiating/officials/officials.component';
 import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
+import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
+import { CardComponent } from './shared/components/card/card.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
@@ -39,7 +41,9 @@ import { AgeGroupService } from 'app/services/age-group.service';
     ArenaComponent,
     AgeGroupComponent,
     OfficialsComponent,
-    ArenaDetailsComponent
+    ArenaDetailsComponent,
+    AddressDisplayComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

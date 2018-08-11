@@ -1,0 +1,19 @@
+:host{
+    margin:.5em .5em .5em 35px;
+    display:flex;
+
+    mat-card{
+        flex-grow:1;
+    }
+}
+.mat-card {
+    border-radius:8px;
+    border: 1px solid lightgray;
+    box-shadow: none;
+    display:block;
+    max-width: 500px;
+    //margin: 10px 35px;
+    color: black;
+    background-color:lightskyblue;
+    padding:0;
+}

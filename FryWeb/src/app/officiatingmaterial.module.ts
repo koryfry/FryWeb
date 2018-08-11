@@ -3,7 +3,7 @@ import {
     MatCardModule, MatButtonModule, MatTabsModule, MatTableModule, 
     MatFormFieldModule, MatInputModule, MatCheckboxModule, MatSidenavModule,
     MatIconModule, MatToolbarModule, MatListModule, MatSortModule, MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule, MatChipsModule
 } from '@angular/material';
 
 @NgModule({
@@ -21,7 +21,8 @@ import {
         MatListModule,
         MatSortModule,
         MatProgressSpinnerModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatChipsModule
     ],
     exports: [
         MatCardModule,
@@ -37,7 +38,8 @@ import {
         MatListModule,
         MatSortModule,
         MatProgressSpinnerModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatChipsModule
     ]
   })
 

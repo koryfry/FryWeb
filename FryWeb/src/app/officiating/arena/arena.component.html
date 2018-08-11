@@ -16,6 +16,13 @@
     </div>
 
     <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0 && dataSource">
+      <div>
+        <button mat-raised-button color="primary" class="btn float-right addArena">
+            <mat-icon style="vertical-align: middle;">add</mat-icon>  
+            <div style="display:inline-block; vertical-align: middle;">New Arena</div>
+        </button>
+      </div>     
+
       <div class="example-header">
         <mat-form-field color="primary">
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">
@@ -30,10 +37,11 @@
         </ng-container>        
     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]">
+        </mat-row>
       </mat-table>
 
-      <mat-paginator [pageSizeOptions]="[1, 2, 5]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[1,2,5]" [pageSize]="[5]" showFirstLastButtons></mat-paginator>
     </div>
     
     <router-outlet></router-outlet>
