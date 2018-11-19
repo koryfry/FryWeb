@@ -29,7 +29,7 @@
                 <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]"></mat-row>
             </mat-table>
 
-            <mat-paginator [pageSizeOptions]="[1, 2, 5]" showFirstLastButtons></mat-paginator>
+            <mat-paginator [pageSizeOptions]="[1, 2, 5]" [pageSize]="[5]" showFirstLastButtons></mat-paginator>
         </div>
         
         <router-outlet></router-outlet>

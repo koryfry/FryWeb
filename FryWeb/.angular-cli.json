@@ -20,7 +20,8 @@
       "prefix": "fw",
       "styles": [
         "themes.scss",
-        "styles.css"        
+        "styles.css",
+        "fryWeb.scss"        
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -59,6 +60,5 @@
         "module": { "spec": true },    
         "pipe": { "spec": true },    
         "service": { "spec": true }    
-    },    
-  "packageManager": "npm"
+    }
 }

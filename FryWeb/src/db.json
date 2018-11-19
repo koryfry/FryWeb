@@ -89,5 +89,18 @@
             "MinAge": 10,
             "MaxAge": 12
         }
+    ],
+    "officials": [
+        {
+            "id": 1,
+            "First Name": "Kory",
+            "Last Name": "Fry",
+            "Level": 3,
+            "Years Experience": 17,
+            "Address": "2948 Millpond Drive West Apt 2B",
+            "City":"Holland",
+            "State":"MI",
+            "ZipCode": "49424"
+        }
     ]
 }

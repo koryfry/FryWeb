@@ -8,6 +8,7 @@ import { AgeGroup } from '../../models/ageGroup/age-group.model';
 
 // Import Services
 import { AgeGroupService } from '../../services/age-group.service';
+import { TableDisplayService } from "../../shared/services/table-display.service";
 
 @Component({
   selector: 'fw-age-group',
@@ -27,12 +28,13 @@ export class AgeGroupComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private ageGroupService: AgeGroupService) { }
+  constructor(private route: ActivatedRoute, private ageGroupService: AgeGroupService, private tableDisplayService: TableDisplayService ) { }
 
   ngOnInit() {
     this.ageGroupService.getAgeGroups().subscribe(res => {
       this.ageGroups = res;
-      this.generateDisplayedColumns(res);
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
+      //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.ageGroups);
       this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;

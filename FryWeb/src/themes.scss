@@ -4,7 +4,7 @@
 // Default theme
 $fry-web-primary: mat-palette($mat-blue);
 $fry-web-accent: mat-palette($mat-blue-grey);
-$fry-web-warn: mat-palette($mat-red);
+$fry-web-warn: mat-palette($mat-red,600);
 
 $fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn);
 

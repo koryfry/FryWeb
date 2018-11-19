@@ -28,6 +28,8 @@ import { CardComponent } from './shared/components/card/card.component';
 // Import Services
 import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
+import { TableDisplayService } from 'app/shared/services/table-display.service';
+import { OfficialsService } from 'app/services/officials.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { AgeGroupService } from 'app/services/age-group.service';
   ],
   providers: [
     ArenaService,
-    AgeGroupService
+    AgeGroupService,
+    TableDisplayService,
+    OfficialsService
   ],
   bootstrap: [AppComponent]
 })

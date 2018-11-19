@@ -1,0 +1,55 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 8px 15px 0;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+  
+.mat-table {
+    overflow: auto;
+    max-height: 600px;
+}
+
+.arena-table {
+    margin: 0 15px 10px 15px; 
+    box-shadow: 2px 2px 2px 2px;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+    color: black;
+}
+
+.mat-row:nth-child(even) {
+    background-color: aliceblue;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: lightgray;
+}
+
+.mat-header-cell {
+    font-weight: bold !important;
+    color: black !important;
+    font-size: 14px;
+}
+
+.mat-header-row {
+    background-color: #2196f3;
+    //background-color: #03a9f4;
+}
+
+.addArena {
+    width: 160px;
+    margin: 10px 12px 0px 0px;
+    font-weight: 500;
+    border-radius: 0.25em;
+}

@@ -1,3 +1,5 @@
+@import "~styles/variables.scss";
+
 :host{
     margin:.5em .5em .5em 35px;
     display:flex;
@@ -12,8 +14,7 @@
     box-shadow: none;
     display:block;
     max-width: 500px;
-    //margin: 10px 35px;
     color: black;
-    background-color:lightskyblue;
+    background-color: $fwBlue;//lightskyblue;
     padding:0;
 }

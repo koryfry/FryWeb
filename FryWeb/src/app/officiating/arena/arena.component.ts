@@ -8,6 +8,7 @@ import { Arena } from '../../models/arena/arena.model';
 
 // Import Services
 import { ArenaService } from '../../services/arena.service';
+import { TableDisplayService } from "../../shared/services/table-display.service";
 
 @Component({
   selector: 'fw-arena',
@@ -30,7 +31,7 @@ export class ArenaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private arenaService: ArenaService) 
+  constructor(private route: ActivatedRoute, private arenaService: ArenaService, private tableDisplayService: TableDisplayService) 
   { 
     //this.bannerTitle.emit(this.title);
   }
@@ -38,7 +39,8 @@ export class ArenaComponent implements OnInit {
   ngOnInit() {
     this.arenaService.getArenas().subscribe(res => {      
       this.data = res;
-      this.generateDisplayedColumns(res);
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
+      //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

@@ -2,8 +2,8 @@
 
 .officiating-card {
     max-width: 250px;
-    background-color: #2c7feb;
-    color: #ffffff;
+    background-color: $fwBlue;//#2c7feb;
+    color: $white;//#ffffff;
 }
 
 .officiating-header-image {
@@ -13,8 +13,8 @@
 
 .shooting-card {
     max-width: 250px;
-    background-color: #f25858;
-    color: #ffffff;
+    background-color: $fwRed;
+    color: $white;//#ffffff;
 }
   
 .shooting-header-image {
