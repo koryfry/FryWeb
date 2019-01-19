@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 // Import model
 import { Official } from '../../models/official/official.model';
@@ -21,7 +21,7 @@ export class OfficialsComponent implements OnInit {
   dataSource = new MatTableDataSource();
   title = 'Welcome to Officials Management';
   @ViewChild(MatSort) sort: MatSort; 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  //@ViewChild(MatPaginator) paginator: MatPaginator;
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -33,11 +33,12 @@ export class OfficialsComponent implements OnInit {
 
   ngOnInit() {
     this.officialsService.getOfficials().subscribe(res => {
-      this.officials = res;this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
+      this.officials = res;
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
       //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.officials);
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
+
       console.log('Data: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);

@@ -3,10 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
-//import { MatCardModule, MatButtonModule, MatTabsModule } from '@angular/material';
  import { FormsModule } from '@angular/forms';
-// import { HttpModule } from '@angular/http';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import swal from 'sweetalert2';
 
@@ -52,12 +49,7 @@ import { OfficialsService } from 'app/services/officials.service';
     BrowserAnimationsModule,
     HttpClientModule,
     OfficiatingMaterialModule,
-    // MatCardModule,
-    // MatButtonModule,
-    // MatTabsModule,
-     FormsModule,
-    // HttpModule,
-    //NgbModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [

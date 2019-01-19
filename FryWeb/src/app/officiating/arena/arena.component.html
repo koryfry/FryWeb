@@ -3,7 +3,7 @@
         
     <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
       <a mat-tab-link></a>
-      <button class="btn btn-secondary rounded" style="float: right; margin:3px 5px 8px 5px;" [routerLink]="['../../officiating']">
+      <button mat-raised-button style="position:absolute; right:10px; margin:5px 5px 8px 5px;" [routerLink]="['../../officiating']">
         <mat-icon style="vertical-align: middle;">home</mat-icon>  
         <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
       </button>
@@ -29,19 +29,16 @@
         </mat-form-field>
       </div>
     
-      <mat-table #table [dataSource]="dataSource" matSort class="arena-table">
-    
+      <table mat-table [dataSource]="dataSource" matSort class="arena-table">
+          
         <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element[col]}} </mat-cell>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
         </ng-container>        
-    
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="logRow(row)" [routerLink]="['../details', row.id]">
-        </mat-row>
-      </mat-table>
-
-      <mat-paginator [pageSizeOptions]="[1,2,5]" [pageSize]="[5]" showFirstLastButtons></mat-paginator>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row)" [routerLink]="['../details', row.id]"></tr>
+      </table>
     </div>
     
     <router-outlet></router-outlet>

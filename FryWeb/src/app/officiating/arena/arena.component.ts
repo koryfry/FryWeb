@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 // Import model
 import { Arena } from '../../models/arena/arena.model';
