@@ -97,7 +97,40 @@
             "Last Name": "Fry",
             "Level": 3,
             "Years Experience": 17,
-            "Address": "2948 Millpond Drive West Apt 2B",
+            "Address": "1234 Puck Hog Lane",
+            "City":"Holland",
+            "State":"MI",
+            "ZipCode": "49424"
+        },
+        {
+            "id": 2,
+            "First Name": "Ryan",
+            "Last Name": "Fry",
+            "Level": 3,
+            "Years Experience": 21,
+            "Address": "1234 Puck Hog Lane",
+            "City":"Zeeland",
+            "State":"MI",
+            "ZipCode": "49424"
+        },
+        {
+            "id": 3,
+            "First Name": "Kyle",
+            "Last Name": "Fry",
+            "Level": 3,
+            "Years Experience": 17,
+            "Address": "1234 Puck Hog Lane",
+            "City":"Muskegon",
+            "State":"MI",
+            "ZipCode": "49424"
+        },
+        {
+            "id": 1,
+            "First Name": "Dave",
+            "Last Name": "Fry",
+            "Level": 3,
+            "Years Experience": 38,
+            "Address": "1234 Puck Hog Lane",
             "City":"Holland",
             "State":"MI",
             "ZipCode": "49424"

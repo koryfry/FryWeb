@@ -16,12 +16,10 @@ import { TableDisplayService } from "../../shared/services/table-display.service
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  //displayedColumns: string[] = ['id', 'Name', 'Address', 'City', 'State', 'ZipCode'];
   displayedColumns: string[] = [];
   data: Arena[];
   dataSource = new MatTableDataSource();
-  title = 'Welcome to Arena Management'; 
-  //@Output() bannerTitle: EventEmitter<string> = new EventEmitter(true);
+  title = 'Welcome to Arena Management';
   @ViewChild(MatSort) sort: MatSort; 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
@@ -31,16 +29,15 @@ export class ArenaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private arenaService: ArenaService, private tableDisplayService: TableDisplayService) 
-  { 
-    //this.bannerTitle.emit(this.title);
-  }
+  constructor(private route: ActivatedRoute, 
+    private arenaService: ArenaService, 
+    private tableDisplayService: TableDisplayService
+  ){}
 
   ngOnInit() {
     this.arenaService.getArenas().subscribe(res => {      
       this.data = res;
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-      //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -57,7 +54,6 @@ export class ArenaComponent implements OnInit {
         var columnsFound = result[i];
         for (var key in columnsFound) {
           if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
-            //console.log('Column name: ', key);
             this.displayedColumns.push(key);
           }            
         }

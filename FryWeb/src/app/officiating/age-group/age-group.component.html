@@ -2,14 +2,24 @@
     <mat-sidenav-content>
             
         <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
-        <a mat-tab-link></a>
-        <button mat-raised-button style="position:absolute; right:10px; margin:5px 5px 8px 5px;" [routerLink]="['../../officiating']">
-            <mat-icon style="vertical-align: middle;">home</mat-icon>  
-            <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
-        </button>
+            <a mat-tab-link></a>
+            <button mat-raised-button style="position:absolute; right:10px; margin:5px 5px 8px 5px;" [routerLink]="['../../officiating']">
+                <mat-icon style="vertical-align: middle;">home</mat-icon>  
+                <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
+            </button>
         </nav>
             
         <br *ngIf="route.children.length === 0">
+
+        <div *ngIf="!dataSource">
+            <mat-spinner></mat-spinner>
+        </div>
+    
+        <div class="add-ageGroup-fab">
+            <button mat-fab color="primary" title="Add Age Group" [disabled]="dataSource.data.length === 0 || !dataSource.data.length">
+                <mat-icon >add</mat-icon>  
+            </button>
+        </div>
     
         <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
             <div class="example-header">
@@ -21,8 +31,8 @@
             <table mat-table [dataSource]="dataSource" matSort class="arena-table">
                     
                 <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</th>
-                <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</th>
+                    <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
                 </ng-container>        
             
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

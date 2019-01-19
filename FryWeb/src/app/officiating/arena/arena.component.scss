@@ -33,7 +33,7 @@
 }
 
 .mat-row:nth-child(odd) {
-    background-color: lightgray;
+    background-color: white;
 }
 
 .mat-header-cell {
@@ -44,7 +44,6 @@
 
 .mat-header-row {
     background-color: #2196f3;
-    //background-color: #03a9f4;
 }
 
 .addArena {
@@ -52,4 +51,10 @@
     margin: 10px 12px 0px 0px;
     font-weight: 500;
     border-radius: 0.25em;
+}
+
+.add-arena-fab {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
 }

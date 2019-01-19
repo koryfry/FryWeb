@@ -29,13 +29,15 @@ export class OfficialsComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private officialsService: OfficialsService, private tableDisplayService: TableDisplayService) { }
+  constructor(private route: ActivatedRoute, 
+    private officialsService: OfficialsService, 
+    private tableDisplayService: TableDisplayService
+  ) { }
 
   ngOnInit() {
     this.officialsService.getOfficials().subscribe(res => {
       this.officials = res;
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-      //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.officials);
       this.dataSource.sort = this.sort;
 

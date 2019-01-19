@@ -28,13 +28,15 @@ export class AgeGroupComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private route: ActivatedRoute, private ageGroupService: AgeGroupService, private tableDisplayService: TableDisplayService ) { }
+  constructor(private route: ActivatedRoute, 
+    private ageGroupService: AgeGroupService, 
+    private tableDisplayService: TableDisplayService 
+  ) { }
 
   ngOnInit() {
     this.ageGroupService.getAgeGroups().subscribe(res => {
       this.ageGroups = res;
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-      //this.generateDisplayedColumns(res);
       this.dataSource = new MatTableDataSource(this.ageGroups);
       this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;
