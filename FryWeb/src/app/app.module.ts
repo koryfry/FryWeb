@@ -3,8 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
- import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { OfficiatingStateModule } from 'app/officiating/state/state.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import swal from 'sweetalert2';
 
 // Import Components
@@ -27,6 +29,7 @@ import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
+import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 
 @NgModule({
   declarations: [
@@ -50,13 +53,16 @@ import { OfficialsService } from 'app/services/officials.service';
     HttpClientModule,
     OfficiatingMaterialModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OfficiatingStateModule,
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     ArenaService,
     AgeGroupService,
     TableDisplayService,
-    OfficialsService
+    OfficialsService,
+    AgeGroupFacade
   ],
   bootstrap: [AppComponent]
 })

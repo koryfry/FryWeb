@@ -3,7 +3,7 @@
 
 // Default theme
 $fry-web-primary: mat-palette($mat-blue);
-$fry-web-accent: mat-palette($mat-blue-grey);
+$fry-web-accent: mat-palette($mat-blue-grey,100);
 $fry-web-warn: mat-palette($mat-red,600);
 
 $fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn);
@@ -46,7 +46,7 @@ $fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn
 .fry-web-alt-theme {
     // Alternate theme
     $fry-web-alt-primary: mat-palette($mat-light-blue);
-    $fry-web-alt-accent: mat-palette($mat-grey);
+    $fry-web-alt-accent: mat-palette($mat-grey, 400);
     $fry-web-alt-warn: mat-palette($mat-red,300);
 
     $fry-web-alt-theme: mat-dark-theme($fry-web-alt-primary, $fry-web-alt-accent, $fry-web-alt-warn);
