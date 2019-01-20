@@ -20,19 +20,17 @@ const routes: Routes = [
             { 
                 path: 'officiating', 
                 component: OfficiatingMainComponent,
-                //data: {title: 'Officiating Main'},
                 children: [
                     { 
                         path: 'arena', 
                         component: ArenaComponent,
-                        //data: {title: 'Arena Management'}
                     },
                     { 
                         path: 'details/:id', component: ArenaDetailsComponent, data: {title: 'Arena Details'}
                     },
                     { path: 'ageGroup', component: AgeGroupComponent },
-                    { path: 'officials', component: OfficialsComponent }//,
-                    //{ path: '', redirectTo: 'arena', pathMatch: 'full' }
+                    { path: 'officials', component: OfficialsComponent },
+                    { path: '', redirectTo: 'arena', pathMatch: 'full' }
                 ]
             }
         ]

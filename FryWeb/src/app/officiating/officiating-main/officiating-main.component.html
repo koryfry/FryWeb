@@ -1,13 +1,14 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav-content>        
-      <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length ===0" [disableRipple]="true">
+      <!-- <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length ===0" [disableRipple]="true">
         <a mat-tab-link
-            *ngFor="let link of links"
-            [routerLink]="link.routerLink"
-            routerLinkActive #rla="routerLinkActive"
+            *ngFor="let tab of tabs"
+            [routerLink]="tab.path"
+            routerLinkActive 
+            #rla="routerLinkActive"
             [active]="rla.isActive"
             class="tab-link">
-          {{link.label}}
+          {{tab.label}}
         </a>
         <button mat-raised-button style="position:absolute; right:10px; margin:5px;" [routerLink]="['/home']">
           <mat-icon style="vertical-align: middle;">home</mat-icon>
@@ -15,8 +16,8 @@
         </button>
       </nav>
         
-      <br *ngIf="route.children.length === 0">
-
+      <br *ngIf="route.children.length === 0"> -->
+      <fw-tab-group [tabs]="tabs"></fw-tab-group>
       <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

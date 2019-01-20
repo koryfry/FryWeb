@@ -1,14 +1,6 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav-content>
         
-    <nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
-      <a mat-tab-link></a>
-      <button mat-raised-button style="position:absolute; right:10px; margin:5px 5px 8px 5px;" [routerLink]="['../../officiating']">
-        <mat-icon style="vertical-align: middle;">home</mat-icon>  
-        <div style="display:inline-block; vertical-align: middle;">Back to Officiating Main Page</div>
-      </button>
-    </nav>
-        
     <br *ngIf="route.children.length === 0">
 
     <div *ngIf="!dataSource">

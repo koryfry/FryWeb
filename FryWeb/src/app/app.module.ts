@@ -30,6 +30,7 @@ import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
+import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.
     OfficialsComponent,
     ArenaDetailsComponent,
     AddressDisplayComponent,
-    CardComponent
+    CardComponent,
+    FwTabGroupComponent
   ],
   imports: [
     BrowserModule,
