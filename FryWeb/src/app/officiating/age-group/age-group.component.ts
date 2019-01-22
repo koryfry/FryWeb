@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
@@ -60,31 +60,10 @@ export class AgeGroupComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    // this.ageGroupService.getAgeGroups().subscribe(res => {
-    //   this.ageGroups = res;
-    //   this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-    //   this.dataSource = new MatTableDataSource(this.ageGroups);
-    //   this.dataSource.sort = this.sort; 
-    //   this.dataSource.paginator = this.paginator;
-    //   console.log('Age Groups: ', this.ageGroups);
-    // }, err => {
-    //   console.log('Error: ', err);
-    // });
+  ngOnDestroy() {
+    this._componentDestroyed$.next(true);
+		this._componentDestroyed$.complete();
   }
 
-  generateDisplayedColumns(res: any) {   
-    var result = res;
-    if (result.length > 0) {
-      for (var i=0; i < 1; i++) {
-        var columnsFound = result[i];
-        for (var key in columnsFound) {
-          if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
-            console.log('Column name: ', key);
-            this.displayedColumns.push(key);
-          }            
-        }
-      }
-    }
-  }
+  ngOnInit() {}
 }

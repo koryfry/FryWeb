@@ -23,14 +23,17 @@ import { OfficialsComponent } from './officiating/officials/officials.component'
 import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
 import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
 import { CardComponent } from './shared/components/card/card.component';
+import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
+
+// Import State Related Items
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
-import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
+import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,8 @@ import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-gro
     AgeGroupService,
     TableDisplayService,
     OfficialsService,
-    AgeGroupFacade
+    AgeGroupFacade,
+    ArenaFacade
   ],
   bootstrap: [AppComponent]
 })

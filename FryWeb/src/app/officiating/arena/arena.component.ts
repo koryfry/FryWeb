@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription, Subject } from 'rxjs';
 
 // Import model
 import { Arena } from '../../models/arena/arena.model';
@@ -10,6 +10,10 @@ import { Arena } from '../../models/arena/arena.model';
 import { ArenaService } from '../../services/arena.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
 
+// Import State items
+import { ArenaFacade } from './state';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+
 @Component({
   selector: 'fw-arena',
   templateUrl: './arena.component.html',
@@ -17,8 +21,14 @@ import { TableDisplayService } from "../../shared/services/table-display.service
 })
 export class ArenaComponent implements OnInit {
   displayedColumns: string[] = [];
-  data: Arena[];
+  arenas: Arena[];
   dataSource = new MatTableDataSource();
+  arenas$: Observable<Arena[]>;
+  ar: Subscription;
+  
+  private _componentDestroyed$: Subject<boolean> = new Subject();
+
+
   title = 'Welcome to Arena Management';
   @ViewChild(MatSort) sort: MatSort; 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,37 +41,35 @@ export class ArenaComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private arenaService: ArenaService, 
-    private tableDisplayService: TableDisplayService
-  ){}
+    private tableDisplayService: TableDisplayService,
+    private arenaFacade: ArenaFacade
+  )
+  {
+    this.arenaFacade.loadAgeGroups();
+    this.arenas$ = this.arenaFacade.arenas$;
 
-  ngOnInit() {
-    this.arenaService.getArenas().subscribe(res => {      
-      this.data = res;
-      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-      this.dataSource = new MatTableDataSource(this.data);
+    this.ar = this.arenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
+      const arenas = ars;
+      this.arenas = arenas ? arenas : new Array<Arena>();
+
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.arenas);
+      this.dataSource = new MatTableDataSource(this.arenas);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      console.log('Data: ', this.dataSource);
+      console.log('Arenas: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);
-    });    
-  }
-
-  generateDisplayedColumns(res: any) {   
-    var result = res;
-    if (result.length > 0) {
-      for (var i=0; i < 1; i++) {
-        var columnsFound = result[i];
-        for (var key in columnsFound) {
-          if ( (!key.toString().toLowerCase().startsWith('avatar')) && (!key.toString().toLowerCase().startsWith('id')) ) {
-            this.displayedColumns.push(key);
-          }            
-        }
-      }
-    }
+    });  
   }
 
   logRow(row: any) {
     console.log('Row selected: ', row);
+  } 
+  
+  ngOnDestroy() {
+    this._componentDestroyed$.next(true);
+		this._componentDestroyed$.complete();
   }
+
+  ngOnInit() {}
 }
