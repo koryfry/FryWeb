@@ -34,6 +34,7 @@ import { OfficialsService } from 'app/services/officials.service';
 // Import State Related Items
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
+import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades'; 
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
     TableDisplayService,
     OfficialsService,
     AgeGroupFacade,
-    ArenaFacade
+    ArenaFacade,
+    OfficialsFacade
   ],
   bootstrap: [AppComponent]
 })

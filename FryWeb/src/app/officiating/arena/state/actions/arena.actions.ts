@@ -11,22 +11,22 @@ export enum ArenaActionTypes {
     LoadArenasRequestFail = '[Arena] Load Arena Request Fail'
 }
 
-export class LoadArenasRequestRequest implements Action {
+export class LoadArenasRequest implements Action {
 	readonly type = ArenaActionTypes.LoadArenasRequest;
 }
 
-export class LoadArenasRequestRequestSuccess implements Action {
+export class LoadArenasRequestSuccess implements Action {
 	readonly type = ArenaActionTypes.LoadArenasRequestSuccess;
 	constructor(public arenas: Arena[]) {}
 }
 
-export class LoadArenasRequestRequestFail implements Action {
+export class LoadArenasRequestFail implements Action {
 	readonly type = ArenaActionTypes.LoadArenasRequestFail;
 	constructor(payload: any) {}
 }
 
 
 export type ArenaActions = 
-    LoadArenasRequestRequest
-    | LoadArenasRequestRequestSuccess
-    | LoadArenasRequestRequestFail;
+    LoadArenasRequest
+    | LoadArenasRequestSuccess
+    | LoadArenasRequestFail;
