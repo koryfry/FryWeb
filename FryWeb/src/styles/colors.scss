@@ -1,0 +1,86 @@
+/** Fry Web colors */
+
+// Blue
+$fwDarkestBlue: #00539F;
+$fwMediumDarkBlue: #0560B4;
+$fwMediumBlue: #2196f3;
+$fwMediumLightBlue: #51A8FF;
+$fwLightBlue: #71C0FF;
+$fwLightestBlue: #B1DCFF;
+
+// Green
+$fwDarkestGreen: #006400;
+$fwMediumDarkGreen: #008000;
+$fwMediumGreen: #32CD32;
+$fwMediumLightGreen: #24C28A;
+$fwLightGreen: #7FFF00;
+$fwLightestGreen: #7CFC00;
+
+// Red
+$fwDarkestRed: #8B0000;
+$fwMediumDarkRed: #DC143C;
+$fwMediumRed: #FF0000;
+$fwMediumLightRed: #ef5350;
+$fwLightRed: #FF4500;
+$fwLightestRed: #F08080;
+
+// Yellow
+$fwDarkestYellow: #666600;
+$fwMediumDarkYellow: #CCCC00;
+$fwMediumYellow: #FFFF00;
+$fwMediumLightYellow: #FAB306;
+$fwLightYellow: #FFFF33;
+$fwLightestYellow: #FFFF66;
+
+// Orange
+$fwDarkestOrange: #AB3C00;
+$fwMediumDarkOrange: #EA5403;
+$fwMediumOrange: #FE6410;
+$fwMediumLightOrange: #F77F3B;
+$fwLightOrange: #FF975F;
+$fwLightestOrange: #FFCFB3;
+
+
+$fwBlue: $fwMediumBlue;
+$fwGreen: $fwMediumLightGreen;
+$fwRed: $fwMediumLightRed;
+$fwYellow: $fwMediumLightYellow;
+$fwOrange: $fwMediumLightOrange;
+$fwPurple: #8441CC;
+$fwLightRed: #FBCDCD;
+$fwDarkRed: #993657;
+$fwLightOrange: #FDD8C4;
+$fwLightYellow: #FDE8B4;
+$fwLightGreen: #BDEDDC;
+$fwLightBlue: #E5F0FF;
+$fwLightPurple: #DAC6F0;
+$fwBlack: #000000;
+$fwWhite: #ffffff;
+ 
+// /** gray variants */
+$darkGray : #1F2126;
+$mediumGray : #7A8599;
+$lightGray : #A9B3C7;
+$lightestGray : #D3D6DE;
+$white : #FFFFFF;
+ 
+/** background variants */
+$darkBG : #2B3347;
+$darkBGLess: #4C5673;
+$darkBGLesser: #5a6688;
+$mediumBG : #353E57;
+$lightBG : #535F80;
+$lighterBG : #DFE3EB;
+$lightestBG : #F2F4FA;
+$boxShadow: rgba(0, 0, 0, .5);
+ 
+/** gradient variants */
+$gradientBlueLight : #3C8EFA;
+$gradientBlueDark : #266CC7;
+$gradientBlueDarkHover : #1956A6;
+$gradientGreen : #11A672;
+$gradientGreenHover : #0F9465;
+$gradientYellow : #F09800;
+$gradientYellowHover : #EB8900;
+$gradientRed : #E04343;
+$gradientRedHover : #CC3D3D;
