@@ -1,25 +1,11 @@
-@import './variables.scss';
+$largeHeadLine:24px/24px "HelveticaNeueLight", Helvetica, Arial, sans-serif;
 
-.large-head-line {
-    font : $largeHeadLine;
-}
+$mediumHeadLine: 16px/24px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;
 
-.medium-head-line {
-    font : $mediumHeadLine;
-}
+$mediumHeadLineLight: 16px/24px "HelveticaNeueLight", Helvetica, Arial, sans-serif;
 
-.medium-head-line-light {
-    font : $mediumHeadLineLight;
-}
+$smallHeadLine: 12px/16px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;
 
-.small-head-line {
-    font : $smallHeadLine;
-}
+$defaultText: 12px/16px "HelveticaNeue", Helvetica, Arial, sans-serif;
 
-.default-text {
-    font : $defaultText;
-}
-
-.button-text {
-    font : $buttonText;
-}
+$button-text: 12px/12px "HelveticaNeueMedium", Helvetica, Arial, sans-serif;

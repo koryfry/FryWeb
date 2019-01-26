@@ -8,7 +8,7 @@
     </div>
 
     <div class="add-arena-fab">
-      <button mat-fab color="primary" title="Add Arena" [disabled]="dataSource.data.length === 0 || !dataSource.data.length">
+      <button mat-fab color="primary" title="Add Arena" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()">
         <mat-icon >add</mat-icon>  
       </button>
     </div>
@@ -29,7 +29,7 @@
         </ng-container>        
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row)" [routerLink]="['../details', row.id]"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row)" [routerLink]="['../arena', row.id]"></tr>
       </table>
     </div>
     

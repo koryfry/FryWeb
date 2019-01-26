@@ -16,8 +16,10 @@ export class OfficiatingMainComponent implements OnInit {
   title = 'Welcome to Officiating';
   @Output() bannerTitle: EventEmitter<string> = new EventEmitter<string>();
   tabs: Tab[];
+  routeConfigPath: string;
 
   constructor(private route: ActivatedRoute) { 
+    this.routeConfigPath = route.snapshot.routeConfig.path;
     this.tabs = [
       { label: 'Arena Management', path: 'arena' },
       { label: 'Age Group Management', path: 'ageGroup' },

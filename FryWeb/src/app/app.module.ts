@@ -20,7 +20,7 @@ import { FwAppIconComponent } from './shared/components/fw-app-icon/fw-app-icon.
 import { ArenaComponent } from './officiating/arena/arena.component';
 import { AgeGroupComponent } from './officiating/age-group/age-group.component';
 import { OfficialsComponent } from './officiating/officials/officials.component';
-import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
+import { ArenaDetailsComponent } from './officiating/arena/components/arena-details/arena-details.component';
 import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
@@ -34,7 +34,9 @@ import { OfficialsService } from 'app/services/officials.service';
 // Import State Related Items
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
-import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades'; 
+import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
+import { AddArenaDialogComponent } from './officiating/arena/components/add-arena-dialog/add-arena-dialog.component';
+import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { OfficialsFacade } from './officiating/officials/state/facades/officials
     ArenaDetailsComponent,
     AddressDisplayComponent,
     CardComponent,
-    FwTabGroupComponent
+    FwTabGroupComponent,
+    AddArenaDialogComponent,
+    CustomDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,7 @@ import { OfficialsFacade } from './officiating/officials/state/facades/officials
     ArenaFacade,
     OfficialsFacade
   ],
+  entryComponents:[AddArenaDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

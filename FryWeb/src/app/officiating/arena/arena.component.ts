@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output, OnDestroy } from '@angular/core';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, Subject } from 'rxjs';
 
@@ -13,6 +13,9 @@ import { TableDisplayService } from "../../shared/services/table-display.service
 // Import State items
 import { ArenaFacade } from './state';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+
+// Import components
+import { AddArenaDialogComponent } from './components/add-arena-dialog/add-arena-dialog.component';
 
 @Component({
   selector: 'fw-arena',
@@ -42,7 +45,8 @@ export class ArenaComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private arenaService: ArenaService, 
     private tableDisplayService: TableDisplayService,
-    private arenaFacade: ArenaFacade
+    private arenaFacade: ArenaFacade,
+    private dialog: MatDialog
   )
   {
     this.arenaFacade.loadAgeGroups();
@@ -72,4 +76,16 @@ export class ArenaComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  openAddArenaDialog() {
+    const dialogRef = this.dialog.open(AddArenaDialogComponent, {
+      minWidth: '400px',
+      autoFocus: false,
+      panelClass: ['round-dialog-window']
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the add arena dialog');
+    })
+  }
 }

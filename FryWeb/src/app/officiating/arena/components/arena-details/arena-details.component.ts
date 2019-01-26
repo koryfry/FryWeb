@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 // Import model
-import { Arena } from '../../../models/arena/arena.model';
+import { Arena } from '../../../../models/arena/arena.model';
 
 // Import Services
-import { ArenaService } from '../../../services/arena.service';
+import { ArenaService } from '../../../../services/arena.service';
 
 @Component({
   selector: 'fw-arena-details',

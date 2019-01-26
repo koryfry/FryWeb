@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav-content>
-      <fw-tab-group [tabs]="tabs"></fw-tab-group>
+      <fw-tab-group [tabs]="tabs" *ngIf="routeConfigPath === 'officiating'"></fw-tab-group>
       <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

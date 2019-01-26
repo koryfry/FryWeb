@@ -1,0 +1,154 @@
+@import '../../../styles/variables.scss';
+
+fw-custom-dialog {
+	position: relative;
+	display: block;
+	margin: -24px;
+
+	&.primary,
+	&.secondary,
+	&.success,
+	&.danger,
+	&.warning,
+	&.info {
+		div.dialog-header {
+			div.title {
+				font: $mediumHeadLine;
+				line-height: 18px;
+			}
+
+			mat-icon {
+				font-size: 18px;
+				line-height: 18px;
+			}
+		}
+	}
+
+	&.primary {
+		div.dialog-header {
+			background-color: $fwBlue;
+			color: $fwWhite;
+		}
+	}
+
+	&.secondary {
+		div.dialog-header {
+			background-color: $mediumGray;
+			color: $fwWhite;
+		}
+	}
+
+	&.success {
+		div.dialog-header {
+			background-color: $fwGreen;
+			color: $fwWhite;
+		}
+	}
+
+	&.danger {
+		div.dialog-header {
+			background-color: $fwRed;
+			color: $fwWhite;
+		}
+	}
+
+	&.warning {
+		div.dialog-header {
+			background-color: $fwOrange;
+		}
+	}
+
+	&.info {
+		div.dialog-header {
+			background-color: $fwLightBlue;
+		}
+	}
+
+	// &.has-title-icon {
+	// 	div.dialog-header {
+	// 		div.title {
+	// 			mat-icon {
+	// 				position: absolute;
+	// 				margin-left: -24px;
+	// 			}
+	// 		}
+
+	// 		ul.dialog-notes {
+	// 			margin-top: 5px;
+	// 		}
+	// 	}
+	// }
+
+	// &.paneled {
+	// 	div.dialog-content {
+	// 		display: grid;
+	// 		grid-template-columns: minmax(min-content, 250px) 1fr;
+	// 		grid-template-rows: 1fr;
+	// 		grid-template-areas: 'left right';
+	// 		border-top: 1px solid $lightestGray;
+
+	// 		div[dialog-content-panel] {
+	// 			grid-area: left;
+	// 			border-right: 1px solid $lightestGray;
+	// 		}
+
+	// 		div[dialog-content] {
+	// 			grid-area: right;
+	// 		}
+	// 	}
+	// }
+
+	// &.full-width {
+	// 	div.dialog-content {
+	// 		div[dialog-content-panel],
+	// 		div[dialog-content] {
+	// 			padding: 0;
+	// 		}
+	// 	}
+	// }
+
+	div.dialog-header {
+		position: relative;
+		padding: 20px 30px 16px;
+
+		div.title {
+			font: $mediumHeadLine;
+		}
+
+		// ul.dialog-notes {
+		// 	margin: 0px;
+		// 	padding: 0px;
+
+		// 	li {
+		// 		position: relative;
+		// 		padding: 5px 0px;
+		// 		margin: 0px;
+		// 		list-style-type: none;
+		// 		font: $defaultText;
+		// 		line-height: 18px;
+
+		// 		&:last-child {
+		// 			padding-bottom: 0px;
+		// 		}
+		// 	}
+		// }
+	}
+
+	div.dialog-content {
+		position: relative;
+		display: block;
+
+		div[dialog-content] {
+			padding: 20px 30px;
+			max-height: 65vh;
+			overflow: auto;
+		}
+	}
+
+	div.dialog-footer {
+		position: relative;
+		border-top: 1px solid $lightestGray;
+		padding: 10px 30px;
+		text-align: right;
+	}
+}

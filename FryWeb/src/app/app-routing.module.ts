@@ -6,7 +6,7 @@ import { OfficiatingMainComponent } from './officiating/officiating-main/officia
 
 // Import Arena Components
 import { ArenaComponent } from './officiating/arena/arena.component';
-import { ArenaDetailsComponent } from './officiating/arena/arena-details/arena-details.component';
+import { ArenaDetailsComponent } from './officiating/arena/components/arena-details/arena-details.component';
 
 // Import Age Group Components
 import { AgeGroupComponent } from './officiating/age-group/age-group.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
                         component: ArenaComponent,
                     },
                     { 
-                        path: 'details/:id', component: ArenaDetailsComponent, data: {title: 'Arena Details'}
+                        path: 'arena/:id', component: ArenaDetailsComponent
                     },
                     { path: 'ageGroup', component: AgeGroupComponent },
                     { path: 'officials', component: OfficialsComponent },

@@ -9,5 +9,11 @@
 @import "styles/variables.scss";
 @import "styles/mixins.scss";
 @import "styles/layout.scss";
-@import "styles/typeface.scss";
+//@import "styles/typeface.scss";
 // @import "styles/bootstrap_overrides.scss";
+
+.rounded-dialog-window {
+    .mat-dialog-container {
+		border-radius: 10px;
+	}
+}
