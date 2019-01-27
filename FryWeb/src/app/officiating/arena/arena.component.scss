@@ -1,3 +1,6 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/colors.scss';
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -25,7 +28,7 @@
 }
 
 .mat-header-cell.mat-sort-header-sorted {
-    color: black;
+    color: $fwWhite;
 }
 
 .mat-row:nth-child(even) {
@@ -37,13 +40,13 @@
 }
 
 .mat-header-cell {
-    font-weight: bold !important;
-    color: black !important;
+    color: $fwWhite;
     font-size: 14px;
 }
 
 .mat-header-row {
-    background-color: #2196f3;
+    background-color: $fwMediumDarkBlue;
+    color: $fwWhite;
 }
 
 .addArena {
@@ -57,4 +60,5 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
+    opacity: 0.75;
 }

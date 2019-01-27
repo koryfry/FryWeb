@@ -1,7 +1,10 @@
 <fw-custom-dialog dialogType="primary">
   <div dialog-title>Add Arena</div>
   <div dialog-content>
-    <p>What's your favorite animal?</p>
+    <mat-form-field>
+      <mat-label>Arena Name</mat-label>
+      <input matInput type="text" placeholder="Arena Name" />
+    </mat-form-field>
   </div>
   <div dialog-footer>
     <button mat-button (click)="onNoClick()">Cancel</button>

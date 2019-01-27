@@ -79,9 +79,9 @@ export class ArenaComponent implements OnInit {
 
   openAddArenaDialog() {
     const dialogRef = this.dialog.open(AddArenaDialogComponent, {
-      minWidth: '400px',
+      width: '500px',
       autoFocus: false,
-      panelClass: ['round-dialog-window']
+      panelClass: ['rounded-dialog-window']
     });
 
     dialogRef.afterClosed().subscribe(result => {
