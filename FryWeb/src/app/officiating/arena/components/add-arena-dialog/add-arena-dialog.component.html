@@ -1,10 +1,40 @@
 <fw-custom-dialog dialogType="primary">
   <div dialog-title>Add Arena</div>
   <div dialog-content>
-    <mat-form-field>
-      <mat-label>Arena Name</mat-label>
-      <input matInput type="text" placeholder="Arena Name" />
-    </mat-form-field>
+    <form [formGroup]="arenaForm">
+      <div>
+        <mat-form-field>
+          <mat-label>Arena Name</mat-label>
+          <input matInput type="text" placeholder="Enter Arena Name" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput type="text" placeholder="Enter Address" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field style="margin-right: 15px;">
+          <mat-label>City</mat-label>
+          <input matInput type="text" placeholder="Enter City" />
+        </mat-form-field>
+        <mat-form-field style="width: 200px;">
+          <input type="text" placeholder="State" matInput formControlName="arenaName" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredStates | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Zip Code</mat-label>
+          <input matInput type="text" placeholder="Enter Zip Code" />
+        </mat-form-field>
+      </div>
+    </form>
   </div>
   <div dialog-footer>
     <button mat-button (click)="onNoClick()">Cancel</button>

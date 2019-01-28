@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { OfficiatingStateModule } from 'app/officiating/state/state.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -63,6 +63,7 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
     HttpClientModule,
     OfficiatingMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     OfficiatingStateModule,
     StoreDevtoolsModule.instrument()

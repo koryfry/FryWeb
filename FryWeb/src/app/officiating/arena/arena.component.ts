@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, EventEmitter, Output, OnDestroy } from '@
 import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, Subject } from 'rxjs';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 // Import model
 import { Arena } from '../../models/arena/arena.model';
@@ -30,7 +31,6 @@ export class ArenaComponent implements OnInit {
   ar: Subscription;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
-
 
   title = 'Welcome to Arena Management';
   @ViewChild(MatSort) sort: MatSort; 
