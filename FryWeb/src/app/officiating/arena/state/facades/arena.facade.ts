@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { ArenaState } from '../reducers/arena.reducer';
 import { Store } from '@ngrx/store';
 import * as arenaQuery from '../selectors/arena.selectors';
-import { LoadArenasRequest } from '../actions';
+import { LoadArenasRequest, CreateArenasRequest } from '../actions';
 import { filter } from 'rxjs/internal/operators/filter';
+import { Arena } from 'app/models/arena/arena.model';
 
 @Injectable()
 export class ArenaFacade {
@@ -15,5 +16,9 @@ export class ArenaFacade {
     
     loadAgeGroups() {
         this.store.dispatch(new LoadArenasRequest());
+    }
+
+    createArena(arena: Arena) {
+        this.store.dispatch(new CreateArenasRequest(arena));
     }
 }

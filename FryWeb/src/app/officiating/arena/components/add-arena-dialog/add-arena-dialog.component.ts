@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { Observable, Subscription, Subject } from 'rxjs';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
+
+import { ArenaFacade } from '../../state';
+import { Arena } from 'app/models/arena/arena.model';
 
 @Component({
   selector: 'fw-add-arena-dialog',
@@ -11,7 +14,8 @@ import { startWith, map } from 'rxjs/operators';
 })
 export class AddArenaDialogComponent implements OnInit {
 
-  arenaForm: FormGroup;
+  addArenaForm: FormGroup;
+  arena: Arena;
 
   states: string[] = [
     'Alabama','Alaska','Arizona','Arkansas',
@@ -28,11 +32,28 @@ export class AddArenaDialogComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<AddArenaDialogComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private arenaFacade: ArenaFacade,
   ) 
   { 
-    this.arenaForm = this.fb.group({
+    this.addArenaForm = this.fb.group({
       arenaName: [
+        null,
+        Validators.required
+      ],      
+      address: [
+        null,
+        Validators.required
+      ],
+      city: [
+        null,
+        Validators.required
+      ],
+      state: [
+        null,
+        Validators.required
+      ],
+      zipCode: [
         null,
         Validators.required
       ]
@@ -40,7 +61,7 @@ export class AddArenaDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredStates = this.arenaForm.get('arenaName').valueChanges
+    this.filteredStates = this.addArenaForm.get('state').valueChanges
     .pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -52,6 +73,16 @@ export class AddArenaDialogComponent implements OnInit {
   }
 
   save() {
+    this.arena = {
+      ID: 7,
+      Name: this.addArenaForm.get('arenaName').value,
+      Address: this.addArenaForm.get('address').value,
+      City: this.addArenaForm.get('city').value,
+      State: this.addArenaForm.get('state').value,
+      'Zip Code': this.addArenaForm.get('zipCode').value
+    }
+
+    this.arenaFacade.createArena(this.arena);
     this.dialogRef.close('Hello');
   }
 

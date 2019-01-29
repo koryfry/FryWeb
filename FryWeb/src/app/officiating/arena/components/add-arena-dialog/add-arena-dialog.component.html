@@ -1,43 +1,48 @@
-<fw-custom-dialog dialogType="primary">
+<fw-custom-dialog dialogType="primary" class="add-arena">
   <div dialog-title>Add Arena</div>
-  <div dialog-content>
-    <form [formGroup]="arenaForm">
+  <div dialog-content class="add-arena__form">
+    <form [formGroup]="addArenaForm">
       <div>
-        <mat-form-field>
+        <mat-form-field class="add-arena__field--two-thirds">
           <mat-label>Arena Name</mat-label>
-          <input matInput type="text" placeholder="Enter Arena Name" />
+          <input matInput type="text" matInput formControlName="arenaName" placeholder="Enter Arena Name" />
+          <mat-error *ngIf="addArenaForm.controls['arenaName'].hasError('required')"> Must enter an Arena Name </mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
+      <div class="add-arena__row">
+        <mat-form-field class="add-arena__field--two-thirds">
           <mat-label>Address</mat-label>
-          <input matInput type="text" placeholder="Enter Address" />
+          <input matInput type="text" formControlName="address" placeholder="Enter Address" />
+          <mat-error *ngIf="addArenaForm.controls['address'].hasError('required')"> Must enter an Address for the Arena </mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field style="margin-right: 15px;">
+      <div class="add-arena__row">
+        <mat-form-field class="add-arena__field--one-half">
           <mat-label>City</mat-label>
-          <input matInput type="text" placeholder="Enter City" />
+          <input matInput type="text" formControlName="city" placeholder="Enter City" />
+          <mat-error *ngIf="addArenaForm.controls['city'].hasError('required')"> Must enter a City for the Arena </mat-error>
         </mat-form-field>
-        <mat-form-field style="width: 200px;">
-          <input type="text" placeholder="State" matInput formControlName="arenaName" [matAutocomplete]="auto">
+        <mat-form-field class="add-arena__field--one-half">
+          <input type="text" placeholder="State" matInput formControlName="state" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredStates | async" [value]="option">
               {{option}}
             </mat-option>
           </mat-autocomplete>
+          <mat-error *ngIf="addArenaForm.controls['state'].hasError('required')"> Must choose a State </mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
+      <div class="add-arena__row">
+        <mat-form-field class="add-arena__field--one-third">
           <mat-label>Zip Code</mat-label>
-          <input matInput type="text" placeholder="Enter Zip Code" />
+          <input matInput type="text" formControlName="zipCode" placeholder="Enter Zip Code" />
+          <mat-error *ngIf="addArenaForm.controls['zipCode'].hasError('required')"> Must enter a Zip Code for the Arena </mat-error>
         </mat-form-field>
       </div>
     </form>
   </div>
   <div dialog-footer>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button color="primary" (click)="save()">Ok</button>
+    <button mat-button color="primary" (click)="save()" [disabled]="addArenaForm.invalid">Ok</button>
   </div>
 </fw-custom-dialog>

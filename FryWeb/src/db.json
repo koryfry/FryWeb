@@ -1,139 +1,147 @@
 {
-    "arenas": [
-        {
-            "id": 1, 
-            "Name": "Griffs West", 
-            "Address": "1235 Holland Ave", 
-            "City": "Holland", 
-            "State": "MI", 
-            "Zip Code": "49424",
-            "AvatarImage": "assets/images/GriffsWest.jpg"
-        },
-        {
-            "id": 2, 
-            "Name": "Griffs Georgetown", 
-            "Address": "1111 48th Ave", 
-            "City": "Hudsonville", 
-            "State": "MI", 
-            "Zip Code": "49426",
-            "AvatarImage": "assets/images/Georgetown.jpg"
-        },
-        {
-            "id": 3, 
-            "Name": "Walker Ice and Fitness", 
-            "Address": "1234 Remembrance Rd", 
-            "City": "Walker", 
-            "State": "MI", 
-            "Zip Code": "49417",
-            "AvatarImage": "assets/images/Walker.jpg"
-        },
-        {
-            "id": 4, 
-            "Name": "Griffs Ice House", 
-            "Address": "8987 Coldbrook St",
-            "City": "Grand Rapids", 
-            "State": "MI", 
-            "Zip Code": "49503",
-            "AvatarImage": "assets/images/Belknap.jpg"
-        },
-        {
-            "id": 5, 
-            "Name": "Patterson Ice Arena", 
-            "Address": "23235 Patterson Ave SE", 
-            "City": "Grand Rapids", 
-            "State": "MI", 
-            "Zip Code": "49546",
-            "AvatarImage": "assets/images/Patterson.jpg"
-        }
-    ],
-    "ageGroups": [
-        {
-            "id": 1,
-            "Name": "Squirt",
-            "Tier": "B",
-            "Min Age": 8,
-            "Max Age": 9
-        },
-        {
-            "id": 2,
-            "Name": "Squirt",
-            "Tier": "A",
-            "Min Age": 8,
-            "Max Age": 9
-        },
-        {
-            "id": 3,
-            "Name": "Squirt",
-            "Tier": "AA",
-            "Min Age": 8,
-            "Max Age": 9
-        },
-        {
-            "id": 4,
-            "Name": "Pee Wee",
-            "Tier": "B",
-            "Min Age": 10,
-            "Max Age": 12
-        },
-        {
-            "id": 5,
-            "Name": "Pee Wee",
-            "Tier": "A",
-            "Min Age": 10,
-            "Max Age": 12
-        },
-        {
-            "id": 6,
-            "Name": "Pee Wee",
-            "Tier": "AA",
-            "Min Age": 10,
-            "Max Age": 12
-        }
-    ],
-    "officials": [
-        {
-            "id": 1,
-            "First Name": "Kory",
-            "Last Name": "Fry",
-            "Level": 3,
-            "Years Experience": 17,
-            "Address": "1234 Puck Hog Lane",
-            "City":"Holland",
-            "State":"MI",
-            "Zip Code": "49424"
-        },
-        {
-            "id": 2,
-            "First Name": "Ryan",
-            "Last Name": "Fry",
-            "Level": 3,
-            "Years Experience": 21,
-            "Address": "1234 Puck Hog Lane",
-            "City":"Zeeland",
-            "State":"MI",
-            "Zip Code": "49424"
-        },
-        {
-            "id": 3,
-            "First Name": "Kyle",
-            "Last Name": "Fry",
-            "Level": 3,
-            "Years Experience": 17,
-            "Address": "1234 Puck Hog Lane",
-            "City":"Muskegon",
-            "State":"MI",
-            "Zip Code": "49424"
-        },
-        {
-            "id": 1,
-            "First Name": "Dave",
-            "Last Name": "Fry",
-            "Level": 3,
-            "Years Experience": 38,
-            "Address": "1234 Puck Hog Lane",
-            "City":"Holland",
-            "State":"MI",
-            "Zip Code": "49424"
-        }
-    ]
+  "arenas": [
+    {
+      "id": 1,
+      "Name": "Griffs West",
+      "Address": "1235 Holland Ave",
+      "City": "Holland",
+      "State": "MI",
+      "Zip Code": "49424",
+      "AvatarImage": "assets/images/GriffsWest.jpg"
+    },
+    {
+      "id": 2,
+      "Name": "Griffs Georgetown",
+      "Address": "1111 48th Ave",
+      "City": "Hudsonville",
+      "State": "MI",
+      "Zip Code": "49426",
+      "AvatarImage": "assets/images/Georgetown.jpg"
+    },
+    {
+      "id": 3,
+      "Name": "Walker Ice and Fitness",
+      "Address": "1234 Remembrance Rd",
+      "City": "Walker",
+      "State": "MI",
+      "Zip Code": "49417",
+      "AvatarImage": "assets/images/Walker.jpg"
+    },
+    {
+      "id": 4,
+      "Name": "Griffs Ice House",
+      "Address": "8987 Coldbrook St",
+      "City": "Grand Rapids",
+      "State": "MI",
+      "Zip Code": "49503",
+      "AvatarImage": "assets/images/Belknap.jpg"
+    },
+    {
+      "id": 5,
+      "Name": "Patterson Ice Arena",
+      "Address": "23235 Patterson Ave SE",
+      "City": "Grand Rapids",
+      "State": "MI",
+      "Zip Code": "49546",
+      "AvatarImage": "assets/images/Patterson.jpg"
+    },
+    {
+      "id": 6,
+      "Name": "Eagles Ice Center",
+      "Address": "13456 Rubber Biscuit Lane",
+      "City": "Hell",
+      "State": "Michigan",
+      "Zip Code": "49789"
+    }
+  ],
+  "ageGroups": [
+    {
+      "id": 1,
+      "Name": "Squirt",
+      "Tier": "B",
+      "Min Age": 8,
+      "Max Age": 9
+    },
+    {
+      "id": 2,
+      "Name": "Squirt",
+      "Tier": "A",
+      "Min Age": 8,
+      "Max Age": 9
+    },
+    {
+      "id": 3,
+      "Name": "Squirt",
+      "Tier": "AA",
+      "Min Age": 8,
+      "Max Age": 9
+    },
+    {
+      "id": 4,
+      "Name": "Pee Wee",
+      "Tier": "B",
+      "Min Age": 10,
+      "Max Age": 12
+    },
+    {
+      "id": 5,
+      "Name": "Pee Wee",
+      "Tier": "A",
+      "Min Age": 10,
+      "Max Age": 12
+    },
+    {
+      "id": 6,
+      "Name": "Pee Wee",
+      "Tier": "AA",
+      "Min Age": 10,
+      "Max Age": 12
+    }
+  ],
+  "officials": [
+    {
+      "id": 1,
+      "First Name": "Kory",
+      "Last Name": "Fry",
+      "Level": 3,
+      "Years Experience": 17,
+      "Address": "1234 Puck Hog Lane",
+      "City": "Holland",
+      "State": "MI",
+      "Zip Code": "49424"
+    },
+    {
+      "id": 2,
+      "First Name": "Ryan",
+      "Last Name": "Fry",
+      "Level": 3,
+      "Years Experience": 21,
+      "Address": "1234 Puck Hog Lane",
+      "City": "Zeeland",
+      "State": "MI",
+      "Zip Code": "49424"
+    },
+    {
+      "id": 3,
+      "First Name": "Kyle",
+      "Last Name": "Fry",
+      "Level": 3,
+      "Years Experience": 17,
+      "Address": "1234 Puck Hog Lane",
+      "City": "Muskegon",
+      "State": "MI",
+      "Zip Code": "49424"
+    },
+    {
+      "id": 1,
+      "First Name": "Dave",
+      "Last Name": "Fry",
+      "Level": 3,
+      "Years Experience": 38,
+      "Address": "1234 Puck Hog Lane",
+      "City": "Holland",
+      "State": "MI",
+      "Zip Code": "49424"
+    }
+  ]
 }

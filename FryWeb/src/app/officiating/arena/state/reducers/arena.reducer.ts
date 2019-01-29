@@ -24,6 +24,18 @@ export function arenaReducer(state = initialState, action: ArenaActions): ArenaS
             };
         }
 
+        case ArenaActionTypes.CreateArenaRequestSuccess: {
+            console.log('Action Payload: ', action.arena);
+            
+            return {
+                ...state,
+                arenas: [
+                    ...state.arenas,
+                    action.arena
+                ]               
+            };
+        }
+
         default: {
             return state;
         }

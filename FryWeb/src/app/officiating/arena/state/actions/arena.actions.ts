@@ -8,7 +8,10 @@ import { Arena } from '../../../../models/arena/arena.model';
 export enum ArenaActionTypes {
     LoadArenasRequest = '[Arena] Load Arena Request',
     LoadArenasRequestSuccess = '[Arena] Load Arena Request Success',
-    LoadArenasRequestFail = '[Arena] Load Arena Request Fail'
+    LoadArenasRequestFail = '[Arena] Load Arena Request Fail',
+    CreateArenaRequest = '[Arena] Create Arena Request',
+    CreateArenaRequestSuccess = '[Arena] Create Arena Request Success',
+    CreateArenaRequestFail = '[Arena] Create Arena Request Fail',
 }
 
 export class LoadArenasRequest implements Action {
@@ -25,8 +28,26 @@ export class LoadArenasRequestFail implements Action {
 	constructor(payload: any) {}
 }
 
+export class CreateArenasRequest implements Action {
+    readonly type = ArenaActionTypes.CreateArenaRequest;
+    constructor(public arena: Arena) {}
+}
+
+export class CreateArenasRequestSuccess implements Action {
+	readonly type = ArenaActionTypes.CreateArenaRequestSuccess;
+	constructor(public arena: Arena) {}
+}
+
+export class CreateArenasRequestFail implements Action {
+	readonly type = ArenaActionTypes.CreateArenaRequestFail;
+	constructor(payload: any) {}
+}
+
 
 export type ArenaActions = 
     LoadArenasRequest
     | LoadArenasRequestSuccess
-    | LoadArenasRequestFail;
+    | LoadArenasRequestFail
+    | CreateArenasRequest
+    | CreateArenasRequestSuccess
+    | CreateArenasRequestFail;

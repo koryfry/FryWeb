@@ -24,4 +24,10 @@ export class ArenaService {
       .pipe(catchError((error: any) => throwError(error)));
   }
 
+  createArena(arena: Arena): Observable<Arena> {
+    return this.http
+      .post<Arena>(this._baseUrl + 'arenas', arena)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }
