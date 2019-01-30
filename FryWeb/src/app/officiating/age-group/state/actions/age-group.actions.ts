@@ -8,7 +8,10 @@ import { AgeGroup } from '../../../../models/ageGroup/age-group.model';
 export enum AgeGroupActionTypes {
     LoadAgeGroupsRequest = '[Age Group] Load Age Group Request',
     LoadAgeGroupsRequestSuccess = '[Age Group] Load Age Group Request Success',
-    LoadAgeGroupsRequestFail = '[Age Group] Load Age Group Request Fail'
+    LoadAgeGroupsRequestFail = '[Age Group] Load Age Group Request Fail',
+    CreateAgeGroupRequest = '[AgeGroup] Create Age Group Request',
+    CreateAgeGroupRequestSuccess = '[AgeGroup] Create Age Group Request Success',
+    CreateAgeGroupRequestFail = '[AgeGroup] Create Age Group Request Fail'
 }
 
 export class LoadAgeGroupsRequestRequest implements Action {
@@ -25,8 +28,26 @@ export class LoadAgeGroupsRequestRequestFail implements Action {
 	constructor(payload: any) {}
 }
 
+export class CreateAgeGroupRequest implements Action {
+    readonly type = AgeGroupActionTypes.CreateAgeGroupRequest;
+    constructor(public ageGroup: AgeGroup) {}
+}
+
+export class CreateAgeGroupRequestSuccess implements Action {
+	readonly type = AgeGroupActionTypes.CreateAgeGroupRequestSuccess;
+	constructor(public ageGroup: AgeGroup) {}
+}
+
+export class CreateAgeGroupRequestFail implements Action {
+	readonly type = AgeGroupActionTypes.CreateAgeGroupRequestFail;
+	constructor(payload: any) {}
+}
+
 
 export type AgeGroupActions = 
     LoadAgeGroupsRequestRequest
     | LoadAgeGroupsRequestRequestSuccess
-    | LoadAgeGroupsRequestRequestFail;
+    | LoadAgeGroupsRequestRequestFail
+    | CreateAgeGroupRequest
+    | CreateAgeGroupRequestSuccess
+    | CreateAgeGroupRequestFail;

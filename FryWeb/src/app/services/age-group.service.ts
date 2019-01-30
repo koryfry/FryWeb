@@ -12,12 +12,6 @@ export class AgeGroupService {
   private _baseUrl = "http://localhost:3000/";
   constructor(private http: HttpClient) { }
 
-  // getAgeGroups(): Observable<AgeGroup[]> {
-  //   return this.http
-  //     .get(this._baseUrl + 'ageGroups')
-  //     .pipe(catchError((error: any) => Observable.throw(error)));
-  // }
-
   getAgeGroups(): Observable<AgeGroup[]> {
     return this.http
       .get<AgeGroup[]>(this._baseUrl + 'ageGroups')
@@ -31,12 +25,10 @@ export class AgeGroupService {
       .pipe(catchError((error: any) => throwError(error)));
   }
 
-  // getAgeGroupById(id: number): Observable<AgeGroup> {
-  //   let params = new HttpParams().set('id', id.toString())
-  //   let url: string = this._baseUrl + 'ageGroups/';
-  //   return this.http
-  //     .get(this._baseUrl + 'ageGroups/', {params: params})
-  //     .pipe(catchError((error: any) => Observable.throw(error)));
-  // }
+  createAgeGroup(ageGroup: AgeGroup): Observable<AgeGroup> {
+    return this.http
+      .post<AgeGroup>(this._baseUrl + 'ageGroups', ageGroup)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
 
 }

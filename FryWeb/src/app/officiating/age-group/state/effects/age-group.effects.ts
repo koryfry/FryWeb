@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { AgeGroupActionTypes, LoadAgeGroupsRequestRequest, LoadAgeGroupsRequestRequestSuccess, LoadAgeGroupsRequestRequestFail } from '../actions';
+import { AgeGroupActionTypes, LoadAgeGroupsRequestRequest, LoadAgeGroupsRequestRequestSuccess, LoadAgeGroupsRequestRequestFail, 
+            CreateAgeGroupRequest, CreateAgeGroupRequestSuccess, CreateAgeGroupRequestFail} from '../actions';
+import * as AgeGroupActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
 import { AgeGroupService } from '../../../../services/age-group.service';
@@ -25,6 +27,21 @@ export class AgeGroupEffects {
                 );
         })
     )
+
+    @Effect()
+    createAgeGroup$ = this.actions$
+    .ofType<CreateAgeGroupRequest>(AgeGroupActionTypes.CreateAgeGroupRequest)
+    .pipe(
+        map((action: AgeGroupActions.CreateAgeGroupRequest) => action.ageGroup),
+        switchMap(ageGroup => {
+            return this.ageGroupService
+                .createAgeGroup(ageGroup)
+                .pipe(
+                    map(ageGroup => new CreateAgeGroupRequestSuccess(ageGroup)),
+                    catchError(e => of(new CreateAgeGroupRequestFail(e)))
+                )
+        })        
+    );
     
     constructor(
         private actions$: Actions,

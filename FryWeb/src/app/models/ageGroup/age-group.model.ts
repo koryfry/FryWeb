@@ -1,5 +1,5 @@
 export interface AgeGroup {
-    ID: number;
+    id?: number;
     Name: string;
     Tier: string;
     MinAge: number;
