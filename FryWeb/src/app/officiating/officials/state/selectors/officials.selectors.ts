@@ -10,5 +10,9 @@ export const getOfficialsState = createSelector(
 
 export const getOfficials = createSelector(
     getOfficialsState,
-    (state: OfficialState) => state.officials
+    (state: OfficialState) => state.officials || []
 );
+
+export const getAllOfficials = createSelector(getOfficials, entities => {
+    return Object.keys(entities).map(id => entities[parseInt(id, 10)])
+});

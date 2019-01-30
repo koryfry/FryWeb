@@ -25,4 +25,10 @@ export class OfficialsService {
       .pipe(catchError((error: any) => throwError(error)));
   }
 
+  createOfficial(official: Official): Observable<Official> {
+    return this.http
+      .post<Official>(this._baseUrl + 'officials', official)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }

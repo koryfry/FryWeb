@@ -3,7 +3,7 @@
  */
 
 export interface Official {
-    ID: number,
+    id?: number,
     FirstName: string,
     LastName: string,
     Level: number,

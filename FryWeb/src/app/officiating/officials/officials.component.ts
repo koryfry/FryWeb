@@ -43,7 +43,7 @@ export class OfficialsComponent implements OnInit {
   ) 
   {
     this.officialsFacade.loadOfficials();
-    this.officials$ = this.officialsFacade.arenas$;
+    this.officials$ = this.officialsFacade.officials$;
 
     this.off = this.officials$.pipe(takeUntil(this._componentDestroyed$)).subscribe(offs => {
       const ofs = offs;
@@ -64,18 +64,7 @@ export class OfficialsComponent implements OnInit {
 		this._componentDestroyed$.complete();
   }
 
-  ngOnInit() {
-    // this.officialsService.getOfficials().subscribe(res => {
-    //   this.officials = res;
-    //   this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(res);
-    //   this.dataSource = new MatTableDataSource(this.officials);
-    //   this.dataSource.sort = this.sort;
-
-    //   console.log('Data: ', this.dataSource);
-    // }, err => {
-    //   console.log('Error: ', err);
-    // });
-  }
+  ngOnInit() {}
 
   logRow(row: any) {
     console.log('Row selected: ', row);

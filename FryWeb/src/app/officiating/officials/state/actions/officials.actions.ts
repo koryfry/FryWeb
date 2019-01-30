@@ -8,7 +8,10 @@ import { Official } from '../../../../models/official/official.model';
 export enum OfficialActionTypes {
     LoadOfficialsRequest = '[Official] Load Official Request',
     LoadOfficialsRequestSuccess = '[Official] Load Official Request Success',
-    LoadOfficialsRequestFail = '[Official] Load Official Request Fail'
+    LoadOfficialsRequestFail = '[Official] Load Official Request Fail',
+    CreateOfficialRequest = '[Official] Create Official Request',
+    CreateOfficialRequestSuccess = '[Official] Create Official Request Success',
+    CreateOfficialRequestFail = '[Official] Create Official Request Fail',
 }
 
 export class LoadOfficialsRequest implements Action {
@@ -25,8 +28,26 @@ export class LoadOfficialsRequestFail implements Action {
 	constructor(payload: any) {}
 }
 
+export class CreateOfficialRequest implements Action {
+    readonly type = OfficialActionTypes.CreateOfficialRequest;
+    constructor(public official: Official) {}
+}
+
+export class CreateOfficialRequestSuccess implements Action {
+	readonly type = OfficialActionTypes.CreateOfficialRequestSuccess;
+	constructor(public official: Official) {}
+}
+
+export class CreateOfficialRequestFail implements Action {
+	readonly type = OfficialActionTypes.CreateOfficialRequestFail;
+	constructor(payload: any) {}
+}
+
 
 export type OfficialActions = 
     LoadOfficialsRequest
     | LoadOfficialsRequestSuccess
-    | LoadOfficialsRequestFail;
+    | LoadOfficialsRequestFail
+    | CreateOfficialRequest
+    | CreateOfficialRequestSuccess
+    | CreateOfficialRequestFail;
