@@ -74,7 +74,6 @@ export class AddArenaDialogComponent implements OnInit {
 
   save() {
     this.arena = {
-      ID: 7,
       Name: this.addArenaForm.get('arenaName').value,
       Address: this.addArenaForm.get('address').value,
       City: this.addArenaForm.get('city').value,

@@ -3,10 +3,10 @@
  */
 
 export interface Arena {
-    ID: number;
-    Name: string;  
-    Address: string;
-    City: string;
-    State: string;
+    id?: number,
+    Name: string,  
+    Address: string,
+    City: string,
+    State: string,
     'Zip Code': string
 }

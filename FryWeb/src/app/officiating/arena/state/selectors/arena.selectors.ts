@@ -10,5 +10,9 @@ export const getArenaState = createSelector(
 
 export const getArenas = createSelector(
     getArenaState,
-    (state: ArenaState) => state.arenas
+    (state: ArenaState) => state.arenas || []
 );
+
+export const getAllArenas = createSelector(getArenas, entities => {
+    return Object.keys(entities).map(id => entities[parseInt(id, 10)])
+});

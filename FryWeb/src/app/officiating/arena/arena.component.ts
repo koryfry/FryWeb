@@ -49,7 +49,7 @@ export class ArenaComponent implements OnInit {
     private dialog: MatDialog
   )
   {
-    this.arenaFacade.loadAgeGroups();
+    this.arenaFacade.loadArenas();
     this.arenas$ = this.arenaFacade.arenas$;
 
     this.ar = this.arenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      

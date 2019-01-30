@@ -1,10 +1,11 @@
 import { ArenaActions, ArenaActionTypes } from '../actions/arena.actions';
+import * as arenaActions from '../actions/arena.actions';
 import { Arena } from 'app/models/Arena/arena.model';
 
 export interface ArenaState {
     loaded: boolean;
     loading: boolean;
-    arenas: Arena[];
+    arenas: { [id: number]: Arena };
 }
 
 const initialState: ArenaState = {
@@ -16,24 +17,38 @@ const initialState: ArenaState = {
 export function arenaReducer(state = initialState, action: ArenaActions): ArenaState {
     switch(action.type) {
         case ArenaActionTypes.LoadArenasRequestSuccess: {
+            const ars = action.arenas;
+            const arenas = ars.reduce(
+                (arenas: { [id: number]: Arena }, arena: Arena) => {
+                    return {
+                        ...arenas,
+                        [arena.id]: arena,
+                    };
+                },
+                {
+                    ...state.arenas,
+                }
+            );
             return {
                 ...state,
-                loaded: true,
                 loading: false,
-                arenas: action.arenas
-            };
+                loaded: true,
+                arenas
+            }
         }
 
         case ArenaActionTypes.CreateArenaRequestSuccess: {
-            console.log('Action Payload: ', action.arena);
-            
+            const arena = action.arena;
+            const arenas = {
+                ...state.arenas,
+                [arena.id]: arena
+            }
             return {
                 ...state,
-                arenas: [
-                    ...state.arenas,
-                    action.arena
-                ]               
-            };
+                arenas: arenas,
+                loaded: false,
+                loading: false
+            }
         }
 
         default: {

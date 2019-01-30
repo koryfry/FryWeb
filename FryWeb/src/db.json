@@ -1,57 +1,65 @@
 {
   "arenas": [
     {
-      "id": 1,
       "Name": "Griffs West",
       "Address": "1235 Holland Ave",
       "City": "Holland",
       "State": "MI",
       "Zip Code": "49424",
-      "AvatarImage": "assets/images/GriffsWest.jpg"
+      "AvatarImage": "assets/images/GriffsWest.jpg",
+      "id": 1
     },
     {
-      "id": 2,
       "Name": "Griffs Georgetown",
       "Address": "1111 48th Ave",
       "City": "Hudsonville",
       "State": "MI",
       "Zip Code": "49426",
-      "AvatarImage": "assets/images/Georgetown.jpg"
+      "AvatarImage": "assets/images/Georgetown.jpg",
+      "id": 2
     },
     {
-      "id": 3,
       "Name": "Walker Ice and Fitness",
       "Address": "1234 Remembrance Rd",
       "City": "Walker",
       "State": "MI",
       "Zip Code": "49417",
-      "AvatarImage": "assets/images/Walker.jpg"
+      "AvatarImage": "assets/images/Walker.jpg",
+      "id": 3
     },
     {
-      "id": 4,
       "Name": "Griffs Ice House",
       "Address": "8987 Coldbrook St",
       "City": "Grand Rapids",
       "State": "MI",
       "Zip Code": "49503",
-      "AvatarImage": "assets/images/Belknap.jpg"
+      "AvatarImage": "assets/images/Belknap.jpg",
+      "id": 4
     },
     {
-      "id": 5,
       "Name": "Patterson Ice Arena",
       "Address": "23235 Patterson Ave SE",
       "City": "Grand Rapids",
       "State": "MI",
       "Zip Code": "49546",
-      "AvatarImage": "assets/images/Patterson.jpg"
+      "AvatarImage": "assets/images/Patterson.jpg",
+      "id": 5
     },
     {
-      "id": 6,
       "Name": "Eagles Ice Center",
       "Address": "13456 Rubber Biscuit Lane",
       "City": "Hell",
-      "State": "Michigan",
-      "Zip Code": "49789"
+      "State": "MI",
+      "Zip Code": "49789",
+      "id": 6
+    },
+    {
+      "Name": "LC Walker Arena",
+      "Address": "456 Cold Street",
+      "City": "Muskegon",
+      "State": "MI",
+      "Zip Code": "45689",
+      "id": 7
     }
   ],
   "ageGroups": [

@@ -28,17 +28,17 @@ export class LoadArenasRequestFail implements Action {
 	constructor(payload: any) {}
 }
 
-export class CreateArenasRequest implements Action {
+export class CreateArenaRequest implements Action {
     readonly type = ArenaActionTypes.CreateArenaRequest;
     constructor(public arena: Arena) {}
 }
 
-export class CreateArenasRequestSuccess implements Action {
+export class CreateArenaRequestSuccess implements Action {
 	readonly type = ArenaActionTypes.CreateArenaRequestSuccess;
 	constructor(public arena: Arena) {}
 }
 
-export class CreateArenasRequestFail implements Action {
+export class CreateArenaRequestFail implements Action {
 	readonly type = ArenaActionTypes.CreateArenaRequestFail;
 	constructor(payload: any) {}
 }
@@ -48,6 +48,6 @@ export type ArenaActions =
     LoadArenasRequest
     | LoadArenasRequestSuccess
     | LoadArenasRequestFail
-    | CreateArenasRequest
-    | CreateArenasRequestSuccess
-    | CreateArenasRequestFail;
+    | CreateArenaRequest
+    | CreateArenaRequestSuccess
+    | CreateArenaRequestFail;

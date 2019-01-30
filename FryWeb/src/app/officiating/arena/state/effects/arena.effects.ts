@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ArenaActionTypes, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail, CreateArenasRequest, CreateArenasRequestSuccess, CreateArenasRequestFail } from '../actions';
+import { ArenaActionTypes, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail, CreateArenaRequest, CreateArenaRequestSuccess, CreateArenaRequestFail } from '../actions';
+import * as ArenaActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 import { getArenaState } from '../selectors';
 import { ArenaState } from '../reducers';
@@ -30,14 +31,15 @@ export class ArenaEffects {
 
     @Effect()
     createArena$ = this.actions$
-    .ofType<CreateArenasRequest>(ArenaActionTypes.CreateArenaRequest)
+    .ofType<CreateArenaRequest>(ArenaActionTypes.CreateArenaRequest)
     .pipe(
-        switchMap(action => {
+        map((action: ArenaActions.CreateArenaRequest) => action.arena),
+        switchMap(arena => {
             return this.arenaService
-                .createArena(action.arena)
+                .createArena(arena)
                 .pipe(
-                    map(arena => new CreateArenasRequestSuccess(action.arena)),
-                    catchError(e => of(new CreateArenasRequestFail(e)))
+                    map(arena => new CreateArenaRequestSuccess(arena)),
+                    catchError(e => of(new CreateArenaRequestFail(e)))
                 )
         })        
     );
