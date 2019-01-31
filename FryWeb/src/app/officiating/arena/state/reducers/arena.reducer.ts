@@ -6,12 +6,14 @@ export interface ArenaState {
     loaded: boolean;
     loading: boolean;
     arenas: { [id: number]: Arena };
+    selectedArena: Arena;
 }
 
 const initialState: ArenaState = {
     loaded: false,
     loading: false,
-    arenas: null
+    arenas: null,
+    selectedArena: null
 }
 
 export function arenaReducer(state = initialState, action: ArenaActions): ArenaState {
@@ -50,6 +52,13 @@ export function arenaReducer(state = initialState, action: ArenaActions): ArenaS
                 loading: false
             }
         }
+
+        // case ArenaActionTypes.OpenSelectedArenaDetails: {
+        //     return {
+        //         ...state,
+        //         selectedArena: action.selectedArena
+        //     }
+        // }
 
         default: {
             return state;

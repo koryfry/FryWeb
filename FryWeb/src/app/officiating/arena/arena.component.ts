@@ -52,7 +52,7 @@ export class ArenaComponent implements OnInit {
     this.arenaFacade.loadArenas();
     this.arenas$ = this.arenaFacade.arenas$;
 
-    this.ar = this.arenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
+    this.arenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
       const arenas = ars;
       this.arenas = arenas ? arenas : new Array<Arena>();
 
@@ -66,8 +66,9 @@ export class ArenaComponent implements OnInit {
     });  
   }
 
-  logRow(row: any) {
+  logRow(row: any, rowID: number) {
     console.log('Row selected: ', row);
+    //this.arenaFacade.openSelectedArenaDetails(row, rowID);
   } 
   
   ngOnDestroy() {

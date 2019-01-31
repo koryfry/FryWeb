@@ -24,12 +24,14 @@ import { ArenaDetailsComponent } from './officiating/arena/components/arena-deta
 import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
+import { FwSnackbarComponent } from './shared/components/fw-snackbar/fw-snackbar.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
+import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.service';
 
 // Import State Related Items
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
@@ -55,7 +57,8 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
     CardComponent,
     FwTabGroupComponent,
     AddArenaDialogComponent,
-    CustomDialogComponent
+    CustomDialogComponent,
+    FwSnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +78,10 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
     OfficialsService,
     AgeGroupFacade,
     ArenaFacade,
-    OfficialsFacade
+    OfficialsFacade,
+    FwSnackbarService
   ],
-  entryComponents:[AddArenaDialogComponent],
+  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
