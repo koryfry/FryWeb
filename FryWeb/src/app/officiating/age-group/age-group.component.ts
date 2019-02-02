@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import model
 import { AgeGroup } from '../../models/ageGroup/age-group.model';
@@ -9,9 +11,12 @@ import { AgeGroup } from '../../models/ageGroup/age-group.model';
 // Import Services
 import { AgeGroupService } from '../../services/age-group.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
+
+// Import State Items
 import { AgeGroupFacade } from './state';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+
+// Import Components
+import { AddAgeGroupDialogComponent } from './components/add-age-group-dialog/add-age-group-dialog.component';
 
 @Component({
   selector: 'fw-age-group',
@@ -39,7 +44,8 @@ export class AgeGroupComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private ageGroupService: AgeGroupService, 
     private tableDisplayService: TableDisplayService,
-    private ageGroupFacade: AgeGroupFacade
+    private ageGroupFacade: AgeGroupFacade,
+    private dialog: MatDialog
   ) 
   { 
     this.ageGroupFacade.loadAgeGroups();
@@ -66,4 +72,16 @@ export class AgeGroupComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  openAddAgeGroupDialog() {
+    const dialogRef = this.dialog.open(AddAgeGroupDialogComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window']
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the add age group dialog');
+    })
+  }
 }

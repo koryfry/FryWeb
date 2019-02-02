@@ -38,7 +38,8 @@ import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
 import { AddArenaDialogComponent } from './officiating/arena/components/add-arena-dialog/add-arena-dialog.component';
-import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component'; 
+import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component';
+import { AddAgeGroupDialogComponent } from './officiating/age-group/components/add-age-group-dialog/add-age-group-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
     FwTabGroupComponent,
     AddArenaDialogComponent,
     CustomDialogComponent,
-    FwSnackbarComponent
+    FwSnackbarComponent,
+    AddAgeGroupDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,7 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
     OfficialsFacade,
     FwSnackbarService
   ],
-  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent],
+  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent, AddAgeGroupDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

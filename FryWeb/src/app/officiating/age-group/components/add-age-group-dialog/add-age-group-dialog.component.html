@@ -1,0 +1,40 @@
+<fw-custom-dialog dialogType="primary" class="add-ageGroup">
+  <div dialog-title>
+    Add Age Group
+    <mat-icon class="add-ageGroup__icon">accessibility</mat-icon>
+  </div>
+  <div dialog-content class="add-ageGroup__form">
+    <form [formGroup]="addAgeGroupForm">
+      <div>
+        <mat-form-field class="add-ageGroup__field--two-thirds">
+          <mat-label>Age Group Name</mat-label>
+          <input matInput type="text" matInput formControlName="ageGroupName" placeholder="Enter Age Group Name" />
+          <mat-error *ngIf="addAgeGroupForm.controls['ageGroupName'].hasError('required')"> Must enter a name for the Age Group </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-ageGroup__row">
+        <mat-form-field class="add-ageGroup__field--one-half">
+          <mat-label>Tier</mat-label>
+          <input matInput type="text" formControlName="tier" placeholder="Enter Age Group Tier" />
+          <mat-error *ngIf="addAgeGroupForm.controls['tier'].hasError('required')"> Must enter a Tier for the Age Group </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-ageGroup__row">
+        <mat-form-field class="add-ageGroup__field--one-third">
+          <mat-label>Minimum Age</mat-label>
+          <input matInput type="text" formControlName="minimumAge" placeholder="Enter Minimum Age for the Age Group" />
+          <mat-error *ngIf="addAgeGroupForm.controls['minimumAge'].hasError('required')"> Must enter a Minimum Age for the Age Group </mat-error>
+        </mat-form-field>
+        <mat-form-field class="add-ageGroup__field--one-third">
+          <mat-label>Maximum Age</mat-label>
+          <input matInput type="text" formControlName="maximumAge" placeholder="Enter Maximum Age for the Age Group" />
+          <mat-error *ngIf="addAgeGroupForm.controls['maximumAge'].hasError('required')"> Must enter a Maximum Age for the Age Group </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div dialog-footer>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button color="primary" (click)="save()" [disabled]="addAgeGroupForm.invalid">Ok</button>
+  </div>
+</fw-custom-dialog>
