@@ -1,0 +1,72 @@
+<fw-custom-dialog dialogType="primary" class="add-official">
+  <div dialog-title>
+    Add Official 
+    <i class="fas fa-hockey-puck add-official__icon"></i>
+  </div>
+  <div dialog-content class="add-official__form">
+    <form [formGroup]="addOfficialForm">
+      <div class="add-official__row">
+        <mat-form-field class="add-official__field--one-half">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" matInput formControlName="firstName" placeholder="Enter First Name" />
+          <mat-error *ngIf="addOfficialForm.controls['firstName'].hasError('required')"> Must enter a First Name </mat-error>
+        </mat-form-field>
+        <mat-form-field class="add-official__field--one-half">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" matInput formControlName="lastName" placeholder="Enter Last Name" />
+          <mat-error *ngIf="addOfficialForm.controls['lastName'].hasError('required')"> Must enter a Last Name </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-official__row">
+        <mat-form-field class="add-official__field--one-half" hintLabel="Must be between 1 and 4">
+          <mat-label>Level</mat-label>
+          <input matInput type="number" matInput formControlName="level" placeholder="Enter Level" />
+          <mat-error *ngIf="addOfficialForm.controls['level'].hasError('required')"> Must enter a Level </mat-error>
+          <mat-error *ngIf="addOfficialForm.controls['level'].hasError('min')"> Level cannot be less than 1 </mat-error>
+          <mat-error *ngIf="addOfficialForm.controls['level'].hasError('max')"> Level cannot exceed 4 </mat-error>
+        </mat-form-field>
+        <mat-form-field class="add-official__field--one-half" hintLabel="Must be between 0 and 45">
+          <mat-label>Years Experience</mat-label>
+          <input matInput type="number" matInput formControlName="yearsExperience" placeholder="Enter number of years experience for the official" />
+          <mat-error *ngIf="addOfficialForm.controls['yearsExperience'].hasError('required')"> Must provide years experience </mat-error>
+          <mat-error *ngIf="addOfficialForm.controls['yearsExperience'].hasError('min')"> Years experience cannot be less than 0 </mat-error>
+          <mat-error *ngIf="addOfficialForm.controls['yearsExperience'].hasError('max')"> Years experience cannot exceed 45 </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-official__row">
+        <mat-form-field class="add-official__field--two-thirds">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" formControlName="address" placeholder="Enter Address" />
+          <mat-error *ngIf="addOfficialForm.controls['address'].hasError('required')"> Must enter an Address for the Official </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-official__row">
+        <mat-form-field class="add-official__field--one-half">
+          <mat-label>City</mat-label>
+          <input matInput type="text" formControlName="city" placeholder="Enter City" />
+          <mat-error *ngIf="addOfficialForm.controls['city'].hasError('required')"> Must enter a City for the Official </mat-error>
+        </mat-form-field>
+        <mat-form-field class="add-official__field--one-half">
+          <input type="text" placeholder="State" matInput formControlName="state" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredStates | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="addOfficialForm.controls['state'].hasError('required')"> Must choose a State </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="add-official__row">
+        <mat-form-field class="add-official__field--one-third">
+          <mat-label>Zip Code</mat-label>
+          <input matInput type="text" formControlName="zipCode" placeholder="Enter Zip Code" />
+          <mat-error *ngIf="addOfficialForm.controls['zipCode'].hasError('required')"> Must enter a Zip Code for the Official </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div dialog-footer>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button color="primary" (click)="save()" [disabled]="addOfficialForm.invalid">Ok</button>
+  </div>
+</fw-custom-dialog>

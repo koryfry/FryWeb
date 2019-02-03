@@ -4,19 +4,17 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 
-import { ArenaFacade } from '../../state';
-import { Arena } from 'app/models/arena/arena.model';
+import { OfficialsFacade } from '../../state';
+import { Official } from 'app/models/official/official.model';
 
 @Component({
-  selector: 'fw-add-arena-dialog',
-  templateUrl: './add-arena-dialog.component.html',
-  styleUrls: ['./add-arena-dialog.component.scss']
+  selector: 'fw-add-official-dialog',
+  templateUrl: './add-official-dialog.component.html',
+  styleUrls: ['./add-official-dialog.component.scss']
 })
-export class AddArenaDialogComponent implements OnInit {
+export class AddOfficialDialogComponent implements OnInit {
 
-  addArenaForm: FormGroup;
-  arena: Arena;
-
+  addOfficialForm: FormGroup;
   states: string[] = [
     'Alabama','Alaska','Arizona','Arkansas',
     'California','Colorado','Connecticut','Delaware','District of Columbia',
@@ -30,16 +28,28 @@ export class AddArenaDialogComponent implements OnInit {
   filteredStates: Observable<string[]>;
 
   constructor(
-    private dialogRef: MatDialogRef<AddArenaDialogComponent>,
+    private dialogRef: MatDialogRef<AddOfficialDialogComponent>,
     private fb: FormBuilder,
-    private arenaFacade: ArenaFacade,
-  ) 
+    private officialsFacade: OfficialsFacade
+  )
   { 
-    this.addArenaForm = this.fb.group({
-      arenaName: [
+    this.addOfficialForm = this.fb.group({
+      firstName: [
         null,
         Validators.required
-      ],      
+      ],  
+      lastName: [
+        null,
+        Validators.required
+      ], 
+      level: [
+        null,
+        [Validators.required, Validators.min(1), Validators.max(4)]
+      ],
+      yearsExperience: [
+        null,
+        [Validators.required, Validators.min(0), Validators.max(45)]
+      ],
       address: [
         null,
         Validators.required
@@ -60,7 +70,7 @@ export class AddArenaDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredStates = this.addArenaForm.get('state').valueChanges
+    this.filteredStates = this.addOfficialForm.get('state').valueChanges
     .pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -72,15 +82,18 @@ export class AddArenaDialogComponent implements OnInit {
   }
 
   save() {
-    this.arena = {
-      Name: this.addArenaForm.get('arenaName').value,
-      Address: this.addArenaForm.get('address').value,
-      City: this.addArenaForm.get('city').value,
-      State: this.addArenaForm.get('state').value,
-      'Zip Code': this.addArenaForm.get('zipCode').value
+    const official = {
+      'First Name': this.addOfficialForm.get('firstName').value,
+      'Last Name': this.addOfficialForm.get('lastName').value,
+      Level: this.addOfficialForm.get('level').value,
+      'Years Experience': this.addOfficialForm.get('yearsExperience').value,
+      Address: this.addOfficialForm.get('address').value,
+      City: this.addOfficialForm.get('city').value,
+      State: this.addOfficialForm.get('state').value,
+      'Zip Code': this.addOfficialForm.get('zipCode').value
     }
 
-    this.arenaFacade.createArena(this.arena);
+    this.officialsFacade.createOfficial(official);
     this.dialogRef.close('Hello');
   }
 
@@ -89,4 +102,5 @@ export class AddArenaDialogComponent implements OnInit {
 
     return this.states.filter(option => option.toLowerCase().includes(filterValue));
   }
+
 }

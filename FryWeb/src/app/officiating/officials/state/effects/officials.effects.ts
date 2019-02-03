@@ -8,6 +8,7 @@ import * as OfficialsActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
 import { OfficialsService } from '../../../../services/officials.service';
+import { FwSnackbarService } from 'app/shared/components/fw-snackbar/fw-snackbar.service';
 
 @Injectable()
 export class OfficialEffects {
@@ -29,21 +30,30 @@ export class OfficialEffects {
     )
 
     @Effect()
-    createOfficial = this.actions$
-        .ofType<CreateOfficialRequest>(OfficialActionTypes.CreateOfficialRequest)
+    createOfficial = this.actions$.ofType<CreateOfficialRequest>(OfficialActionTypes.CreateOfficialRequest)
         .pipe(
             map((action: OfficialsActions.CreateOfficialRequest) => action.official),
             switchMap(official => {
-                return this.officialsService.createOfficial(official)
-                    .pipe(
-                        map(official => new CreateOfficialRequestSuccess(official)),
-                        catchError(e => of(new CreateOfficialRequestFail(e)))
-                    )
+                return this.officialsService.createOfficial(official).pipe(
+                    switchMap(official => {
+                        this.snackBarService.success('Official was successfully created', 'Dismiss', {
+                            duration: 3000
+                        });
+                        return of(new CreateOfficialRequestSuccess(official));
+                    }),
+                    catchError(error => {
+                        this.snackBarService.error(error.stack || 'Oops! Official was not created successfully', 'Dismiss', {
+                            duration: 6000
+                        });
+                        return of(new CreateOfficialRequestFail(error));
+                    })
+                );
             })
         );
     
     constructor(
         private actions$: Actions,
-        private officialsService: OfficialsService
+        private officialsService: OfficialsService,
+        private snackBarService: FwSnackbarService
     ){}
 }

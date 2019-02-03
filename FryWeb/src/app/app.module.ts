@@ -25,6 +25,10 @@ import { AddressDisplayComponent } from './shared/components/address-display/add
 import { CardComponent } from './shared/components/card/card.component';
 import { FwTabGroupComponent } from './shared/components/fw-tab-group/fw-tab-group.component';
 import { FwSnackbarComponent } from './shared/components/fw-snackbar/fw-snackbar.component';
+import { AddArenaDialogComponent } from './officiating/arena/components/add-arena-dialog/add-arena-dialog.component';
+import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component';
+import { AddAgeGroupDialogComponent } from './officiating/age-group/components/add-age-group-dialog/add-age-group-dialog.component';
+import { AddOfficialDialogComponent } from './officiating/officials/components/add-official-dialog/add-official-dialog.component'; 
 
 // Import Services
 import { ArenaService } from './services/arena.service';
@@ -37,9 +41,6 @@ import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.s
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
-import { AddArenaDialogComponent } from './officiating/arena/components/add-arena-dialog/add-arena-dialog.component';
-import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component';
-import { AddAgeGroupDialogComponent } from './officiating/age-group/components/add-age-group-dialog/add-age-group-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AddAgeGroupDialogComponent } from './officiating/age-group/components/a
     AddArenaDialogComponent,
     CustomDialogComponent,
     FwSnackbarComponent,
-    AddAgeGroupDialogComponent
+    AddAgeGroupDialogComponent,
+    AddOfficialDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { AddAgeGroupDialogComponent } from './officiating/age-group/components/a
     OfficialsFacade,
     FwSnackbarService
   ],
-  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent, AddAgeGroupDialogComponent],
+  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent, AddAgeGroupDialogComponent, AddOfficialDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

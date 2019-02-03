@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
@@ -14,6 +14,7 @@ import { TableDisplayService } from "../../shared/services/table-display.service
 import { OfficialsFacade } from './state';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { AddOfficialDialogComponent } from 'app/officiating/officials/components/add-official-dialog/add-official-dialog.component';
 
 @Component({
   selector: 'fw-officials',
@@ -39,7 +40,8 @@ export class OfficialsComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private officialsService: OfficialsService, 
     private tableDisplayService: TableDisplayService,
-    private officialsFacade: OfficialsFacade
+    private officialsFacade: OfficialsFacade,
+    private dialog: MatDialog
   ) 
   {
     this.officialsFacade.loadOfficials();
@@ -68,5 +70,17 @@ export class OfficialsComponent implements OnInit {
 
   logRow(row: any) {
     console.log('Row selected: ', row);
+  }
+
+  openAddOfficialDialog() {
+    const dialogRef = this.dialog.open(AddOfficialDialogComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window']
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the add arena dialog');
+    })
   }
 }

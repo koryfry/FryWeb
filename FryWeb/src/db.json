@@ -104,6 +104,13 @@
       "Tier": "AA",
       "Min Age": 10,
       "Max Age": 12
+    },
+    {
+      "Name": "Pee Wee",
+      "Tier": "AAA",
+      "Min Age": "11",
+      "Max Age": "12",
+      "id": 7
     }
   ],
   "officials": [
@@ -141,7 +148,7 @@
       "Zip Code": "49424"
     },
     {
-      "id": 1,
+      "id": 4,
       "First Name": "Dave",
       "Last Name": "Fry",
       "Level": 3,
@@ -150,6 +157,17 @@
       "City": "Holland",
       "State": "MI",
       "Zip Code": "49424"
+    },
+    {
+      "First Name": "Chris",
+      "Last Name": "Jamieson",
+      "Level": 3,
+      "Years Experience": 15,
+      "Address": "1245 12th Ave",
+      "City": "Jenison",
+      "State": "MI",
+      "Zip Code": "45689",
+      "id": 5
     }
   ]
 }

@@ -8,6 +8,7 @@ import * as AgeGroupActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
 import { AgeGroupService } from '../../../../services/age-group.service';
+import { FwSnackbarService } from '../../../../shared/components/fw-snackbar/fw-snackbar.service';
 
 @Injectable()
 export class AgeGroupEffects {
@@ -34,17 +35,27 @@ export class AgeGroupEffects {
     .pipe(
         map((action: AgeGroupActions.CreateAgeGroupRequest) => action.ageGroup),
         switchMap(ageGroup => {
-            return this.ageGroupService
-                .createAgeGroup(ageGroup)
-                .pipe(
-                    map(ageGroup => new CreateAgeGroupRequestSuccess(ageGroup)),
-                    catchError(e => of(new CreateAgeGroupRequestFail(e)))
-                )
-        })        
+            return this.ageGroupService.createAgeGroup(ageGroup).pipe(
+                switchMap(ageGroup => {
+                    this.snackBarService.success('Age Group was successfully created', 'Dismiss', {
+                        duration: 3000
+                    });
+                    return of(new CreateAgeGroupRequestSuccess(ageGroup));
+                }),
+                catchError(error => {
+                    this.snackBarService.error(error.stack || 'Oops! Age Group was not created successfully', 'Dismiss', {
+                        duration: 6000
+                    });
+
+                    return of(new CreateAgeGroupRequestFail(error));
+                })
+            );
+        })       
     );
     
     constructor(
         private actions$: Actions,
-        private ageGroupService: AgeGroupService
+        private ageGroupService: AgeGroupService,
+        private snackBarService: FwSnackbarService
     ){}
 }
