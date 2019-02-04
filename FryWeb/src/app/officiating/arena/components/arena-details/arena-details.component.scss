@@ -1,5 +1,6 @@
-@import "~styles/variables.scss";
-@import "~styles/colors.scss";
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/colors.scss';
+
 
 .details-card-header {
     margin-top: -10px;
@@ -10,7 +11,7 @@
 }
 
 .card-title {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     height: 4vh;
     margin: 35px auto;
@@ -19,7 +20,7 @@
 .arena-card {
     max-width: 500px;
     color: black;
-    background-color: $fwBlue;//lightskyblue; 
+    background-color: $fwMediumLightBlue;
     padding: 24px;
 }
 
@@ -32,4 +33,18 @@
 
 .mat-chip {
     font-size: 24px;
+}
+
+.details-title-image {
+    margin: auto;
+    width: 75%;
+}
+
+.details-title-no-image {
+    margin: auto;
+    width: 40%;
+}
+
+.dialog-preview-content {
+    background-color: $fwLightBlue;
 }

@@ -53,12 +53,19 @@ export function arenaReducer(state = initialState, action: ArenaActions): ArenaS
             }
         }
 
-        // case ArenaActionTypes.OpenSelectedArenaDetails: {
-        //     return {
-        //         ...state,
-        //         selectedArena: action.selectedArena
-        //     }
-        // }
+        case ArenaActionTypes.OpenSelectedArenaDetails: {
+            return {
+                ...state,
+                selectedArena: null
+            }
+        }
+
+        case ArenaActionTypes.OpenSelectedArenaDetailsSuccess: {
+            return {
+                ...state,
+                selectedArena: action.selectedArena
+            }
+        }
 
         default: {
             return state;

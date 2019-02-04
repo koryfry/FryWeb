@@ -12,7 +12,9 @@ export enum ArenaActionTypes {
     CreateArenaRequest = '[Arena] Create Arena Request',
     CreateArenaRequestSuccess = '[Arena] Create Arena Request Success',
     CreateArenaRequestFail = '[Arena] Create Arena Request Fail',
-    OpenSelectedArenaDetails = '[Arena] Open Selected Arena Details'
+    OpenSelectedArenaDetails = '[Arena] Open Selected Arena Details',
+    OpenSelectedArenaDetailsSuccess = '[Arena] Open Selected Arena Details Success',
+    OpenSelectedArenaDetailsFail = '[Arena] Open Selected Arena Details Fail'
 }
 
 export class LoadArenasRequest implements Action {
@@ -49,6 +51,16 @@ export class OpenSelectedArenaDetails implements Action {
     constructor(public selectedArena: Arena, public arenaID: number) {}
 }
 
+export class OpenSelectedArenaDetailsSuccess implements Action {
+    readonly type = ArenaActionTypes.OpenSelectedArenaDetailsSuccess;
+    constructor(public selectedArena: Arena) {}
+}
+
+export class OpenSelectedArenaDetailsFail implements Action {
+    readonly type = ArenaActionTypes.OpenSelectedArenaDetailsFail;
+    constructor(payload: any) {}
+}
+
 export type ArenaActions = 
     LoadArenasRequest
     | LoadArenasRequestSuccess
@@ -56,4 +68,6 @@ export type ArenaActions =
     | CreateArenaRequest
     | CreateArenaRequestSuccess
     | CreateArenaRequestFail
-    | OpenSelectedArenaDetails;
+    | OpenSelectedArenaDetails
+    | OpenSelectedArenaDetailsSuccess
+    | OpenSelectedArenaDetailsFail;

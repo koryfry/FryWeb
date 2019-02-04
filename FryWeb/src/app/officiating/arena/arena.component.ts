@@ -17,6 +17,7 @@ import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import components
 import { AddArenaDialogComponent } from './components/add-arena-dialog/add-arena-dialog.component';
+import { ArenaDetailsComponent } from './components/arena-details/arena-details.component';
 
 @Component({
   selector: 'fw-arena',
@@ -68,7 +69,8 @@ export class ArenaComponent implements OnInit {
 
   logRow(row: any, rowID: number) {
     console.log('Row selected: ', row);
-    //this.arenaFacade.openSelectedArenaDetails(row, rowID);
+    this.arenaFacade.openSelectedArenaDetails(row, rowID);
+    this.openArenaDetailsPreviewDialog(row);
   } 
   
   ngOnDestroy() {
@@ -87,6 +89,19 @@ export class ArenaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('You closed the add arena dialog');
+    })
+  }
+
+  openArenaDetailsPreviewDialog(arena: Arena) {
+    const dialogRef = this.dialog.open(ArenaDetailsComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: arena
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the Arena Details dialog');
     })
   }
 }

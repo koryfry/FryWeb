@@ -1,0 +1,67 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/colors.scss';
+
+:host {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.add-arena {
+    &__field {
+        width: 100%;
+		font-size: 14px;
+
+		&--large {
+			font-size: 18px;
+        }
+        
+        &--one-third {
+			width: calc(33% - 10px);
+			margin-right: 10px;
+			float: left;
+        }
+        
+        &--one-half {
+			width: calc(50% - 10px);
+			margin-right: 10px;
+			//float: left;
+        }
+        
+        &--two-thirds {
+			width: calc(66% - 10px);
+			margin-right: 10px;
+			//float: left;
+        }
+    }
+
+    &__form {
+		background: $fwLightBlue;
+		padding: 25px 15px 25px 15px;
+		min-height: 50%;
+		width:100%;
+		display: flex;
+		flex-direction: column;
+    }
+    
+    &__row {
+        margin-top: 10px;
+        margin-bottom: 20px;
+	}
+	
+	&__icon {
+		position: absolute;
+		margin-left: 10px;
+		top: 19px;
+		font-size: 22px !important;
+	}
+}
+
+.display-label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.display-data {
+    font-size: 14px;
+}

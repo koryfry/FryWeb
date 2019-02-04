@@ -1,12 +1,20 @@
-<br>
-<div><b>Address</b></div>
-<div>{{object?.Address}}</div>
-<br>
-<div><b>City</b></div>
-<div>{{object?.City}}</div>
-<br>
-<div><b>State</b></div>
-<div>{{object?.State}}</div>
-<br>
-<div><b>Zipcode</b></div>
-<div>{{object?.ZipCode}}</div>
+<div class="add-arena__row">
+    <div class="add-arena__field--two-thirds">
+        <mat-label class="display-label">Address</mat-label>
+        <div class="display-data">{{object.Address}}</div>
+    </div>
+</div>
+<div class="add-arena__row">
+    <div class="add-arena__field--one-third">
+        <mat-label class="display-label">City</mat-label>
+        <div class="display-data">{{object.City}}</div>
+    </div>
+    <div class="add-arena__field--one-third">
+        <mat-label class="display-label">State</mat-label>
+        <div class="display-data">{{object.State}}</div>
+    </div>
+    <div class="add-arena__field--one-third">
+        <mat-label class="display-label">Zip Code</mat-label>
+        <div class="display-data">{{object.ZipCode}}</div>
+    </div>
+</div>

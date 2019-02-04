@@ -8,5 +8,5 @@ export interface Arena {
     Address: string,
     City: string,
     State: string,
-    'Zip Code': string
+    ZipCode: string
 }

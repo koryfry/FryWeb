@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ArenaActionTypes, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail, CreateArenaRequest, CreateArenaRequestSuccess, CreateArenaRequestFail,
-            OpenSelectedArenaDetails } from '../actions';
+            OpenSelectedArenaDetails, OpenSelectedArenaDetailsSuccess, OpenSelectedArenaDetailsFail } from '../actions';
 import * as ArenaActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 import { getArenaState } from '../selectors';
@@ -58,17 +58,21 @@ export class ArenaEffects {
         );
 
     @Effect()
-    openSelectedArenaDetails$ = this.actions$.pipe(
-        ofType<OpenSelectedArenaDetails>(ArenaActionTypes.OpenSelectedArenaDetails),
-        map(
-            action => this.router.navigate([`arena/${action.arenaID}`])
-        )        
+    openSelectedArenaDetails$ = this.actions$.
+        ofType<OpenSelectedArenaDetails>(ArenaActionTypes.OpenSelectedArenaDetails)
+        .pipe(
+            switchMap((action) => {
+                return this.arenaService.getArenaById(action.arenaID)
+                    .pipe(
+                        map(arenaDetailsPreview => {
+                            return new OpenSelectedArenaDetailsSuccess(arenaDetailsPreview)
+                        }),
+                        catchError(error => of(new OpenSelectedArenaDetailsFail(error)))
+                    )
+            }
+        )
+             
     );
-        
-    // .pipe(
-    //     map((action: ArenaActions.OpenSelectedArenaDetails) =>
-    //     tap(() => this.router.navigate([`arena/${action.arenaID}`]))
-    // )
     
     constructor(
         private actions$: Actions,

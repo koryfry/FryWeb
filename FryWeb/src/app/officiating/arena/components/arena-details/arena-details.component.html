@@ -1,27 +1,18 @@
-<nav mat-tab-nav-bar backgroundColor="accent" *ngIf="route.children.length === 0">
-    <a mat-tab-link></a>
-    <button mat-raised-button style="position:absolute; right:10px; margin:5px;"  [routerLink]="['../../arena']">
-        <mat-icon style="vertical-align: middle;">home</mat-icon>  
-        <div style="display:inline-block; vertical-align: middle;">Back to Arena List</div>
-    </button>
-</nav>
+<fw-custom-dialog dialogType="primary" class="add-ageGroup">
+    <div *ngIf="!(selectedArena$ | async) as selectedArena">
+        <mat-spinner></mat-spinner>
+    </div>
 
-<br>
-
-<div *ngIf="!arena">
-    <mat-spinner></mat-spinner>
-</div>
-
-<div *ngIf="arena">    
-    <fw-card>
-        <div class="mat-card arena-card">
-            <mat-card-header class="details-card-header">
-                <img mat-card-avatar class="avatar-image" src={{arena?.AvatarImage}}>
-                <mat-card-title class="card-title">{{arena?.Name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <fw-address-display [object]="arena"></fw-address-display>
-            </mat-card-content>
-        </div>       
-    </fw-card>
-</div>
+    <div dialog-title *ngIf="(selectedArena$ | async) as selectedArena">
+        <div [ngClass]="{'details-title-image': selectedArena[0]?.AvatarImage, 'details-title-no-image' : !selectedArena[0]?.AvatarImage}">
+            <img *ngIf="selectedArena[0]?.AvatarImage" style="margin-right: 10px;" mat-card-avatar class="avatar-image" src={{selectedArena[0]?.AvatarImage}}>
+            <span class="card-title">{{selectedArena[0].Name}}</span>
+        </div>
+    </div>
+    <div dialog-content class="dialog-preview-content" *ngIf="(selectedArena$ | async) as selectedArena">
+        <fw-address-display [object]="selectedArena[0]"></fw-address-display>
+    </div>
+    <div dialog-footer>
+        <button mat-button (click)="onNoClick()">Close</button>
+    </div>
+</fw-custom-dialog>

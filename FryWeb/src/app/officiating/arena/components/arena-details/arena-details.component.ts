@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 // Import model
 import { Arena } from '../../../../models/arena/arena.model';
@@ -10,7 +10,9 @@ import { ArenaService } from '../../../../services/arena.service';
 
 // Import State items
 import { ArenaFacade } from '../../state';
-import { take } from 'rxjs/internal/operators';
+import { take, takeUntil } from 'rxjs/internal/operators';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'fw-arena-details',
@@ -19,32 +21,27 @@ import { take } from 'rxjs/internal/operators';
 })
 export class ArenaDetailsComponent implements OnInit {
 
-  arena: Observable<Arena>;
+  arena: Arena;
   arenaID: number;
   selectedArena$: Observable<Arena>;
-  selectedArena: Arena;
+  
+  private _componentDestroyed$: Subject<boolean> = new Subject();
 
   constructor(
     private route: ActivatedRoute,
     private arenaService: ArenaService,
-    private arenaFacade: ArenaFacade
-  ) 
-  { 
-    this.selectedArena$ = arenaFacade.selectedArena$;
-    this.selectedArena$.pipe(take(1)).subscribe(sa => {
-      this.selectedArena = sa;
-      console.log('Selected Arena: ', this.selectedArena);
-    });
-  }
+    private arenaFacade: ArenaFacade,
+    private dialogRef: MatDialogRef<ArenaDetailsComponent>, 
+    @Inject(MAT_DIALOG_DATA)
+    private data: Arena
+  ) { }
 
   ngOnInit() {
-    this.arenaID = Number(this.route.snapshot.params['id']);
-    this.arenaService.getArenaById(this.arenaID).subscribe(res => {
-      this.arena = res[0];
-      console.log('Arena: ', this.arena);
-    }, err => {
-      console.log('Error: ', err);
-    });
+    this.selectedArena$ = this.arenaFacade.selectedArena$;
+  }
+  
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }
