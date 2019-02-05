@@ -1,0 +1,26 @@
+<fw-custom-dialog dialogType="primary" class="ageGroupDetails">
+  <div *ngIf="!(selectedAgeGroup$ | async) as selectedAgeGroup">
+      <mat-spinner></mat-spinner>
+  </div>
+
+  <div dialog-title *ngIf="(selectedAgeGroup$ | async) as selectedAgeGroup">
+      <div>
+          <span class="card-title">{{selectedAgeGroup[0].Name}} {{selectedAgeGroup[0].Tier}}</span>
+      </div>
+  </div>
+  <div dialog-content class="dialog-preview-content" *ngIf="(selectedAgeGroup$ | async) as selectedAgeGroup">
+    <div class="ageGroupDetails__row">
+      <div class="ageGroupDetails__field--one-half">
+        <mat-label class="display-label">Min Age</mat-label>
+        <div class="display-data">{{selectedAgeGroup[0].MinAge}}</div>
+      </div>
+      <div class="ageGroupDetails__field--one-half">
+          <mat-label class="display-label">Max Age</mat-label>
+          <div class="display-data">{{selectedAgeGroup[0].MaxAge}}</div>
+      </div>
+    </div>
+  </div>
+  <div dialog-footer>
+      <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</fw-custom-dialog>

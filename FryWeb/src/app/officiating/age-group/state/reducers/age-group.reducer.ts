@@ -5,13 +5,14 @@ export interface AgeGroupState {
     loaded: boolean;
     loading: boolean;
     ageGroups: {[id: number]: AgeGroup};
-    //ageGroups: AgeGroup[];
+    selectedAgeGroup: AgeGroup;
 }
 
 const initialState: AgeGroupState = {
     loaded: false,
     loading: false,
-    ageGroups: null
+    ageGroups: null,
+    selectedAgeGroup: null
 }
 
 export function ageGroupReducer(state = initialState, action: AgeGroupActions): AgeGroupState {
@@ -36,13 +37,6 @@ export function ageGroupReducer(state = initialState, action: AgeGroupActions): 
                 loading: false,
                 ageGroups
             }
-            
-            // return {
-            //     ...state,
-            //     loaded: true,
-            //     loading: false,
-            //     ageGroups: action.ageGroups
-            // };
         }
 
         case AgeGroupActionTypes.CreateAgeGroupRequestSuccess: {
@@ -56,6 +50,20 @@ export function ageGroupReducer(state = initialState, action: AgeGroupActions): 
                 ageGroups: ageGroups,
                 loaded: false,
                 loading: false
+            }
+        }
+
+        case AgeGroupActionTypes.OpenSelectedAgeGroupDetails: {
+            return {
+                ...state,
+                selectedAgeGroup: null
+            }
+        }
+
+        case AgeGroupActionTypes.OpenSelectedAgeGroupDetailsSuccess: {
+            return {
+                ...state,
+                selectedAgeGroup: action.selectedAgeGroup
             }
         }
 

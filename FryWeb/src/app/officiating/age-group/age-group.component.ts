@@ -17,6 +17,7 @@ import { AgeGroupFacade } from './state';
 
 // Import Components
 import { AddAgeGroupDialogComponent } from './components/add-age-group-dialog/add-age-group-dialog.component';
+import { AgeGroupDetailsComponent } from 'app/officiating/age-group/components/age-group-details/age-group-details.component';
 
 @Component({
   selector: 'fw-age-group',
@@ -82,6 +83,25 @@ export class AgeGroupComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('You closed the add age group dialog');
+    })
+  }
+
+  logRow(row: any, rowID: number) {
+    console.log('Row selected: ', row);
+    this.ageGroupFacade.openSelectedAgeGroupDetails(row, rowID);
+    this.openAgeGroupDetailsPreviewDialog(row);
+  }
+
+  openAgeGroupDetailsPreviewDialog(ageGroup: AgeGroup) {
+    const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: ageGroup
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the Age Group Details dialog');
     })
   }
 }

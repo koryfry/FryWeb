@@ -16,3 +16,8 @@ export const getAgeGroups = createSelector(
 export const getAllAgeGroups = createSelector(getAgeGroups, entities => {
     return Object.keys(entities).map(id => entities[parseInt(id, 10)])
 });
+
+export const getSelectedAgeGroup = createSelector(
+    getAgeGroupState,
+    (state: AgeGroupState) => state.selectedAgeGroup
+)

@@ -6,13 +6,14 @@ export interface OfficialState {
     loaded: boolean;
     loading: boolean;
     officials: {[id: number]: Official};
-    //officials: Official[];
+    selectedOfficial: Official;
 }
 
 const initialState: OfficialState = {
     loaded: false,
     loading: false,
-    officials: null
+    officials: null,
+    selectedOfficial: null
 }
 
 export function officialReducer(state = initialState, action: OfficialActions): OfficialState {
@@ -49,6 +50,20 @@ export function officialReducer(state = initialState, action: OfficialActions): 
                 officials: officials,
                 loaded: false,
                 loading: false
+            }
+        }
+
+        case OfficialActionTypes.OpenSelectedOfficialDetails: {
+            return {
+                ...state,
+                selectedOfficial: null
+            }
+        }
+
+        case OfficialActionTypes.OpenSelectedOfficialDetailsSuccess: {
+            return {
+                ...state,
+                selectedOfficial: action.selectedOfficial
             }
         }
 

@@ -3,7 +3,8 @@ import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AgeGroupActionTypes, LoadAgeGroupsRequestRequest, LoadAgeGroupsRequestRequestSuccess, LoadAgeGroupsRequestRequestFail, 
-            CreateAgeGroupRequest, CreateAgeGroupRequestSuccess, CreateAgeGroupRequestFail} from '../actions';
+            CreateAgeGroupRequest, CreateAgeGroupRequestSuccess, CreateAgeGroupRequestFail, OpenSelectedAgeGroupDetails,
+            OpenSelectedAgeGroupDetailsSuccess, OpenSelectedAgeGroupDetailsFail} from '../actions';
 import * as AgeGroupActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
@@ -51,6 +52,23 @@ export class AgeGroupEffects {
                 })
             );
         })       
+    );
+
+    @Effect()
+    openSelectedArenaDetails$ = this.actions$.
+        ofType<OpenSelectedAgeGroupDetails>(AgeGroupActionTypes.OpenSelectedAgeGroupDetails)
+        .pipe(
+            switchMap((action) => {
+                return this.ageGroupService.getAgeGroupById(action.ageGroupID)
+                    .pipe(
+                        map(ageGroupDetailsPreview => {
+                            return new OpenSelectedAgeGroupDetailsSuccess(ageGroupDetailsPreview)
+                        }),
+                        catchError(error => of(new OpenSelectedAgeGroupDetailsFail(error)))
+                    )
+            }
+        )
+             
     );
     
     constructor(

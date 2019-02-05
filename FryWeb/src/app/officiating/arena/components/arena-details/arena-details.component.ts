@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
@@ -12,7 +12,6 @@ import { ArenaService } from '../../../../services/arena.service';
 import { ArenaFacade } from '../../state';
 import { take, takeUntil } from 'rxjs/internal/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Inject } from '@angular/core';
 
 @Component({
   selector: 'fw-arena-details',

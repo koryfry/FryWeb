@@ -62,6 +62,14 @@
       "State": "MI",
       "ZipCode": "45689",
       "AvatarImage": null
+    },
+    {
+      "Name": "Van Andel Arena",
+      "Address": "456 Fulton Street",
+      "City": "Grand Rapids",
+      "State": "Michigan",
+      "ZipCode": "45678",
+      "id": 8
     }
   ],
   "ageGroups": [
@@ -69,106 +77,106 @@
       "id": 1,
       "Name": "Squirt",
       "Tier": "B",
-      "Min Age": 8,
-      "Max Age": 9
+      "MinAge": 8,
+      "MaxAge": 9
     },
     {
       "id": 2,
       "Name": "Squirt",
       "Tier": "A",
-      "Min Age": 8,
-      "Max Age": 9
+      "MinAge": 8,
+      "MaxAge": 9
     },
     {
       "id": 3,
       "Name": "Squirt",
       "Tier": "AA",
-      "Min Age": 8,
-      "Max Age": 9
+      "MinAge": 8,
+      "MaxAge": 9
     },
     {
       "id": 4,
       "Name": "Pee Wee",
       "Tier": "B",
-      "Min Age": 10,
-      "Max Age": 12
+      "MinAge": 10,
+      "MaxAge": 12
     },
     {
       "id": 5,
       "Name": "Pee Wee",
       "Tier": "A",
-      "Min Age": 10,
-      "Max Age": 12
+      "MinAge": 10,
+      "MaxAge": 12
     },
     {
       "id": 6,
       "Name": "Pee Wee",
       "Tier": "AA",
-      "Min Age": 10,
-      "Max Age": 12
+      "MinAge": 10,
+      "MaxAge": 12
     },
     {
       "Name": "Pee Wee",
       "Tier": "AAA",
-      "Min Age": "11",
-      "Max Age": "12",
+      "MinAge": "11",
+      "MaxAge": "12",
       "id": 7
     }
   ],
   "officials": [
     {
       "id": 1,
-      "First Name": "Kory",
-      "Last Name": "Fry",
+      "FirstName": "Kory",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 17,
+      "YearsExperience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 2,
-      "First Name": "Ryan",
-      "Last Name": "Fry",
+      "FirstName": "Ryan",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 21,
+      "YearsExperience": 21,
       "Address": "1234 Puck Hog Lane",
       "City": "Zeeland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 3,
-      "First Name": "Kyle",
-      "Last Name": "Fry",
+      "FirstName": "Kyle",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 17,
+      "YearsExperience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Muskegon",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 4,
-      "First Name": "Dave",
-      "Last Name": "Fry",
+      "FirstName": "Dave",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 38,
+      "YearsExperience": 38,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
-      "First Name": "Chris",
-      "Last Name": "Jamieson",
+      "FirstName": "Chris",
+      "LastName": "Jamieson",
       "Level": 3,
-      "Years Experience": 15,
+      "YearsExperience": 15,
       "Address": "1245 12th Ave",
       "City": "Jenison",
       "State": "MI",
-      "Zip Code": "45689",
+      "ZipCode": "45689",
       "id": 5
     }
   ]

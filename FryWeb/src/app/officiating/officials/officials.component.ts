@@ -14,7 +14,10 @@ import { TableDisplayService } from "../../shared/services/table-display.service
 import { OfficialsFacade } from './state';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subscription } from 'rxjs/internal/Subscription';
+
+// Import Components
 import { AddOfficialDialogComponent } from 'app/officiating/officials/components/add-official-dialog/add-official-dialog.component';
+import { OfficialsDetailsComponent } from '../officials/components/officials-details/officials-details.component';
 
 @Component({
   selector: 'fw-officials',
@@ -68,8 +71,10 @@ export class OfficialsComponent implements OnInit {
 
   ngOnInit() {}
 
-  logRow(row: any) {
+  logRow(row: any, rowID: number) {
     console.log('Row selected: ', row);
+    this.officialsFacade.openSelectedOfficialDetails(row, rowID);
+    this.openOfficialsDetailsPreviewDialog(row);
   }
 
   openAddOfficialDialog() {
@@ -81,6 +86,19 @@ export class OfficialsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('You closed the add arena dialog');
+    })
+  }
+
+  openOfficialsDetailsPreviewDialog(arena: Official) {
+    const dialogRef = this.dialog.open(OfficialsDetailsComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: arena
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the Official Details dialog');
     })
   }
 }

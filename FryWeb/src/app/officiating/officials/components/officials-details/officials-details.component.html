@@ -1,0 +1,28 @@
+<fw-custom-dialog dialogType="primary" class="officialsDetails">
+  <div *ngIf="!(selectedOfficial$ | async) as selectedOfficial">
+      <mat-spinner></mat-spinner>
+  </div>
+
+  <div dialog-title *ngIf="(selectedOfficial$ | async) as selectedOfficial">
+      <div class="name-display">
+          <span class="card-title">{{selectedOfficial[0].FirstName}} {{selectedOfficial[0].LastName}}</span>
+      </div>
+  </div>
+  <div dialog-content class="dialog-preview-content" *ngIf="(selectedOfficial$ | async) as selectedOfficial">
+    <div class="officialsDetails__row">
+      <div class="officialsDetails__field--one-half">
+        <mat-label class="display-label">Level</mat-label>
+        <div class="display-data">{{selectedOfficial[0].Level}}</div>
+      </div>
+      <div class="officialsDetails__field--one-half">
+          <mat-label class="display-label">Years Experience</mat-label>
+          <div class="display-data">{{selectedOfficial[0].YearsExperience}}</div>
+      </div>
+    </div>
+    
+    <fw-address-display [object]="selectedOfficial[0]"></fw-address-display>
+  </div>
+  <div dialog-footer>
+      <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</fw-custom-dialog>

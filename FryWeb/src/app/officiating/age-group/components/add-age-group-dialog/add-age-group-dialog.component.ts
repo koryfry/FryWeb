@@ -12,7 +12,6 @@ import { AgeGroupFacade } from 'app/officiating/age-group/state';
 export class AddAgeGroupDialogComponent implements OnInit {
 
   addAgeGroupForm: FormGroup;
-  //ageGroup: AgeGroup;
 
   constructor(
     private dialogRef: MatDialogRef<AddAgeGroupDialogComponent>,
@@ -51,8 +50,8 @@ export class AddAgeGroupDialogComponent implements OnInit {
     var ageGroup = {
       Name: this.addAgeGroupForm.get('ageGroupName').value,
       Tier: this.addAgeGroupForm.get('tier').value,
-      'Min Age': this.addAgeGroupForm.get('minimumAge').value,
-      'Max Age': this.addAgeGroupForm.get('maximumAge').value
+      MinAge: this.addAgeGroupForm.get('minimumAge').value,
+      MaxAge: this.addAgeGroupForm.get('maximumAge').value
     }
     this.ageGroupFacade.createAgeGroup(ageGroup)
     this.dialogRef.close('Hello');

@@ -41,6 +41,8 @@ import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.s
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
+import { AgeGroupDetailsComponent } from './officiating/age-group/components/age-group-details/age-group-details.component';
+import { OfficialsDetailsComponent } from './officiating/officials/components/officials-details/officials-details.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { OfficialsFacade } from './officiating/officials/state/facades/officials
     CustomDialogComponent,
     FwSnackbarComponent,
     AddAgeGroupDialogComponent,
-    AddOfficialDialogComponent
+    AddOfficialDialogComponent,
+    AgeGroupDetailsComponent,
+    OfficialsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +89,14 @@ import { OfficialsFacade } from './officiating/officials/state/facades/officials
     OfficialsFacade,
     FwSnackbarService
   ],
-  entryComponents:[AddArenaDialogComponent, FwSnackbarComponent, AddAgeGroupDialogComponent, AddOfficialDialogComponent],
+  entryComponents:[
+    AddArenaDialogComponent, 
+    FwSnackbarComponent, 
+    AddAgeGroupDialogComponent, 
+    AddOfficialDialogComponent,
+    AgeGroupDetailsComponent,
+    OfficialsDetailsComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
