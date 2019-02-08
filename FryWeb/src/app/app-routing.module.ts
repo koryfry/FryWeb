@@ -14,6 +14,9 @@ import { AgeGroupComponent } from './officiating/age-group/age-group.component';
 // Import Officials Components
 import { OfficialsComponent } from './officiating/officials/officials.component';
 
+// Import Game Details Component
+import { GameDetailComponent } from './officiating/game-detail/game-detail.component';
+
 const routes: Routes = [
     { path: 'home', component: AppMainComponent,
         children: [
@@ -30,6 +33,7 @@ const routes: Routes = [
                     },
                     { path: 'ageGroup', component: AgeGroupComponent },
                     { path: 'officials', component: OfficialsComponent },
+                    { path: 'gameDetails', component: GameDetailComponent },
                     { path: '', redirectTo: 'arena', pathMatch: 'full' }
                 ]
             }

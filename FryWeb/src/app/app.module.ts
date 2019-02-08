@@ -29,12 +29,14 @@ import { AddArenaDialogComponent } from './officiating/arena/components/add-aren
 import { CustomDialogComponent } from './shared/components/custom-dialog/custom-dialog.component';
 import { AddAgeGroupDialogComponent } from './officiating/age-group/components/add-age-group-dialog/add-age-group-dialog.component';
 import { AddOfficialDialogComponent } from './officiating/officials/components/add-official-dialog/add-official-dialog.component'; 
+import { GameDetailComponent } from './officiating/game-detail/game-detail.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
+import { GameDetailService } from './services/game-details.service';
 import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.service';
 
 // Import State Related Items
@@ -43,6 +45,7 @@ import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
 import { AgeGroupDetailsComponent } from './officiating/age-group/components/age-group-details/age-group-details.component';
 import { OfficialsDetailsComponent } from './officiating/officials/components/officials-details/officials-details.component';
+
 
 @NgModule({
   declarations: [
@@ -66,7 +69,8 @@ import { OfficialsDetailsComponent } from './officiating/officials/components/of
     AddAgeGroupDialogComponent,
     AddOfficialDialogComponent,
     AgeGroupDetailsComponent,
-    OfficialsDetailsComponent
+    OfficialsDetailsComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,8 @@ import { OfficialsDetailsComponent } from './officiating/officials/components/of
     AgeGroupFacade,
     ArenaFacade,
     OfficialsFacade,
-    FwSnackbarService
+    FwSnackbarService,
+    GameDetailService
   ],
   entryComponents:[
     AddArenaDialogComponent, 

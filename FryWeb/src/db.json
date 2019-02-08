@@ -179,5 +179,49 @@
       "ZipCode": "45689",
       "id": 5
     }
+  ],
+  "gameDetails": [
+    {
+      "id": 1,
+      "GameDate": "2019-01-18",
+      "GameTime": "8:30 AM",
+      "ArenaId": 1,
+      "AgeGroupId": 3,
+      "Partner1_OfficialId": 2,
+      "Ref": true,
+      "TotalMiles": 5,
+      "RateOfPay": 35,
+      "DatePaid": null,
+      "MiscExpenseAmount": 0,
+      "AmountPaid": 35
+    },
+    {
+      "id": 2,
+      "GameDate": "2019-01-18",
+      "GameTime": "9:50 AM",
+      "ArenaId": 1,
+      "AgeGroupId": 3,
+      "Partner1_OfficialId": 2,
+      "Ref": true,
+      "TotalMiles": 5,
+      "RateOfPay": 35,
+      "DatePaid": null,
+      "MiscExpenseAmount": 0,
+      "AmountPaid": 35
+    },
+    {
+      "id": 3,
+      "GameDate": "2019-01-18",
+      "GameTime": "11:10 AM",
+      "ArenaId": 1,
+      "AgeGroupId": 3,
+      "Partner1_OfficialId": 2,
+      "Ref": true,
+      "TotalMiles": 5,
+      "RateOfPay": 35,
+      "DatePaid": null,
+      "MiscExpenseAmount": 0,
+      "AmountPaid": 35
+    }
   ]
 }

@@ -1,0 +1,38 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav-content>
+        
+    <br *ngIf="route.children.length === 0">
+
+    <div *ngIf="!dataSource">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="add-arena-fab">
+      <button mat-fab color="primary" title="Add Game Detail" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()">
+        <mat-icon >add</mat-icon>  
+      </button>
+    </div>
+
+    <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0 && dataSource">   
+
+      <div class="example-header">
+        <mat-form-field color="primary">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an specific game">
+        </mat-form-field>
+      </div>
+    
+      <table mat-table [dataSource]="dataSource" matSort class="arena-table">
+          
+        <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</th>
+          <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
+        </ng-container>        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row, row.id)"></tr>
+      </table>
+    </div>
+    
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

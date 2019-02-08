@@ -23,7 +23,8 @@ export class OfficiatingMainComponent implements OnInit {
     this.tabs = [
       { label: 'Arena Management', path: 'arena' },
       { label: 'Age Group Management', path: 'ageGroup' },
-      { label: 'Officials Management', path: 'officials' } 
+      { label: 'Officials Management', path: 'officials' },
+      { label: 'Game Details Management', path: 'gameDetails' }
     ];
   }
 
