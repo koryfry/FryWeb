@@ -15,6 +15,9 @@ import { TableDisplayService } from "../../shared/services/table-display.service
 // Import State Items
 import { GameDetailFacade } from './state';
 
+// Import Components
+import { AddGameDetailDialogComponent } from 'app/officiating/game-detail/components/add-game-detail-dialog/add-game-detail-dialog.component';
+
 
 @Component({
   selector: 'fw-game-detail',
@@ -47,6 +50,7 @@ export class GameDetailComponent implements OnInit {
     private dialog: MatDialog
   ) 
   { 
+    this.gameDetailFacade.loadArenas();
     this.gameDetailFacade.loadGameDetails();
     this.gameDetails$ = this.gameDetailFacade.gameDetails$;
 
@@ -73,6 +77,18 @@ export class GameDetailComponent implements OnInit {
   ngOnDestroy() {
     this._componentDestroyed$.next(true);
 		this._componentDestroyed$.complete();
+  }
+
+  openAddGameDetailDialog() {
+    const dialogRef = this.dialog.open(AddGameDetailDialogComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window']
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the add arena dialog');
+    })
   }
 
 }

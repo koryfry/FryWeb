@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { GameDetailActionTypes, LoadGameDetailsRequest, LoadGameDetailsRequestSuccess, LoadGameDetailsRequestFail, CreateGameDetailRequest, CreateGameDetailRequestSuccess, CreateGameDetailRequestFail,
-            OpenSelectedGameDetail, OpenSelectedGameDetailSuccess, OpenSelectedGameDetailFail } from '../actions';
+            OpenSelectedGameDetail, OpenSelectedGameDetailSuccess, OpenSelectedGameDetailFail, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail } from '../actions';
 import * as GameDetailActions from '../actions';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 import { getGameDetailState } from '../selectors';
@@ -12,6 +12,7 @@ import { GameDetailState } from '../reducers';
 import { GameDetailService } from '../../../../services/game-detail.service';
 import { Router } from '@angular/router';
 import { FwSnackbarService } from '../../../../shared/components/fw-snackbar/fw-snackbar.service';
+import { ArenaService } from 'app/services/arena.service';
 
 @Injectable()
 export class GameDetailEffects {
@@ -73,12 +74,29 @@ export class GameDetailEffects {
         )
              
     );
+
+    @Effect()
+    LoadArenas$: Observable<Action> = this.actions$
+     .ofType<LoadArenasRequest>(
+        GameDetailActionTypes.LoadArenasRequest
+     )
+     .pipe(
+         switchMap(() => {
+             return this.arenaService
+                 .getArenas()
+                 .pipe(
+                     map(arenas => new LoadArenasRequestSuccess(arenas)),
+                     catchError(e => of(new LoadArenasRequestFail(e)))
+                 );
+         })
+     )
     
     constructor(
         private actions$: Actions,
         private gameDetailService: GameDetailService,
         private store$: Store<GameDetailState>,
         private router: Router,
-        private snackBarService: FwSnackbarService
+        private snackBarService: FwSnackbarService,
+        private arenaService: ArenaService
     ){}
 }

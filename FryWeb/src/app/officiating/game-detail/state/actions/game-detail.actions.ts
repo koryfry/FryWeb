@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { GameDetail } from '../../../../models/gameDetail/gameDetail.model';
+import { Arena } from '../../../../models/arena/arena.model';
 
 /**
  * For each action type in an action group, make a simple
@@ -14,7 +15,10 @@ export enum GameDetailActionTypes {
     CreateGameDetailRequestFail = '[Game Detail] Create Game Detail Request Fail',
     OpenSelectedGameDetail = '[Game Detail] Open Selected Game Detail',
     OpenSelectedGameDetailSuccess = '[Game Detail] Open Selected Game Detail Success',
-    OpenSelectedGameDetailFail = '[Game Detail] Open Selected Game Detail Fail'
+    OpenSelectedGameDetailFail = '[Game Detail] Open Selected Game Detail Fail',
+    LoadArenasRequest = '[Game Detail] Load Arena Request',
+    LoadArenasRequestSuccess = '[Game Detail] Load Arena Request Success',
+    LoadArenasRequestFail = '[Game Detail] Load Arena Request Fail'
 }
 
 export class LoadGameDetailsRequest implements Action {
@@ -61,6 +65,21 @@ export class OpenSelectedGameDetailFail implements Action {
     constructor(payload: any) {}
 }
 
+// Load Arena Requests
+export class LoadArenasRequest implements Action {
+	readonly type = GameDetailActionTypes.LoadArenasRequest;
+}
+
+export class LoadArenasRequestSuccess implements Action {
+	readonly type = GameDetailActionTypes.LoadArenasRequestSuccess;
+	constructor(public arenas: Arena[]) {}
+}
+
+export class LoadArenasRequestFail implements Action {
+	readonly type = GameDetailActionTypes.LoadArenasRequestFail;
+	constructor(payload: any) {}
+}
+
 export type GameDetailActions = 
     LoadGameDetailsRequest
     | LoadGameDetailsRequestSuccess
@@ -70,4 +89,7 @@ export type GameDetailActions =
     | CreateGameDetailRequestFail
     | OpenSelectedGameDetail
     | OpenSelectedGameDetailSuccess
-    | OpenSelectedGameDetailFail;
+    | OpenSelectedGameDetailFail
+    | LoadArenasRequest
+    | LoadArenasRequestSuccess
+    | LoadArenasRequestFail;

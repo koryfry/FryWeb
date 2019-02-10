@@ -1,19 +1,30 @@
 import { GameDetailActions, GameDetailActionTypes } from '../actions/game-detail.actions';
 import * as gameDetailActions from '../actions/game-detail.actions';
 import { GameDetail } from 'app/models/GameDetail/gameDetail.model';
+import { Arena } from "app/models/arena/arena.model";
+import { AgeGroup } from "app/models/ageGroup/age-group.model";
+import { Official } from "app/models/official/official.model";
 
 export interface GameDetailState {
     loaded: boolean;
     loading: boolean;
     gameDetails: { [id: number]: GameDetail };
     selectedGameDetail: GameDetail;
+    arenas: Arena[];//{ [id: number]: Arena };
+    ageGroups: AgeGroup[];
+    officials: Official[];
+    arena: Arena;
 }
 
 const initialState: GameDetailState = {
     loaded: false,
     loading: false,
     gameDetails: null,
-    selectedGameDetail: null
+    selectedGameDetail: null,
+    arenas: null,
+    ageGroups: null,
+    officials: null,
+    arena: null
 }
 
 export function gameDetailReducer(state = initialState, action: GameDetailActions): GameDetailState {
@@ -28,7 +39,7 @@ export function gameDetailReducer(state = initialState, action: GameDetailAction
                     };
                 },
                 {
-                    ...state.gameDetails,
+                    ...state.gameDetails
                 }
             );
             return {
@@ -64,6 +75,13 @@ export function gameDetailReducer(state = initialState, action: GameDetailAction
             return {
                 ...state,
                 selectedGameDetail: action.selectedGameDetail
+            }
+        }
+
+        case GameDetailActionTypes.LoadArenasRequestSuccess: {
+            return {
+                ...state,
+                arenas: action.arenas
             }
         }
 

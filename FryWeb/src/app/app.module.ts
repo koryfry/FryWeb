@@ -32,6 +32,7 @@ import { AddOfficialDialogComponent } from './officiating/officials/components/a
 import { GameDetailComponent } from './officiating/game-detail/game-detail.component';
 import { AgeGroupDetailsComponent } from './officiating/age-group/components/age-group-details/age-group-details.component';
 import { OfficialsDetailsComponent } from './officiating/officials/components/officials-details/officials-details.component';
+import { AddGameDetailDialogComponent } from './officiating/game-detail/components/add-game-detail-dialog/add-game-detail-dialog.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
@@ -71,7 +72,8 @@ import { GameDetailFacade } from './officiating/game-detail/state/facades/game-d
     AddOfficialDialogComponent,
     AgeGroupDetailsComponent,
     OfficialsDetailsComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    AddGameDetailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import { GameDetailFacade } from './officiating/game-detail/state/facades/game-d
     AddAgeGroupDialogComponent, 
     AddOfficialDialogComponent,
     AgeGroupDetailsComponent,
-    OfficialsDetailsComponent
+    OfficialsDetailsComponent,
+    AddGameDetailDialogComponent
   ],
   bootstrap: [AppComponent]
 })
