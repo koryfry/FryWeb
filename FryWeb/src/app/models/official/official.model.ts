@@ -4,10 +4,10 @@
 
 export interface Official {
     id?: number,
-    FirstName: string,
-    LastName: string,
+    'First Name': string,
+    'Last Name': string,
     Level: number,
-    YearsExperience: number,
+    'Years Experience': number,
     Address: string,
     City: string,
     State: string,

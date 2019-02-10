@@ -77,59 +77,59 @@
       "id": 1,
       "Name": "Squirt",
       "Tier": "B",
-      "MinAge": 8,
-      "MaxAge": 9
+      "Minimum Age": 8,
+      "Maximum Age": 9
     },
     {
       "id": 2,
       "Name": "Squirt",
       "Tier": "A",
-      "MinAge": 8,
-      "MaxAge": 9
+      "Minimum Age": 8,
+      "Maximum Age": 9
     },
     {
       "id": 3,
       "Name": "Squirt",
       "Tier": "AA",
-      "MinAge": 8,
-      "MaxAge": 9
+      "Minimum Age": 8,
+      "Maximum Age": 9
     },
     {
       "id": 4,
       "Name": "Pee Wee",
       "Tier": "B",
-      "MinAge": 10,
-      "MaxAge": 12
+      "Minimum Age": 10,
+      "Maximum Age": 12
     },
     {
       "id": 5,
       "Name": "Pee Wee",
       "Tier": "A",
-      "MinAge": 10,
-      "MaxAge": 12
+      "Minimum Age": 10,
+      "Maximum Age": 12
     },
     {
       "id": 6,
       "Name": "Pee Wee",
       "Tier": "AA",
-      "MinAge": 10,
-      "MaxAge": 12
+      "Minimum Age": 10,
+      "Maximum Age": 12
     },
     {
       "Name": "Pee Wee",
       "Tier": "AAA",
-      "MinAge": "11",
-      "MaxAge": "12",
+      "Minimum Age": "11",
+      "Maximum Age": "12",
       "id": 7
     }
   ],
   "officials": [
     {
       "id": 1,
-      "FirstName": "Kory",
-      "LastName": "Fry",
+      "First Name": "Kory",
+      "Last Name": "Fry",
       "Level": 3,
-      "YearsExperience": 17,
+      "Years Experience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
@@ -137,10 +137,10 @@
     },
     {
       "id": 2,
-      "FirstName": "Ryan",
-      "LastName": "Fry",
+      "First Name": "Ryan",
+      "Last Name": "Fry",
       "Level": 3,
-      "YearsExperience": 21,
+      "Years Experience": 21,
       "Address": "1234 Puck Hog Lane",
       "City": "Zeeland",
       "State": "MI",
@@ -148,10 +148,10 @@
     },
     {
       "id": 3,
-      "FirstName": "Kyle",
-      "LastName": "Fry",
+      "First Name": "Kyle",
+      "Last Name": "Fry",
       "Level": 3,
-      "YearsExperience": 17,
+      "Years Experience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Muskegon",
       "State": "MI",
@@ -159,20 +159,20 @@
     },
     {
       "id": 4,
-      "FirstName": "Dave",
-      "LastName": "Fry",
+      "First Name": "Dave",
+      "Last Name": "Fry",
       "Level": 3,
-      "YearsExperience": 38,
+      "Years Experience": 38,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
       "Zip Code": "49424"
     },
     {
-      "FirstName": "Chris",
-      "LastName": "Jamieson",
+      "First Name": "Chris",
+      "Last Name": "Jamieson",
       "Level": 3,
-      "YearsExperience": 15,
+      "Years Experience": 15,
       "Address": "1245 12th Ave",
       "City": "Jenison",
       "State": "MI",
@@ -180,10 +180,10 @@
       "id": 5
     },
     {
-      "FirstName": "Tom",
-      "LastName": "Oosterbaan",
+      "First Name": "Tom",
+      "Last Name": "Oosterbaan",
       "Level": 3,
-      "YearsExperience": 38,
+      "Years Experience": 38,
       "Address": "45678 Happy Lane",
       "City": "Wyoming",
       "State": "MI",

@@ -83,10 +83,10 @@ export class AddOfficialDialogComponent implements OnInit {
 
   save() {
     const official = {
-      FirstName: this.addOfficialForm.get('firstName').value,
-      LastName: this.addOfficialForm.get('lastName').value,
+      'First Name': this.addOfficialForm.get('firstName').value,
+      'Last Name': this.addOfficialForm.get('lastName').value,
       Level: this.addOfficialForm.get('level').value,
-      YearsExperience: this.addOfficialForm.get('yearsExperience').value,
+      'Years Experience': this.addOfficialForm.get('yearsExperience').value,
       Address: this.addOfficialForm.get('address').value,
       City: this.addOfficialForm.get('city').value,
       State: this.addOfficialForm.get('state').value,

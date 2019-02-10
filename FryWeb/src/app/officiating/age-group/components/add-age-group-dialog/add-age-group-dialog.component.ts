@@ -50,8 +50,8 @@ export class AddAgeGroupDialogComponent implements OnInit {
     var ageGroup = {
       Name: this.addAgeGroupForm.get('ageGroupName').value,
       Tier: this.addAgeGroupForm.get('tier').value,
-      MinAge: this.addAgeGroupForm.get('minimumAge').value,
-      MaxAge: this.addAgeGroupForm.get('maximumAge').value
+      'Minimum Age': this.addAgeGroupForm.get('minimumAge').value,
+      'Maximum Age': this.addAgeGroupForm.get('maximumAge').value
     }
     this.ageGroupFacade.createAgeGroup(ageGroup)
     this.dialogRef.close('Hello');

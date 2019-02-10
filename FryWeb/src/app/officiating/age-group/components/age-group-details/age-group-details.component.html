@@ -11,12 +11,12 @@
   <div dialog-content class="dialog-preview-content" *ngIf="(selectedAgeGroup$ | async) as selectedAgeGroup">
     <div class="ageGroupDetails__row">
       <div class="ageGroupDetails__field--one-half">
-        <mat-label class="display-label">Min Age</mat-label>
-        <div class="display-data">{{selectedAgeGroup[0].MinAge}}</div>
+        <mat-label class="display-label">Minimum Age</mat-label>
+        <div class="display-data">{{selectedAgeGroup[0]['Minimum Age']}}</div>
       </div>
       <div class="ageGroupDetails__field--one-half">
-          <mat-label class="display-label">Max Age</mat-label>
-          <div class="display-data">{{selectedAgeGroup[0].MaxAge}}</div>
+          <mat-label class="display-label">Maximum Age</mat-label>
+          <div class="display-data">{{selectedAgeGroup[0]['Maximum Age']}}</div>
       </div>
     </div>
   </div>
