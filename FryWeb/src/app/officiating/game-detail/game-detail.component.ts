@@ -61,18 +61,6 @@ export class GameDetailComponent implements OnInit {
     }, err => {
       console.log('Error: ', err);
     });
-
-    // this.gameDetailService.getAllGameDetails().subscribe(gds => {
-    //   const gameDetails = gds;
-    //   this.gameDetails = gameDetails ? gameDetails : new Array<GameDetail>();
-    //   this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.gameDetails);
-    //   this.dataSource = new MatTableDataSource(this.gameDetails);
-    //   this.dataSource.sort = this.sort;
-    //   this.dataSource.paginator = this.paginator;
-    //   console.log('Game Details: ', this.dataSource);
-    // }, err => {
-    //   console.log('Error: ', err);
-    // });  
   }
 
   ngOnInit() {
