@@ -30,21 +30,22 @@ import { CustomDialogComponent } from './shared/components/custom-dialog/custom-
 import { AddAgeGroupDialogComponent } from './officiating/age-group/components/add-age-group-dialog/add-age-group-dialog.component';
 import { AddOfficialDialogComponent } from './officiating/officials/components/add-official-dialog/add-official-dialog.component'; 
 import { GameDetailComponent } from './officiating/game-detail/game-detail.component';
+import { AgeGroupDetailsComponent } from './officiating/age-group/components/age-group-details/age-group-details.component';
+import { OfficialsDetailsComponent } from './officiating/officials/components/officials-details/officials-details.component';
 
 // Import Services
 import { ArenaService } from './services/arena.service';
 import { AgeGroupService } from 'app/services/age-group.service';
 import { TableDisplayService } from 'app/shared/services/table-display.service';
 import { OfficialsService } from 'app/services/officials.service';
-import { GameDetailService } from './services/game-details.service';
+import { GameDetailService } from './services/game-detail.service';
 import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.service';
 
 // Import State Related Items
 import { AgeGroupFacade } from './officiating/age-group/state/facades/age-group.facade';
 import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
-import { AgeGroupDetailsComponent } from './officiating/age-group/components/age-group-details/age-group-details.component';
-import { OfficialsDetailsComponent } from './officiating/officials/components/officials-details/officials-details.component';
+import { GameDetailFacade } from './officiating/game-detail/state/facades/game-detail.facade';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { OfficialsDetailsComponent } from './officiating/officials/components/of
     ArenaFacade,
     OfficialsFacade,
     FwSnackbarService,
-    GameDetailService
+    GameDetailService,
+    GameDetailFacade
   ],
   entryComponents:[
     AddArenaDialogComponent, 

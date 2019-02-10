@@ -3,13 +3,17 @@ import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/m
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, Subject } from 'rxjs';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import modeal
 import { GameDetail } from '../../models/gameDetail/gameDetail.model';
 
 // Import Services
-import { GameDetailService } from 'app/services/game-details.service';
+import { GameDetailService } from 'app/services/game-detail.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
+
+// Import State Items
+import { GameDetailFacade } from './state';
 
 
 @Component({
@@ -39,10 +43,14 @@ export class GameDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private gameDetailService: GameDetailService,
     private tableDisplayService: TableDisplayService,
+    private gameDetailFacade: GameDetailFacade,
     private dialog: MatDialog
   ) 
   { 
-    this.gameDetailService.getAllGameDetails().subscribe(gds => {
+    this.gameDetailFacade.loadGameDetails();
+    this.gameDetails$ = this.gameDetailFacade.gameDetails$;
+
+    this.gameDetails$.pipe(takeUntil(this._componentDestroyed$)).subscribe(gds => {
       const gameDetails = gds;
       this.gameDetails = gameDetails ? gameDetails : new Array<GameDetail>();
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.gameDetails);
@@ -52,7 +60,19 @@ export class GameDetailComponent implements OnInit {
       console.log('Game Details: ', this.dataSource);
     }, err => {
       console.log('Error: ', err);
-    });  
+    });
+
+    // this.gameDetailService.getAllGameDetails().subscribe(gds => {
+    //   const gameDetails = gds;
+    //   this.gameDetails = gameDetails ? gameDetails : new Array<GameDetail>();
+    //   this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.gameDetails);
+    //   this.dataSource = new MatTableDataSource(this.gameDetails);
+    //   this.dataSource.sort = this.sort;
+    //   this.dataSource.paginator = this.paginator;
+    //   console.log('Game Details: ', this.dataSource);
+    // }, err => {
+    //   console.log('Error: ', err);
+    // });  
   }
 
   ngOnInit() {

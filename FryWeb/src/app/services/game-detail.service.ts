@@ -18,4 +18,17 @@ export class GameDetailService {
     .pipe(catchError((error: any) => throwError(error)));
   }
 
+  getGameDetailById(id: number): Observable<GameDetail> {
+    let params = new HttpParams().set('id', id.toString())
+    return this.http
+      .get<GameDetail>(this._baseUrl + 'gameDetails/', {params: params})
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  createGameDetail(arena: GameDetail): Observable<GameDetail> {
+    return this.http
+      .post<GameDetail>(this._baseUrl + 'gameDetails', arena)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }
