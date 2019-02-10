@@ -11,5 +11,5 @@ export interface Official {
     Address: string,
     City: string,
     State: string,
-    ZipCode: string
+    'Zip Code': string
 }

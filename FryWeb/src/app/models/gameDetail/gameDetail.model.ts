@@ -10,8 +10,8 @@ import { Official } from "app/models/official/official.model";
 
  export interface GameDetail {
     id?: number,
-    GameDate: Date,
-    GameTime: string,
+    'Game Date': Date,
+    'Game Time': string,
     ArenaId: number,
     AgeGroupId: number,
     Partner1_OfficialId?: number,
@@ -19,11 +19,11 @@ import { Official } from "app/models/official/official.model";
     Partner3_OfficialId?: number,
     Ref?: boolean,
     Line?: boolean,
-    TotalMiles: number,
-    RateOfPay?: number,
-    DatePaid?: Date,
-    MiscExpenseAmount?: number,
-    AmountPaid?: number,
+    'Total Miles': number,
+    'Rate Of Pay'?: number,
+    'Date Paid'?: Date,
+    'Misc Expense Amount'?: number,
+    'Amount Paid'?: number,
     Arena: Arena,
     AgeGroup: AgeGroup,
     Partner1?: Official

@@ -90,7 +90,7 @@ export class AddOfficialDialogComponent implements OnInit {
       Address: this.addOfficialForm.get('address').value,
       City: this.addOfficialForm.get('city').value,
       State: this.addOfficialForm.get('state').value,
-      ZipCode: this.addOfficialForm.get('zipCode').value
+      'Zip Code': this.addOfficialForm.get('zipCode').value
     }
 
     this.officialsFacade.createOfficial(official);
