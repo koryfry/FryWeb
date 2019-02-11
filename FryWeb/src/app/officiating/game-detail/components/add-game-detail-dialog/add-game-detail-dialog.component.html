@@ -4,7 +4,7 @@
     <mat-icon class="add-game-detail__icon">assignment</mat-icon>
   </div>
   <div dialog-content class="add-game-detail__form">
-    <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-vertical-stepper [linear]="isLinear" #stepper class="add-game-detail__form-background">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>Fill out your name</ng-template>

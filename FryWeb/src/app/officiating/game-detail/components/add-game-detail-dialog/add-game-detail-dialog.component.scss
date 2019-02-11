@@ -43,6 +43,10 @@
 		display: flex;
 		flex-direction: column;
     }
+
+    &__form-background {
+        background-color: transparent;
+    }
     
     &__row {
         margin-top: 10px;
