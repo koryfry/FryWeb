@@ -11,6 +11,7 @@ export class AddGameDetailDialogComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isLinear = true;
+  minDate: Date = new Date();
 
   constructor(
     private dialogRef: MatDialogRef<AddGameDetailDialogComponent>,
@@ -19,7 +20,8 @@ export class AddGameDetailDialogComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: ['', Validators.required],
+      gameTime:  ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]

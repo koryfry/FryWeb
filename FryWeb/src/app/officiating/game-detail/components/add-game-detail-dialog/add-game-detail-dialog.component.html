@@ -7,9 +7,16 @@
     <mat-vertical-stepper [linear]="isLinear" #stepper class="add-game-detail__form-background">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Fill out your name</ng-template>
+          <ng-template matStepLabel>Game Date and Time</ng-template>
           <mat-form-field>
-            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="firstCtrl">
+            <mat-datepicker-toggle matSuffix [for]="gameDateDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #gameDateDatePicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field style="margin-top: 15px;">
+            <mat-label>Game time</mat-label>
+            <input matInput type="time" title="" formControlName="gameTime" />
+            <mat-error *ngIf="firstFormGroup.get('gameTime').hasError('required')">A valid game time is required</mat-error>
           </mat-form-field>
           <div>
             <button mat-button matStepperNext type="button">Next</button>
