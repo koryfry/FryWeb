@@ -4,12 +4,17 @@ import { arenaReducer, ArenaState } from '../../arena/state/reducers/arena.reduc
 import { officialReducer, OfficialState } from '../../officials/state/reducers/officials.reducer';
 import { gameDetailReducer, GameDetailState } from '../../game-detail/state/reducers/game-detail.reducer';
 
+import { ArenasState, arenasReducer } from '../arena/arena.reducer';
+
 export interface OfficiatingState {
     // List of features
     ageGroup: AgeGroupState;
     arena: ArenaState; 
     official: OfficialState;
     gameDetail: GameDetailState
+
+    // Entities
+    arenas: ArenasState
 }
 
 export const reducers: ActionReducerMap<OfficiatingState> = {
@@ -17,5 +22,8 @@ export const reducers: ActionReducerMap<OfficiatingState> = {
     ageGroup: ageGroupReducer,
     arena: arenaReducer,
     official: officialReducer,
-    gameDetail: gameDetailReducer
+    gameDetail: gameDetailReducer,
+
+    // Entities
+    arenas: arenasReducer
 };

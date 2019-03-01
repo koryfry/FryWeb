@@ -30,6 +30,7 @@ export class ArenaComponent implements OnInit {
   dataSource = new MatTableDataSource();
   arenas$: Observable<Arena[]>;
   ar: Subscription;
+  allArenas$: Observable<Arena[]>;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -52,8 +53,9 @@ export class ArenaComponent implements OnInit {
   {
     this.arenaFacade.loadArenas();
     this.arenas$ = this.arenaFacade.arenas$;
+    this.allArenas$ = this.arenaFacade.arenas$;
 
-    this.arenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
+    this.allArenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
       const arenas = ars;
       this.arenas = arenas ? arenas : new Array<Arena>();
 

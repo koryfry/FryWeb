@@ -25,6 +25,7 @@
     "@angular/router": "^7.0.1",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25",
     "@ngrx/effects": "6.1.0",
+    "@ngrx/entity": "6.1.0",
     "@ngrx/router-store": "6.1.0",
     "@ngrx/store": "6.1.0",
     "bootstrap": "4.0.0-alpha.6",

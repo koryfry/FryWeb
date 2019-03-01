@@ -64,12 +64,20 @@
       "AvatarImage": null
     },
     {
+      "id": 8,
       "Name": "Van Andel Arena",
       "Address": "456 Fulton Street",
       "City": "Grand Rapids",
       "State": "Michigan",
-      "Zip Code": "45678",
-      "id": 8
+      "Zip Code": "45678"
+    },
+    {
+      "Name": "Munn Ice Arena",
+      "Address": "45689 Spartan Way",
+      "City": "Lansing",
+      "State": "MI",
+      "Zip Code": "45123",
+      "id": 9
     }
   ],
   "ageGroups": [

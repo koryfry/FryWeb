@@ -5,37 +5,27 @@ import { Arena } from 'app/models/Arena/arena.model';
 export interface ArenaState {
     loaded: boolean;
     loading: boolean;
-    arenas: { [id: number]: Arena };
+    arenas: Arena[];//{ [id: number]: Arena };
     selectedArena: Arena;
+    arenaID: number;
 }
 
 const initialState: ArenaState = {
     loaded: false,
     loading: false,
     arenas: null,
-    selectedArena: null
+    selectedArena: null,
+    arenaID: null
 }
 
 export function arenaReducer(state = initialState, action: ArenaActions): ArenaState {
     switch(action.type) {
         case ArenaActionTypes.LoadArenasRequestSuccess: {
-            const ars = action.arenas;
-            const arenas = ars.reduce(
-                (arenas: { [id: number]: Arena }, arena: Arena) => {
-                    return {
-                        ...arenas,
-                        [arena.id]: arena,
-                    };
-                },
-                {
-                    ...state.arenas,
-                }
-            );
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                arenas
+                arenas: action.arenas
             }
         }
 

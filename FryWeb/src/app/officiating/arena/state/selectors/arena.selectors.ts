@@ -1,7 +1,10 @@
 import { ArenaState } from '../reducers/arena.reducer';
-import { createSelector } from '@ngrx/store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
 import * as fromOfficiating from '../../../state';
 import { OfficiatingState } from '../../../state';
+import * as fromArenas from '../../../state/arena';
+
+export const selectArenaState = createFeatureSelector<fromArenas.ArenasState>('arenas')
 
 export const getArenaState = createSelector(
     fromOfficiating.getOfficiatingState,
@@ -21,3 +24,14 @@ export const getSelectedArena = createSelector(
     getArenaState,
     (state: ArenaState) => state.selectedArena
 );
+
+export const getArena = createSelector(
+    getArenaState,
+    fromArenas.getArenaEntities,
+    (state: ArenaState, arenaEntities) => arenaEntities[state.arenaID]
+)
+
+export const selectArenaEntities = createSelector(
+    selectArenaState,
+    fromArenas.selectEntities
+)
