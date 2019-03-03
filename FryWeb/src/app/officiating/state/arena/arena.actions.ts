@@ -3,7 +3,7 @@ import { Update } from '@ngrx/entity';
 import { Arena } from '../../../models/arena/arena.model';
 
 export enum ArenaActionTypes {
-    LoadArenasRequestSuccess     = '[Arena] Load Arenas',
+    LoadArenasRequestSuccess = '[Arena] Load Arenas',
     AddArena = '[Arena] Create Arena'
 }
 

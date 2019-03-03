@@ -17,16 +17,16 @@ export enum AgeGroupActionTypes {
     OpenSelectedAgeGroupDetailsFail = '[AgeGroup] Open Selected AgeGroup Details Fail'
 }
 
-export class LoadAgeGroupsRequestRequest implements Action {
+export class LoadAgeGroupsRequest implements Action {
 	readonly type = AgeGroupActionTypes.LoadAgeGroupsRequest;
 }
 
-export class LoadAgeGroupsRequestRequestSuccess implements Action {
+export class LoadAgeGroupsRequestSuccess implements Action {
 	readonly type = AgeGroupActionTypes.LoadAgeGroupsRequestSuccess;
 	constructor(public ageGroups: AgeGroup[]) {}
 }
 
-export class LoadAgeGroupsRequestRequestFail implements Action {
+export class LoadAgeGroupsRequestFail implements Action {
 	readonly type = AgeGroupActionTypes.LoadAgeGroupsRequestFail;
 	constructor(payload: any) {}
 }
@@ -62,9 +62,9 @@ export class OpenSelectedAgeGroupDetailsFail implements Action {
 }
 
 export type AgeGroupActions = 
-    LoadAgeGroupsRequestRequest
-    | LoadAgeGroupsRequestRequestSuccess
-    | LoadAgeGroupsRequestRequestFail
+    LoadAgeGroupsRequest
+    | LoadAgeGroupsRequestSuccess
+    | LoadAgeGroupsRequestFail
     | CreateAgeGroupRequest
     | CreateAgeGroupRequestSuccess
     | CreateAgeGroupRequestFail

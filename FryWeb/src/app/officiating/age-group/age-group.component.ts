@@ -30,6 +30,7 @@ export class AgeGroupComponent implements OnInit {
   dataSource = new MatTableDataSource();
   ageGroups$: Observable<AgeGroup[]>;
   ag: Subscription;
+  allAgeGroups$: Observable<AgeGroup[]>;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -52,8 +53,9 @@ export class AgeGroupComponent implements OnInit {
     this.ageGroupFacade.loadAgeGroups();
 
     this.ageGroups$ = this.ageGroupFacade.ageGroups$;
+    this.allAgeGroups$ = this.ageGroupFacade.ageGroups$;
 
-    this.ag = this.ageGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
+    this.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
       const ageGroups = ags;
       this.ageGroups = ageGroups ? ageGroups : new Array<AgeGroup>();
 

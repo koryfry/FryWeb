@@ -4,38 +4,40 @@ import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 export interface AgeGroupState {
     loaded: boolean;
     loading: boolean;
-    ageGroups: {[id: number]: AgeGroup};
+    ageGroups: AgeGroup[];//{[id: number]: AgeGroup};
     selectedAgeGroup: AgeGroup;
+    ageGroupID: number;
 }
 
 const initialState: AgeGroupState = {
     loaded: false,
     loading: false,
     ageGroups: null,
-    selectedAgeGroup: null
+    selectedAgeGroup: null,
+    ageGroupID: null
 }
 
 export function ageGroupReducer(state = initialState, action: AgeGroupActions): AgeGroupState {
     switch(action.type) {
         case AgeGroupActionTypes.LoadAgeGroupsRequestSuccess: {
-            const ags = action.ageGroups;
-            const ageGroups = ags.reduce(
-                (ageGroups: { [id: number]: AgeGroup }, ageGroup: AgeGroup) => {
-                    return {
-                        ...ageGroups,
-                        [ageGroup.id]: ageGroup
-                    };
-                },
-                {
-                    ...state.ageGroups
-                }
-            );
+            // const ags = action.ageGroups;
+            // const ageGroups = ags.reduce(
+            //     (ageGroups: { [id: number]: AgeGroup }, ageGroup: AgeGroup) => {
+            //         return {
+            //             ...ageGroups,
+            //             [ageGroup.id]: ageGroup
+            //         };
+            //     },
+            //     {
+            //         ...state.ageGroups
+            //     }
+            // );
 
             return {
                 ...state,
                 loaded: true,
                 loading: false,
-                ageGroups
+                ageGroups: action.ageGroups
             }
         }
 
