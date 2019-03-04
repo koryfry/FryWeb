@@ -53,7 +53,7 @@ export class AgeGroupComponent implements OnInit {
     this.ageGroupFacade.loadAgeGroups();
 
     this.ageGroups$ = this.ageGroupFacade.ageGroups$;
-    this.allAgeGroups$ = this.ageGroupFacade.ageGroups$;
+    this.allAgeGroups$ = this.ageGroupFacade.allAgeGroups$;
 
     this.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
       const ageGroups = ags;

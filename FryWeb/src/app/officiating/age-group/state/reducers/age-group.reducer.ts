@@ -45,7 +45,7 @@ export function ageGroupReducer(state = initialState, action: AgeGroupActions): 
             const ageGroup = action.ageGroup;
             const ageGroups = {
                 ...state.ageGroups,
-                [ageGroup.id]: ageGroup
+                [ageGroup.ageGroupID]: ageGroup
             }
             return {
                 ...state,
@@ -55,19 +55,19 @@ export function ageGroupReducer(state = initialState, action: AgeGroupActions): 
             }
         }
 
-        case AgeGroupActionTypes.OpenSelectedAgeGroupDetails: {
-            return {
-                ...state,
-                selectedAgeGroup: null
-            }
-        }
+        // case AgeGroupActionTypes.OpenSelectedAgeGroupDetails: {
+        //     return {
+        //         ...state,
+        //         selectedAgeGroup: null
+        //     }
+        // }
 
-        case AgeGroupActionTypes.OpenSelectedAgeGroupDetailsSuccess: {
-            return {
-                ...state,
-                selectedAgeGroup: action.selectedAgeGroup
-            }
-        }
+        // case AgeGroupActionTypes.OpenSelectedAgeGroupDetailsSuccess: {
+        //     return {
+        //         ...state,
+        //         selectedAgeGroup: action.selectedAgeGroup
+        //     }
+        // }
 
         default: {
             return state;

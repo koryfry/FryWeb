@@ -82,42 +82,42 @@
   ],
   "ageGroups": [
     {
-      "id": 1,
+      "ageGroupID": 1,
       "Name": "Squirt",
       "Tier": "B",
       "Minimum Age": 8,
       "Maximum Age": 9
     },
     {
-      "id": 2,
+      "ageGroupID": 2,
       "Name": "Squirt",
       "Tier": "A",
       "Minimum Age": 8,
       "Maximum Age": 9
     },
     {
-      "id": 3,
+      "ageGroupID": 3,
       "Name": "Squirt",
       "Tier": "AA",
       "Minimum Age": 8,
       "Maximum Age": 9
     },
     {
-      "id": 4,
+      "ageGroupID": 4,
       "Name": "Pee Wee",
       "Tier": "B",
       "Minimum Age": 10,
       "Maximum Age": 12
     },
     {
-      "id": 5,
+      "ageGroupID": 5,
       "Name": "Pee Wee",
       "Tier": "A",
       "Minimum Age": 10,
       "Maximum Age": 12
     },
     {
-      "id": 6,
+      "ageGroupID": 6,
       "Name": "Pee Wee",
       "Tier": "AA",
       "Minimum Age": 10,
@@ -128,7 +128,7 @@
       "Tier": "AAA",
       "Minimum Age": "11",
       "Maximum Age": "12",
-      "id": 7
+      "ageGroupID": 7
     }
   ],
   "officials": [

@@ -8,19 +8,18 @@ import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 import * as fromAgeGroups from '../../../state/age-group/age-group.reducer';
 import { Observable } from 'rxjs/internal/Observable';
 import { AgeGroupsState } from 'app/officiating/state/age-group';
-import * as fromArenas from '../../../state/arena/arena.reducer';
 
 @Injectable()
 export class AgeGroupFacade {
+    constructor(private store: Store<AgeGroupsState>, private store2: Store<AgeGroupsState>) {
+		
+    }
+
     ageGroups$ = this.store.select(ageGroupQuery.getAllAgeGroups);
     selectedAgeGroup$ = this.store.select(ageGroupQuery.getSelectedAgeGroup);    
     loaded$ = this.store.select(ageGroupQuery.getAgeGroupState).pipe(map(state => state.loaded));
     ageGroup$ = this.store.select(ageGroupQuery.getAgeGroup).pipe(withLatestFrom(this.loaded$), filter(([ageGroup, loaded]) => loaded), map(([ageGroup, loaded]) => ageGroup));
-    allAgeGroups$ = this.store.select(ageGroupQuery.selectAllAgeGroups);
-
-    constructor(private store: Store<AgeGroupsState>, private store2: Store<AgeGroupsState>) {
-		
-    }
+    allAgeGroups$: Observable<AgeGroup[]> = this.store.select(ageGroupQuery.getAllAgeGroups);
     
     loadAgeGroups() {
         this.store.dispatch(new LoadAgeGroupsRequest());
