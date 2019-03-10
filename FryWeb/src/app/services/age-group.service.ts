@@ -31,4 +31,8 @@ export class AgeGroupService {
       .pipe(catchError((error: any) => throwError(error)));
   }
 
+  updateAgeGroup(id: number, ageGroup: AgeGroup): Observable<AgeGroup> {
+    return this.http.put<AgeGroup>(`${this._baseUrl} + 'ageGroups/'${id}/${ageGroup}`, {})
+    .pipe(catchError((error: any) => throwError(error)));
+  }
 }

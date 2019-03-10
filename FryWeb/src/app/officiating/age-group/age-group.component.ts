@@ -18,6 +18,7 @@ import { AgeGroupFacade } from '../state/age-group/age-group.facade';
 // Import Components
 import { AddAgeGroupDialogComponent } from './components/add-age-group-dialog/add-age-group-dialog.component';
 import { AgeGroupDetailsComponent } from 'app/officiating/age-group/components/age-group-details/age-group-details.component';
+import { UpdateAgeGroupDialogComponent } from 'app/officiating/age-group/components/update-age-group-dialog/update-age-group-dialog.component';
 
 @Component({
   selector: 'fw-age-group',
@@ -79,14 +80,23 @@ export class AgeGroupComponent implements OnInit {
     })
   }
 
-  logRow(row: any, rowID: number) {
+  openPreviewDialog(row: any, rowID: number) {
     console.log('Row selected: ', row);
     this.ageGroupFacade.openSelectedAgeGroupDetails(row, rowID);
-    this.openAgeGroupDetailsPreviewDialog(row);
+    const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: row
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the Age Group Details dialog');
+    })
   }
 
-  openAgeGroupDetailsPreviewDialog(ageGroup: AgeGroup) {
-    const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
+  openUpdateAgeGroupDialog(ageGroup: AgeGroup) {
+    const dialogRef = this.dialog.open(UpdateAgeGroupDialogComponent, {
       width: '500px',
       autoFocus: false,
       panelClass: ['rounded-dialog-window'],
@@ -94,7 +104,20 @@ export class AgeGroupComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('You closed the Age Group Details dialog');
+      console.log('You closed the update age group dialog');
     })
   }
+
+  // openAgeGroupDetailsPreviewDialog(ageGroup: AgeGroup) {
+  //   const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
+  //     width: '500px',
+  //     autoFocus: false,
+  //     panelClass: ['rounded-dialog-window'],
+  //     data: ageGroup
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('You closed the Age Group Details dialog');
+  //   })
+  // }
 }

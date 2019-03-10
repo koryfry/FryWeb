@@ -16,7 +16,7 @@
         <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0">
             <div class="example-header">
                 <mat-form-field color="primary">
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an Age Group">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an Age Group">
                 </mat-form-field>
             </div>
             
@@ -28,7 +28,7 @@
                 </ng-container>        
             
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row, row.id)"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns" (dblclick)="openUpdateAgeGroupDialog(row)" (click)="openPreviewDialog(row, row.id)"></tr>
             </table>
         </div>
         

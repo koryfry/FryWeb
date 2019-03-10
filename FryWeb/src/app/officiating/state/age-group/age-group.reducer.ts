@@ -44,6 +44,13 @@ export function ageGroupsReducer(state = initialState, action: AgeGroupActions) 
             }
         }
 
+        case AgeGroupActionTypes.UpdateAgeGroupRequest: {
+            return ageGroupAdapter.updateOne({
+                id: action.ageGroupId,
+                changes: action.changes
+            }, state)
+        }
+
         default:
             return state;
     }

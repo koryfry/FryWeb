@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as ageGroupQuery from './age-group.selectors';
-import { LoadAgeGroupsRequest, AddAgeGroupRequest, OpenSelectedAgeGroupDetails } from './age-group.actions';
+import { LoadAgeGroupsRequest, AddAgeGroupRequest, OpenSelectedAgeGroupDetails, UpdateAgeGroupRequest } from './age-group.actions';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { AgeGroupsState } from 'app/officiating/state/age-group';
@@ -27,5 +27,9 @@ export class AgeGroupFacade {
 
     openSelectedAgeGroupDetails(selectedAgeGroup: AgeGroup, ageGroupID: number) {
         this.store.dispatch(new OpenSelectedAgeGroupDetails(selectedAgeGroup, ageGroupID));
+    }
+
+    updateAgeGroup(ageGroup: AgeGroup) {
+        this.store.dispatch(new UpdateAgeGroupRequest(ageGroup.id, ageGroup));
     }
 }

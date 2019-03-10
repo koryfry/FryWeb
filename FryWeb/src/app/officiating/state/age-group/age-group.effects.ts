@@ -4,7 +4,8 @@ import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AgeGroupActionTypes, LoadAgeGroupsRequest, LoadAgeGroupsRequestSuccess, LoadAgeGroupsRequestFail, 
             AddAgeGroupRequest, AddAgeGroupRequestSuccess, AddAgeGroupRequestFail, OpenSelectedAgeGroupDetails,
-            OpenSelectedAgeGroupDetailsSuccess, OpenSelectedAgeGroupDetailsFail} from './age-group.actions';
+            OpenSelectedAgeGroupDetailsSuccess, OpenSelectedAgeGroupDetailsFail, UpdateAgeGroupRequest,
+            UpdateAgeGroupRequestSuccess, UpdateAgeGroupRequestFail} from './age-group.actions';
 import * as AgeGroupActions from './';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
@@ -70,6 +71,29 @@ export class AgeGroupEffects {
         )
              
     );
+
+    @Effect()
+    updateAgeGroup$ = this.actions$.
+        ofType<UpdateAgeGroupRequest>(AgeGroupActionTypes.UpdateAgeGroupRequest)
+        .pipe(
+            switchMap(action => {
+                return this.ageGroupService.updateAgeGroup(action.ageGroupId, action.changes).pipe(
+                    switchMap(res => {
+                        this.snackBarService.success('Age Group was successfully updated', 'Dismiss', {
+                            duration: 3000
+                        });
+                        return of(new UpdateAgeGroupRequestSuccess(res));
+                    }),
+                    catchError(error => {
+                        this.snackBarService.error(error.stack || 'Oops! Age Group was not updated successfully', 'Dismiss', {
+                            duration: 6000
+                        });
+
+                        return of(new UpdateAgeGroupRequestFail(error))
+                    })
+                );
+            })
+        )
     
     constructor(
         private actions$: Actions,

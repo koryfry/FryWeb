@@ -9,7 +9,6 @@ export const selectAgeGroupState = createFeatureSelector<fromAgeGroups.AgeGroups
 export const { selectIds, selectEntities, selectAll, selectTotal } = fromAgeGroup.ageGroupAdapter.getSelectors();
 
 export const getAgeGroupState = createSelector(fromOfficiating.getOfficiatingState, (state: fromOfficiating.OfficiatingState) => state.ageGroups);
-export const getAgeGroups = createSelector(getAgeGroupState, selectAll);
 export const getAgeGroupEntities = createSelector(getAgeGroupState, selectEntities);
 
 export const getAllAgeGroups = createSelector(getAgeGroupState, selectAll);

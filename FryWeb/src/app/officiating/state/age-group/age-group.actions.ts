@@ -11,7 +11,10 @@ export enum AgeGroupActionTypes {
     AddAgeGroupRequestFail = '[AgeGroup] Add Age Group Request Fail',
     OpenSelectedAgeGroupDetails = '[AgeGroup] Open Selected AgeGroup Details',
     OpenSelectedAgeGroupDetailsSuccess = '[AgeGroup] Open Selected AgeGroup Details Success',
-    OpenSelectedAgeGroupDetailsFail = '[AgeGroup] Open Selected AgeGroup Details Fail'
+    OpenSelectedAgeGroupDetailsFail = '[AgeGroup] Open Selected AgeGroup Details Fail',
+    UpdateAgeGroupRequest = '[AgeGroup] Update Age Group',
+    UpdateAgeGroupRequestSuccess = '[AgeGroup] Update Age Group Request Success',
+    UpdateAgeGroupRequestFail = '[AgeGroup] Update Age Group Request Fail',
 }
 
 export class LoadAgeGroupsRequest implements Action {
@@ -59,6 +62,21 @@ export class OpenSelectedAgeGroupDetailsFail implements Action {
     constructor(payload: any) {}
 }
 
+export class UpdateAgeGroupRequest implements Action {
+    readonly type = AgeGroupActionTypes.UpdateAgeGroupRequest;
+    constructor(public ageGroupId: number, public changes: AgeGroup) { }
+}
+
+export class UpdateAgeGroupRequestSuccess implements Action {
+	readonly type = AgeGroupActionTypes.UpdateAgeGroupRequestSuccess;
+	constructor(public ageGroup: AgeGroup) {}
+}
+
+export class UpdateAgeGroupRequestFail implements Action {
+	readonly type = AgeGroupActionTypes.UpdateAgeGroupRequestFail;
+	constructor(payload: any) {}
+}
+
 export type AgeGroupActions = 
     LoadAgeGroupsRequest
     | LoadAgeGroupsRequestSuccess
@@ -68,4 +86,7 @@ export type AgeGroupActions =
     | AddAgeGroupRequestFail
     | OpenSelectedAgeGroupDetails
     | OpenSelectedAgeGroupDetailsSuccess
-    | OpenSelectedAgeGroupDetailsFail;
+    | OpenSelectedAgeGroupDetailsFail
+    | UpdateAgeGroupRequest
+    | UpdateAgeGroupRequestSuccess
+    | UpdateAgeGroupRequestFail;
