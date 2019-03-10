@@ -26,11 +26,7 @@ import { AgeGroupDetailsComponent } from 'app/officiating/age-group/components/a
 })
 export class AgeGroupComponent implements OnInit {
   displayedColumns: string[] = [];
-  ageGroups: AgeGroup[];
   dataSource = new MatTableDataSource();
-  ageGroups$: Observable<AgeGroup[]>;
-  ag: Subscription;
-  allAgeGroups$: Observable<AgeGroup[]>;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -52,18 +48,13 @@ export class AgeGroupComponent implements OnInit {
   { 
     this.ageGroupFacade.loadAgeGroups();
 
-    //this.ageGroups$ = this.ageGroupFacade.ageGroups$;
-    this.allAgeGroups$ = this.ageGroupFacade.allAgeGroups$;
-
-    this.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
+    this.ageGroupFacade.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
       const ageGroups = ags;
-      this.ageGroups = ageGroups ? ageGroups : new Array<AgeGroup>();
-
-      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.ageGroups);
-      this.dataSource = new MatTableDataSource(this.ageGroups);
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(ageGroups);
+      this.dataSource = new MatTableDataSource(ageGroups);
       this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;
-      console.log('Age Groups: ', this.ageGroups);
+      console.log('Age Groups: ', ageGroups);
     }, err => {
       console.log('Error: ', err);
     });
