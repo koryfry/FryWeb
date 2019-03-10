@@ -60,7 +60,7 @@ export class AgeGroupEffects {
         ofType<OpenSelectedAgeGroupDetails>(AgeGroupActionTypes.OpenSelectedAgeGroupDetails)
         .pipe(
             switchMap((action) => {
-                return this.ageGroupService.getAgeGroupById(action.ageGroupID)
+                return this.ageGroupService.getAgeGroupById(action.selectedAgeGroup.id)
                     .pipe(
                         map(ageGroupDetailsPreview => {
                             return new OpenSelectedAgeGroupDetailsSuccess(ageGroupDetailsPreview)

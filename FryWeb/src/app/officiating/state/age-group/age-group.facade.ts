@@ -25,8 +25,8 @@ export class AgeGroupFacade {
         this.store.dispatch(new AddAgeGroupRequest(ageGroup));
     }
 
-    openSelectedAgeGroupDetails(selectedAgeGroup: AgeGroup, ageGroupID: number) {
-        this.store.dispatch(new OpenSelectedAgeGroupDetails(selectedAgeGroup, ageGroupID));
+    openSelectedAgeGroupDetails(selectedAgeGroup: AgeGroup) {
+        this.store.dispatch(new OpenSelectedAgeGroupDetails(selectedAgeGroup));
     }
 
     updateAgeGroup(ageGroup: AgeGroup) {

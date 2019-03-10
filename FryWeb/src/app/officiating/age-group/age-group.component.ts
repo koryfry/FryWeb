@@ -28,6 +28,8 @@ import { UpdateAgeGroupDialogComponent } from 'app/officiating/age-group/compone
 export class AgeGroupComponent implements OnInit {
   displayedColumns: string[] = [];
   dataSource = new MatTableDataSource();
+  preventSingleClick: boolean = false;
+	preventSingleClickDelayId;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -80,22 +82,11 @@ export class AgeGroupComponent implements OnInit {
     })
   }
 
-  openPreviewDialog(row: any, rowID: number) {
-    console.log('Row selected: ', row);
-    this.ageGroupFacade.openSelectedAgeGroupDetails(row, rowID);
-    const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
-      width: '500px',
-      autoFocus: false,
-      panelClass: ['rounded-dialog-window'],
-      data: row
-    });
+  openUpdateAgeGroupDialog(ageGroup: AgeGroup, $event: Event) {
+    $event.stopPropagation();
+    this.preventSingleClick = true;
+    clearTimeout(this.preventSingleClickDelayId);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('You closed the Age Group Details dialog');
-    })
-  }
-
-  openUpdateAgeGroupDialog(ageGroup: AgeGroup) {
     const dialogRef = this.dialog.open(UpdateAgeGroupDialogComponent, {
       width: '500px',
       autoFocus: false,
@@ -108,16 +99,25 @@ export class AgeGroupComponent implements OnInit {
     })
   }
 
-  // openAgeGroupDetailsPreviewDialog(ageGroup: AgeGroup) {
-  //   const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
-  //     width: '500px',
-  //     autoFocus: false,
-  //     panelClass: ['rounded-dialog-window'],
-  //     data: ageGroup
-  //   });
+  openPreviewDialog(row: any, $event: Event) {
+    this.preventSingleClick = false;
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('You closed the Age Group Details dialog');
-  //   })
-  // }
+    this.preventSingleClickDelayId = setTimeout(() => {
+      if(this.preventSingleClick) {
+        return;
+      }
+
+      this.ageGroupFacade.openSelectedAgeGroupDetails(row);
+      const dialogRef = this.dialog.open(AgeGroupDetailsComponent, {
+        width: '500px',
+        autoFocus: false,
+        panelClass: ['rounded-dialog-window'],
+        data: row
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('You closed the Age Group Details dialog');
+      })
+    }, 250)
+  }
 }

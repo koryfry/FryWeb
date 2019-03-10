@@ -49,7 +49,7 @@ export class AddAgeGroupRequestFail implements Action {
 
 export class OpenSelectedAgeGroupDetails implements Action {
     readonly type = AgeGroupActionTypes.OpenSelectedAgeGroupDetails;
-    constructor(public selectedAgeGroup: AgeGroup, public ageGroupID: number) {}
+    constructor(public selectedAgeGroup: AgeGroup) {}
 }
 
 export class OpenSelectedAgeGroupDetailsSuccess implements Action {
