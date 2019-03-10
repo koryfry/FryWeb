@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { AgeGroupsState } from 'app/officiating/state/age-group';
 
 @Injectable()
-export class AgeGroupFacade {
+export class AgeGroupsFacade {
     constructor(private store: Store<AgeGroupsState>, private store2: Store<AgeGroupsState>) {
 		
     }

@@ -13,7 +13,7 @@ import { AgeGroupService } from '../../services/age-group.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
 
 // Import State Items
-import { AgeGroupFacade } from './state';
+import { AgeGroupFacade } from '../state/age-group/age-group.facade';
 
 // Import Components
 import { AddAgeGroupDialogComponent } from './components/add-age-group-dialog/add-age-group-dialog.component';
@@ -52,7 +52,7 @@ export class AgeGroupComponent implements OnInit {
   { 
     this.ageGroupFacade.loadAgeGroups();
 
-    this.ageGroups$ = this.ageGroupFacade.ageGroups$;
+    //this.ageGroups$ = this.ageGroupFacade.ageGroups$;
     this.allAgeGroups$ = this.ageGroupFacade.allAgeGroups$;
 
     this.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {

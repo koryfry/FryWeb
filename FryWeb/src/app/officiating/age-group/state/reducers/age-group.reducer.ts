@@ -42,17 +42,17 @@ export function ageGroupReducer(state = initialState, action: AgeGroupActions): 
         }
 
         case AgeGroupActionTypes.CreateAgeGroupRequestSuccess: {
-            const ageGroup = action.ageGroup;
-            const ageGroups = {
-                ...state.ageGroups,
-                [ageGroup.ageGroupID]: ageGroup
-            }
-            return {
-                ...state,
-                ageGroups: ageGroups,
-                loaded: false,
-                loading: false
-            }
+            // const ageGroup = action.ageGroup;
+            // const ageGroups = {
+            //     ...state.ageGroups,
+            //     [ageGroup.id]: ageGroup
+            // }
+            // return {
+            //     ...state,
+            //     ageGroups: ageGroups,
+            //     loaded: false,
+            //     loading: false
+            // }
         }
 
         // case AgeGroupActionTypes.OpenSelectedAgeGroupDetails: {

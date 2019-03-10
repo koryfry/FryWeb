@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 import { MatDialogRef } from '@angular/material';
-import { AgeGroupFacade } from 'app/officiating/age-group/state';
+import { AgeGroupFacade } from '../../../state/age-group/age-group.facade';
 
 @Component({
   selector: 'fw-add-age-group-dialog',
@@ -50,8 +50,8 @@ export class AddAgeGroupDialogComponent implements OnInit {
     var ageGroup = {
       Name: this.addAgeGroupForm.get('ageGroupName').value,
       Tier: this.addAgeGroupForm.get('tier').value,
-      'Minimum Age': this.addAgeGroupForm.get('minimumAge').value,
-      'Maximum Age': this.addAgeGroupForm.get('maximumAge').value
+      MinimumAge: this.addAgeGroupForm.get('minimumAge').value,
+      MaximumAge: this.addAgeGroupForm.get('maximumAge').value
     }
     this.ageGroupFacade.createAgeGroup(ageGroup)
     this.dialogRef.close('Hello');

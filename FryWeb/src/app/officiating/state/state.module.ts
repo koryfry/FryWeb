@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
 import * as fromOfficiating from './reducers';
-import { AgeGroupEffects } from '../age-group/state/effects/age-group.effects';
+import { AgeGroupEffects } from './age-group/age-group.effects';
 import { ArenaEffects } from '../arena/state/effects/arena.effects';
 import { OfficialEffects } from '../officials/state/effects/officials.effects';
 import { GameDetailEffects } from '../game-detail/state/effects/game-detail.effects';
