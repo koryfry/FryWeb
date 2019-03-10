@@ -19,7 +19,7 @@ export class AgeGroupService {
   }
 
   getAgeGroupById(id: number): Observable<AgeGroup> {
-    let params = new HttpParams().set('ageGroupID', id.toString())
+    let params = new HttpParams().set('id', id.toString())
     return this.http
       .get<AgeGroup>(this._baseUrl + 'ageGroups/', {params: params})
       .pipe(catchError((error: any) => throwError(error)));

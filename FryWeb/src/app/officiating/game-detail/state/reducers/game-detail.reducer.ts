@@ -10,7 +10,7 @@ export interface GameDetailState {
     loading: boolean;
     gameDetails: { [id: number]: GameDetail };
     selectedGameDetail: GameDetail;
-    arenas: Arena[];//{ [id: number]: Arena };
+    arenas: Arena[];
     ageGroups: AgeGroup[];
     officials: Official[];
     arena: Arena;

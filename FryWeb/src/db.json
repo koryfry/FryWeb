@@ -136,6 +136,13 @@
       "MinimumAge": "9",
       "MaximumAge": "10",
       "id": 8
+    },
+    {
+      "Name": "Squirt",
+      "Tier": "BB",
+      "MinimumAge": "9",
+      "MaximumAge": "10",
+      "id": 9
     }
   ],
   "officials": [
