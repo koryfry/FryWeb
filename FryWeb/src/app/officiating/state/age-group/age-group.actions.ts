@@ -64,7 +64,7 @@ export class OpenSelectedAgeGroupDetailsFail implements Action {
 
 export class UpdateAgeGroupRequest implements Action {
     readonly type = AgeGroupActionTypes.UpdateAgeGroupRequest;
-    constructor(public ageGroupId: number, public changes: AgeGroup) { }
+    constructor(public ageGroupId: number, public changes: Partial<AgeGroup>) { }
 }
 
 export class UpdateAgeGroupRequestSuccess implements Action {

@@ -25,7 +25,7 @@ import { UpdateAgeGroupDialogComponent } from 'app/officiating/age-group/compone
   templateUrl: './age-group.component.html',
   styleUrls: ['./age-group.component.scss']
 })
-export class AgeGroupComponent implements OnInit {
+export class AgeGroupComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = [];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;
@@ -87,11 +87,11 @@ export class AgeGroupComponent implements OnInit {
     this.preventSingleClick = true;
     clearTimeout(this.preventSingleClickDelayId);
 
+    this.ageGroupFacade.openSelectedAgeGroupDetails(ageGroup);
     const dialogRef = this.dialog.open(UpdateAgeGroupDialogComponent, {
       width: '500px',
       autoFocus: false,
-      panelClass: ['rounded-dialog-window'],
-      data: ageGroup
+      panelClass: ['rounded-dialog-window']
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -118,6 +118,6 @@ export class AgeGroupComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log('You closed the Age Group Details dialog');
       })
-    }, 250)
+    }, 200)
   }
 }

@@ -29,7 +29,7 @@ export class AgeGroupFacade {
         this.store.dispatch(new OpenSelectedAgeGroupDetails(selectedAgeGroup));
     }
 
-    updateAgeGroup(ageGroup: AgeGroup) {
+    updateAgeGroup(ageGroup: Partial<AgeGroup>) {
         this.store.dispatch(new UpdateAgeGroupRequest(ageGroup.id, ageGroup));
     }
 }

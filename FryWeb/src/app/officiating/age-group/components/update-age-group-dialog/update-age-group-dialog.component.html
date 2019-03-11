@@ -1,3 +1,35 @@
-<p>
-  update-age-group-dialog works!
-</p>
+<fw-custom-dialog dialogType="primary" class="update-ageGroup">
+  <div *ngIf="!(selectedAgeGroup$ | async) as selectedAgeGroup">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div dialog-title *ngIf="(selectedAgeGroup$ | async) as selectedAgeGroup">
+      <div>
+          <span class="card-title">{{selectedAgeGroup[0].Name}} {{selectedAgeGroup[0].Tier}}</span>
+      </div>
+  </div>
+  <div dialog-content class="update-ageGroup__form">
+    <form [formGroup]="updateAgeGroupForm">
+      <div class="update-ageGroup__row">
+        <mat-form-field class="update-ageGroup__field--one-half">
+          <mat-label>Minimum Age</mat-label>
+          <input matInput type="text" formControlName="minimumAge" placeholder="Enter Minimum Age for the Age Group" />
+          <mat-error *ngIf="updateAgeGroupForm.controls['minimumAge'].hasError('required')"> Must enter a Minimum Age for the Age Group </mat-error>
+          <mat-error *ngIf="updateAgeGroupForm.controls['minimumAge'].hasError('min')"> Minimum Age for the Age Group must be at least 8</mat-error>
+          <mat-error *ngIf="updateAgeGroupForm.controls['minimumAge'].hasError('max')"> Minimum Age for the Age Group cannot exceed 18</mat-error>
+        </mat-form-field>
+        <mat-form-field class="update-ageGroup__field--one-half">
+          <mat-label>Maximum Age</mat-label>
+          <input matInput type="text" formControlName="maximumAge" placeholder="Enter Maximum Age for the Age Group" />
+          <mat-error *ngIf="updateAgeGroupForm.controls['maximumAge'].hasError('required')"> Must enter a Maximum Age for the Age Group </mat-error>
+          <mat-error *ngIf="updateAgeGroupForm.controls['maximumAge'].hasError('min')"> Maximum Age for the Age Group must be at least 9</mat-error>
+          <mat-error *ngIf="updateAgeGroupForm.controls['maximumAge'].hasError('max')"> Maximum Age for the Age Group cannot exceed 21</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div dialog-footer>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button color="primary" (click)="save()" [disabled]="updateAgeGroupForm.invalid">Ok</button>
+  </div>
+</fw-custom-dialog>
