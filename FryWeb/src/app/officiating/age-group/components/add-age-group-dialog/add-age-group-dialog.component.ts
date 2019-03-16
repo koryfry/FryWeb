@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 import { MatDialogRef } from '@angular/material';
 import { AgeGroupFacade } from '../../../state/age-group/age-group.facade';
@@ -40,6 +40,9 @@ export class AddAgeGroupDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.addAgeGroupForm.valueChanges.subscribe(() => {
+      this.addAgeGroupForm.get('maximumAge').setValidators(this.greaterThan('minimumAge'))
+    })
   }
 
   onNoClick(): void {
@@ -55,6 +58,15 @@ export class AddAgeGroupDialogComponent implements OnInit {
     }
     this.ageGroupFacade.createAgeGroup(ageGroup)
     this.dialogRef.close('Hello');
+  }
+
+  private greaterThan(field: string): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any} => {
+      const group = control.parent;
+      const fieldToCompare = group.get(field);
+      const isLessThan = Number(fieldToCompare.value) > Number(control.value);
+      return isLessThan ? {'lessThan': {value: control.value}} : null;
+    }
   }
 
 }

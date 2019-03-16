@@ -20,15 +20,16 @@
         </mat-form-field>
       </div>
       <div class="add-ageGroup__row">
-        <mat-form-field class="add-ageGroup__field--one-third">
+        <mat-form-field class="add-ageGroup__field--one-half">
           <mat-label>Minimum Age</mat-label>
           <input matInput type="text" formControlName="minimumAge" placeholder="Enter Minimum Age for the Age Group" />
           <mat-error *ngIf="addAgeGroupForm.controls['minimumAge'].hasError('required')"> Must enter a Minimum Age for the Age Group </mat-error>
         </mat-form-field>
-        <mat-form-field class="add-ageGroup__field--one-third">
+        <mat-form-field class="add-ageGroup__field--one-half">
           <mat-label>Maximum Age</mat-label>
           <input matInput type="text" formControlName="maximumAge" placeholder="Enter Maximum Age for the Age Group" />
           <mat-error *ngIf="addAgeGroupForm.controls['maximumAge'].hasError('required')"> Must enter a Maximum Age for the Age Group </mat-error>
+          <mat-error *ngIf="addAgeGroupForm.controls['maximumAge'].hasError('lessThan')"> Maximum Age must be greater than Minimum Age </mat-error>
         </mat-form-field>
       </div>
     </form>

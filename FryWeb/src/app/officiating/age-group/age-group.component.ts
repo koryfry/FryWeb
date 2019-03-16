@@ -72,7 +72,7 @@ export class AgeGroupComponent implements OnInit, OnDestroy {
 
   openAddAgeGroupDialog() {
     const dialogRef = this.dialog.open(AddAgeGroupDialogComponent, {
-      width: '500px',
+      width: '650px',
       autoFocus: false,
       panelClass: ['rounded-dialog-window']
     });
