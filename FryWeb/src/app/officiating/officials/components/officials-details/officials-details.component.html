@@ -5,7 +5,7 @@
 
   <div dialog-title *ngIf="(selectedOfficial$ | async) as selectedOfficial">
       <div class="name-display">
-          <span class="card-title">{{selectedOfficial[0]['First Name']}} {{selectedOfficial[0]['Last Name']}}</span>
+          <span class="card-title">{{selectedOfficial[0].FirstName}} {{selectedOfficial[0].LastName}}</span>
       </div>
   </div>
   <div dialog-content class="dialog-preview-content" *ngIf="(selectedOfficial$ | async) as selectedOfficial">
@@ -16,7 +16,7 @@
       </div>
       <div class="officialsDetails__field--one-half">
           <mat-label class="display-label">Years Experience</mat-label>
-          <div class="display-data">{{selectedOfficial[0]['Years Experience']}}</div>
+          <div class="display-data">{{selectedOfficial[0].YearsExperience}}</div>
       </div>
     </div>
     

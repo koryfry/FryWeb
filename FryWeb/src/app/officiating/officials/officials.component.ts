@@ -25,7 +25,7 @@ import { OfficialsDetailsComponent } from '../officials/components/officials-det
   styleUrls: ['./officials.component.scss']
 })
 export class OfficialsComponent implements OnInit {
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['FirstName', 'LastName', 'Level', 'YearsExperience', 'Address', 'City', 'State','ZipCode'];
   officials: Official[];
   dataSource = new MatTableDataSource();
   officials$: Observable<Official[]>;
@@ -33,6 +33,7 @@ export class OfficialsComponent implements OnInit {
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
   @ViewChild(MatSort) sort: MatSort; 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -57,6 +58,7 @@ export class OfficialsComponent implements OnInit {
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.officials);
       this.dataSource = new MatTableDataSource(this.officials);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
 
       console.log('Data: ', this.dataSource);
     }, err => {

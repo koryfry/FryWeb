@@ -68,7 +68,7 @@
       "Name": "Van Andel Arena",
       "Address": "456 Fulton Street",
       "City": "Grand Rapids",
-      "State": "Michigan",
+      "State": "MI",
       "ZipCode": "45678"
     },
     {
@@ -170,68 +170,68 @@
   "officials": [
     {
       "id": 1,
-      "First Name": "Kory",
-      "Last Name": "Fry",
+      "FirstName": "Kory",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 17,
+      "YearsExperience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 2,
-      "First Name": "Ryan",
-      "Last Name": "Fry",
+      "FirstName": "Ryan",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 21,
+      "YearsExperience": 21,
       "Address": "1234 Puck Hog Lane",
       "City": "Zeeland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 3,
-      "First Name": "Kyle",
-      "Last Name": "Fry",
+      "FirstName": "Kyle",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 17,
+      "YearsExperience": 17,
       "Address": "1234 Puck Hog Lane",
       "City": "Muskegon",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
       "id": 4,
-      "First Name": "Dave",
-      "Last Name": "Fry",
+      "FirstName": "Dave",
+      "LastName": "Fry",
       "Level": 3,
-      "Years Experience": 38,
+      "YearsExperience": 38,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
-      "Zip Code": "49424"
+      "ZipCode": "49424"
     },
     {
-      "First Name": "Chris",
-      "Last Name": "Jamieson",
+      "FirstName": "Chris",
+      "LastName": "Jamieson",
       "Level": 3,
-      "Years Experience": 15,
+      "YearsExperience": 15,
       "Address": "1245 12th Ave",
       "City": "Jenison",
       "State": "MI",
-      "Zip Code": "45689",
+      "ZipCode": "45689",
       "id": 5
     },
     {
-      "First Name": "Tom",
-      "Last Name": "Oosterbaan",
+      "FirstName": "Tom",
+      "LastName": "Oosterbaan",
       "Level": 3,
-      "Years Experience": 38,
+      "YearsExperience": 38,
       "Address": "45678 Happy Lane",
       "City": "Wyoming",
       "State": "MI",
-      "Zip Code": "45632",
+      "ZipCode": "45632",
       "id": 6
     }
   ],

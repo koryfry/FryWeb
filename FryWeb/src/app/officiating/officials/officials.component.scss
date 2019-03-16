@@ -1,64 +1,122 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
+:host {
+	display: block;
+}
+
 .example-container {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-}
+	height: calc(100vh - 185px);
 
-.example-header {
-    min-height: 64px;
-    padding: 8px 15px 0;
-}
-  
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
-}
-  
-.mat-table {
-    overflow: auto;
-    max-height: 600px;
-}
+    .example-header {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 300px;
+        flex: 0 0 auto;
+    }
 
-.arena-table {
-    margin: 0 15px 10px 15px; 
-    box-shadow: 2px 2px 2px 2px;
-}
+    .overflow-container {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+      
+    .mat-form-field {
+        font-size: 14px;
+        width: 100%;
+    }   
+    
+    table {
+        width: 98%;
+    }
+    
+    .arena-table {
+        margin: 0 15px 10px 15px; 
+        box-shadow: 2px 2px 2px 2px;
+    }
+    
+    .mat-header-cell.mat-sort-header-sorted {
+        color: $fwWhite;
+    }
+    
+    .mat-row:nth-child(even) {
+        background-color: $fwLightBlue;
+    }
+    
+    .mat-row:nth-child(odd) {
+        background-color: white;
+    }
+    
+    .mat-header-cell {
+        color: $fwWhite;
+        font-size: 14px;
+    }
+    
+    .mat-header-row {
+        background-color: $fwMediumDarkBlue;
+        color: $fwWhite;
+    }
+    
+    .addArena {
+        width: 160px;
+        margin: 10px 12px 0px 0px;
+        font-weight: 500;
+        border-radius: 0.25em;
+    }
+    
+    .add-official-fab {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        opacity: 0.75;
+    }
 
-.mat-header-cell.mat-sort-header-sorted {
-    color: $fwWhite;
-}
+    .level1Chip {
+        opacity: 0.75;
+        width: 50px;
+        display: table-cell;
+        vertical-align: middle;
+        height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: $fwMediumLightRed;
+        color: $fwWhite;
+    }
 
-.mat-row:nth-child(even) {
-    background-color: $fwLightBlue;
-}
+    .level2Chip {
+        opacity: 0.75;
+        width: 50px;
+        display: table-cell;
+        vertical-align: middle;
+        height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: $mediumGray;
+        color: $fwWhite;
+    }
 
-.mat-row:nth-child(odd) {
-    background-color: white;
-}
+    .level3Chip {
+        opacity: 0.75;
+        width: 50px;
+        display: table-cell;
+        vertical-align: middle;
+        height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: $fwMediumLightGreen;
+        color: $fwWhite;
+    }
 
-.mat-header-cell {
-    color: $fwWhite;
-    font-size: 14px;
-}
-
-.mat-header-row {
-    background-color: $fwMediumDarkBlue;
-    color: $fwWhite;
-}
-
-.addArena {
-    width: 160px;
-    margin: 10px 12px 0px 0px;
-    font-weight: 500;
-    border-radius: 0.25em;
-}
-
-.add-official-fab {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    opacity: 0.75;
+    .level4Chip {
+        opacity: 0.75;
+        width: 50px;
+        display: table-cell;
+        vertical-align: middle;
+        height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: $fwMediumBlue;
+        color: $fwWhite;
+    }
 }
