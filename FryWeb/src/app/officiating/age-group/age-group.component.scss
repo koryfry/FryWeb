@@ -8,7 +8,6 @@
 .example-container {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 	height: calc(100vh - 185px);
     
     .example-header {
@@ -28,16 +27,9 @@
         width: 100%;
     }
     
-    margin-top: 10px;
-    
     table {
         width: 98%;
     }
-      
-    // .mat-table {
-    //     overflow: auto;
-    //     max-height: 600px;
-    // }
     
     .arena-table {
         margin: 0 15px 10px 15px; 
@@ -97,15 +89,3 @@
         color: $fwWhite;
     }
 }
-
-// .ageGroupNameChip {
-//     opacity: 1;
-//     width: 90px;
-//     display: table-cell;
-//     vertical-align: middle;
-//     height: 36px;
-//     border-radius: 18px;
-//     text-align: center;
-//     background-color: $fwMediumLightGreen;
-//     color: $fwWhite;
-// }
