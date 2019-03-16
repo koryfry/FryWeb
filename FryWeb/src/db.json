@@ -78,6 +78,14 @@
       "State": "MI",
       "Zip Code": "45123",
       "id": 9
+    },
+    {
+      "Name": "Yost Ice Arena",
+      "Address": "14689 Maize and Blue Way",
+      "City": "Ann Arbor",
+      "State": "MI",
+      "Zip Code": "47864",
+      "id": 10
     }
   ],
   "ageGroups": [

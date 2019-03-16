@@ -45,7 +45,7 @@ import { FwSnackbarService } from './shared/components/fw-snackbar/fw-snackbar.s
 
 // Import State Related Items
 import { AgeGroupFacade } from './officiating/state/age-group/age-group.facade';
-import { ArenaFacade } from './officiating/arena/state/facades/arena.facade';
+import { ArenaFacade } from './officiating/state/arena/arena.facade';
 import { OfficialsFacade } from './officiating/officials/state/facades/officials.facades';
 import { GameDetailFacade } from './officiating/game-detail/state/facades/game-detail.facade';
 

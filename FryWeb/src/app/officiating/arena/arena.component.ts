@@ -12,7 +12,7 @@ import { ArenaService } from '../../services/arena.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
 
 // Import State items
-import { ArenaFacade } from './state';
+import { ArenaFacade } from '../state/arena/arena.facade';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import components
@@ -28,9 +28,11 @@ export class ArenaComponent implements OnInit {
   displayedColumns: string[] = [];
   arenas: Arena[];
   dataSource = new MatTableDataSource();
-  arenas$: Observable<Arena[]>;
-  ar: Subscription;
-  allArenas$: Observable<Arena[]>;
+  // arenas$: Observable<Arena[]>;
+  // ar: Subscription;
+  // allArenas$: Observable<Arena[]>;
+  preventSingleClick: boolean = false;
+	preventSingleClickDelayId;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -52,28 +54,28 @@ export class ArenaComponent implements OnInit {
   )
   {
     this.arenaFacade.loadArenas();
-    this.arenas$ = this.arenaFacade.arenas$;
-    this.allArenas$ = this.arenaFacade.arenas$;
+    // this.arenas$ = this.arenaFacade.arenas$;
+    // this.allArenas$ = this.arenaFacade.arenas$;
 
-    this.allArenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
+    this.arenaFacade.allArenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
       const arenas = ars;
-      this.arenas = arenas ? arenas : new Array<Arena>();
+      //this.arenas = arenas ? arenas : new Array<Arena>();
 
-      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.arenas);
-      this.dataSource = new MatTableDataSource(this.arenas);
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(arenas);
+      this.dataSource = new MatTableDataSource(arenas);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      console.log('Arenas: ', this.dataSource);
+      console.log('Arenas: ', arenas);
     }, err => {
       console.log('Error: ', err);
     });  
   }
 
-  logRow(row: any, rowID: number) {
-    console.log('Row selected: ', row);
-    this.arenaFacade.openSelectedArenaDetails(row, rowID);
-    this.openArenaDetailsPreviewDialog(row);
-  } 
+  // logRow(row: any, rowID: number) {
+  //   console.log('Row selected: ', row);
+  //   this.arenaFacade.openSelectedArenaDetails(row);
+  //   this.openArenaDetailsPreviewDialog(row);
+  // } 
   
   ngOnDestroy() {
     this._componentDestroyed$.next(true);
@@ -94,16 +96,24 @@ export class ArenaComponent implements OnInit {
     })
   }
 
-  openArenaDetailsPreviewDialog(arena: Arena) {
-    const dialogRef = this.dialog.open(ArenaDetailsComponent, {
-      width: '500px',
-      autoFocus: false,
-      panelClass: ['rounded-dialog-window'],
-      data: arena
-    });
+  openArenaDetailsPreviewDialog(arena: Arena, $event: Event) {
+    this.preventSingleClick = false;
+    this.preventSingleClickDelayId = setTimeout(() => {
+      if(this.preventSingleClick) {
+        return;
+      }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('You closed the Arena Details dialog');
-    })
+      this.arenaFacade.openSelectedArenaDetails(arena);
+      const dialogRef = this.dialog.open(ArenaDetailsComponent, {
+        width: '500px',
+        autoFocus: false,
+        panelClass: ['rounded-dialog-window'],
+        data: arena
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('You closed the Arena Details dialog');
+      })
+    },200)
   }
 }

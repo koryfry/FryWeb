@@ -4,7 +4,7 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 
-import { ArenaFacade } from '../../state';
+import { ArenaFacade } from '../../../state/arena/arena.facade';
 import { Arena } from 'app/models/arena/arena.model';
 
 @Component({

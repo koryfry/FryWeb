@@ -1,6 +1,10 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
+:host {
+	display: block;
+}
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -54,4 +58,40 @@
     bottom: 50px;
     right: 50px;
     opacity: 0.75;
+}
+
+// .ageGroupNameChip {
+//     opacity: 1;
+//     width: 90px;
+//     display: table-cell;
+//     vertical-align: middle;
+//     height: 36px;
+//     border-radius: 18px;
+//     text-align: center;
+//     background-color: $fwMediumLightGreen;
+//     color: $fwWhite;
+// }
+
+.squirtChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumLightRed;
+    color: $fwWhite;
+}
+
+.peeWeeChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumBlue;
+    color: $fwWhite;
 }

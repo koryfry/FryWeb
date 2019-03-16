@@ -9,7 +9,7 @@ import { Arena } from '../../../../models/arena/arena.model';
 import { ArenaService } from '../../../../services/arena.service';
 
 // Import State items
-import { ArenaFacade } from '../../state';
+import { ArenaFacade } from '../../../state/arena/arena.facade';
 import { take, takeUntil } from 'rxjs/internal/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 

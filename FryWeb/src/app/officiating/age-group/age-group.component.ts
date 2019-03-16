@@ -26,7 +26,7 @@ import { UpdateAgeGroupDialogComponent } from 'app/officiating/age-group/compone
   styleUrls: ['./age-group.component.scss']
 })
 export class AgeGroupComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['Name', 'Tier', 'MinimumAge', 'MaximumAge'];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;
 	preventSingleClickDelayId;

@@ -2,16 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ArenaActionTypes, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail, CreateArenaRequest, CreateArenaRequestSuccess, CreateArenaRequestFail,
-            OpenSelectedArenaDetails, OpenSelectedArenaDetailsSuccess, OpenSelectedArenaDetailsFail } from '../actions';
-import * as ArenaActions from '../actions';
+import { ArenaActionTypes, LoadArenasRequest, LoadArenasRequestSuccess, LoadArenasRequestFail, AddArenaRequest, AddArenaRequestSuccess, AddArenaRequestFail,
+            OpenSelectedArenaDetails, OpenSelectedArenaDetailsSuccess, OpenSelectedArenaDetailsFail } from './arena.actions';
+import * as ArenaActions from './';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
-import { getArenaState } from '../selectors';
-import { ArenaState } from '../reducers';
 
-import { ArenaService } from '../../../../services/arena.service';
+import { ArenaService } from '../../../services/arena.service';
 import { Router } from '@angular/router';
-import { FwSnackbarService } from '../../../../shared/components/fw-snackbar/fw-snackbar.service';
+import { FwSnackbarService } from '../../../shared/components/fw-snackbar/fw-snackbar.service';
 
 @Injectable()
 export class ArenaEffects {
@@ -34,9 +32,9 @@ export class ArenaEffects {
 
     @Effect()
     createArena$ = this.actions$
-        .ofType<CreateArenaRequest>(ArenaActionTypes.CreateArenaRequest)
+        .ofType<AddArenaRequest>(ArenaActionTypes.AddArenaRequest)
         .pipe(
-            map((action: ArenaActions.CreateArenaRequest) => action.arena),
+            map((action: ArenaActions.AddArenaRequest) => action.arena),
             switchMap(arena => {
                 return this.arenaService.createArena(arena).pipe(                     
                     switchMap(arena => {
@@ -44,14 +42,14 @@ export class ArenaEffects {
                             duration: 3000
                         });    
                         
-                        return of(new CreateArenaRequestSuccess(arena));
+                        return of(new AddArenaRequestSuccess(arena));
                     }),
                     catchError(error => {
                         this.snackBarService.error(error.stack || 'Oops! Arena was not created successfully', 'Dismiss', {
                             duration: 6000
                         });
 
-                        return of(new CreateArenaRequestFail(error));
+                        return of(new AddArenaRequestFail(error));
                     }) 
                 );
             })
@@ -62,7 +60,7 @@ export class ArenaEffects {
         ofType<OpenSelectedArenaDetails>(ArenaActionTypes.OpenSelectedArenaDetails)
         .pipe(
             switchMap((action) => {
-                return this.arenaService.getArenaById(action.arenaID)
+                return this.arenaService.getArenaById(action.selectedArena.id)
                     .pipe(
                         map(arenaDetailsPreview => {
                             return new OpenSelectedArenaDetailsSuccess(arenaDetailsPreview)
@@ -77,8 +75,6 @@ export class ArenaEffects {
     constructor(
         private actions$: Actions,
         private arenaService: ArenaService,
-        private store$: Store<ArenaState>,
-        private router: Router,
         private snackBarService: FwSnackbarService
     ){}
 }
