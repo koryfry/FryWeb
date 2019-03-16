@@ -11,7 +11,10 @@ export enum OfficialActionTypes {
     AddOfficialRequestFail = '[Official] Create Official Request Fail',
     OpenSelectedOfficialDetails = '[Official] Open Selected Official Details',
     OpenSelectedOfficialDetailsSuccess = '[Official] Open Selected Official Details Success',
-    OpenSelectedOfficialDetailsFail = '[Official] Open Selected Official Details Fail'
+    OpenSelectedOfficialDetailsFail = '[Official] Open Selected Official Details Fail',
+    UpdateOfficialRequest = '[Official] Update Official',
+    UpdateOfficialRequestSuccess = '[Official] Update Official Request Success',
+    UpdateOfficialRequestFail = '[Official] Update Official Request Fail'
 }
 
 export class LoadOfficialsRequest implements Action {
@@ -58,6 +61,21 @@ export class OpenSelectedOfficialDetailsFail implements Action {
     constructor(payload: any) {}
 }
 
+export class UpdateOfficialRequest implements Action {
+    readonly type = OfficialActionTypes.UpdateOfficialRequest;
+    constructor(public officialId: number, public changes: Partial<Official>) { }
+}
+
+export class UpdateOfficialRequestSuccess implements Action {
+	readonly type = OfficialActionTypes.UpdateOfficialRequestSuccess;
+	constructor(public official: Official) {}
+}
+
+export class UpdateOfficialRequestFail implements Action {
+	readonly type = OfficialActionTypes.UpdateOfficialRequestFail;
+	constructor(payload: any) {}
+}
+
 export type OfficialActions = 
     LoadOfficialsRequest
     | LoadOfficialsRequestSuccess
@@ -67,4 +85,7 @@ export type OfficialActions =
     | AddOfficialRequestFail
     | OpenSelectedOfficialDetails
     | OpenSelectedOfficialDetailsSuccess
-    | OpenSelectedOfficialDetailsFail;
+    | OpenSelectedOfficialDetailsFail
+    | UpdateOfficialRequest
+    | UpdateOfficialRequestSuccess
+    | UpdateOfficialRequestFail;

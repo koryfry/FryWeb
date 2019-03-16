@@ -31,4 +31,9 @@ export class OfficialsService {
       .pipe(catchError((error: any) => throwError(error)));
   }
 
+  updateOfficial(id: number, official: Partial<Official>): Observable<Official> {
+    return this.http.put<Official>(`${this._baseUrl}${official.id}`, official)
+    .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }

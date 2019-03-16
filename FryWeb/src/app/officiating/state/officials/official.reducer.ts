@@ -44,12 +44,12 @@ export function officialsReducer(state = initialState, action: OfficialActions) 
             }
         }
 
-        // case OfficialActionTypes.UpdateOfficialRequest: {
-        //     return officialAdapter.updateOne({
-        //         id: action.officialId,
-        //         changes: action.changes
-        //     }, state)
-        // }
+        case OfficialActionTypes.UpdateOfficialRequest: {
+            return officialAdapter.updateOne({
+                id: action.officialId,
+                changes: action.changes
+            }, state)
+        }
 
         default:
             return state;

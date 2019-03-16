@@ -4,7 +4,8 @@ import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { OfficialActionTypes, LoadOfficialsRequest, LoadOfficialsRequestSuccess, LoadOfficialsRequestFail,
         AddOfficialRequest, AddOfficialRequestFail, AddOfficialRequestSuccess,
-        OpenSelectedOfficialDetails, OpenSelectedOfficialDetailsSuccess, OpenSelectedOfficialDetailsFail } from './official.actions';
+        OpenSelectedOfficialDetails, OpenSelectedOfficialDetailsSuccess, OpenSelectedOfficialDetailsFail,
+        UpdateOfficialRequest, UpdateOfficialRequestFail, UpdateOfficialRequestSuccess } from './official.actions';
 import * as OfficialsActions from './';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
@@ -68,6 +69,29 @@ export class OfficialEffects {
         )
                 
     );
+
+    @Effect()
+    updateOfficial$ = this.actions$.
+        ofType<UpdateOfficialRequest>(OfficialActionTypes.UpdateOfficialRequest)
+        .pipe(
+            switchMap(action => {
+                return this.officialsService.updateOfficial(action.officialId, action.changes).pipe(
+                    switchMap(res => {
+                        this.snackBarService.success('Official was successfully updated', 'Dismiss', {
+                            duration: 3000
+                        });
+                        return of(new UpdateOfficialRequestSuccess(res));
+                    }),
+                    catchError(error => {
+                        this.snackBarService.error(error.stack || 'Oops! Official was not updated successfully', 'Dismiss', {
+                            duration: 6000
+                        });
+
+                        return of(new UpdateOfficialRequestFail(error))
+                    })
+                );
+            })
+        )
     
     constructor(
         private actions$: Actions,

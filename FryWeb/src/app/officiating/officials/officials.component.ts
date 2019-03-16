@@ -18,6 +18,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 // Import Components
 import { AddOfficialDialogComponent } from 'app/officiating/officials/components/add-official-dialog/add-official-dialog.component';
 import { OfficialsDetailsComponent } from '../officials/components/officials-details/officials-details.component';
+import { UpdateOfficialDialogComponent } from '../officials/components/update-official-dialog/update-official-dialog.component';
 
 @Component({
   selector: 'fw-officials',
@@ -28,6 +29,8 @@ export class OfficialsComponent implements OnInit {
   displayedColumns: string[] = ['FirstName', 'LastName', 'Level', 'YearsExperience', 'Address', 'City', 'State','ZipCode'];
   officials: Official[];
   dataSource = new MatTableDataSource();
+  preventSingleClick: boolean = false;
+	preventSingleClickDelayId;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
   @ViewChild(MatSort) sort: MatSort; 
@@ -70,17 +73,24 @@ export class OfficialsComponent implements OnInit {
   ngOnInit() {}
 
   openPreviewDialog(row: any, $event: Event) {
-    this.officialsFacade.openSelectedOfficialDetails(row);
-    const dialogRef = this.dialog.open(OfficialsDetailsComponent, {
-      width: '500px',
-      autoFocus: false,
-      panelClass: ['rounded-dialog-window'],
-      data: row
-    });
+    this.preventSingleClick = false;
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('You closed the Official Details dialog');
-    })
+    this.preventSingleClickDelayId = setTimeout(() => {
+      if(this.preventSingleClick) {
+        return;
+      }
+      this.officialsFacade.openSelectedOfficialDetails(row);
+      const dialogRef = this.dialog.open(OfficialsDetailsComponent, {
+        width: '500px',
+        autoFocus: false,
+        panelClass: ['rounded-dialog-window'],
+        data: row
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('You closed the Official Details dialog');
+      })
+    }, 200)
   }
 
   openAddOfficialDialog() {
@@ -92,6 +102,24 @@ export class OfficialsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('You closed the add arena dialog');
+    })
+  }
+
+  openUpdateOfficialDialog(official: Official, $event: Event) {
+    $event.stopPropagation();
+    this.preventSingleClick = true;
+    clearTimeout(this.preventSingleClickDelayId);
+
+    this.officialsFacade.openSelectedOfficialDetails(official);
+    const dialogRef = this.dialog.open(UpdateOfficialDialogComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: official
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the update age group dialog');
     })
   }
 }
