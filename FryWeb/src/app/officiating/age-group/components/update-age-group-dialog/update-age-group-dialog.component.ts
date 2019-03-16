@@ -71,15 +71,15 @@ export class UpdateAgeGroupDialogComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    const ageGroup: Partial<AgeGroup> = {
-      MinimumAge: parseInt(this.updateAgeGroupForm.get('minimumAge').value),
-      MaximumAge: parseInt(this.updateAgeGroupForm.get('maximumAge').value)
-    }
+    const ageGroup: Partial<AgeGroup> = {};
     var sag = this.selectedAgeGroup$.pipe(take(1)).subscribe(s => {
       ageGroup.id = s[0].id;
       ageGroup.Name = s[0].Name;
       ageGroup.Tier = s[0].Tier;
+      ageGroup.MinimumAge = parseInt(this.updateAgeGroupForm.get('minimumAge').value);
+      ageGroup.MaximumAge = parseInt(this.updateAgeGroupForm.get('maximumAge').value);
     })
+    
     this.ageGroupFacade.updateAgeGroup(ageGroup);
     this.dialogRef.close();
   }

@@ -94,41 +94,41 @@
       "Name": "Squirt",
       "Tier": "B",
       "MinimumAge": 9,
-      "MaximumAge": 9
+      "MaximumAge": 10
     },
     {
       "id": 2,
       "Name": "Squirt",
       "Tier": "A",
-      "MinimumAge": 8,
-      "MaximumAge": 9
+      "MinimumAge": 9,
+      "MaximumAge": 10
     },
     {
       "id": 3,
       "Name": "Squirt",
       "Tier": "AA",
-      "MinimumAge": 8,
-      "MaximumAge": 9
+      "MinimumAge": 9,
+      "MaximumAge": 10
     },
     {
       "id": 4,
       "Name": "Pee Wee",
       "Tier": "B",
-      "MinimumAge": 10,
+      "MinimumAge": 11,
       "MaximumAge": 12
     },
     {
       "id": 5,
       "Name": "Pee Wee",
       "Tier": "A",
-      "MinimumAge": 10,
+      "MinimumAge": 11,
       "MaximumAge": 12
     },
     {
       "id": 6,
       "Name": "Pee Wee",
       "Tier": "AA",
-      "MinimumAge": 10,
+      "MinimumAge": 11,
       "MaximumAge": 12
     },
     {
