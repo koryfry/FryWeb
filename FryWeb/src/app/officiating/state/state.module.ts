@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromOfficiating from './reducers';
 import { AgeGroupEffects } from './age-group/age-group.effects';
 import { ArenaEffects } from './arena/arena.effects';
-import { OfficialEffects } from '../officials/state/effects/officials.effects';
+import { OfficialEffects } from './officials/official.effects';
 import { GameDetailEffects } from '../game-detail/state/effects/game-detail.effects';
 
 import { EffectsModule } from '@ngrx/effects';

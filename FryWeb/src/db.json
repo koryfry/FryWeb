@@ -213,6 +213,7 @@
       "ZipCode": "49424"
     },
     {
+      "id": 5,
       "FirstName": "Chris",
       "LastName": "Jamieson",
       "Level": 3,
@@ -220,10 +221,10 @@
       "Address": "1245 12th Ave",
       "City": "Jenison",
       "State": "MI",
-      "ZipCode": "45689",
-      "id": 5
+      "ZipCode": "45689"      
     },
     {
+      "id": 6,
       "FirstName": "Tom",
       "LastName": "Oosterbaan",
       "Level": 3,
@@ -231,8 +232,18 @@
       "Address": "45678 Happy Lane",
       "City": "Wyoming",
       "State": "MI",
-      "ZipCode": "45632",
-      "id": 6
+      "ZipCode": "45632"
+    },
+    {
+      "id": 7,
+      "FirstName": "Dave",
+      "LastName": "Emig",
+      "Level": 3,
+      "YearsExperience": 10,
+      "Address": "5689 Lincoln Ave",
+      "City": "Holland",
+      "State": "MI",
+      "ZipCode": "45789"
     }
   ],
   "gameDetails": [

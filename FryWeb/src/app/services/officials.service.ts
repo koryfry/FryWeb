@@ -9,25 +9,25 @@ import { Official } from '../models/official/official.model';
 @Injectable()
 export class OfficialsService {
 
-  private _baseUrl = "http://localhost:3000/";
+  private _baseUrl = "http://localhost:3000/officials/";
   constructor(private http: HttpClient) { }
 
   getOfficials(): Observable<Official[]> {
     return this.http
-      .get<Official[]>(this._baseUrl + 'officials')
+      .get<Official[]>(this._baseUrl)// + 'officials')
       .pipe(catchError((error: any) => throwError(error)));
   }
 
   getOfficialById(id: number): Observable<Official> {
     let params = new HttpParams().set('id', id.toString())
     return this.http
-      .get<Official>(this._baseUrl + 'officials/', {params: params})
+      .get<Official>(this._baseUrl, {params: params})
       .pipe(catchError((error: any) => throwError(error)));
   }
 
   createOfficial(official: Official): Observable<Official> {
     return this.http
-      .post<Official>(this._baseUrl + 'officials', official)
+      .post<Official>(this._baseUrl, official)
       .pipe(catchError((error: any) => throwError(error)));
   }
 

@@ -68,7 +68,7 @@
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="logRow(row, row.id)"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openPreviewDialog(row, $event)"></tr>
           </table>
           <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
         </div>

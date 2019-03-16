@@ -4,12 +4,12 @@
 
 export interface Official {
     id?: number,
-    'First Name': string,
-    'Last Name': string,
+    FirstName: string,
+    LastName: string,
     Level: number,
-    'Years Experience': number,
+    YearsExperience: number,
     Address: string,
     City: string,
     State: string,
-    'Zip Code': string
+    ZipCode: string
 }

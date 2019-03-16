@@ -9,7 +9,7 @@ import { Official } from '../../../../models/official/official.model';
 import { OfficialsService } from '../../../../services/officials.service';
 
 // Import State items
-import { OfficialsFacade } from '../../state';
+import { OfficialsFacade } from '../../../state/officials/official.facade';
 import { take, takeUntil } from 'rxjs/internal/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 

@@ -4,7 +4,7 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 
-import { OfficialsFacade } from '../../state';
+import { OfficialsFacade } from '../../../state/officials/official.facade';
 import { Official } from 'app/models/official/official.model';
 
 @Component({
@@ -83,14 +83,14 @@ export class AddOfficialDialogComponent implements OnInit {
 
   save() {
     const official = {
-      'First Name': this.addOfficialForm.get('firstName').value,
-      'Last Name': this.addOfficialForm.get('lastName').value,
+      FirstName: this.addOfficialForm.get('firstName').value,
+      LastName: this.addOfficialForm.get('lastName').value,
       Level: this.addOfficialForm.get('level').value,
-      'Years Experience': this.addOfficialForm.get('yearsExperience').value,
+      YearsExperience: this.addOfficialForm.get('yearsExperience').value,
       Address: this.addOfficialForm.get('address').value,
       City: this.addOfficialForm.get('city').value,
       State: this.addOfficialForm.get('state').value,
-      'Zip Code': this.addOfficialForm.get('zipCode').value
+      ZipCode: this.addOfficialForm.get('zipCode').value
     }
 
     this.officialsFacade.createOfficial(official);

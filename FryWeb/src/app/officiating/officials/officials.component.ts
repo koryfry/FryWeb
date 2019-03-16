@@ -11,7 +11,7 @@ import { OfficialsService } from '../../services/officials.service';
 import { TableDisplayService } from "../../shared/services/table-display.service";
 
 // Import State Items
-import { OfficialsFacade } from './state';
+import { OfficialsFacade } from '../state/officials/official.facade';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subscription } from 'rxjs/internal/Subscription';
 
@@ -28,8 +28,6 @@ export class OfficialsComponent implements OnInit {
   displayedColumns: string[] = ['FirstName', 'LastName', 'Level', 'YearsExperience', 'Address', 'City', 'State','ZipCode'];
   officials: Official[];
   dataSource = new MatTableDataSource();
-  officials$: Observable<Official[]>;
-  off: Subscription;
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
   @ViewChild(MatSort) sort: MatSort; 
@@ -49,14 +47,12 @@ export class OfficialsComponent implements OnInit {
   ) 
   {
     this.officialsFacade.loadOfficials();
-    this.officials$ = this.officialsFacade.officials$;
 
-    this.off = this.officials$.pipe(takeUntil(this._componentDestroyed$)).subscribe(offs => {
-      const ofs = offs;
-      this.officials = ofs ? ofs : new Array<Official>();
+    this.officialsFacade.allOfficials$.pipe(takeUntil(this._componentDestroyed$)).subscribe(offs => {
+      const officials = offs;
 
-      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(this.officials);
-      this.dataSource = new MatTableDataSource(this.officials);
+      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(officials);
+      this.dataSource = new MatTableDataSource(officials);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
@@ -73,10 +69,18 @@ export class OfficialsComponent implements OnInit {
 
   ngOnInit() {}
 
-  logRow(row: any, rowID: number) {
-    console.log('Row selected: ', row);
-    this.officialsFacade.openSelectedOfficialDetails(row, rowID);
-    this.openOfficialsDetailsPreviewDialog(row);
+  openPreviewDialog(row: any, $event: Event) {
+    this.officialsFacade.openSelectedOfficialDetails(row);
+    const dialogRef = this.dialog.open(OfficialsDetailsComponent, {
+      width: '500px',
+      autoFocus: false,
+      panelClass: ['rounded-dialog-window'],
+      data: row
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('You closed the Official Details dialog');
+    })
   }
 
   openAddOfficialDialog() {
@@ -88,19 +92,6 @@ export class OfficialsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('You closed the add arena dialog');
-    })
-  }
-
-  openOfficialsDetailsPreviewDialog(arena: Official) {
-    const dialogRef = this.dialog.open(OfficialsDetailsComponent, {
-      width: '500px',
-      autoFocus: false,
-      panelClass: ['rounded-dialog-window'],
-      data: arena
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('You closed the Official Details dialog');
     })
   }
 }

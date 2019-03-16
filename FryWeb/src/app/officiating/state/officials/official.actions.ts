@@ -1,17 +1,14 @@
 import { Action } from '@ngrx/store';
-import { Official } from '../../../../models/official/official.model';
+import { Update } from '@ngrx/entity';
+import { Official } from '../../../models/official/official.model';
 
-/**
- * For each action type in an action group, make a simple
- * enum object for all of this group's action types.
- */
 export enum OfficialActionTypes {
     LoadOfficialsRequest = '[Official] Load Official Request',
     LoadOfficialsRequestSuccess = '[Official] Load Official Request Success',
     LoadOfficialsRequestFail = '[Official] Load Official Request Fail',
-    CreateOfficialRequest = '[Official] Create Official Request',
-    CreateOfficialRequestSuccess = '[Official] Create Official Request Success',
-    CreateOfficialRequestFail = '[Official] Create Official Request Fail',
+    AddOfficialRequest = '[Official] Create Official Request',
+    AddOfficialRequestSuccess = '[Official] Create Official Request Success',
+    AddOfficialRequestFail = '[Official] Create Official Request Fail',
     OpenSelectedOfficialDetails = '[Official] Open Selected Official Details',
     OpenSelectedOfficialDetailsSuccess = '[Official] Open Selected Official Details Success',
     OpenSelectedOfficialDetailsFail = '[Official] Open Selected Official Details Fail'
@@ -31,24 +28,24 @@ export class LoadOfficialsRequestFail implements Action {
 	constructor(payload: any) {}
 }
 
-export class CreateOfficialRequest implements Action {
-    readonly type = OfficialActionTypes.CreateOfficialRequest;
+export class AddOfficialRequest implements Action {
+    readonly type = OfficialActionTypes.AddOfficialRequest;
     constructor(public official: Official) {}
 }
 
-export class CreateOfficialRequestSuccess implements Action {
-	readonly type = OfficialActionTypes.CreateOfficialRequestSuccess;
+export class AddOfficialRequestSuccess implements Action {
+	readonly type = OfficialActionTypes.AddOfficialRequestSuccess;
 	constructor(public official: Official) {}
 }
 
-export class CreateOfficialRequestFail implements Action {
-	readonly type = OfficialActionTypes.CreateOfficialRequestFail;
+export class AddOfficialRequestFail implements Action {
+	readonly type = OfficialActionTypes.AddOfficialRequestFail;
 	constructor(payload: any) {}
 }
 
 export class OpenSelectedOfficialDetails implements Action {
     readonly type = OfficialActionTypes.OpenSelectedOfficialDetails;
-    constructor(public selectedOfficial: Official, public officialID: number) {}
+    constructor(public selectedOfficial: Official) {}
 }
 
 export class OpenSelectedOfficialDetailsSuccess implements Action {
@@ -65,9 +62,9 @@ export type OfficialActions =
     LoadOfficialsRequest
     | LoadOfficialsRequestSuccess
     | LoadOfficialsRequestFail
-    | CreateOfficialRequest
-    | CreateOfficialRequestSuccess
-    | CreateOfficialRequestFail
+    | AddOfficialRequest
+    | AddOfficialRequestSuccess
+    | AddOfficialRequestFail
     | OpenSelectedOfficialDetails
     | OpenSelectedOfficialDetailsSuccess
     | OpenSelectedOfficialDetailsFail;

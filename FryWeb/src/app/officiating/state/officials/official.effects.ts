@@ -3,12 +3,12 @@ import { Observable, of } from 'rxjs';
 import { Action, Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { OfficialActionTypes, LoadOfficialsRequest, LoadOfficialsRequestSuccess, LoadOfficialsRequestFail,
-        CreateOfficialRequest, CreateOfficialRequestFail, CreateOfficialRequestSuccess,
-        OpenSelectedOfficialDetails, OpenSelectedOfficialDetailsSuccess, OpenSelectedOfficialDetailsFail } from '../actions';
-import * as OfficialsActions from '../actions';
+        AddOfficialRequest, AddOfficialRequestFail, AddOfficialRequestSuccess,
+        OpenSelectedOfficialDetails, OpenSelectedOfficialDetailsSuccess, OpenSelectedOfficialDetailsFail } from './official.actions';
+import * as OfficialsActions from './';
 import { map, withLatestFrom, switchMap, catchError, tap } from 'rxjs/operators';
 
-import { OfficialsService } from '../../../../services/officials.service';
+import { OfficialsService } from '../../../services/officials.service';
 import { FwSnackbarService } from 'app/shared/components/fw-snackbar/fw-snackbar.service';
 
 @Injectable()
@@ -31,22 +31,22 @@ export class OfficialEffects {
     )
 
     @Effect()
-    createOfficial = this.actions$.ofType<CreateOfficialRequest>(OfficialActionTypes.CreateOfficialRequest)
+    createOfficial = this.actions$.ofType<AddOfficialRequest>(OfficialActionTypes.AddOfficialRequest)
         .pipe(
-            map((action: OfficialsActions.CreateOfficialRequest) => action.official),
+            map((action: OfficialsActions.AddOfficialRequest) => action.official),
             switchMap(official => {
                 return this.officialsService.createOfficial(official).pipe(
                     switchMap(official => {
                         this.snackBarService.success('Official was successfully created', 'Dismiss', {
                             duration: 3000
                         });
-                        return of(new CreateOfficialRequestSuccess(official));
+                        return of(new AddOfficialRequestSuccess(official));
                     }),
                     catchError(error => {
                         this.snackBarService.error(error.stack || 'Oops! Official was not created successfully', 'Dismiss', {
                             duration: 6000
                         });
-                        return of(new CreateOfficialRequestFail(error));
+                        return of(new AddOfficialRequestFail(error));
                     })
                 );
             })
@@ -57,7 +57,7 @@ export class OfficialEffects {
         ofType<OpenSelectedOfficialDetails>(OfficialActionTypes.OpenSelectedOfficialDetails)
         .pipe(
             switchMap((action) => {
-                return this.officialsService.getOfficialById(action.officialID)
+                return this.officialsService.getOfficialById(action.selectedOfficial.id)
                     .pipe(
                         map(officialDetailsPreview => {
                             return new OpenSelectedOfficialDetailsSuccess(officialDetailsPreview)
