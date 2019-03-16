@@ -32,7 +32,10 @@
     
                     <ng-container matColumnDef="Tier">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Tier</th>
-                        <td mat-cell *matCellDef="let element">{{element.Tier}}</td>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-chip [ngClass]="{'aChip': element.Tier === 'A' || element.Tier === 'AA' || element.Tier === 'AAA', 
+                                'bChip': element.Tier === 'B' || element.Tier === 'BB'}">{{element.Tier}}</mat-chip>
+                        </td>
                     </ng-container>
     
                     <ng-container matColumnDef="MinimumAge">
