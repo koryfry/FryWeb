@@ -89,6 +89,18 @@
         color: $fwWhite;
     }
 
+    .bantamChip {
+        opacity: 0.75;
+        width: 90px;
+        display: table-cell;
+        vertical-align: middle;
+        height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: $mediumGray;
+        color: $fwWhite;
+    }
+
     .aChip {
         opacity: 0.75;
         width: 60px;

@@ -158,6 +158,13 @@
       "MinimumAge": "11",
       "MaximumAge": "12",
       "id": 10
+    },
+    {
+      "Name": "Bantam",
+      "Tier": "B",
+      "MinimumAge": "13",
+      "MaximumAge": "14",
+      "id": 11
     }
   ],
   "officials": [
