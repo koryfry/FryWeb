@@ -6,7 +6,7 @@
       "Address": "1235 Holland Ave",
       "City": "Holland",
       "State": "MI",
-      "Zip Code": "49424",
+      "ZipCode": "49424",
       "AvatarImage": "assets/images/GriffsWest.jpg"
     },
     {
@@ -15,7 +15,7 @@
       "Address": "1111 48th Ave",
       "City": "Hudsonville",
       "State": "MI",
-      "Zip Code": "49426",
+      "ZipCode": "49426",
       "AvatarImage": "assets/images/Georgetown.jpg"
     },
     {
@@ -24,7 +24,7 @@
       "Address": "1234 Remembrance Rd",
       "City": "Walker",
       "State": "MI",
-      "Zip Code": "49417",
+      "ZipCode": "49417",
       "AvatarImage": "assets/images/Walker.jpg"
     },
     {
@@ -33,7 +33,7 @@
       "Address": "8987 Coldbrook St",
       "City": "Grand Rapids",
       "State": "MI",
-      "Zip Code": "49503",
+      "ZipCode": "49503",
       "AvatarImage": "assets/images/Belknap.jpg"
     },
     {
@@ -42,7 +42,7 @@
       "Address": "23235 Patterson Ave SE",
       "City": "Grand Rapids",
       "State": "MI",
-      "Zip Code": "49546",
+      "ZipCode": "49546",
       "AvatarImage": "assets/images/Patterson.jpg"
     },
     {
@@ -51,7 +51,7 @@
       "Address": "13456 Rubber Biscuit Lane",
       "City": "Hell",
       "State": "MI",
-      "Zip Code": "49789",
+      "ZipCode": "49789",
       "AvatarImage": null
     },
     {
@@ -60,7 +60,7 @@
       "Address": "456 Cold Street",
       "City": "Muskegon",
       "State": "MI",
-      "Zip Code": "45689",
+      "ZipCode": "45689",
       "AvatarImage": null
     },
     {
@@ -69,23 +69,23 @@
       "Address": "456 Fulton Street",
       "City": "Grand Rapids",
       "State": "Michigan",
-      "Zip Code": "45678"
+      "ZipCode": "45678"
     },
     {
+      "id": 9,
       "Name": "Munn Ice Arena",
       "Address": "45689 Spartan Way",
       "City": "Lansing",
       "State": "MI",
-      "Zip Code": "45123",
-      "id": 9
+      "ZipCode": "45123"
     },
     {
+      "id": 10,
       "Name": "Yost Ice Arena",
       "Address": "14689 Maize and Blue Way",
       "City": "Ann Arbor",
       "State": "MI",
-      "Zip Code": "47864",
-      "id": 10
+      "ZipCode": "47864"
     }
   ],
   "ageGroups": [

@@ -25,12 +25,9 @@ import { ArenaDetailsComponent } from './components/arena-details/arena-details.
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['Name','Address', 'City', 'State','ZipCode'];
   arenas: Arena[];
   dataSource = new MatTableDataSource();
-  // arenas$: Observable<Arena[]>;
-  // ar: Subscription;
-  // allArenas$: Observable<Arena[]>;
   preventSingleClick: boolean = false;
 	preventSingleClickDelayId;
   
@@ -54,13 +51,8 @@ export class ArenaComponent implements OnInit {
   )
   {
     this.arenaFacade.loadArenas();
-    // this.arenas$ = this.arenaFacade.arenas$;
-    // this.allArenas$ = this.arenaFacade.arenas$;
-
     this.arenaFacade.allArenas$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ars => {      
       const arenas = ars;
-      //this.arenas = arenas ? arenas : new Array<Arena>();
-
       this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(arenas);
       this.dataSource = new MatTableDataSource(arenas);
       this.dataSource.sort = this.sort;
@@ -70,12 +62,6 @@ export class ArenaComponent implements OnInit {
       console.log('Error: ', err);
     });  
   }
-
-  // logRow(row: any, rowID: number) {
-  //   console.log('Row selected: ', row);
-  //   this.arenaFacade.openSelectedArenaDetails(row);
-  //   this.openArenaDetailsPreviewDialog(row);
-  // } 
   
   ngOnDestroy() {
     this._componentDestroyed$.next(true);

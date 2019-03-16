@@ -13,25 +13,47 @@
       </button>
     </div>
 
-    <div class="example-container mat-elevation-z8" *ngIf="route.children.length ===0 && dataSource">   
-
+    <div class="example-container" *ngIf="route.children.length ===0 && dataSource">   
       <div class="example-header">
         <mat-form-field color="primary">
+            <span matPrefix><mat-icon>search</mat-icon>&nbsp;</span>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">
         </mat-form-field>
       </div>
-    
-      <table mat-table [dataSource]="dataSource" matSort class="arena-table">
+
+      <div class="overflow-container">
+        <table mat-table [dataSource]="dataSource" matSort class="arena-table">
           
-        <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{col}}">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{col}}</th>
-          <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
-        </ng-container>        
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openArenaDetailsPreviewDialog(row, $event)"></tr>
-      </table>
-      <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+          </ng-container>        
+        
+          <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="City">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+            <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="State">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+            <td mat-cell *matCellDef="let element"> {{element.State}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ZipCode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Zip Code</th>
+            <td mat-cell *matCellDef="let element"> {{element.ZipCode}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openArenaDetailsPreviewDialog(row, $event)"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+      </div>
     </div>
     
     <router-outlet></router-outlet>

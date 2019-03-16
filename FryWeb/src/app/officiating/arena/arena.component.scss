@@ -1,64 +1,74 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
+:host {
+	display: block;
+}
+
 .example-container {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-}
+	height: calc(100vh - 185px);
 
-.example-header {
-    min-height: 64px;
-    padding: 8px 15px 0;
-}
-  
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
-}
-  
-.mat-table {
-    overflow: auto;
-    max-height: 600px;
-}
+    .example-header {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 300px;
+        flex: 0 0 auto;
+    }
+    
+    .overflow-container {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+      
+    .mat-form-field {
+        font-size: 14px;
+        width: 100%;
+    }
 
-.arena-table {
-    margin: 0 15px 10px 15px; 
-    box-shadow: 2px 2px 2px 2px;
-}
-
-.mat-header-cell.mat-sort-header-sorted {
-    color: $fwWhite;
-}
-
-.mat-row:nth-child(even) {
-    background-color: $fwLightBlue;
-}
-
-.mat-row:nth-child(odd) {
-    background-color: white;
-}
-
-.mat-header-cell {
-    color: $fwWhite;
-    font-size: 14px;
-}
-
-.mat-header-row {
-    background-color: $fwMediumDarkBlue;
-    color: $fwWhite;
-}
-
-.addArena {
-    width: 160px;
-    margin: 10px 12px 0px 0px;
-    font-weight: 500;
-    border-radius: 0.25em;
-}
-
-.add-arena-fab {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    opacity: 0.75;
+    table {
+        width: 98%;
+    }
+    
+    .arena-table {
+        margin: 0 15px 10px 15px; 
+        box-shadow: 2px 2px 2px 2px;
+    }
+    
+    .mat-header-cell.mat-sort-header-sorted {
+        color: $fwWhite;
+    }
+    
+    .mat-row:nth-child(even) {
+        background-color: $fwLightBlue;
+    }
+    
+    .mat-row:nth-child(odd) {
+        background-color: white;
+    }
+    
+    .mat-header-cell {
+        color: $fwWhite;
+        font-size: 14px;
+    }
+    
+    .mat-header-row {
+        background-color: $fwMediumDarkBlue;
+        color: $fwWhite;
+    }
+    
+    .addArena {
+        width: 160px;
+        margin: 10px 12px 0px 0px;
+        font-weight: 500;
+        border-radius: 0.25em;
+    }
+    
+    .add-arena-fab {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        opacity: 0.75;
+    }
 }
