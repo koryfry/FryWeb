@@ -86,6 +86,22 @@
       "City": "Ann Arbor",
       "State": "MI",
       "ZipCode": "47864"
+    },
+    {
+      "Name": "Little Caesars Arena",
+      "Address": "4663 Woodward Ave",
+      "City": "Detroit",
+      "State": "MI",
+      "ZipCode": "45123",
+      "id": 11
+    },
+    {
+      "Name": "The Summit",
+      "Address": "89657 Spartan Way",
+      "City": "Lansing",
+      "State": "MI",
+      "ZipCode": "45782",
+      "id": 12
     }
   ],
   "ageGroups": [
