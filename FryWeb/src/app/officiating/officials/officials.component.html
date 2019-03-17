@@ -36,7 +36,7 @@
             <ng-container matColumnDef="Level">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Level</th>
               <td mat-cell *matCellDef="let element"> 
-                <mat-chip [ngClass]="{'level1Chip': element.Level === 1, 'level2Chip': element.Level === 2, 'level3Chip': element.Level === 3}" [disableRipple]="true">
+                <mat-chip [ngClass]="{'level1Chip': element.Level === 1, 'level2Chip': element.Level === 2, 'level3Chip': element.Level === 3, 'level4Chip': element.Level === 4}" [disableRipple]="true">
                   {{element.Level}}
                 </mat-chip> 
               </td>

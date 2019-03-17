@@ -111,9 +111,9 @@ export class UpdateOfficialDialogComponent implements OnInit {
   save() {
     const official: Partial<Official> = {};
     var o = this.selectedOfficial$.pipe(take(1)).subscribe(off => {
-      official.id = off.id,
-      official.FirstName = off.FirstName,
-      official.LastName = off.LastName,
+      official.id = off[0].id,
+      official.FirstName = off[0].FirstName,
+      official.LastName = off[0].LastName,
       official.Level = parseInt(this.updateOfficialForm.get('level').value),
       official.YearsExperience = parseInt(this.updateOfficialForm.get('yearsExperience').value),
       official.Address = this.updateOfficialForm.get('address').value,

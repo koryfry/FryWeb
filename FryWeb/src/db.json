@@ -173,7 +173,7 @@
       "FirstName": "Kory",
       "LastName": "Fry",
       "Level": 3,
-      "YearsExperience": 17,
+      "YearsExperience": 18,
       "Address": "1234 Puck Hog Lane",
       "City": "Holland",
       "State": "MI",
@@ -221,7 +221,7 @@
       "Address": "1245 12th Ave",
       "City": "Jenison",
       "State": "MI",
-      "ZipCode": "45689"      
+      "ZipCode": "45689"
     },
     {
       "id": 6,
