@@ -46,6 +46,14 @@ export class UpdateOfficialDialogComponent implements OnInit {
   ) 
   { 
     this.updateOfficialForm = this.fb.group({
+      firstName: [
+        null,
+        [Validators.required, Validators.maxLength(50)]
+      ],
+      lastName: [
+        null,
+        [Validators.required, Validators.maxLength(50)]
+      ],
       level: [
         null,
         [Validators.required, Validators.min(1), Validators.max(4)]
@@ -56,15 +64,15 @@ export class UpdateOfficialDialogComponent implements OnInit {
       ],
       address: [
         null,
-        [Validators.required, Validators.minLength(1), Validators.maxLength(50)]
+        [Validators.required, Validators.maxLength(50)]
       ],
       city: [
         null,
-        [Validators.required, Validators.minLength(1), Validators.maxLength(50)]
+        [Validators.required, Validators.maxLength(50)]
       ],
       state: [
         null,
-        [Validators.required, Validators.minLength(2), Validators.maxLength(2)]
+        [Validators.required, Validators.maxLength(2)]
       ],
       zipCode: [
         null,
@@ -93,6 +101,8 @@ export class UpdateOfficialDialogComponent implements OnInit {
 
   updateFormData(selectedOfficial: Official) {
     this.updateOfficialForm.patchValue({
+      firstName: selectedOfficial[0].FirstName,
+      lastName: selectedOfficial[0].LastName,
       level: selectedOfficial[0].Level,
       yearsExperience: selectedOfficial[0].YearsExperience,
       address: selectedOfficial[0].Address,
@@ -112,8 +122,8 @@ export class UpdateOfficialDialogComponent implements OnInit {
     const official: Partial<Official> = {};
     var o = this.selectedOfficial$.pipe(take(1)).subscribe(off => {
       official.id = off[0].id,
-      official.FirstName = off[0].FirstName,
-      official.LastName = off[0].LastName,
+      official.FirstName = this.updateOfficialForm.get('firstName').value,
+      official.LastName = this.updateOfficialForm.get('lastName').value,
       official.Level = parseInt(this.updateOfficialForm.get('level').value),
       official.YearsExperience = parseInt(this.updateOfficialForm.get('yearsExperience').value),
       official.Address = this.updateOfficialForm.get('address').value,
