@@ -4,27 +4,88 @@
     <mat-icon class="add-game-detail__icon">assignment</mat-icon>
   </div>
   <div dialog-content class="add-game-detail__form">
-    <mat-vertical-stepper [linear]="isLinear" #stepper class="add-game-detail__form-background">
+    <mat-vertical-stepper #stepper class="add-game-detail__form-background">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <ng-template matStepLabel>Game Date and Time</ng-template>
-          <mat-form-field>
-            <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="firstCtrl">
-            <mat-datepicker-toggle matSuffix [for]="gameDateDatePicker"></mat-datepicker-toggle>
-            <mat-datepicker #gameDateDatePicker></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field style="margin-top: 15px;">
-            <mat-label>Game time</mat-label>
-            <input matInput type="time" title="" formControlName="gameTime" />
-            <mat-error *ngIf="firstFormGroup.get('gameTime').hasError('required')">A valid game time is required</mat-error>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext type="button">Next</button>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Game Date</mat-label>
+              <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="firstCtrl">
+              <mat-datepicker-toggle matSuffix [for]="gameDateDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #gameDateDatePicker></mat-datepicker>
+              <mat-error *ngIf="firstFormGroup.get('firstCtrl').hasError('required')">A valid game date is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Game Time</mat-label>
+              <input matInput type="time" title="" formControlName="gameTime" />
+              <mat-error *ngIf="firstFormGroup.get('gameTime').hasError('required')">A valid game time is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="add-game-detail__row">
+            <mat-label style="font-weight: bold; font-size: 14px;">Ref/Line</mat-label>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="Ref" color="primary">Ref</mat-radio-button>
+              <mat-radio-button value="Line" color="primary">Line</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="add-game-detail__row">
+            <button mat-button matStepperNext type="button">
+              <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
+              Next
+            </button>
           </div>
         </form>
       </mat-step>
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Choose Arena, Age Group and Partner(s)</ng-template>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Arena</mat-label>
+              <mat-select formControlName="arena">
+                <mat-option *ngFor="let arena of arenas" [value]="arena.id">
+                  {{arena.Name}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="secondFormGroup.get('arena').hasError('required')">You must choose an Arena</mat-error>
+            </mat-form-field>
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Age Group</mat-label>
+              <mat-select formControlName="ageGroup">
+                <mat-option *ngFor="let ageGroup of ageGroups" [value]="ageGroup.id">
+                  {{ageGroup.Name}} {{ageGroup.Tier}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="secondFormGroup.get('ageGroup').hasError('required')">You must choose an Age Group</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Number of Partners</mat-label>
+              <mat-select [(ngModel)]="numberOfPartners" [ngModelOptions]="{standalone: true}">
+                <mat-option [value]="0">0</mat-option>
+                <mat-option [value]="1">1</mat-option>
+                <mat-option [value]="2">2</mat-option>
+                <mat-option [value]="3">3</mat-option>
+              </mat-select>
+            </mat-form-field>
+            Number Of Partners: {{numberOfPartners}}
+          </div>    
+          <div class="add-game-detail__row">
+            <button mat-button matStepperPrevious type="button">
+              <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
+              Back
+            </button>
+            <button mat-button matStepperNext type="button">
+              <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
           <ng-template matStepLabel>Fill out your address</ng-template>
           <mat-form-field>
             <input matInput placeholder="Address" formControlName="secondCtrl" required>

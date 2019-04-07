@@ -81,7 +81,7 @@ export class GameDetailComponent implements OnInit {
 
   openAddGameDetailDialog() {
     const dialogRef = this.dialog.open(AddGameDetailDialogComponent, {
-      width: '500px',
+      width: '1000px',
       autoFocus: false,
       panelClass: ['rounded-dialog-window']
     });

@@ -4,7 +4,7 @@ import {
     MatFormFieldModule, MatInputModule, MatCheckboxModule, MatSidenavModule,
     MatIconModule, MatToolbarModule, MatListModule, MatSortModule, MatProgressSpinnerModule,
     MatPaginatorModule, MatChipsModule, MatDialogModule, MatAutocompleteModule, MatSnackBarModule, 
-    MatStepperModule, MatDatepickerModule, MatNativeDateModule
+    MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -29,7 +29,9 @@ import {
         MatSnackBarModule,
         MatStepperModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatRadioModule,
+        MatSelectModule
     ],
     exports: [
         MatCardModule,
@@ -52,7 +54,9 @@ import {
         MatSnackBarModule,
         MatStepperModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatRadioModule,
+        MatSelectModule
     ]
   })
 

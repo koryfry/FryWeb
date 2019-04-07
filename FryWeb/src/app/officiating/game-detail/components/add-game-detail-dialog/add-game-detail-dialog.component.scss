@@ -25,13 +25,11 @@
         &--one-half {
 			width: calc(50% - 10px);
 			margin-right: 10px;
-			//float: left;
         }
         
         &--two-thirds {
 			width: calc(66% - 10px);
 			margin-right: 10px;
-			//float: left;
         }
     }
 
@@ -49,7 +47,7 @@
     }
     
     &__row {
-        margin-top: 10px;
+        margin-top: 15px;
 	}
 	
 	&__icon {
@@ -58,4 +56,27 @@
 		top: 19px;
 		font-size: 22px !important;
 	}
+
+	&__iconForwardOnly {
+		position: absolute;
+		margin-left: 30px;
+		top: 7px;
+		font-size: 22px !important;
+	}
+
+	&__iconBack {
+		position: absolute;
+		margin-left: -25px;
+		top: 7px;
+		font-size: 22px !important;
+	}
+}
+
+.mat-radio-button ~ .mat-radio-button {
+	margin-left: 16px;
+}
+
+.mat-radio-group {
+	display: block;
+	margin-top: 10px;
 }
