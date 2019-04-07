@@ -4,9 +4,9 @@
     <mat-icon class="add-game-detail__icon">assignment</mat-icon>
   </div>
   <div dialog-content class="add-game-detail__form">
-    <mat-vertical-stepper #stepper class="add-game-detail__form-background">
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
+    <mat-vertical-stepper [linear]="isLinear" #stepper class="add-game-detail__form-background">
+      <mat-step [stepControl]="gameDateAndTimeFormGroup">
+        <form [formGroup]="gameDateAndTimeFormGroup">
           <ng-template matStepLabel>Game Date and Time</ng-template>
           <div class="add-game-detail__row">
             <mat-form-field class="add-game-detail__field--one-half">
@@ -14,12 +14,12 @@
               <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="firstCtrl">
               <mat-datepicker-toggle matSuffix [for]="gameDateDatePicker"></mat-datepicker-toggle>
               <mat-datepicker #gameDateDatePicker></mat-datepicker>
-              <mat-error *ngIf="firstFormGroup.get('firstCtrl').hasError('required')">A valid game date is required</mat-error>
+              <mat-error *ngIf="gameDateAndTimeFormGroup.get('firstCtrl').hasError('required')">A valid game date is required</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Game Time</mat-label>
               <input matInput type="time" title="" formControlName="gameTime" />
-              <mat-error *ngIf="firstFormGroup.get('gameTime').hasError('required')">A valid game time is required</mat-error>
+              <mat-error *ngIf="gameDateAndTimeFormGroup.get('gameTime').hasError('required')">A valid game time is required</mat-error>
             </mat-form-field>
           </div>
           <div class="add-game-detail__row">
@@ -37,8 +37,8 @@
           </div>
         </form>
       </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
+      <mat-step [stepControl]="arenaAgeGroupAndPartnersFormGroup">
+        <form [formGroup]="arenaAgeGroupAndPartnersFormGroup">
           <ng-template matStepLabel>Choose Arena, Age Group and Partner(s)</ng-template>
           <div class="add-game-detail__row">
             <mat-form-field class="add-game-detail__field--one-half">
@@ -48,7 +48,7 @@
                   {{arena.Name}}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="secondFormGroup.get('arena').hasError('required')">You must choose an Arena</mat-error>
+              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('arena').hasError('required')">You must choose an Arena</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Age Group</mat-label>
@@ -57,13 +57,13 @@
                   {{ageGroup.Name}} {{ageGroup.Tier}}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="secondFormGroup.get('ageGroup').hasError('required')">You must choose an Age Group</mat-error>
+              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('ageGroup').hasError('required')">You must choose an Age Group</mat-error>
             </mat-form-field>
           </div>
           <div class="add-game-detail__row">
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Number of Partners</mat-label>
-              <mat-select [(ngModel)]="numberOfPartners" [ngModelOptions]="{standalone: true}">
+              <mat-select formControlName="numberOfPartners" (selectionChange)="setNumberOfPartners()">
                 <mat-option [value]="0">0</mat-option>
                 <mat-option [value]="1">1</mat-option>
                 <mat-option [value]="2">2</mat-option>
@@ -71,7 +71,19 @@
               </mat-select>
             </mat-form-field>
             Number Of Partners: {{numberOfPartners}}
-          </div>    
+          </div>
+          <div class="add-game-detail__row" *ngIf="numberOfPartners && numberOfPartners > 0">
+            <mat-form-field *ngFor="let partner of partners; let i=index" 
+              [ngClass]="{'add-game-detail__field' : partners.length === 1, 'add-game-detail__field--one-half' : partners.length === 2, 'add-game-detail__field--one-third' : partners.length === 3}">
+              <mat-label>Partner {{i+1}}</mat-label>
+              <mat-select formControlName="ageGroup">
+                <mat-option [value]="partner.id">
+                  {{partner.FirstName}} {{partner.LastName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('ageGroup').hasError('required')">You must choose a Partner</mat-error>
+            </mat-form-field>
+          </div>   
           <div class="add-game-detail__row">
             <button mat-button matStepperPrevious type="button">
               <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
@@ -84,24 +96,76 @@
           </div>
         </form>
       </mat-step>
-      <mat-step [stepControl]="thirdFormGroup">
-        <form [formGroup]="thirdFormGroup">
-          <ng-template matStepLabel>Fill out your address</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious type="button">Back</button>
-            <button mat-button matStepperNext type="button">Next</button>
+      <mat-step [stepControl]="mileageAndExpensesFormGroup">
+        <form [formGroup]="mileageAndExpensesFormGroup">
+          <ng-template matStepLabel>Mileage and Expenses</ng-template>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Total Mileage</mat-label>
+              <input matInput type="number" required>
+            </mat-form-field>
+            <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Misc Expense</mat-label>
+              <mat-icon matPrefix>attach_money</mat-icon>
+              <input matInput type="number" required>
+            </mat-form-field>
+          </div>          
+          <div class="add-game-detail__row">
+            <button mat-button matStepperPrevious type="button">
+              <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
+              Back
+            </button>
+            <button mat-button matStepperNext type="button">
+              <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="paymentsFormGroup">
+        <form [formGroup]="paymentsFormGroup">
+          <ng-template matStepLabel>Payment</ng-template>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-third">
+              <mat-label>Rate Of Pay</mat-label>
+              <mat-icon matPrefix>attach_money</mat-icon>
+              <input matInput type="number" required>
+            </mat-form-field>
+            <mat-form-field class="add-game-detail__field--one-third">
+              <mat-label>Amount Paid</mat-label>
+              <mat-icon matPrefix>attach_money</mat-icon>
+              <input matInput type="number" required>
+            </mat-form-field>
+            <mat-form-field class="add-game-detail__field--one-third">
+              <mat-label>Date Paid</mat-label>
+              <input matInput [matDatepicker]="datePaidDatePicker" placeholder="Choose a date" [min]="minDate">
+              <mat-datepicker-toggle matSuffix [for]="datePaidDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #datePaidDatePicker></mat-datepicker>
+            </mat-form-field>
+          </div>          
+          <div class="add-game-detail__row">
+            <button mat-button matStepperPrevious type="button">
+              <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
+              Back
+            </button>
+            <button mat-button matStepperNext type="button">
+              <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
+              Next
+            </button>
           </div>
         </form>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         You are now done.
-        <div>
-          <button mat-button matStepperPrevious type="button">Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+        <div class="add-game-detail__row">
+          <button mat-button matStepperPrevious type="button">
+            <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
+            Back
+          </button>
+          <button mat-button (click)="stepper.reset()" type="button">
+            <mat-icon class="add-game-detail__iconReset">restore</mat-icon>
+            Reset</button>
         </div>
       </mat-step>
     </mat-vertical-stepper>

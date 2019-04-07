@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Arena } from 'app/models/arena/arena.model';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
+import { Official } from 'app/models/official/official.model';
 
 @Component({
   selector: 'fw-add-game-detail',
@@ -10,9 +11,10 @@ import { AgeGroup } from 'app/models/ageGroup/age-group.model';
   styleUrls: ['./add-game-detail-dialog.component.scss']
 })
 export class AddGameDetailDialogComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
+  gameDateAndTimeFormGroup: FormGroup;
+  arenaAgeGroupAndPartnersFormGroup: FormGroup;
+  mileageAndExpensesFormGroup: FormGroup;
+  paymentsFormGroup: FormGroup;
   isLinear = true;
   minDate: Date = new Date();
   refLine: string;
@@ -27,6 +29,7 @@ export class AddGameDetailDialogComponent implements OnInit {
     {id: 3, Name: "Squirt", Tier: "AA", MinimumAge: 9, MaximumAge: 10}
   ]
   numberOfPartners: number;
+  partners: Official[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<AddGameDetailDialogComponent>,
@@ -34,22 +37,37 @@ export class AddGameDetailDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+    this.gameDateAndTimeFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
       gameTime:  ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.arenaAgeGroupAndPartnersFormGroup = this._formBuilder.group({
       arena: [null, Validators.required],
       ageGroup: [null, Validators.required],
       numberOfPartners: [null, Validators.required]
     });
-    this.thirdFormGroup = this._formBuilder.group({
+    this.mileageAndExpensesFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
+    });
+    this.paymentsFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
     });
   }
   
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  setNumberOfPartners() {
+    this.numberOfPartners = this.arenaAgeGroupAndPartnersFormGroup.get('numberOfPartners').value;
+    if(this.numberOfPartners && this.numberOfPartners > 0) {
+      if(this.partners.length > 0) {
+        this.partners = [];
+      }
+      for(var i=0; i < this.numberOfPartners; i++) {
+        this.partners.push({FirstName: '', LastName: '', Level: 1, YearsExperience: 0, Address: '', City: '', State: '', ZipCode: ''});
+      }
+    }
   }
 
 }
