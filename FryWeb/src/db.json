@@ -150,36 +150,36 @@
     {
       "Name": "Pee Wee",
       "Tier": "AAA",
-      "MinimumAge": "11",
-      "MaximumAge": "12",
+      "MinimumAge": 11,
+      "MaximumAge": 12,
       "id": 7
     },
     {
       "Name": "Squirt",
       "Tier": "AAA",
-      "MinimumAge": "9",
-      "MaximumAge": "10",
+      "MinimumAge": 9,
+      "MaximumAge": 10,
       "id": 8
     },
     {
       "Name": "Squirt",
       "Tier": "BB",
-      "MinimumAge": "9",
-      "MaximumAge": "10",
+      "MinimumAge": 9,
+      "MaximumAge": 10,
       "id": 9
     },
     {
       "Name": "Pee Wee",
       "Tier": "BB",
-      "MinimumAge": "11",
-      "MaximumAge": "12",
+      "MinimumAge": 11,
+      "MaximumAge": 12,
       "id": 10
     },
     {
       "Name": "Bantam",
       "Tier": "B",
-      "MinimumAge": "13",
-      "MaximumAge": "14",
+      "MinimumAge": 13,
+      "MaximumAge": 14,
       "id": 11
     }
   ],

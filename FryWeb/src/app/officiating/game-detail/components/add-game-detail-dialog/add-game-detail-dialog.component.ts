@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Arena } from 'app/models/arena/arena.model';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
@@ -18,23 +18,19 @@ export class AddGameDetailDialogComponent implements OnInit {
   isLinear = true;
   minDate: Date = new Date();
   refLine: string;
-  arenas: Arena[] = [
-    {id: 1, Name: "Griffs West", Address: "", City: "", State: "", ZipCode: ""},
-    {id: 2, Name: "Griffs Georgetown", Address: "", City: "", State: "", ZipCode: ""},
-    {id: 3, Name: "Walker Ice and Fitness", Address: "", City: "", State: "", ZipCode: ""},
-  ]
-  ageGroups: AgeGroup[] = [
-    {id: 1, Name: "Squirt", Tier: "B", MinimumAge: 9, MaximumAge: 10},
-    {id: 2, Name: "Squirt", Tier: "A", MinimumAge: 9, MaximumAge: 10},
-    {id: 3, Name: "Squirt", Tier: "AA", MinimumAge: 9, MaximumAge: 10}
-  ]
+  arenas: Arena[];
+  ageGroups: AgeGroup[];
   numberOfPartners: number;
   partners: Official[] = [];
 
   constructor(
-    private dialogRef: MatDialogRef<AddGameDetailDialogComponent>,
-    private _formBuilder: FormBuilder
-  ) {}
+    private _formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<AddGameDetailDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any
+  ) 
+  {
+    this.arenas = data.arenas;
+    this.ageGroups = data.ageGroups;
+  }
 
   ngOnInit() {
     this.gameDateAndTimeFormGroup = this._formBuilder.group({
