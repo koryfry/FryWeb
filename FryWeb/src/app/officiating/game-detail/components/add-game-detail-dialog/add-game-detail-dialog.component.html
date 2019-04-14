@@ -4,7 +4,7 @@
     <mat-icon class="add-game-detail__icon">assignment</mat-icon>
   </div>
   <div dialog-content class="add-game-detail__form">
-    <mat-vertical-stepper [linear]="false" #stepper class="add-game-detail__form-background">
+    <mat-vertical-stepper [linear]="isLinear" #stepper class="add-game-detail__form-background">
       <mat-step [stepControl]="gameDateAndTimeFormGroup">
         <form [formGroup]="gameDateAndTimeFormGroup">
           <ng-template matStepLabel>Game Date and Time</ng-template>
@@ -12,10 +12,10 @@
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Game Date</mat-label>
               <mat-icon matPrefix style="margin-right: 10px;">date_range</mat-icon>
-              <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="firstCtrl">
+              <input matInput [matDatepicker]="gameDateDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="gameDate">
               <mat-datepicker-toggle matSuffix [for]="gameDateDatePicker"></mat-datepicker-toggle>
               <mat-datepicker #gameDateDatePicker></mat-datepicker>
-              <mat-error *ngIf="gameDateAndTimeFormGroup.get('firstCtrl').hasError('required')">A valid game date is required</mat-error>
+              <mat-error *ngIf="gameDateAndTimeFormGroup.get('gameDate').hasError('required')">A valid game date is required</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Game Time</mat-label>
@@ -26,13 +26,14 @@
           </div>
           <div class="add-game-detail__row">
             <mat-label style="font-weight: bold; font-size: 14px;">Ref/Line</mat-label>
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group aria-label="Select an option" formControlName="refLine">
               <mat-radio-button value="Ref" color="primary">Ref</mat-radio-button>
               <mat-radio-button value="Line" color="primary">Line</mat-radio-button>
             </mat-radio-group>
+            <mat-error *ngIf="gameDateAndTimeFormGroup.get('refLine').hasError('required') && gameDateAndTimeFormGroup.get('refLine').pristine">You must choose either Ref or Line</mat-error>
           </div>
           <div class="add-game-detail__row">
-            <button mat-button matStepperNext type="button">
+            <button mat-button matStepperNext type="button" [disabled]="gameDateAndTimeFormGroup.invalid">
               <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
               Next
             </button>
@@ -64,6 +65,17 @@
           </div>
           <div class="add-game-detail__row">
             <mat-form-field class="add-game-detail__field--one-half">
+              <mat-label>Main Official Working Game</mat-label>
+              <mat-select formControlName="mainOfficial">
+                <mat-option [value]="official.id" *ngFor="let official of officials; let i=index">
+                  {{official.FirstName}} {{official.LastName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('mainOfficial').hasError('required')">You must select the main official for the game</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="add-game-detail__row">
+            <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Number of Partners</mat-label>
               <mat-select formControlName="numberOfPartners" (selectionChange)="setNumberOfPartners()">
                 <mat-option [value]="0">0</mat-option>
@@ -71,27 +83,26 @@
                 <mat-option [value]="2">2</mat-option>
                 <mat-option [value]="3">3</mat-option>
               </mat-select>
+              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('numberOfPartners').hasError('required')">You must select a value for the number of partners</mat-error>
             </mat-form-field>
-            Number Of Partners: {{numberOfPartners}}
           </div>
           <div class="add-game-detail__row" *ngIf="numberOfPartners && numberOfPartners > 0">
             <mat-form-field *ngFor="let partner of partners; let i=index" 
               [ngClass]="{'add-game-detail__field' : partners.length === 1, 'add-game-detail__field--one-half' : partners.length === 2, 'add-game-detail__field--one-third' : partners.length === 3}">
               <mat-label>Partner {{i+1}}</mat-label>
-              <mat-select formControlName="ageGroup">
-                <mat-option [value]="partner.id">
-                  {{partner.FirstName}} {{partner.LastName}}
+              <mat-select>
+                <mat-option [value]="official.id" *ngFor="let official of officials; let x=index">
+                  {{official.FirstName}} {{official.LastName}}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="arenaAgeGroupAndPartnersFormGroup.get('ageGroup').hasError('required')">You must choose a Partner</mat-error>
             </mat-form-field>
-          </div>   
+          </div>
           <div class="add-game-detail__row">
             <button mat-button matStepperPrevious type="button">
               <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
               Back
             </button>
-            <button mat-button matStepperNext type="button">
+            <button mat-button matStepperNext type="button" [disabled]="arenaAgeGroupAndPartnersFormGroup.invalid">
               <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
               Next
             </button>
@@ -105,12 +116,15 @@
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Total Mileage</mat-label>
               <mat-icon matPrefix style="margin-right:5px;">directions_car</mat-icon>
-              <input matInput type="number" required>
+              <input matInput type="number" formControlName="mileage">
+              <mat-error *ngIf="mileageAndExpensesFormGroup.get('mileage').hasError('required')">You must enter mileage</mat-error>
+              <mat-error *ngIf="mileageAndExpensesFormGroup.get('mileage').hasError('min')">Mileage cannot be less than 0</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-half">
               <mat-label>Misc Expense</mat-label>
               <mat-icon matPrefix>attach_money</mat-icon>
-              <input matInput type="number" required>
+              <input matInput type="number" formControlName="miscExpense">
+              <mat-error *ngIf="mileageAndExpensesFormGroup.get('miscExpense').hasError('min')">Misc Expense cannot be less than 0</mat-error>
             </mat-form-field>
           </div>          
           <div class="add-game-detail__row">
@@ -118,7 +132,7 @@
               <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
               Back
             </button>
-            <button mat-button matStepperNext type="button">
+            <button mat-button matStepperNext type="button" [disabled]="mileageAndExpensesFormGroup.invalid">
               <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
               Next
             </button>
@@ -132,19 +146,24 @@
             <mat-form-field class="add-game-detail__field--one-third">
               <mat-label>Rate Of Pay</mat-label>
               <mat-icon matPrefix>attach_money</mat-icon>
-              <input matInput type="number" required>
+              <input matInput type="number" formControlName="rateOfPay">
+              <mat-error *ngIf="paymentsFormGroup.get('rateOfPay').hasError('required')">You must enter a value for Rate Of Pay</mat-error>
+              <mat-error *ngIf="paymentsFormGroup.get('rateOfPay').hasError('min')">Rate Of Pay cannot be less than 0</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-third">
               <mat-label>Amount Paid</mat-label>
               <mat-icon matPrefix>attach_money</mat-icon>
-              <input matInput type="number" required>
+              <input matInput type="number" formControlName="amountPaid">
+              <mat-error *ngIf="paymentsFormGroup.get('amountPaid').hasError('required')">You must enter a value for Amount Paid</mat-error>
+              <mat-error *ngIf="paymentsFormGroup.get('amountPaid').hasError('min')">Amount Paid cannot be less than 0</mat-error>
             </mat-form-field>
             <mat-form-field class="add-game-detail__field--one-third">
               <mat-label>Date Paid</mat-label>
               <mat-icon matPrefix style="margin-right: 5px;">date_range</mat-icon>
-              <input matInput [matDatepicker]="datePaidDatePicker" placeholder="Choose a date" [min]="minDate">
+              <input matInput [matDatepicker]="datePaidDatePicker" placeholder="Choose a date" [min]="minDate" formControlName="datePaid">
               <mat-datepicker-toggle matSuffix [for]="datePaidDatePicker"></mat-datepicker-toggle>
               <mat-datepicker #datePaidDatePicker></mat-datepicker>
+              <mat-error *ngIf="paymentsFormGroup.get('datePaid').hasError('required')">You must enter a value for Date Paid</mat-error>
             </mat-form-field>
           </div>          
           <div class="add-game-detail__row">
@@ -152,7 +171,7 @@
               <mat-icon class="add-game-detail__iconBack">arrow_back</mat-icon>
               Back
             </button>
-            <button mat-button matStepperNext type="button">
+            <button mat-button matStepperNext type="button" [disabled]="paymentsFormGroup.invalid">
               <mat-icon class="add-game-detail__iconForwardOnly">arrow_forward</mat-icon>
               Next
             </button>
@@ -176,6 +195,7 @@
   </div>
   <div dialog-footer>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button color="primary">Ok</button>
+    <button mat-button color="primary" [disabled]="gameDateAndTimeFormGroup.invalid || arenaAgeGroupAndPartnersFormGroup.invalid 
+      || mileageAndExpensesFormGroup.invalid || paymentsFormGroup.invalid">Ok</button>
   </div>
 </fw-custom-dialog>

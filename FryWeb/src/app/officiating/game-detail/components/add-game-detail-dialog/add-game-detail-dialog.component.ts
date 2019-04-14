@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Arena } from 'app/models/arena/arena.model';
 import { AgeGroup } from 'app/models/ageGroup/age-group.model';
 import { Official } from 'app/models/official/official.model';
+import { FormArray } from '@angular/forms/src/model';
 
 @Component({
   selector: 'fw-add-game-detail',
@@ -22,6 +23,8 @@ export class AddGameDetailDialogComponent implements OnInit {
   ageGroups: AgeGroup[];
   numberOfPartners: number;
   partners: Official[] = [];
+  partnersFormArray: FormArray;
+  officials: Official[];
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -30,24 +33,31 @@ export class AddGameDetailDialogComponent implements OnInit {
   {
     this.arenas = data.arenas;
     this.ageGroups = data.ageGroups;
+    this.officials = data.officials;
   }
 
   ngOnInit() {
     this.gameDateAndTimeFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
-      gameTime:  ['', Validators.required]
+      gameDate: [null, Validators.required],
+      gameTime: [null, Validators.required],
+      refLine: ['Ref', Validators.required]
     });
     this.arenaAgeGroupAndPartnersFormGroup = this._formBuilder.group({
       arena: [null, Validators.required],
       ageGroup: [null, Validators.required],
-      numberOfPartners: [null, Validators.required]
+      mainOfficial: this._formBuilder.control(null, Validators.required),
+      numberOfPartners: [null, [Validators.required, Validators.min(0)]]
     });
     this.mileageAndExpensesFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      mileage: [null, [Validators.required, Validators.min(0)]],
+      miscExpense: [null, Validators.min(0)]
     });
     this.paymentsFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+      rateOfPay: [null, [Validators.required,Validators.min(0)]],
+      amountPaid: [null, [Validators.required,Validators.min(0)]],
+      datePaid: [null, Validators.required]
     });
+    console.log('gameDateAndTimeFormGroup: ', this.gameDateAndTimeFormGroup.controls);
   }
   
   onNoClick(): void {
