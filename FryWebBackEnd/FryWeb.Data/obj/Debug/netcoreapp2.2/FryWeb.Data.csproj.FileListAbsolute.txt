@@ -1,0 +1,9 @@
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\bin\Debug\netcoreapp2.2\FryWeb.Data.deps.json
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\bin\Debug\netcoreapp2.2\FryWeb.Data.dll
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.csprojAssemblyReference.cache
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.csproj.CoreCompileInputs.cache
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.AssemblyInfoInputs.cache
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.AssemblyInfo.cs
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\bin\Debug\netcoreapp2.2\FryWeb.Data.pdb
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.dll
+K:\Sideprojects\FryWeb\FryWebBackEnd\FryWeb.Data\obj\Debug\netcoreapp2.2\FryWeb.Data.pdb
