@@ -9,6 +9,7 @@ import { Arena } from '../models/arena/arena.model';
 @Injectable()
 export class ArenaService {
   private _baseUrl = "http://localhost:3000/";
+  private _testUrl = "http://localhost:54264/api/values";
   constructor(private http: HttpClient) { }
 
   getArenas(): Observable<Arena[]> {
@@ -27,6 +28,19 @@ export class ArenaService {
   createArena(arena: Arena): Observable<Arena> {
     return this.http
       .post<Arena>(this._baseUrl + 'arenas', arena)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  getValues(): Observable<any> {
+    return this.http.get<any>(this._testUrl)
+      .pipe(catchError((error: any) => throwError(error)));
+  }
+
+  getValue(id: number): Observable<string> {
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    let param = new HttpParams().set('id', id.toString())
+    return this.http.get<string>(`http://localhost:54264/api/values/${id}`,{responseType: 'text' as 'json'})
       .pipe(catchError((error: any) => throwError(error)));
   }
 
