@@ -62,16 +62,19 @@ export class ArenaComponent implements OnInit {
       console.log('Arenas: ', arenas);
     }, err => {
       console.log('Error: ', err);
-    }); 
+    });
 
-    // this.arenaService.getValues().pipe().subscribe(values => {
-    //   this.values = values;
+    // this.arenaService.getValue(5).pipe().subscribe(value => {
+    //   console.log('Value returned: ', value);
+    // });
+
+    // this.arenaService.getAllArenas().pipe().subscribe(arenas => {
+    //   console.log('Arenas returned: ', arenas);
     // })
 
-    this.arenaService.getValue(5).pipe().subscribe(value => {
-      console.log('Value returned: ', value);
-      //this.value = value;
-    })
+    // this.arenaService.getSingleArena(5).pipe().subscribe(arena => {
+    //   console.log('Arena: ', arena);
+    // })
   }
   
   ngOnDestroy() {

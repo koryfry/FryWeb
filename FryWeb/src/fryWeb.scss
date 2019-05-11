@@ -1,17 +1,8 @@
-@import '~@angular/material/theming';
-@import './themes.scss';
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-//@import "../node_modules/font-awesome/scss/font-awesome.scss";
-// @import "../node_modules/fontawesome";
-// @import "../node_modules/sweetalert2/src/sweetalert2.scss";
-// @import "../node_modules/sweetalert";
 @import "styles/variables.scss";
 @import "styles/mixins.scss";
 @import "styles/layout.scss";
 @import "styles/colors.scss";
-//@import "styles/typeface.scss";
-// @import "styles/bootstrap_overrides.scss";
 
 .rounded-dialog-window {
     .mat-dialog-container {

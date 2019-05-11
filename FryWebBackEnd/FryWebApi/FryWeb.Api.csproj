@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FryWeb.Data\FryWeb.Data.csproj" />
     <ProjectReference Include="..\FryWeb.Services\FryWeb.Services.csproj" />
   </ItemGroup>
 

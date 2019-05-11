@@ -11,7 +11,7 @@
 	height: calc(100vh - 185px);
 
     .example-header {
-        padding-left: 10px;
+        padding-left: 15px;
         padding-right: 10px;
         width: 300px;
         flex: 0 0 auto;
@@ -19,7 +19,6 @@
     
     .overflow-container {
         flex: 1 1 auto;
-        overflow: auto;
     }
       
     .mat-form-field {

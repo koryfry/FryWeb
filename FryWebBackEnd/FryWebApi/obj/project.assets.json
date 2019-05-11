@@ -12140,6 +12140,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "FryWeb.Data >= 1.0.0",
       "FryWeb.Services >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
@@ -12176,6 +12177,9 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
+            "K:\\Sideprojects\\FryWeb\\FryWebBackEnd\\FryWeb.Data\\FryWeb.Data.csproj": {
+              "projectPath": "K:\\Sideprojects\\FryWeb\\FryWebBackEnd\\FryWeb.Data\\FryWeb.Data.csproj"
+            },
             "K:\\Sideprojects\\FryWeb\\FryWebBackEnd\\FryWeb.Services\\FryWeb.Services.csproj": {
               "projectPath": "K:\\Sideprojects\\FryWeb\\FryWebBackEnd\\FryWeb.Services\\FryWeb.Services.csproj"
             }

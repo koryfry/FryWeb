@@ -53,3 +53,7 @@ $fry-web-theme: mat-light-theme($fry-web-primary, $fry-web-accent, $fry-web-warn
 
     @include angular-material-theme($fry-web-alt-theme);
 }
+
+.fry-web-theme {
+    @include angular-material-theme($fry-web-theme);
+}
