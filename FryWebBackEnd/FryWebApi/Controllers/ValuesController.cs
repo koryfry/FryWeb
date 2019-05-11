@@ -18,6 +18,7 @@ namespace FryWebApi.Controllers
         }
 
         // GET api/values/5
+        [Route("api/values/{id}")]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {

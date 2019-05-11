@@ -29,7 +29,9 @@ export class ArenaComponent implements OnInit {
   arenas: Arena[];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;
-	preventSingleClickDelayId;
+  preventSingleClickDelayId;
+  values: any[] = [];
+  value: string = '';
   
   private _componentDestroyed$: Subject<boolean> = new Subject();
 
@@ -60,7 +62,16 @@ export class ArenaComponent implements OnInit {
       console.log('Arenas: ', arenas);
     }, err => {
       console.log('Error: ', err);
-    });  
+    }); 
+
+    // this.arenaService.getValues().pipe().subscribe(values => {
+    //   this.values = values;
+    // })
+
+    this.arenaService.getValue(5).pipe().subscribe(value => {
+      console.log('Value returned: ', value);
+      //this.value = value;
+    })
   }
   
   ngOnDestroy() {

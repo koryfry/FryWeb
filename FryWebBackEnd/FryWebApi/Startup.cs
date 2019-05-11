@@ -26,6 +26,16 @@ namespace FryWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetValue<string>("ConnectionStrings:RefereeTools");
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }
 
@@ -42,8 +52,12 @@ namespace FryWebApi
                 app.UseHsts();
             }
 
+            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "api", template: "api/{controller}/{action}/{id?}");
+            });
         }
     }
 }
