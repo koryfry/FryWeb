@@ -21,5 +21,12 @@ namespace FryWeb.Api.Controllers
             var ageGroups = _service.GetAgeGroups();
             return Ok(ageGroups);
         }
+
+        [HttpGet("{ageGroupId}")]
+        public ActionResult<AgeGroup> GetAgeGroup(int ageGroupId)
+        {
+            var ageGroup = _service.GetAgeGroupByID(ageGroupId);
+            return Ok(ageGroup);
+        }
     }
 }
