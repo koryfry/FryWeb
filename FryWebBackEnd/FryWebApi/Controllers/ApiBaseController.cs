@@ -1,4 +1,4 @@
-﻿using FryWeb.Services.Interfaces;
+﻿using FryWeb.Services.BaseInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FryWeb.Api.Controllers
