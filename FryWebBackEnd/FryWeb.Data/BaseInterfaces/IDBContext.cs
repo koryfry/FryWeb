@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using Dapper;
 
-namespace FryWeb.Data.Interfaces
+namespace FryWeb.Data.BaseInterfaces
 {
     public interface IDBContext : IDisposable
     {

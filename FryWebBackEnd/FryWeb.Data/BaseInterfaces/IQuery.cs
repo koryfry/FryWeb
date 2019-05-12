@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace FryWeb.Data.Interfaces
+namespace FryWeb.Data.BaseInterfaces
 {
     public interface IQuery<T>
     {

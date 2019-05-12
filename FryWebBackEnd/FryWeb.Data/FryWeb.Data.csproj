@@ -8,4 +8,10 @@
     <PackageReference Include="Dapper" Version="1.50.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Queries\Arena\" />
+    <Folder Include="Queries\Official\" />
+  </ItemGroup>
+
 </Project>

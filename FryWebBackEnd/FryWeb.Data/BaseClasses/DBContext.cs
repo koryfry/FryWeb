@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using Dapper;
-using FryWeb.Data.Interfaces;
+using FryWeb.Data.BaseInterfaces;
 
-namespace FryWeb.Data
+namespace FryWeb.Data.BaseClasses
 {
     public class DBContext : IDBContext
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FryWeb.Services.Interfaces
+namespace FryWeb.Services.BaseInterfaces
 {
     public interface IService : IDisposable { }
 }

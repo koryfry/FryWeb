@@ -1,7 +1,7 @@
-﻿using FryWeb.Services.Interfaces;
-using FryWeb.Data.Interfaces;
+﻿using FryWeb.Services.BaseInterfaces;
+using FryWeb.Data.BaseInterfaces;
 
-namespace FryWeb.Services.Services
+namespace FryWeb.Services.BaseServices
 {
     public class Service : IService
     {
@@ -14,6 +14,7 @@ namespace FryWeb.Services.Services
         #region constructor
 
         public Service() { }
+
         public Service(IDBContext context)
         {
             Context = context;

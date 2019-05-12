@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using FryWeb.Data.Interfaces;
+using FryWeb.Data.BaseInterfaces;
 using System.ComponentModel;
 using System.Reflection;
 using System.Collections;
 using System;
 using Dapper;
 
-namespace FryWeb.Data
+namespace FryWeb.Data.BaseClasses
 {
     public class Command : ICommand
     {

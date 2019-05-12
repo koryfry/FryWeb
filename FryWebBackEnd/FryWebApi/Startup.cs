@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FryWeb.Services.Services;
+using FryWeb.Services.BaseServices;
+using FryWeb.Services.BaseInterfaces;
 using FryWeb.Services.Interfaces;
-using FryWeb.Data.Interfaces;
-using FryWeb.Data;
+using FryWeb.Services.Services;
+using FryWeb.Data.BaseInterfaces;
+using Microsoft.EntityFrameworkCore;
+using FryWeb.Data.BaseClasses;
 
 namespace FryWebApi
 {
@@ -33,11 +36,12 @@ namespace FryWebApi
                     .AllowCredentials());
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             // Dependency injections
+            services.AddScoped<IDBContext>(f => new DBContext(connectionString));
             services.AddScoped<IService, Service>();
-            //services.AddScoped<IDBContext, DBContext>();
+            services.AddScoped<IAgeGroupService, AgeGroupService>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
