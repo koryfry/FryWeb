@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
+
+export interface Tab {
+  label: string,
+  path: string
+}
 
 @Component({
   selector: 'fw-app-main',
@@ -20,9 +26,18 @@ export class AppMainComponent implements OnInit {
   events: string[] = [];
   opened: boolean = true;
 
-  constructor() { }
+  tabs: Tab[];
+  //routeConfigPath: string;
+
+  constructor(private route: ActivatedRoute) {
+    //this.routeConfigPath = route.snapshot.routeConfig.path;
+    this.tabs = [
+      { label: 'Officiating', path: 'officiating' }
+    ];
+  }
 
   ngOnInit() {
+
   }
 
   showOfficiatingSweetAlert() {

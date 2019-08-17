@@ -1,24 +1,13 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
-:host {
-	display: block;
-}
-
 .example-container {
-    display: flex;
-    flex-direction: column;
-	height: calc(100vh - 185px);
+    min-width: 800px;
 
     .example-header {
         padding-left: 15px;
         padding-right: 10px;
         width: 300px;
-        flex: 0 0 auto;
-    }
-    
-    .overflow-container {
-        flex: 1 1 auto;
     }
       
     .mat-form-field {
@@ -32,7 +21,7 @@
     
     .arena-table {
         margin: 0 15px 10px 15px; 
-        box-shadow: 2px 2px 2px 2px;
+        box-shadow: 1px 1px 1px 1px;
     }
     
     .mat-header-cell.mat-sort-header-sorted {
@@ -55,6 +44,7 @@
     .mat-header-row {
         background-color: $fwMediumDarkBlue;
         color: $fwWhite;
+        height: 45px;
     }
     
     .addArena {
@@ -65,9 +55,16 @@
     }
     
     .add-arena-fab {
-        position: absolute;
-        bottom: 50px;
+        position: fixed !important;
+        bottom: 20px;
         right: 50px;
-        opacity: 0.75;
+    }
+
+    .mat-header-cell {
+        color: black !important;
+        
+        &.mat-table-sticky {
+            top: 45px !important;
+        }
     }
 }

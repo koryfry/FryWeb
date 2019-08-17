@@ -62,7 +62,6 @@
 
 .icon-group-link {
     background: rgba(255, 255, 255, 0.137);
-
     i {
         padding-left: 5px;
     }
@@ -75,15 +74,13 @@
     text-align: center;
 }
 
-div.app-icon-group-list {
+section.app-icon-group-list {
     padding: 25px;
     text-align: center;
 
     div.app-icon-group-list-inner {
-
         ul {
             margin: 0px 25px 0px 0px;
-
             li {
                 list-style-type: none;
                 display: inline-block;
@@ -155,4 +152,14 @@ div.app-icon-group {
             }
         }
     }
+}
+
+.mat-sidenav {
+    width: 5%;
+    min-width: 100px;
+}
+
+.mat-drawer-inner-container {
+    overflow-x: hidden;
+    overflow-y: auto;
 }

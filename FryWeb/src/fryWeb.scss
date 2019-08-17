@@ -21,3 +21,15 @@
 .mat-hint {
 	font-size: 11px;
 }
+
+.mat-header-row {
+	height: 45px !important;
+}
+
+.mat-header-cell {
+	color: black !important;
+	
+	&.mat-table-sticky {
+		top: 45px !important;
+	}
+}

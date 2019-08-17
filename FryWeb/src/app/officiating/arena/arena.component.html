@@ -1,61 +1,52 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav-content>
-        
-    <br *ngIf="route.children.length === 0">
+<br *ngIf="route.children.length === 0">
 
-    <div *ngIf="!dataSource">
-      <mat-spinner></mat-spinner>
-    </div>
+<div *ngIf="!dataSource">
+  <mat-spinner></mat-spinner>
+</div>
 
-    <div class="add-arena-fab">
-      <button mat-fab color="primary" title="Add Arena" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()">
-        <mat-icon >add</mat-icon>  
-      </button>
-    </div>
+<div class="example-container" *ngIf="route.children.length ===0 && dataSource">   
+  <div class="example-header">
+    <mat-form-field color="primary">
+        <span matPrefix><mat-icon>search</mat-icon>&nbsp;</span>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">
+    </mat-form-field>
+  </div>
+  
+  <table mat-table [dataSource]="dataSource" matSort class="arena-table">          
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>        
+  
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+      <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>
 
-    <div class="example-container" *ngIf="route.children.length ===0 && dataSource">   
-      <div class="example-header">
-        <mat-form-field color="primary">
-            <span matPrefix><mat-icon>search</mat-icon>&nbsp;</span>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search for an arena">
-        </mat-form-field>
-      </div>
+    <ng-container matColumnDef="City">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+      <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+    </ng-container>
 
-      <div class="overflow-container">
-        <table mat-table [dataSource]="dataSource" matSort class="arena-table">
-          
-          <ng-container matColumnDef="Name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
-          </ng-container>        
-        
-          <ng-container matColumnDef="Address">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
-            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
-          </ng-container>
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
+      <td mat-cell *matCellDef="let element"> {{element.State}} </td>
+    </ng-container>
 
-          <ng-container matColumnDef="City">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
-            <td mat-cell *matCellDef="let element"> {{element.City}} </td>
-          </ng-container>
+    <ng-container matColumnDef="ZipCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Zip Code</th>
+      <td mat-cell *matCellDef="let element"> {{element.ZipCode}} </td>
+    </ng-container>
 
-          <ng-container matColumnDef="State">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>State</th>
-            <td mat-cell *matCellDef="let element"> {{element.State}} </td>
-          </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openArenaDetailsPreviewDialog(row, $event)"></tr>
+  </table>
+  <mat-paginator [pageSize]="20" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
 
-          <ng-container matColumnDef="ZipCode">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Zip Code</th>
-            <td mat-cell *matCellDef="let element"> {{element.ZipCode}} </td>
-          </ng-container>
+  <button mat-fab color="primary" title="Add Arena" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()"
+    matTooltip="Add Arena" matTooltipPosition="above" class="add-arena-fab">
+    <mat-icon >add</mat-icon>  
+  </button>
+</div>    
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openArenaDetailsPreviewDialog(row, $event)"></tr>
-        </table>
-        <mat-paginator [pageSize]="20" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
-      </div>
-    </div>
-    
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<router-outlet></router-outlet>
