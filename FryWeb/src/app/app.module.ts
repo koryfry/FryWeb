@@ -49,6 +49,7 @@ import { ArenaFacade } from './officiating/state/arena/arena.facade';
 import { OfficialsFacade } from './officiating/state/officials/official.facade';
 import { GameDetailFacade } from './officiating/game-detail/state/facades/game-detail.facade';
 import { UpdateOfficialDialogComponent } from './officiating/officials/components/update-official-dialog/update-official-dialog.component';
+import { LandingPageComponent } from './shared/components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { UpdateOfficialDialogComponent } from './officiating/officials/component
     GameDetailComponent,
     AddGameDetailDialogComponent,
     UpdateAgeGroupDialogComponent,
-    UpdateOfficialDialogComponent
+    UpdateOfficialDialogComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

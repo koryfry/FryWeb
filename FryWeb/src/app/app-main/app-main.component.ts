@@ -27,10 +27,10 @@ export class AppMainComponent implements OnInit {
   opened: boolean = true;
 
   tabs: Tab[];
-  //routeConfigPath: string;
+  routeConfigPath: string;
 
   constructor(private route: ActivatedRoute) {
-    //this.routeConfigPath = route.snapshot.routeConfig.path;
+    this.routeConfigPath = route.snapshot.routeConfig.path;
     this.tabs = [
       { label: 'Officiating', path: 'officiating' }
     ];
