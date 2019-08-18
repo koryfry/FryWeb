@@ -1,71 +1,22 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
-.example-container {
-    min-width: 800px;
+.example-header {
+    padding-left: 15px;
+    padding-right: 10px;
+    width: 300px;
+}
 
-    .example-header {
-        padding-left: 15px;
-        padding-right: 10px;
-        width: 300px;
-    }
-      
-    .mat-form-field {
-        font-size: 14px;
-        width: 100%;
-    }
+.addArena {
+    width: 160px;
+    margin: 10px 12px 0px 0px;
+    font-weight: 500;
+    border-radius: 0.25em;
+}
 
-    table {
-        width: 98%;
-    }
-    
-    .arena-table {
-        margin: 0 15px 10px 15px; 
-        box-shadow: 1px 1px 1px 1px;
-    }
-    
-    .mat-header-cell.mat-sort-header-sorted {
-        color: $fwWhite;
-    }
-    
-    .mat-row:nth-child(even) {
-        background-color: $fwLightBlue;
-    }
-    
-    .mat-row:nth-child(odd) {
-        background-color: white;
-    }
-    
-    .mat-header-cell {
-        color: $fwWhite;
-        font-size: 14px;
-    }
-    
-    .mat-header-row {
-        background-color: $fwMediumDarkBlue;
-        color: $fwWhite;
-        height: 45px;
-    }
-    
-    .addArena {
-        width: 160px;
-        margin: 10px 12px 0px 0px;
-        font-weight: 500;
-        border-radius: 0.25em;
-    }
-    
-    .add-arena-fab {
-        position: fixed !important;
-        bottom: 20px;
-        right: 50px;
-        opacity: 0.75;
-    }
-
-    .mat-header-cell {
-        color: black !important;
-        
-        &.mat-table-sticky {
-            top: 45px !important;
-        }
-    }
+.add-arena-fab {
+    position: fixed !important;
+    bottom: 20px;
+    right: 50px;
+    opacity: 0.75;
 }

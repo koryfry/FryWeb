@@ -1,114 +1,74 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/colors.scss';
 
-.example-container {
-    min-width: 800px;
+.example-header {
+    padding: 0 10px;
+    width: 300px;
+}
     
-    .example-header {
-        padding: 0 10px;
-        width: 300px;
-    }
-      
-    .mat-form-field {
-        font-size: 14px;
-        width: 100%;
-    }
-    
-    table {
-        width: 98%;
-    }
-    
-    .arena-table {
-        margin: 0 15px 10px 15px; 
-        box-shadow: 1px 1px 1px 1px;
-    }
-    
-    .mat-header-cell.mat-sort-header-sorted {
-        color: $fwWhite;
-    }
-    
-    .mat-row:nth-child(even) {
-        background-color: $fwLightBlue;;
-    }
-    
-    .mat-row:nth-child(odd) {
-        background-color: white;
-    }
-    
-    .mat-header-cell {
-        color: $fwWhite;
-        font-size: 14px;
-    }
-    
-    .mat-header-row {
-        background-color: $fwMediumDarkBlue;
-        color: $fwWhite;
-    }
-    
-    .add-ageGroup-fab {
-        position: fixed !important;
-        bottom: 20px;
-        right: 50px;
-        opacity: 0.75;
-    }
+.add-ageGroup-fab {
+    position: fixed !important;
+    bottom: 20px;
+    right: 50px;
+    opacity: 0.75;
+}
 
-    .squirtChip {
-        opacity: 0.75;
-        width: 90px;
-        display: table-cell;
-        vertical-align: middle;
-        height: 36px;
-        border-radius: 18px;
-        text-align: center;
-        background-color: $fwMediumLightRed;
-        color: $fwWhite;
-    }
-    
-    .peeWeeChip {
-        opacity: 0.75;
-        width: 90px;
-        display: table-cell;
-        vertical-align: middle;
-        height: 36px;
-        border-radius: 18px;
-        text-align: center;
-        background-color: $fwMediumBlue;
-        color: $fwWhite;
-    }
+.squirtChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumLightRed;
+    color: $fwWhite;
+}
 
-    .bantamChip {
-        opacity: 0.75;
-        width: 90px;
-        display: table-cell;
-        vertical-align: middle;
-        height: 36px;
-        border-radius: 18px;
-        text-align: center;
-        background-color: $mediumGray;
-        color: $fwWhite;
-    }
+.peeWeeChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumBlue;
+    color: $fwWhite;
+}
 
-    .aChip {
-        opacity: 0.75;
-        width: 60px;
-        display: table-cell;
-        vertical-align: middle;
-        height: 36px;
-        border-radius: 18px;
-        text-align: center;
-        background-color: $fwMediumLightOrange;
-        color: $fwWhite;
-    }
+.bantamChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $mediumGray;
+    color: $fwWhite;
+}
 
-    .bChip {
-        opacity: 0.75;
-        width: 60px;
-        display: table-cell;
-        vertical-align: middle;
-        height: 36px;
-        border-radius: 18px;
-        text-align: center;
-        background-color: $fwMediumLightGreen;
-        color: $fwWhite;
-    }
+.aChip {
+    opacity: 0.75;
+    width: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumLightOrange;
+    color: $fwWhite;
+}
+
+.bChip {
+    opacity: 0.75;
+    width: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $fwMediumLightGreen;
+    color: $fwWhite;
 }

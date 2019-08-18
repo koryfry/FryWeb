@@ -4,6 +4,7 @@
 @import "styles/layout.scss";
 @import "styles/colors.scss";
 
+// Shared Styles
 .rounded-dialog-window {
     .mat-dialog-container {
 		border-radius: 10px;
@@ -24,12 +25,44 @@
 
 .mat-header-row {
 	height: 45px !important;
+	background-color: $fwMediumDarkBlue;
 }
 
 .mat-header-cell {
-	color: black !important;
+	color: $fwWhite !important;
+	font-size: 14px;
 	
 	&.mat-table-sticky {
 		top: 45px !important;
 	}
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+	color: $fwWhite;
+}
+
+.mat-row:nth-child(even) {
+	background-color: $fwLightBlue;
+}
+
+.mat-row:nth-child(odd) {
+	background-color: white;
+}
+
+.exampleContainer {
+	min-width: 800px;
+}
+
+.mat-form-field {
+	font-size: 14px;
+	width: 100%;
+}
+
+table {
+	width: 98%;
+}
+
+.data-table {
+	margin: 0 15px 10px 15px; 
+	box-shadow: 1px 1px 1px 1px;
 }
