@@ -43,7 +43,7 @@
   </table>
   <mat-paginator [pageSize]="20" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
 
-  <button mat-fab color="primary" title="Add Arena" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()"
+  <button mat-fab color="primary" [disabled]="dataSource.data.length === 0 || !dataSource.data.length" (click)="openAddArenaDialog()"
     matTooltip="Add Arena" matTooltipPosition="above" class="add-arena-fab">
     <mat-icon >add</mat-icon>  
   </button>
