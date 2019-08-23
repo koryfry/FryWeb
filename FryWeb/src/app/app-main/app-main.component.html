@@ -1,8 +1,19 @@
 <mat-toolbar class="fixed-header">
-  <mat-icon *ngIf="opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_left</mat-icon>
-  <mat-icon *ngIf="!opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_right</mat-icon>
-  <mat-icon style="margin-left: 10px; margin-right: 10px;">people</mat-icon>
-  <h1 class="app-nav-bar">{{title}}</h1>
+  <mat-toolbar-row>
+    <mat-icon *ngIf="opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_left</mat-icon>
+    <mat-icon *ngIf="!opened" (click)="sidenav.toggle()" style="cursor:pointer;">chevron_right</mat-icon>
+    <mat-icon style="margin-left: 10px; margin-right: 10px;">people</mat-icon>
+    <h1 class="app-nav-bar">{{title}}</h1>
+    <span style="flex: 1 1 auto;"></span>
+    <a cdk-overlay-origin #trigger="cdkOverlayOrigin" (click)="isOverlayOpen = !isOverlayOpen">
+      <mat-icon class="example-icon" matTooltip="Click to navigate to specific area of application" matTooltipPosition="above">
+        view_headline
+      </mat-icon>
+    </a>    
+    <a>
+      <mat-icon class="example-icon" style="margin-right:25px;" matTooltip="Back to Homepage" matTooltipPosition="above" [routerLink]="['/home']">home</mat-icon>
+    </a>
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container class="main-container">
@@ -10,15 +21,16 @@
     (closed)="events.push('close!')">
     <mat-nav-list>
       <a mat-list-item [routerLink]="['officiating']">Officiating</a>
-    </mat-nav-list>    
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <fw-landing-page *ngIf="routeConfigPath === 'home'"></fw-landing-page>
+    <!-- <fw-landing-page *ngIf="routeConfigPath === 'home'"></fw-landing-page> -->
     <router-outlet></router-outlet>
+  </mat-sidenav-content>
   
-    <!-- <fw-tab-group [tabs]="tabs"></fw-tab-group>
-    <router-outlet></router-outlet> -->
-  </mat-sidenav-content> 
-  
+  <ng-template cdk-connected-overlay [cdkConnectedOverlayWidth]="1100" [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayHasBackdrop]="true" [cdkConnectedOverlayOpen]="isOverlayOpen" 
+    (backdropClick)="isOverlayOpen=false">
+    <fw-landing-page></fw-landing-page>
+  </ng-template>
 </mat-sidenav-container>

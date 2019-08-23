@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { OfficiatingMaterialModule } from './officiatingmaterial.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { OfficiatingStateModule } from 'app/officiating/state/state.module';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import swal from 'sweetalert2';
 
@@ -90,6 +92,7 @@ import { LandingPageComponent } from './shared/components/landing-page/landing-p
     ReactiveFormsModule,
     AppRoutingModule,
     OfficiatingStateModule,
+    CommonModule,
     StoreDevtoolsModule.instrument()
   ],
   providers: [

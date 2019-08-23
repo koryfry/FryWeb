@@ -3,6 +3,7 @@
 @import "styles/mixins.scss";
 @import "styles/layout.scss";
 @import "styles/colors.scss";
+@import "~@angular/cdk/overlay-prebuilt.css";
 
 // Shared Styles
 .rounded-dialog-window {
@@ -51,7 +52,7 @@
 
 .example-container {
 	min-width: 800px;
-	margin-top: 20px;
+	margin-top: 45px;
 }
 
 .mat-form-field {

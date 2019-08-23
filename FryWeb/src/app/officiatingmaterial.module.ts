@@ -7,6 +7,8 @@ import {
     MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
     MatTooltipModule
 } from '@angular/material';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
     imports: [
@@ -59,7 +61,9 @@ import {
         MatNativeDateModule,
         MatRadioModule,
         MatSelectModule,
-        MatTooltipModule
+        MatTooltipModule,
+        OverlayModule,
+        PortalModule
     ]
   })
 

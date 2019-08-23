@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { Overlay, OverlayConfig, OverlayRef, CdkOverlayOrigin } from '@angular/cdk/overlay';
+import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/portal';
+import { LandingPageComponent } from '../shared/components/landing-page/landing-page.component';
 
 export interface Tab {
   label: string,
@@ -28,8 +31,14 @@ export class AppMainComponent implements OnInit {
 
   tabs: Tab[];
   routeConfigPath: string;
+  isOverlayOpen: boolean = false;
+  applicationLoaderOverlay: OverlayRef;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    public overlay: Overlay
+  ) 
+  {
     this.routeConfigPath = route.snapshot.routeConfig.path;
     this.tabs = [
       { label: 'Officiating', path: 'officiating' }
@@ -48,17 +57,20 @@ export class AppMainComponent implements OnInit {
     })
   }
 
-  showShootingSweetAlert() {
-    swal({
-      title: 'Success',
-      text: 'Shooting Sweet Alert is working',
-      type: 'success',
-      timer: 2000
-    })
-  }
-
   setBannerTitle(bannerTitle: string) {
     alert("Title is: " + bannerTitle);
     this.title = bannerTitle;
+  }
+
+  openApplicationAreaOverlay() {
+    let config = new OverlayConfig();
+    config.positionStrategy = this.overlay.position()
+      .global()
+      .centerHorizontally()
+      .centerVertically();
+
+    this.applicationLoaderOverlay = this.overlay.create(config);
+    //const applicationAreaPortal = new ComponentPortal();
+    //this.applicationLoaderOverlay.attach()
   }
 }
