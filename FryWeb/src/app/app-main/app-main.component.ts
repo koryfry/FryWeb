@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Overlay, OverlayConfig, OverlayRef, CdkOverlayOrigin } from '@angular/cdk/overlay';
 import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/portal';
 import { LandingPageComponent } from '../shared/components/landing-page/landing-page.component';
+import { OverlayService } from 'app/services/overlay.service';
 
 export interface Tab {
   label: string,
@@ -36,7 +37,8 @@ export class AppMainComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public overlay: Overlay
+    public overlay: Overlay,
+    private overlayService: OverlayService
   ) 
   {
     this.routeConfigPath = route.snapshot.routeConfig.path;
@@ -46,7 +48,12 @@ export class AppMainComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.overlayService.currentLandingPageOverlayClosedStatus.subscribe(status => {
+      if(status === true)
+        this.applicationLoaderOverlay.dispose();
+      else
+        return;
+    })
   }
 
   showOfficiatingSweetAlert() {
@@ -63,14 +70,19 @@ export class AppMainComponent implements OnInit {
   }
 
   openApplicationAreaOverlay() {
-    let config = new OverlayConfig();
-    config.positionStrategy = this.overlay.position()
+    const positionStrategy = this.overlay.position()
       .global()
       .centerHorizontally()
       .centerVertically();
+    
+    let config = new OverlayConfig({
+      hasBackdrop: true,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
+      positionStrategy
+    });
 
     this.applicationLoaderOverlay = this.overlay.create(config);
-    //const applicationAreaPortal = new ComponentPortal();
-    //this.applicationLoaderOverlay.attach()
+    const applicationAreaPortal = new ComponentPortal(LandingPageComponent);
+    this.applicationLoaderOverlay.attach(applicationAreaPortal)
   }
 }

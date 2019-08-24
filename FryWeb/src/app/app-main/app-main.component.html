@@ -5,7 +5,7 @@
     <mat-icon style="margin-left: 10px; margin-right: 10px;">people</mat-icon>
     <h1 class="app-nav-bar">{{title}}</h1>
     <span style="flex: 1 1 auto;"></span>
-    <a cdk-overlay-origin #trigger="cdkOverlayOrigin" (click)="isOverlayOpen = !isOverlayOpen">
+    <a cdk-overlay-origin #trigger="cdkOverlayOrigin" (click)="openApplicationAreaOverlay()">
       <mat-icon class="example-icon" matTooltip="Click to navigate to specific area of application" matTooltipPosition="above">
         view_headline
       </mat-icon>

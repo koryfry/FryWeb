@@ -52,6 +52,7 @@ import { OfficialsFacade } from './officiating/state/officials/official.facade';
 import { GameDetailFacade } from './officiating/game-detail/state/facades/game-detail.facade';
 import { UpdateOfficialDialogComponent } from './officiating/officials/components/update-official-dialog/update-official-dialog.component';
 import { LandingPageComponent } from './shared/components/landing-page/landing-page.component';
+import { OverlayService } from './services/overlay.service';
 
 
 @NgModule({
@@ -105,7 +106,8 @@ import { LandingPageComponent } from './shared/components/landing-page/landing-p
     OfficialsFacade,
     FwSnackbarService,
     GameDetailService,
-    GameDetailFacade
+    GameDetailFacade,
+    OverlayService
   ],
   entryComponents:[
     AddArenaDialogComponent, 
@@ -116,7 +118,8 @@ import { LandingPageComponent } from './shared/components/landing-page/landing-p
     OfficialsDetailsComponent,
     AddGameDetailDialogComponent,
     UpdateAgeGroupDialogComponent,
-    UpdateOfficialDialogComponent
+    UpdateOfficialDialogComponent,
+    LandingPageComponent
   ],
   bootstrap: [AppComponent]
 })

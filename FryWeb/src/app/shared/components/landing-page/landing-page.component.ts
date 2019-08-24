@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
+import { OverlayService } from 'app/services/overlay.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fw-landing-page',
@@ -8,7 +10,10 @@ import swal from 'sweetalert2';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private overlayService: OverlayService,
+    private router: Router  
+  ) { }
 
   ngOnInit() {
   }
@@ -20,6 +25,11 @@ export class LandingPageComponent implements OnInit {
       type: 'success',
       timer: 2000
     })
+  }
+
+  navigateToOfficiaingArea() {
+    this.overlayService.pushUpdatedLandingPageOverlayClosedStatus(true);
+    this.router.navigate(['home/officiating']);
   }
 
 }
