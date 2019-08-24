@@ -3,8 +3,17 @@
 
 .officiating-card {
   max-width: 250px;
-  background-color: $fwMediumDarkBlue;
+  background-color: $fwMediumLightGreen;
   color: $fwWhite;
+  width: 70px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :hover {
+      cursor: pointer;
+  }
 }
 
 .officiating-header-image {
@@ -16,6 +25,19 @@
   max-width: 250px;
   background-color: $fwRed;
   color: $white;
+  width: 70px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.shooting-card-icon {
+    font-size: 24px;
 }
 
 .shooting-header-image {
@@ -120,10 +142,8 @@ div.app-icon-group {
 }
 
 .icon-group-link {
-  background: rgba(255, 255, 255, 0.137);
-  i {
-      padding-left: 5px;
-  }
+  background-color: transparent;
+  width: 100%;
 }
 
 .footer-text {

@@ -78,11 +78,14 @@ export class AppMainComponent implements OnInit {
     let config = new OverlayConfig({
       hasBackdrop: true,
       scrollStrategy: this.overlay.scrollStrategies.block(),
-      positionStrategy
+      positionStrategy,
+      width: '18%'
     });
 
     this.applicationLoaderOverlay = this.overlay.create(config);
     const applicationAreaPortal = new ComponentPortal(LandingPageComponent);
-    this.applicationLoaderOverlay.attach(applicationAreaPortal)
+    this.applicationLoaderOverlay.attach(applicationAreaPortal);
+
+    this.applicationLoaderOverlay.backdropClick().subscribe(_ => this.applicationLoaderOverlay.dispose());
   }
 }
