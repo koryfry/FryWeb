@@ -1,6 +1,10 @@
 @import '../../../../styles/variables.scss';
 @import '../../../../styles/colors.scss';
 
+:host {
+    width: 100%;
+}
+
 .officiating-card {
   max-width: 250px;
   background-color: $fwMediumLightGreen;
@@ -59,6 +63,10 @@
 div.app-icon-group-list {
   padding: 25px;
   text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  right: 40%;
 
   div.app-icon-group-list-inner {
       ul {
