@@ -40,6 +40,7 @@ namespace FryWebApi
             services.AddScoped<IDBContext>(f => new DBContext(connectionString));
             services.AddScoped<IService, Service>();
             services.AddScoped<IAgeGroupService, AgeGroupService>();
+            services.AddScoped<IArenaService, ArenaService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }

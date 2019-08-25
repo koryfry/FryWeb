@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Arena } from '../models/arena/arena.model';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class ArenaService {
   private _baseUrl = "http://localhost:3000/";
   private _valuesUrl = "http://localhost:54264/api/values";
-  private _arenasUrl = "http://localhost:54264/api/arena";
+  private _arenasUrl = environment.apiUrl + '/arena/'
+
+  options = new HttpHeaders({
+    'Content-Type':'application/json; charset=utf-8;',
+    'Accept':'*/*'
+  })
 
   constructor(private http: HttpClient) { }
 
@@ -47,16 +53,14 @@ export class ArenaService {
   }
 
   getAllArenas(): Observable<any> {
-    return this.http.get<any>(this._arenasUrl)
-    .pipe(catchError((error: any) => throwError(error)));
+    return this.http.get<any>(this._arenasUrl + 'getAllArenas', {headers: this.options})
+      .pipe(catchError((error: any) => throwError(error)));
   }
 
-  getSingleArena(id: number): Observable<string> {
-    let headers = new Headers();
-    headers.append('Content-Type','application/json');
-
-    return this.http.get<string>(this._arenasUrl + `/${id}`, { responseType: 'text' as 'json' })
+  getSingleArena(arenaID: number): Observable<Arena> {
+    const arena = this.http.get<Arena>(this._arenasUrl + 'getArenaById/' + `${arenaID}`, {headers: this.options})
       .pipe(catchError((error: any) => throwError(error)));
+    return arena;
   }
 
 }

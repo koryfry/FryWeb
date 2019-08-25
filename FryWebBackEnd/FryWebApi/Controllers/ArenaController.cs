@@ -1,32 +1,37 @@
 ﻿using System.Collections.Generic;
 using FryWeb.Services.BaseInterfaces;
 using Microsoft.AspNetCore.Mvc;
+using FryWeb.Services.Interfaces;
+using FryWeb.Data.DTO;
 
 namespace FryWeb.Api.Controllers
 {
     public class ArenaController : ApiBaseController
     {
-        private readonly IService _service;
+        private readonly IArenaService _service;
 
-        public ArenaController(IService service)
+        public ArenaController(IArenaService service)
             : base(service)
         {
             _service = service;
         }
 
         // GET api/arenas
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet("getAllArenas")]
+        public ActionResult<List<Arena>> GetAllArenas()
         {
-            return new string[] { "Griffs West", "Griffs Ice House" };
+            var arenas = _service.GetAllArenas();
+            return arenas;
+            //return new string[] { "Griffs West", "Griffs Ice House" };
         }
 
         // GET api/values/5
         //[Route("api/arena/{id}")]
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("getArenaById/{arenaID}")]
+        public ActionResult<Arena> GetArenaByID(int arenaID)
         {
-            return "Walker Ice and Fitness";
+            var arena = _service.GetArenaByID(arenaID);
+            return arena;
         }
     }
 }
