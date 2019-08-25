@@ -78,7 +78,8 @@ export class AppMainComponent implements OnInit {
       hasBackdrop: true,
       scrollStrategy: this.overlay.scrollStrategies.block(),
       positionStrategy,
-      width: '100%'
+      width: '50%',
+      panelClass: 'overlay-pane'
     });
 
     this.applicationLoaderOverlay = this.overlay.create(config);
