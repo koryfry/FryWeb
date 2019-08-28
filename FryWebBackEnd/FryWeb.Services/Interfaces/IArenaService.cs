@@ -10,5 +10,6 @@ namespace FryWeb.Services.Interfaces
     {
         List<DTO.Arena> GetAllArenas();
         DTO.Arena GetArenaByID(int arenaID);
+        IEnumerable<DTO.Arena> InsertOrUpdateArena(DTO.Arena arena);
     }
 }

@@ -6,6 +6,7 @@ using FryWeb.Services.Interfaces;
 using FryWeb.Data.BaseInterfaces;
 using FryWeb.Data.DTO;
 using FryWeb.Data.Queries.Arena;
+using FryWeb.Data.Commands.Arena;
 
 namespace FryWeb.Services.Services
 {
@@ -27,6 +28,12 @@ namespace FryWeb.Services.Services
         {
             var arena = new GetArenaByIDQuery(arenaID).Execute(Context);
             return arena;
+        }
+
+        public IEnumerable<Arena> InsertOrUpdateArena(Arena arena)
+        {
+            var a = new InsertOrUpdateArenaCommand(arena).Execute(Context);
+            return a;
         }
     }
 }

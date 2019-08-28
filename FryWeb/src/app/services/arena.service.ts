@@ -63,4 +63,9 @@ export class ArenaService {
     return arena;
   }
 
+  submitArena(arena: Arena): Observable<Arena> {
+    return this.http.post<Arena>(this._arenasUrl + 'submitArena', arena, {headers: this.options})
+    .pipe(catchError((error: any) => throwError(error)));
+  }
+
 }

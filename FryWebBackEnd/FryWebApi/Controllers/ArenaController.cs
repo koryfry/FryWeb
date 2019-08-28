@@ -16,13 +16,14 @@ namespace FryWeb.Api.Controllers
             _service = service;
         }
 
+        #region HTTP GETS
+
         // GET api/arenas
         [HttpGet("getAllArenas")]
         public ActionResult<List<Arena>> GetAllArenas()
         {
             var arenas = _service.GetAllArenas();
             return arenas;
-            //return new string[] { "Griffs West", "Griffs Ice House" };
         }
 
         // GET api/values/5
@@ -33,5 +34,21 @@ namespace FryWeb.Api.Controllers
             var arena = _service.GetArenaByID(arenaID);
             return arena;
         }
+
+        #endregion
+
+
+        #region HTTP POSTS
+
+        // GET api/arenas
+        [HttpPost]
+        [Route("[action]")]
+        public ActionResult<Arena> SubmitArena(Arena arena)
+        {
+            var submitted = _service.InsertOrUpdateArena(arena);
+            return Ok(submitted);
+        }
+
+        #endregion
     }
 }

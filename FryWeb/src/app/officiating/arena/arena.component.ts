@@ -25,7 +25,7 @@ import { ArenaDetailsComponent } from './components/arena-details/arena-details.
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  displayedColumns: string[] = ['Name','Address', 'City', 'State','ZipCode'];
+  displayedColumns: string[] = ['name','address', 'city', 'state','zipCode'];
   arenas: Arena[];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;

@@ -21,8 +21,7 @@ export class ArenaEffects {
     )
     .pipe(
         switchMap(() => {
-            return this.arenaService
-                .getArenas()
+            return this.arenaService.getAllArenas()
                 .pipe(
                     map(arenas => new LoadArenasRequestSuccess(arenas)),
                     catchError(e => of(new LoadArenasRequestFail(e)))
@@ -36,7 +35,7 @@ export class ArenaEffects {
         .pipe(
             map((action: ArenaActions.AddArenaRequest) => action.arena),
             switchMap(arena => {
-                return this.arenaService.createArena(arena).pipe(                     
+                return this.arenaService.submitArena(arena).pipe(                     
                     switchMap(arena => {
                         this.snackBarService.success('Arena was successfully created', 'Dismiss', {
                             duration: 3000
