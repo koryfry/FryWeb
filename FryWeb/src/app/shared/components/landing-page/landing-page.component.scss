@@ -13,8 +13,8 @@
   max-width: 250px;
   background-color: $fwMediumLightGreen;
   color: $fwWhite;
-  width: 70px;
-  height: 55px;
+  width: 140px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,11 +33,8 @@
   max-width: 250px;
   background-color: $fwRed;
   color: $white;
-  width: 70px;
-  height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 140px;
+  height: 110px;
   
     :hover {
         cursor: pointer;
@@ -152,6 +149,7 @@ div.app-icon-group {
 .icon-group-link {
   background-color: transparent;
   width: 100%;
+  font-size: 72px;
 }
 
 .footer-text {
