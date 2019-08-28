@@ -126,11 +126,11 @@ export class AddArenaDialogComponent implements OnInit {
 
   save() {
     this.arena = {
-      Name: this.addArenaForm.get('arenaName').value,
-      Address: this.addArenaForm.get('address').value,
-      City: this.addArenaForm.get('city').value,
-      State: this.addArenaForm.get('state').value,
-      ZipCode: this.addArenaForm.get('zipCode').value
+      name: this.addArenaForm.get('arenaName').value,
+      address: this.addArenaForm.get('address').value,
+      city: this.addArenaForm.get('city').value,
+      state: this.addArenaForm.get('state').value,
+      zipCode: this.addArenaForm.get('zipCode').value
     }
 
     this.arenaFacade.createArena(this.arena);

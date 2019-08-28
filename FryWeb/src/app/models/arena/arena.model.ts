@@ -4,9 +4,9 @@
 
 export interface Arena {
     id?: number,
-    Name: string,  
-    Address: string,
-    City: string,
-    State: string,
-    ZipCode: string
+    name: string,  
+    address: string,
+    city: string,
+    state: string,
+    zipCode: string
 }

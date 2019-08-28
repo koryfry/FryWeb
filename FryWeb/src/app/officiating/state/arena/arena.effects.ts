@@ -35,7 +35,7 @@ export class ArenaEffects {
         .pipe(
             map((action: ArenaActions.AddArenaRequest) => action.arena),
             switchMap(arena => {
-                return this.arenaService.submitArena(arena).pipe(                     
+                return this.arenaService.createArena(arena).pipe(                     
                     switchMap(arena => {
                         this.snackBarService.success('Arena was successfully created', 'Dismiss', {
                             duration: 3000
@@ -59,7 +59,7 @@ export class ArenaEffects {
         ofType<OpenSelectedArenaDetails>(ArenaActionTypes.OpenSelectedArenaDetails)
         .pipe(
             switchMap((action) => {
-                return this.arenaService.getArenaById(action.selectedArena.id)
+                return this.arenaService.getSingleArena(action.selectedArena.id)
                     .pipe(
                         map(arenaDetailsPreview => {
                             return new OpenSelectedArenaDetailsSuccess(arenaDetailsPreview)

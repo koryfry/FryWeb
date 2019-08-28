@@ -28,6 +28,7 @@ namespace FryWeb.Data.Commands.Arena
                 p.Add("@city", _arena.City);
                 p.Add("@state", _arena.State);
                 p.Add("@zipCode", _arena.ZipCode);
+                p.Add("@newArenaID", DbType.Int32, direction: ParameterDirection.Output);
                 
                 var arena = connection.Query<DTO.Arena>("Officiating.InsertOrUpdateArena", p, commandType: CommandType.StoredProcedure);
 

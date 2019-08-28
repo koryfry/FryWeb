@@ -25,7 +25,7 @@ import { ArenaDetailsComponent } from './components/arena-details/arena-details.
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent implements OnInit {
-  displayedColumns: string[] = ['name','address', 'city', 'state','zipCode'];
+  displayedColumns: string[] = ['name','address', 'city', 'state', 'zipCode'];
   arenas: Arena[];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;
@@ -64,13 +64,13 @@ export class ArenaComponent implements OnInit {
       console.log('Error: ', err);
     });
 
-    this.arenaService.getAllArenas().pipe().subscribe(arenas => {
-      console.log('Arenas returned: ', arenas);
-    })
+    // this.arenaService.getAllArenas().pipe().subscribe(arenas => {
+    //   console.log('Arenas returned: ', arenas);
+    // })
 
-    this.arenaService.getSingleArena(5).pipe().subscribe(arena => {
-      console.log('Arena: ', arena);
-    })
+    // this.arenaService.getSingleArena(5).pipe().subscribe(arena => {
+    //   console.log('Arena: ', arena);
+    // })
   }
   
   ngOnDestroy() {
