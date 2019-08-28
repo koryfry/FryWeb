@@ -8,7 +8,7 @@ export interface ArenasState extends EntityState<Arena> {
     loading: boolean;
     arenas: Arena[];
     selectedArena: Arena;
-    arenaID: number;
+    id: number;
 }
 
 export const arenaAdapter = createEntityAdapter<Arena>({ selectId: arena => arena.id });
@@ -18,14 +18,14 @@ export const initialState: ArenasState = arenaAdapter.getInitialState({
     loading: false,
     arenas: null,
     selectedArena: null,
-    arenaID: null
+    id: null
 });
 
 export function arenasReducer(state = initialState, action: ArenaActions) : ArenasState {
     switch (action.type) {
         
         case ArenaActionTypes.AddArenaRequestSuccess:
-            return arenaAdapter.addOne(action.arena, state);
+            return arenaAdapter.addOne(action.arena[0], state);
 
         case ArenaActionTypes.LoadArenasRequestSuccess:
             return arenaAdapter.addAll(action.arenas, state)

@@ -4,8 +4,8 @@
     </div>
 
     <div dialog-title *ngIf="(selectedArena$ | async) as selectedArena">
-        <div [ngClass]="{'details-title-image': selectedArena?.AvatarImage, 'details-title-no-image' : !selectedArena?.AvatarImage}">
-            <img *ngIf="selectedArena?.AvatarImage" style="margin-right: 10px;" mat-card-avatar class="avatar-image" src={{selectedArena?.AvatarImage}}>
+        <div [ngClass]="{'details-title-image': selectedArena?.avatarImage, 'details-title-no-image' : !selectedArena?.avatarImage}">
+            <img *ngIf="selectedArena?.avatarImage" style="margin-right: 10px;" mat-card-avatar class="avatar-image" src={{selectedArena?.avatarImage}}>
             <span class="card-title">{{selectedArena.name}}</span>
         </div>
     </div>

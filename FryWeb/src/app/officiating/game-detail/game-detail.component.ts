@@ -108,8 +108,8 @@ export class GameDetailComponent implements OnInit {
       data: {
         officials: this.officialsList,
         arenas: this.arenasList.sort((a,b) => {
-          if(a.Name.toLowerCase() < b.Name.toLowerCase()) return -1;
-          if(a.Name.toLowerCase() > b.Name.toLowerCase()) return 1
+          if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+          if(a.name.toLowerCase() > b.name.toLowerCase()) return 1
           return 0;
         }),
         ageGroups: this.ageGroupsList.sort((a,b) => {

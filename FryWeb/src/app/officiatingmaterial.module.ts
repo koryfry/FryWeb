@@ -5,7 +5,7 @@ import {
     MatIconModule, MatToolbarModule, MatListModule, MatSortModule, MatProgressSpinnerModule,
     MatPaginatorModule, MatChipsModule, MatDialogModule, MatAutocompleteModule, MatSnackBarModule, 
     MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule, MatMenuModule
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
@@ -35,7 +35,8 @@ import { PortalModule } from '@angular/cdk/portal';
         MatNativeDateModule,
         MatRadioModule,
         MatSelectModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatMenuModule
     ],
     exports: [
         MatCardModule,
@@ -63,7 +64,8 @@ import { PortalModule } from '@angular/cdk/portal';
         MatSelectModule,
         MatTooltipModule,
         OverlayModule,
-        PortalModule
+        PortalModule,
+        MatMenuModule
     ]
   })
 
