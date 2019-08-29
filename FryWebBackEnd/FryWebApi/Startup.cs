@@ -41,6 +41,7 @@ namespace FryWebApi
             services.AddScoped<IService, Service>();
             services.AddScoped<IAgeGroupService, AgeGroupService>();
             services.AddScoped<IArenaService, ArenaService>();
+            services.AddScoped<IIconService, IconService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
         }

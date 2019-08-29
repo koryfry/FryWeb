@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { OverlayService } from 'app/services/overlay.service';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/internal/operators';
+
+// Import model
+import { Icon } from '../../../models/icon/icon';
+
+// Import Services
+import { IconService } from '../../../services/icon.service';
 
 @Component({
   selector: 'fw-landing-page',
@@ -9,13 +17,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  applicationIcons$: Observable<Icon[]>;  
+  private _componentDestroyed$: Subject<boolean> = new Subject();
+  applicationIcons: Icon[];
+
 
   constructor(
     private overlayService: OverlayService,
-    private router: Router  
+    private router: Router,
+    private iconService: IconService
   ) { }
 
   ngOnInit() {
+    this.iconService.getApplicationIcons().pipe().subscribe(data => {
+      this.applicationIcons = data;
+    });
   }
   
   showShootingSweetAlert() {

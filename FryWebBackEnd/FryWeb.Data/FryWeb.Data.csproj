@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\Official\" />
+    <Folder Include="Queries\Officiating\Official\" />
   </ItemGroup>
 
 </Project>

@@ -53,6 +53,7 @@ import { GameDetailFacade } from './officiating/game-detail/state/facades/game-d
 import { UpdateOfficialDialogComponent } from './officiating/officials/components/update-official-dialog/update-official-dialog.component';
 import { LandingPageComponent } from './shared/components/landing-page/landing-page.component';
 import { OverlayService } from './services/overlay.service';
+import { IconService } from 'app/services/icon.service';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { OverlayService } from './services/overlay.service';
     FwSnackbarService,
     GameDetailService,
     GameDetailFacade,
-    OverlayService
+    OverlayService,
+    IconService
   ],
   entryComponents:[
     AddArenaDialogComponent, 

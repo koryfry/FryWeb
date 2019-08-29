@@ -1,49 +1,31 @@
 <div class="app-icon-group-list">
   <div class="app-icon-group-list-inner">
     <ul>
-      <li class="nav-card">
+      <ng-container *ngIf="applicationIcons">
+        <li *ngFor="let icon of applicationIcons" class="nav-card">
+          <mat-card matTooltip={{icon.tooltipText}} matTooltipPosition={{icon.tooltipPosition}} class="officiating-card">
+            <mat-card-content>
+              <mat-icon class="icon-group-link">{{icon.avatarName}}</mat-icon>
+            </mat-card-content>            
+          </mat-card>
+        </li>
+      </ng-container>
+
+
+      <!-- <li class="nav-card">
         <mat-card class="officiating-card" (click)="navigateToOfficiaingArea()" matTooltip="Officiating" matTooltipPosition="below">
           <mat-card-content>
             <mat-icon class="icon-group-link">sports_hockey</mat-icon>
           </mat-card-content>
         </mat-card>
-        <!-- <mat-card class="officiating-card" (click)="navigateToOfficiaingArea()">
-          <mat-card-header>
-            <div mat-card-avatar class="officiating-header-image"></div>
-            <mat-card-title class="icon-group-name">Officiating</mat-card-title>
-          </mat-card-header>
-          <br>
-          <mat-card-content class="icon-group-description">
-            Manage officiating tasks
-          </mat-card-content>
-          <mat-card-footer class="footer-text icon-group-link">
-            Go To Officiating
-            <i class="fas fa-hockey-puck"></i>
-          </mat-card-footer>
-        </mat-card> -->
       </li>
       <li class="nav-card">
         <mat-card class="shooting-card" (click)="showShootingSweetAlert()" matTooltip="Clay Shooting" matTooltipPosition="below">
           <mat-card-content>
             <mat-icon class="icon-group-link shooting-card-icon">visibility</mat-icon>
-            <!-- <i class="fas fa-bullseye icon-group-link shooting-card-icon"></i> -->
           </mat-card-content>
         </mat-card>
-        <!-- <mat-card class="shooting-card" (click)="showShootingSweetAlert()">
-          <mat-card-header>
-            <div mat-card-avatar class="shooting-header-image"></div>
-            <mat-card-title class="icon-group-name">Shooting</mat-card-title>
-          </mat-card-header>
-          <br>
-          <mat-card-content class="icon-group-description">
-              Manage clay shooting tasks
-          </mat-card-content>
-          <mat-card-footer class="footer-text icon-group-link">
-              Go To Shooting
-            <i class="fas fa-bullseye"></i>
-          </mat-card-footer>
-        </mat-card> -->
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>
