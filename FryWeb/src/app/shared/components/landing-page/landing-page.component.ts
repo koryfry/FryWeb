@@ -43,9 +43,11 @@ export class LandingPageComponent implements OnInit {
     })
   }
 
-  navigateToOfficiaingArea() {
+  navigateToApplicationArea(areaName: string) {
     this.overlayService.pushUpdatedLandingPageOverlayClosedStatus(true);
-    this.router.navigate(['home/officiating']);
+    if(areaName === 'Officiating')
+      this.router.navigate(['home/officiating']);
+    else
+      this.showShootingSweetAlert();
   }
-
 }
