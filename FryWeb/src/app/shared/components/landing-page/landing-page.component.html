@@ -3,29 +3,13 @@
     <ul>
       <ng-container *ngIf="applicationIcons">
         <li *ngFor="let icon of applicationIcons" class="nav-card">
-          <mat-card matTooltip={{icon.tooltipText}} matTooltipPosition={{icon.tooltipPosition}} class="officiating-card">
+          <mat-card matTooltip={{icon.tooltipText}} matTooltipPosition={{icon.tooltipPosition}} class="{{icon.cssClass}}">
             <mat-card-content>
               <mat-icon class="icon-group-link">{{icon.avatarName}}</mat-icon>
             </mat-card-content>            
           </mat-card>
         </li>
       </ng-container>
-
-
-      <!-- <li class="nav-card">
-        <mat-card class="officiating-card" (click)="navigateToOfficiaingArea()" matTooltip="Officiating" matTooltipPosition="below">
-          <mat-card-content>
-            <mat-icon class="icon-group-link">sports_hockey</mat-icon>
-          </mat-card-content>
-        </mat-card>
-      </li>
-      <li class="nav-card">
-        <mat-card class="shooting-card" (click)="showShootingSweetAlert()" matTooltip="Clay Shooting" matTooltipPosition="below">
-          <mat-card-content>
-            <mat-icon class="icon-group-link shooting-card-icon">visibility</mat-icon>
-          </mat-card-content>
-        </mat-card>
-      </li> -->
     </ul>
   </div>
 </div>

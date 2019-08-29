@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 
   :hover {
       cursor: pointer;
@@ -35,6 +36,10 @@
   color: $white;
   width: 140px;
   height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   
     :hover {
         cursor: pointer;
@@ -157,4 +162,8 @@ div.app-icon-group {
     font-size: 14px;
     height: 40px;
     padding-top: 10px;
+}
+
+.mat-card-content {
+    margin-bottom: 0 !important;
 }

@@ -12,5 +12,6 @@ namespace FryWeb.Data.DTO
         public string BackgroundColor { get; set; }
         public string TextColor { get; set; }
         public string AvatarName { get; set; }
+        public string CssClass { get; set; }
     }
 }

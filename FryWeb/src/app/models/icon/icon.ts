@@ -8,5 +8,6 @@
    tooltipPosition: string,
    backgroundColor: string,
    textColor: string,
-   avatarName: string
+   avatarName: string,
+   cssClass: string
  }
