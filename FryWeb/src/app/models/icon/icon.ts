@@ -3,6 +3,7 @@
  */
 
  export interface Icon {
+   id: number,
    name: string,
    tooltipText: string,
    tooltipPosition: string,

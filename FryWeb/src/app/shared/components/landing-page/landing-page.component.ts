@@ -10,6 +10,7 @@ import { Icon } from '../../../models/icon/icon';
 
 // Import Services
 import { IconService } from '../../../services/icon.service';
+import { ApplicationIconFacade } from '../../../app-main/state/application-icon/application-icon.facade';
 
 @Component({
   selector: 'fw-landing-page',
@@ -25,13 +26,26 @@ export class LandingPageComponent implements OnInit {
   constructor(
     private overlayService: OverlayService,
     private router: Router,
-    private iconService: IconService
-  ) { }
+    private iconService: IconService,
+    private applicationIconFacade: ApplicationIconFacade
+  ) { 
+    this.applicationIconFacade.loadApplicationIcons();
+    // this.applicationIconFacade.applicationIcons$.pipe(takeUntil(this._componentDestroyed$)).subscribe(icons => {
+    //   //this.applicationIcons = icons;
+    // })
+  }
 
   ngOnInit() {
-    this.iconService.getApplicationIcons().pipe().subscribe(data => {
-      this.applicationIcons = data;
-    });
+    this.applicationIcons$ = this.applicationIconFacade.applicationIcons$;
+    
+    // this.iconService.getApplicationIcons().pipe().subscribe(data => {
+    //   this.applicationIcons = data;
+    // });
+  }
+
+  ngOnDestroy() {
+    this._componentDestroyed$.next(true);
+		this._componentDestroyed$.complete();
   }
   
   showShootingSweetAlert() {

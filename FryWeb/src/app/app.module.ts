@@ -7,6 +7,7 @@ import { OfficiatingMaterialModule } from './officiatingmaterial.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { OfficiatingStateModule } from 'app/officiating/state/state.module';
+import { ApplicationStateModule } from 'app/app-main/state/state.module';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import swal from 'sweetalert2';
@@ -54,6 +55,7 @@ import { UpdateOfficialDialogComponent } from './officiating/officials/component
 import { LandingPageComponent } from './shared/components/landing-page/landing-page.component';
 import { OverlayService } from './services/overlay.service';
 import { IconService } from 'app/services/icon.service';
+import { ApplicationIconFacade } from 'app/app-main/state/application-icon/application-icon.facade';
 
 
 @NgModule({
@@ -95,6 +97,7 @@ import { IconService } from 'app/services/icon.service';
     AppRoutingModule,
     OfficiatingStateModule,
     CommonModule,
+    ApplicationStateModule,
     StoreDevtoolsModule.instrument()
   ],
   providers: [
@@ -109,7 +112,8 @@ import { IconService } from 'app/services/icon.service';
     GameDetailService,
     GameDetailFacade,
     OverlayService,
-    IconService
+    IconService,
+    ApplicationIconFacade
   ],
   entryComponents:[
     AddArenaDialogComponent, 
