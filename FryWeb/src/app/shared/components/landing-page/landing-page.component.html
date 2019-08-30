@@ -3,7 +3,8 @@
     <ul>
       <ng-container *ngIf="(applicationIcons$ | async) as applicationIcons">
         <li *ngFor="let icon of applicationIcons" class="nav-card">
-          <mat-card matTooltip={{icon.tooltipText}} matTooltipPosition={{icon.tooltipPosition}} class="{{icon.cssClass}}" (click)="navigateToApplicationArea(icon.name)">
+          <mat-card matTooltip={{icon.tooltipText}} matTooltipPosition={{icon.tooltipPosition}} class="iconCard" 
+            [ngStyle]="{color: icon.textColor, 'background-color': icon.backgroundColor}" (click)="navigateToApplicationArea(icon.name)">
             <mat-card-content>
               <mat-icon class="icon-group-link">{{icon.avatarName}}</mat-icon>
             </mat-card-content>            

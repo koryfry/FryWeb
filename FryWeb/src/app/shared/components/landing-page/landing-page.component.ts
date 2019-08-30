@@ -30,17 +30,10 @@ export class LandingPageComponent implements OnInit {
     private applicationIconFacade: ApplicationIconFacade
   ) { 
     this.applicationIconFacade.loadApplicationIcons();
-    // this.applicationIconFacade.applicationIcons$.pipe(takeUntil(this._componentDestroyed$)).subscribe(icons => {
-    //   //this.applicationIcons = icons;
-    // })
   }
 
   ngOnInit() {
     this.applicationIcons$ = this.applicationIconFacade.applicationIcons$;
-    
-    // this.iconService.getApplicationIcons().pipe().subscribe(data => {
-    //   this.applicationIcons = data;
-    // });
   }
 
   ngOnDestroy() {
