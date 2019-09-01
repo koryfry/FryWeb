@@ -17,7 +17,7 @@ namespace FryWeb.Services.Services
             
         }
 
-        public IEnumerable<AgeGroup> GetAgeGroups()
+        public List<AgeGroup> GetAgeGroups()
         {
             var ageGroups = new GetAllAgeGroupsQuery().Execute(Context);
             return ageGroups;

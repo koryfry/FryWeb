@@ -13,6 +13,18 @@
     opacity: 0.75;
 }
 
+.miteChip {
+    opacity: 0.75;
+    width: 90px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    background-color: $gradientBlueDark;
+    color: $fwWhite;
+}
+
 .squirtChip {
     opacity: 0.75;
     width: 90px;

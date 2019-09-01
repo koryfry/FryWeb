@@ -68,9 +68,9 @@ export class GameDetailComponent implements OnInit {
     this.arenaService.getArenas().subscribe(result => {
       this.arenasList = result;
     })
-    this.ageGroupService.getAgeGroups().subscribe(result => {
-      this.ageGroupsList = result;
-    })
+    // this.ageGroupService.getAgeGroups().subscribe(result => {
+    //   this.ageGroupsList = result;
+    // })
     this.officialsService.getOfficials().subscribe(result => {
       this.officialsList = result;
     })

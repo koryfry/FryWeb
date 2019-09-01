@@ -25,7 +25,7 @@ export function ageGroupsReducer(state = initialState, action: AgeGroupActions) 
     switch (action.type) {
         
         case AgeGroupActionTypes.AddAgeGroupRequestSuccess:
-            return ageGroupAdapter.addOne(action.ageGroup, state);
+            return ageGroupAdapter.addOne(action.ageGroup[0], state);
 
         case AgeGroupActionTypes.LoadAgeGroupsRequestSuccess:
             return ageGroupAdapter.addAll(action.ageGroups, state)

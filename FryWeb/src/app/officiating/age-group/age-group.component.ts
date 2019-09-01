@@ -26,7 +26,7 @@ import { UpdateAgeGroupDialogComponent } from 'app/officiating/age-group/compone
   styleUrls: ['./age-group.component.scss']
 })
 export class AgeGroupComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['Name', 'Tier', 'MinimumAge', 'MaximumAge'];
+  displayedColumns: string[] = ['name', 'tier', 'minimumAge', 'maximumAge'];
   dataSource = new MatTableDataSource();
   preventSingleClick: boolean = false;
 	preventSingleClickDelayId;
@@ -53,7 +53,7 @@ export class AgeGroupComponent implements OnInit, OnDestroy {
 
     this.ageGroupFacade.allAgeGroups$.pipe(takeUntil(this._componentDestroyed$)).subscribe(ags => {
       const ageGroups = ags;
-      this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(ageGroups);
+      //this.displayedColumns = this.tableDisplayService.generateDisplayedColumns(ageGroups);
       this.dataSource = new MatTableDataSource(ageGroups);
       this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;

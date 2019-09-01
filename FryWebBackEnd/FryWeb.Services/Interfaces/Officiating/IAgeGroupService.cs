@@ -8,7 +8,7 @@ namespace FryWeb.Services.Interfaces
 {
     public interface IAgeGroupService : IService
     {
-        IEnumerable<DTO.AgeGroup> GetAgeGroups();
+        List<DTO.AgeGroup> GetAgeGroups();
         DTO.AgeGroup GetAgeGroupByID(int ageGroupID);
     }
 }

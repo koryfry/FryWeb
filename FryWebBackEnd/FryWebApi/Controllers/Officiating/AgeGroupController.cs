@@ -15,18 +15,23 @@ namespace FryWeb.Api.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<AgeGroup>> GetAgeGroups()
+        #region HTTP GETS
+
+        // GET api/ageGroups
+        [HttpGet("getAllAgeGroups")]
+        public ActionResult<List<AgeGroup>> GetAllAgeGroups()
         {
             var ageGroups = _service.GetAgeGroups();
             return Ok(ageGroups);
         }
 
-        [HttpGet("{ageGroupId}")]
-        public ActionResult<AgeGroup> GetAgeGroup(int ageGroupId)
+        [HttpGet("getAgeGroupById/{ageGroupID}")]
+        public ActionResult<AgeGroup> GetAgeGroupById(int ageGroupID)
         {
-            var ageGroup = _service.GetAgeGroupByID(ageGroupId);
+            var ageGroup = _service.GetAgeGroupByID(ageGroupID);
             return Ok(ageGroup);
         }
+
+        #endregion
     }
 }

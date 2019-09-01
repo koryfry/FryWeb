@@ -23,7 +23,7 @@ export class AgeGroupEffects {
     .pipe(
         switchMap(() => {
             return this.ageGroupService
-                .getAgeGroups()
+                .getAllAgeGroups()
                 .pipe(
                     map(ageGroups => new LoadAgeGroupsRequestSuccess(ageGroups)),
                     catchError(e => of(new LoadAgeGroupsRequestFail(e)))

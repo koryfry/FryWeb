@@ -2,22 +2,22 @@
 using FryWeb.Data.BaseInterfaces;
 using System.Data;
 using System.Linq;
+using Dapper;
 
 namespace FryWeb.Data.Queries.AgeGroup
 {
-    public class GetAllAgeGroupsQuery //: IQuery<DTO.AgeGroup>
+    public class GetAllAgeGroupsQuery
     {
-        public string Sql { get; set; }
-
-        public GetAllAgeGroupsQuery()
+        public List<DTO.AgeGroup> Execute(IDBContext context, IDbTransaction transaction = null)
         {
-            Sql = "SELECT * FROM Officiating.AgeGroup";
-        }
+            using (var connection = context.Connection)
+            {
+                var ageGroups = new List<DTO.AgeGroup>();
+                var result = connection.Query<DTO.AgeGroup>("Officiating.GetAllAgeGroups", commandType: CommandType.StoredProcedure);
 
-        public IEnumerable<DTO.AgeGroup> Execute(IDBContext context, IDbTransaction transaction = null)
-        {
-            var ageGroups = context.Query<DTO.AgeGroup>(Sql, transaction).ToList();
-            return ageGroups;
+                if (result != null) ageGroups.AddRange(result);
+                return ageGroups;
+            }
         }
     }
 }

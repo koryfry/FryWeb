@@ -2,7 +2,7 @@
 {
     public class AgeGroup
     {
-        public int AgeGroupID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Tier { get; set; }
         public int MinimumAge { get; set; }
