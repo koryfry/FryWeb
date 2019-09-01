@@ -18,8 +18,8 @@ export class IconService {
 
   constructor(private http: HttpClient) { }
 
-  getApplicationIcons(): Observable<Icon[]> {
-    return this.http.get<Icon[]>(this._iconsUrl + 'getApplicationIcons', {headers: this.options})
+  getPortalIcons(): Observable<Icon[]> {
+    return this.http.get<Icon[]>(this._iconsUrl + 'getPortalIcons', {headers: this.options})
       .pipe(catchError((error: any) => throwError(error)));
   }
 }

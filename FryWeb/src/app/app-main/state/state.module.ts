@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
-import * as fromApplication from './reducers';
-import { ApplicationIconEffects } from './application-icon/application-icon.effects';
+import * as fromPortal from './reducers';
+import { PortalIconEffects } from './portal-icon/portal-icon.effects';
 
 import { EffectsModule } from '@ngrx/effects';
 
@@ -10,11 +10,11 @@ import { EffectsModule } from '@ngrx/effects';
 @NgModule({
     imports:[
         StoreModule.forRoot({}),
-        StoreModule.forFeature('application', fromApplication.reducers),
+        StoreModule.forFeature('portal', fromPortal.reducers),
         EffectsModule.forRoot([]),
-        EffectsModule.forFeature([ApplicationIconEffects])
+        EffectsModule.forFeature([PortalIconEffects])
     ],
     providers: []
 })
 
-export class ApplicationStateModule {}
+export class PortalStateModule {}

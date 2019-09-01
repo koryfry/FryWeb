@@ -1,1 +1,1 @@
-export * from './application.reducer';
+export * from './portal.reducer';

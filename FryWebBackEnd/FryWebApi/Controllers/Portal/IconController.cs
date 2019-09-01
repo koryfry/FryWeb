@@ -19,11 +19,11 @@ namespace FryWeb.Api.Controllers
         #region HTTP GETS
 
         // GET api/icon
-        [HttpGet("getApplicationIcons")]
-        public ActionResult<List<Icon>> GetApplicationIcons()
+        [HttpGet("getPortalIcons")]
+        public ActionResult<List<Icon>> GetPortalIcons()
         {
-            var applicationIcons = _service.GetApplicationIcons();
-            return applicationIcons;
+            var portalIcons = _service.GetPortalIcons();
+            return portalIcons;
         }
 
         #endregion

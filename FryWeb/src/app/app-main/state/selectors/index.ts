@@ -1,1 +1,1 @@
-export * from './application.selectors';
+export * from './portal.selectors';

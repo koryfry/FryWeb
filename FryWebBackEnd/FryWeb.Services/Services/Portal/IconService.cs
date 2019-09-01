@@ -3,7 +3,7 @@ using FryWeb.Services.BaseServices;
 using FryWeb.Services.Interfaces;
 using FryWeb.Data.BaseInterfaces;
 using FryWeb.Data.DTO;
-using FryWeb.Data.Queries.Application;
+using FryWeb.Data.Queries.Portal;
 
 namespace FryWeb.Services.Services
 {
@@ -15,9 +15,9 @@ namespace FryWeb.Services.Services
 
         }
 
-        public List<Icon> GetApplicationIcons()
+        public List<Icon> GetPortalIcons()
         {
-            var applicationIcons = new GetApplicationIconsQuery().Execute(Context);
+            var applicationIcons = new GetPortalIconsQuery().Execute(Context);
             return applicationIcons;
         }
     }

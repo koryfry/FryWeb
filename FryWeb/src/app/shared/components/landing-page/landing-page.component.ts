@@ -10,7 +10,7 @@ import { Icon } from '../../../models/icon/icon';
 
 // Import Services
 import { IconService } from '../../../services/icon.service';
-import { ApplicationIconFacade } from '../../../app-main/state/application-icon/application-icon.facade';
+import { PortalIconFacade } from '../../../app-main/state/portal-icon/portal-icon.facade';
 
 @Component({
   selector: 'fw-landing-page',
@@ -18,22 +18,22 @@ import { ApplicationIconFacade } from '../../../app-main/state/application-icon/
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  applicationIcons$: Observable<Icon[]>;  
+  portalIcons$: Observable<Icon[]>;  
   private _componentDestroyed$: Subject<boolean> = new Subject();
-  applicationIcons: Icon[];
+  portalIcons: Icon[];
 
 
   constructor(
     private overlayService: OverlayService,
     private router: Router,
     private iconService: IconService,
-    private applicationIconFacade: ApplicationIconFacade
+    private portalIconFacade: PortalIconFacade
   ) { 
-    this.applicationIconFacade.loadApplicationIcons();
+    this.portalIconFacade.loadPortalIcons();
   }
 
   ngOnInit() {
-    this.applicationIcons$ = this.applicationIconFacade.applicationIcons$;
+    this.portalIcons$ = this.portalIconFacade.portalIcons$;
   }
 
   ngOnDestroy() {

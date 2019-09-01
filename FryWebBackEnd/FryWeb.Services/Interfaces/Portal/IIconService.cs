@@ -6,6 +6,6 @@ namespace FryWeb.Services.Interfaces
 {
     public interface IIconService : IService
     {
-        List<DTO.Icon> GetApplicationIcons();
+        List<DTO.Icon> GetPortalIcons();
     }
 }
