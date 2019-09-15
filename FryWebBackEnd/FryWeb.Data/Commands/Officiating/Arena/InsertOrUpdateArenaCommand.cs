@@ -16,7 +16,7 @@ namespace FryWeb.Data.Commands.Arena
             _arena = arena;
         }
 
-        public IEnumerable<DTO.Arena> Execute(IDBContext context, IDbTransaction transaction = null)
+        public DTO.Arena Execute(IDBContext context, IDbTransaction transaction = null)
         {
             using (var connection = context.Connection)
             {
@@ -30,8 +30,7 @@ namespace FryWeb.Data.Commands.Arena
                 p.Add("@zipCode", _arena.ZipCode);
                 p.Add("@newArenaID", DbType.Int32, direction: ParameterDirection.Output);
                 
-                var arena = connection.Query<DTO.Arena>("Officiating.InsertOrUpdateArena", p, commandType: CommandType.StoredProcedure);
-
+                var arena = connection.QueryFirstOrDefault<DTO.Arena>("Officiating.InsertOrUpdateArena", p, commandType: CommandType.StoredProcedure);
                 return arena;
             }
         }

@@ -30,7 +30,7 @@ namespace FryWeb.Services.Services
             return arena;
         }
 
-        public IEnumerable<Arena> InsertOrUpdateArena(Arena arena)
+        public Arena InsertOrUpdateArena(Arena arena)
         {
             var a = new InsertOrUpdateArenaCommand(arena).Execute(Context);
             return a;

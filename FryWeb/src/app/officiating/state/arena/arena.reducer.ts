@@ -25,7 +25,7 @@ export function arenasReducer(state = initialState, action: ArenaActions) : Aren
     switch (action.type) {
         
         case ArenaActionTypes.AddArenaRequestSuccess:
-            return arenaAdapter.addOne(action.arena[0], state);
+            return arenaAdapter.addOne(action.arena, state);
 
         case ArenaActionTypes.LoadArenasRequestSuccess:
             return arenaAdapter.addAll(action.arenas, state)
