@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { GameDetail } from '../models/gameDetail/gameDetail.model';
+import { GameDetail } from '@models/officiating/gameDetail/gameDetail.model';
 
 @Injectable()
 export class GameDetailService {

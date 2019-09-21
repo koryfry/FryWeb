@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // Import Model
-import { Official } from '../../../../models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 
 // Import State items
 import { OfficialsFacade } from '../../../state/officials/official.facade';

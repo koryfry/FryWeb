@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
-import { GameDetail } from '../../../../models/gameDetail/gameDetail.model';
-import { Arena } from '../../../../models/arena/arena.model';
+import { GameDetail } from '@models/officiating/gameDetail/gameDetail.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 
 /**
  * For each action type in an action group, make a simple

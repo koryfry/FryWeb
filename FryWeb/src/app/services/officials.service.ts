@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Official } from '../models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 
 @Injectable()
 export class OfficialsService {

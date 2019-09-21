@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@ang
 import { startWith, map } from 'rxjs/operators';
 
 import { ArenaFacade } from '../../../state/arena/arena.facade';
-import { Arena } from 'app/models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 
 export interface State {
   name: string,

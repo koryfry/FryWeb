@@ -1,8 +1,13 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
+    "paths": {
+      "@models/*": ["app/models/*"],
+      "@services/*": ["app/services/*"]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -16,6 +21,7 @@
     "lib": [
       "es2016",
       "dom"
-    ]
+    ],
+    "module": "es2015"
   }
 }

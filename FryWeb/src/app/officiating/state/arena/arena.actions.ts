@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Arena } from '../../../models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 
 export enum ArenaActionTypes {
     LoadArenasRequest = '[Arena] Load Arena Request',

@@ -1,5 +1,5 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { AgeGroup } from '../../../models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 import { AgeGroupActions, AgeGroupActionTypes } from './age-group.actions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 

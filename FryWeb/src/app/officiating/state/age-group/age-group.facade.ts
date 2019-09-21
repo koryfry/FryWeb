@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as ageGroupQuery from './age-group.selectors';
 import { LoadAgeGroupsRequest, AddAgeGroupRequest, OpenSelectedAgeGroupDetails, UpdateAgeGroupRequest } from './age-group.actions';
-import { AgeGroup } from 'app/models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { AgeGroupsState } from 'app/officiating/state/age-group';
 

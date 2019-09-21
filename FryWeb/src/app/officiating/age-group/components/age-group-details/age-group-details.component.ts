@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 // Import model
-import { AgeGroup } from '../../../../models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 
 // Import Services
 import { AgeGroupService } from '../../../../services/age-group.service';

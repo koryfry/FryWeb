@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/internal/operators';
 
 // Import model
-import { Icon } from '../../../models/icon/icon';
+import { Icon } from '@models/app/icon/icon';
 
 // Import Services
 import { IconService } from '../../../services/icon.service';

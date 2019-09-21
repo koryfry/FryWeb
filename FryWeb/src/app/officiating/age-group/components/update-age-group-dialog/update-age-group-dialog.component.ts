@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // Import model
-import { AgeGroup } from '../../../../models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 
 // Import State items
 import { AgeGroupFacade } from '../../../state/age-group/age-group.facade';

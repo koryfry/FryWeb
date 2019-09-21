@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import model
-import { AgeGroup } from '../../models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 
 // Import Services
 import { AgeGroupService } from '../../services/age-group.service';

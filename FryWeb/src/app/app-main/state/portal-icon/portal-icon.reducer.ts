@@ -1,5 +1,5 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { Icon } from '../../../models/icon/icon';
+import { Icon } from '@models/app/icon/icon';
 import { PortalIconActions, PortalIconActionTypes } from './portal-icon.actions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 

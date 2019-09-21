@@ -1,6 +1,6 @@
-import { Arena } from "app/models/arena/arena.model";
-import { AgeGroup } from "app/models/ageGroup/age-group.model";
-import { Official } from "app/models/official/official.model";
+import { Arena } from '@models/officiating/arena/arena.model';//"app/models/arena/arena.model";
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';//"app/models/ageGroup/age-group.model";
+import { Official } from '@models/officiating/official/official.model';//"app/models/official/official.model";
 
 /**
  * Game Details represents an instance of the details related to an ice hockey

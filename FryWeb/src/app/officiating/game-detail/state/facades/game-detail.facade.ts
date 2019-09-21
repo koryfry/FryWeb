@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import * as gameDetailQuery from '../selectors/game-details.selectors';
 import { LoadGameDetailsRequest, CreateGameDetailRequest, OpenSelectedGameDetail, LoadArenasRequest } from '../actions';
 import { filter } from 'rxjs/internal/operators/filter';
-import { GameDetail } from 'app/models/gameDetail/gameDetail.model';
+import { GameDetail } from '@models/officiating/gameDetail/gameDetail.model';
 
 @Injectable()
 export class GameDetailFacade {

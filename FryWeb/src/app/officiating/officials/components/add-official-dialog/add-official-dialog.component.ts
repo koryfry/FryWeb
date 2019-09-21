@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@ang
 import { startWith, map } from 'rxjs/operators';
 
 import { OfficialsFacade } from '../../../state/officials/official.facade';
-import { Official } from 'app/models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 
 @Component({
   selector: 'fw-add-official-dialog',

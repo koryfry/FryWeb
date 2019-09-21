@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Arena } from 'app/models/arena/arena.model';
-import { AgeGroup } from 'app/models/ageGroup/age-group.model';
-import { Official } from 'app/models/official/official.model';
+import { Arena } from '@models/officiating/arena/arena.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
+import { Official } from '@models/officiating/official/official.model';
 import { FormArray } from '@angular/forms/src/model';
 
 @Component({

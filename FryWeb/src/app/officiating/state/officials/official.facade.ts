@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as officialQuery from './official.selectors';
 import { LoadOfficialsRequest, AddOfficialRequest, OpenSelectedOfficialDetails, UpdateOfficialRequest } from './official.actions';
-import { Official } from 'app/models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { OfficialsState } from 'app/officiating/state/officials';
 

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 // Import model
-import { Arena } from '../../../../models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 
 // Import Services
 import { ArenaService } from '../../../../services/arena.service';

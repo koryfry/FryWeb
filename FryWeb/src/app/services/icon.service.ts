@@ -4,7 +4,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Icon } from '../models/icon/icon';
+import { Icon } from '@models/app/icon/icon';
 import { environment } from 'environments/environment';
 
 @Injectable()

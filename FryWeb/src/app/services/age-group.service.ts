@@ -5,7 +5,7 @@ import { Observable, Subject, pipe, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 // Import model
-import { AgeGroup } from '../models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 import { environment } from 'environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 

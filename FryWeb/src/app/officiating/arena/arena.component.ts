@@ -5,7 +5,7 @@ import { Observable, Subscription, Subject } from 'rxjs';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 // Import model
-import { Arena } from '../../models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 
 // Import Services
 import { ArenaService } from '../../services/arena.service';

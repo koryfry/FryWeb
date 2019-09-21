@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Official } from '../../../models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 
 export enum OfficialActionTypes {
     LoadOfficialsRequest = '[Official] Load Official Request',

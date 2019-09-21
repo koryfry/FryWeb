@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { AgeGroup } from 'app/models/ageGroup/age-group.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
 import { MatDialogRef } from '@angular/material';
 import { AgeGroupFacade } from '../../../state/age-group/age-group.facade';
 

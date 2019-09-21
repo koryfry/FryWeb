@@ -4,7 +4,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Arena } from '../models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 import { environment } from 'environments/environment';
 
 @Injectable()

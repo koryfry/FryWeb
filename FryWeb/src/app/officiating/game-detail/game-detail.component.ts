@@ -6,10 +6,10 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 // Import modeal
-import { GameDetail } from '../../models/gameDetail/gameDetail.model';
-import { Arena } from 'app/models/arena/arena.model';
-import { AgeGroup } from 'app/models/ageGroup/age-group.model';
-import { Official } from 'app/models/official/official.model';
+import { GameDetail } from '@models/officiating/gameDetail/gameDetail.model';
+import { Arena } from '@models/officiating/arena/arena.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
+import { Official } from '@models/officiating/official/official.model';
 
 // Import Services
 import { GameDetailService } from 'app/services/game-detail.service';

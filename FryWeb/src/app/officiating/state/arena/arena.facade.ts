@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as arenaQuery from './arena.selectors';
 import { LoadArenasRequest, AddArenaRequest, OpenSelectedArenaDetails } from './arena.actions';
-import { Arena } from 'app/models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { ArenasState } from 'app/officiating/state/arena';
 

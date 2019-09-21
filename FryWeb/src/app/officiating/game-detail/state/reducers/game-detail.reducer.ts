@@ -1,9 +1,9 @@
 import { GameDetailActions, GameDetailActionTypes } from '../actions/game-detail.actions';
 import * as gameDetailActions from '../actions/game-detail.actions';
-import { GameDetail } from 'app/models/GameDetail/gameDetail.model';
-import { Arena } from "app/models/arena/arena.model";
-import { AgeGroup } from "app/models/ageGroup/age-group.model";
-import { Official } from "app/models/official/official.model";
+import { GameDetail } from '@models/officiating/GameDetail/gameDetail.model';
+import { Arena } from '@models/officiating/arena/arena.model';
+import { AgeGroup } from '@models/officiating/ageGroup/age-group.model';
+import { Official } from '@models/officiating/official/official.model';
 
 export interface GameDetailState {
     loaded: boolean;

@@ -1,5 +1,5 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { Official } from '../../../models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 import { OfficialActions, OfficialActionTypes } from './official.actions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 

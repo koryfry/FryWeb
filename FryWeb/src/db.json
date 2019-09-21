@@ -102,6 +102,38 @@
       "State": "MI",
       "ZipCode": "45782",
       "id": 12
+    },
+    {
+      "Name": "USA Hockey Arena",
+      "Address": "45877 Bob Johnson Drive",
+      "City": "Livonia",
+      "State": "MI",
+      "ZipCode": "49424",
+      "id": 13
+    },
+    {
+      "Name": "Belle Tire Arena",
+      "Address": "45783 Fraser Ave",
+      "City": "Fraser",
+      "State": "MI",
+      "ZipCode": "45786",
+      "id": 14
+    },
+    {
+      "Name": "Yost Ice Arena",
+      "Address": "78965 Maize and Blue Drive",
+      "City": "Ann Arbor",
+      "State": "MI",
+      "ZipCode": "45236",
+      "id": 15
+    },
+    {
+      "name": "Yost Ice Arena",
+      "address": "12345 Maize and Blue Way",
+      "city": "Ann Arbor",
+      "state": "MI",
+      "zipCode": "45621",
+      "id": 16
     }
   ],
   "ageGroups": [

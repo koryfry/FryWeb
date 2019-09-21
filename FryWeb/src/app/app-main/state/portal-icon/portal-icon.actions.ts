@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import { Icon } from '../../../models/icon/icon';
+import { Icon } from '@models/app/icon/icon';
 
 export enum PortalIconActionTypes {
   LoadPortalIconsRequest = '[Portal Icon] Load Portal Icons Request',

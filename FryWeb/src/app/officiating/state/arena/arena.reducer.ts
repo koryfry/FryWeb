@@ -1,5 +1,5 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { Arena } from '../../../models/arena/arena.model';
+import { Arena } from '@models/officiating/arena/arena.model';
 import { ArenaActions, ArenaActionTypes } from './arena.actions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 

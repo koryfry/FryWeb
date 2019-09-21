@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 // Import model
-import { Official } from '../../models/official/official.model';
+import { Official } from '@models/officiating/official/official.model';
 
 // Import Services
 import { OfficialsService } from '../../services/officials.service';

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as portalIconQuery from './portal-icon.selectors';
 import { LoadPortalIconsRequest } from './portal-icon.actions';
-import { Icon } from 'app/models/icon/icon';
+import { Icon } from '@models/app/icon/icon';
 import { Observable } from 'rxjs/internal/Observable';
 import { PortalIconsState } from 'app/app-main/state/portal-icon';
 
